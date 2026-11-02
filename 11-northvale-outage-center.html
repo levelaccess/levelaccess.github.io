@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outage Center | Northvale Power &amp; Light</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1d2b38;
+  background: #f5f7fa;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+a { color: #0b5fa5; }
+img { max-width: 100%; display: block; }
+
+/* Icon font stand-in (glyphs via ::before) */
+.nv { font-style: normal; display: inline-block; width: 1.15em; text-align: center; }
+.nv-bolt::before { content: "\26A1"; }
+.nv-warn::before { content: "\26A0"; }
+.nv-phone::before { content: "\260E"; }
+.nv-user::before { content: "\263A"; }
+.nv-close::before { content: "\2715"; }
+.nv-help::before { content: "?"; }
+.nv-fb::before { content: "f"; font-weight: 700; }
+.nv-x::before { content: "\1D54F"; }
+.nv-yt::before { content: "\25B6"; }
+.nv-leaf::before { content: "\2618"; }
+.nv-check::before { content: "\2714"; }
+.nv-info::before { content: "\2139"; }
+
+.alert-bar {
+  background: #ffc83d; color: #3d2c00; font-size: 14px;
+  padding: 8px 32px; display: flex; gap: 8px; align-items: center;
+}
+.alert-bar a { color: #3d2c00; font-weight: 600; }
+
+.site-header {
+  background: #fff; border-bottom: 3px solid #0b4f8a;
+  padding: 14px 32px; display: flex; align-items: center; gap: 28px;
+}
+.site-header .tools { margin-left: auto; display: flex; gap: 14px; align-items: center; font-size: 14px; }
+.site-header .tools a { text-decoration: none; color: #0b4f8a; font-weight: 600; }
+
+.main-nav { background: #0b4f8a; padding: 0 32px; }
+.main-nav ul { list-style: none; display: flex; flex-wrap: wrap; }
+.main-nav a {
+  display: block; color: #fff; text-decoration: none;
+  font-size: 14px; font-weight: 600; padding: 12px 14px;
+}
+.main-nav a:hover { background: #0a437a; }
+.main-nav a:focus { outline: none; }
+.main-nav a.current { background: #08375f; }
+
+.btn {
+  display: inline-block; padding: 11px 22px; border-radius: 4px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  border: 0; cursor: pointer; font-family: inherit;
+}
+.btn-orange { background: #e8711a; color: #1d1203; }
+.btn-orange:focus { outline: 2px solid #f8d9c2; outline-offset: 2px; }
+.btn-outline { background: #fff; color: #0b4f8a; border: 2px solid #0b4f8a; }
+.btn-outline:focus { outline: 2px solid #0b4f8a; outline-offset: 2px; }
+
+.crumbs { font-size: 13px; color: #5b6b7a; padding: 12px 32px; }
+.crumbs a { color: #5b6b7a; text-decoration: none; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+h1 { font-size: 34px; color: #0b2f52; margin: 6px 0 8px; }
+.lede { color: #44566a; max-width: 680px; margin-bottom: 24px; }
+
+/* Forms */
+.form-card { background: #fff; border: 1px solid #dbe3ea; border-radius: 8px; padding: 28px 30px; }
+.form-card h2 { font-size: 19px; color: #0b2f52; margin: 22px 0 12px; }
+.form-card h2:first-of-type { margin-top: 0; }
+.row { display: flex; gap: 16px; }
+.field { flex: 1; margin-bottom: 16px; position: relative; }
+.field label, .q { display: block; font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 10px 12px; font-size: 15px; font-family: inherit;
+  border: 1px solid #7d8ea0; border-radius: 4px; background: #fff;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid #0b5fa5; outline-offset: 0; }
+.field .hint { font-size: 13px; color: #5b6b7a; margin-top: 4px; }
+.field .err { display: none; font-size: 13px; color: #b42318; margin-top: 4px; font-weight: 600; }
+.field.invalid input { border-color: #b42318; }
+.field.invalid .err { display: block; }
+.req { color: #b42318; }
+.choices label { display: inline-flex; gap: 6px; align-items: center; margin-right: 18px; font-weight: 400; font-size: 15px; }
+fieldset { border: 0; margin-bottom: 16px; }
+legend { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.form-error { display: none; background: #fdecea; border-left: 4px solid #b42318; padding: 12px 14px; margin-bottom: 18px; font-size: 14px; }
+.form-error.show { display: block; }
+
+/* Footer */
+.site-footer { background: #0a2a47; color: #8ea4b8; margin-top: 56px; padding: 36px 32px 20px; font-size: 14px; }
+.site-footer .cols { display: flex; gap: 56px; flex-wrap: wrap; }
+.site-footer h3 { color: #fff; font-size: 15px; margin-bottom: 10px; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 6px; }
+.site-footer a { color: #b8cadb; text-decoration: none; }
+.site-footer a:focus { outline: none; color: #ffc83d; }
+.site-footer .social a { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: #16405f; color: #fff; margin-right: 6px; }
+.site-footer .fine { margin-top: 24px; border-top: 1px solid #1d4466; padding-top: 12px; font-size: 12px; color: #5d7690; }
+
+/* Virtual assistant */
+.va-launch { position: fixed; right: 22px; bottom: 22px; background: #0b4f8a; color: #fff; border: 0; border-radius: 26px; padding: 12px 18px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.2); }
+.va-panel { position: fixed; right: 22px; bottom: 78px; width: 310px; background: #fff; border: 1px solid #dbe3ea; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.2); display: none; font-size: 14px; }
+.va-panel.open { display: block; }
+.va-panel .head { background: #0b4f8a; color: #fff; padding: 10px 14px; border-radius: 10px 10px 0 0; font-weight: 600; display: flex; justify-content: space-between; }
+.va-panel .head button { background: none; border: 0; color: #fff; cursor: pointer; }
+.va-panel .msgs { padding: 12px 14px; height: 130px; color: #44566a; }
+.va-panel .compose { display: flex; border-top: 1px solid #dbe3ea; }
+.va-panel .compose input { flex: 1; border: 0; padding: 10px 12px; font-size: 14px; }
+.va-panel .compose button { border: 0; background: #e8711a; color: #1d1203; font-weight: 700; padding: 0 14px; cursor: pointer; }
+</style>
+<style>
+.status { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 18px; margin: 18px 0 30px; }
+.stat { background: #fff; border: 1px solid #dbe3ea; border-radius: 8px; padding: 18px 20px; }
+.stat .num { font-size: 34px; font-weight: 700; color: #0b2f52; }
+.stat .lbl { font-size: 13px; color: #5b6b7a; }
+.stat .upd { font-size: 12px; color: #5b6b7a; margin-top: 4px; }
+
+.ticker { background: #0b2f52; color: #fff; overflow: hidden; white-space: nowrap; font-size: 14px; padding: 9px 0; border-radius: 6px; margin-bottom: 28px; }
+.ticker span { display: inline-block; padding-left: 100%; animation: crawl 28s linear infinite; }
+@keyframes crawl { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+
+.counties { list-style: none; font-size: 14px; }
+.counties li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #eef2f6; }
+.counties .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.sev-high { background: #d64545; } .sev-med { background: #e8a33d; } .sev-low { background: #e9d85c; }
+
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 36px; }
+
+.safety { background: #fff6e5; border: 1px solid #f2d59b; border-radius: 8px; padding: 16px 18px; font-size: 14px; color: #5a3d00; margin-bottom: 18px; }
+.safety p { margin-bottom: 4px; }
+
+.tipwrap { position: relative; display: inline-block; margin-left: 6px; }
+.tiptrig { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #e9f3fb; color: #0b4f8a; font-size: 12px; font-weight: 700; text-align: center; line-height: 20px; cursor: help; }
+.tipbox { position: absolute; left: -10px; top: 100%; width: 250px; background: #0b2f52; color: #fff; font-size: 13px; font-weight: 400; padding: 10px 12px; border-radius: 6px; display: none; z-index: 5; }
+.tipbox.show { display: block; }
+
+aside .box { background: #fff; border: 1px solid #dbe3ea; border-radius: 8px; padding: 18px 20px; margin-bottom: 18px; font-size: 14px; color: #44566a; }
+aside h3 { font-size: 16px; color: #0b2f52; margin-bottom: 8px; }
+.restore-legend { font-size: 12px; color: #5b6b7a; display: flex; gap: 12px; margin-top: 8px; }
+.restore-legend i { display: inline-block; width: 10px; height: 10px; margin-right: 4px; vertical-align: -1px; }
+</style>
+</head>
+<body>
+
+<div class="alert-bar"><i class="nv nv-warn"></i> Storm response underway in Harlan and Pike counties. Crews from three states are assisting. <a href="#">Storm updates</a></div>
+
+<header class="site-header">
+  <a href='/10-northvale-start-service'><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMzAiIGhlaWdodD0iNTIiIHZpZXdCb3g9IjAgMCAyMzAgNTIiPgogIDxjaXJjbGUgY3g9IjI2IiBjeT0iMjYiIHI9IjIyIiBmaWxsPSIjMGI0ZjhhIi8+CiAgPHBhdGggZD0iTTI5IDggTDE1IDI5IEgyNSBMMjEgNDQgTDM3IDIxIEgyNyBaIiBmaWxsPSIjZmZjODNkIi8+CiAgPHRleHQgeD0iNTgiIHk9IjI3IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjEiIGZpbGw9IiMwYjRmOGEiPk5PUlRIVkFMRTwvdGV4dD4KICA8dGV4dCB4PSI1OSIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGV0dGVyLXNwYWNpbmc9IjEuNiIgZmlsbD0iIzRiNmQ4YyI+UE9XRVIgJmFtcDsgTElHSFQ8L3RleHQ+Cjwvc3ZnPgo=" alt="nv_logo_final" width="230" height="52"></a>
+  <div class="tools">
+    <a href="tel:+18005550199"><i class="nv nv-phone"></i> 1-800-555-0199</a>
+    <a href="#"><i class="nv nv-user"></i> Log in</a>
+    <a href="#" class="btn btn-orange" style="color:#1d1203">Pay My Bill</a>
+  </div>
+</header>
+
+<nav class="main-nav" aria-label="Main">
+  <ul>
+    <li><a href="#">Residential</a></li>
+    <li><a href="#">Business</a></li>
+    <li><a href='/10-northvale-start-service'>Start / Stop / Move</a></li>
+    <li><a href="#">Billing &amp; Payment</a></li>
+    <li><a href="#">Rates</a></li>
+    <li><a href="#">Save Energy</a></li>
+    <li><a href="#">Solar &amp; EV</a></li>
+    <li><a class='current' href='/11-northvale-outage-center'>Outages</a></li>
+    <li><a href="#">Safety</a></li>
+    <li><a href="#">About Us</a></li>
+  </ul>
+</nav>
+
+<div class="crumbs"><a href="#">Home</a> / <a href="#">Outages</a> / Outage center</div>
+
+<div class="wrap">
+  <h1>Outage center</h1>
+  <p class="lede">Report an outage, check restoration times and get storm safety information. If you see a downed line, stay at least 30 feet away and call 911.</p>
+
+  <div class="status">
+    <div class="stat">
+      <div class="num" id="cust-out">4,812</div>
+      <div class="lbl">Customers without power</div>
+      <div class="upd" id="upd">Updated 0 minutes ago</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="active">37</div>
+      <div class="lbl">Active outages</div>
+    </div>
+    <div class="stat">
+      <ul class="counties">
+        <li><span><span class="dot sev-high"></span>Harlan County</span><span>2,940</span></li>
+        <li><span><span class="dot sev-high"></span>Pike County</span><span>1,205</span></li>
+        <li><span><span class="dot sev-med"></span>Bell County</span><span>488</span></li>
+        <li><span><span class="dot sev-low"></span>Clay County</span><span>179</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ticker"><span>Harlan County: crews on site at Route 119 substation · Pike County: estimated restoration 9 PM tonight · Bell County: tree crews clearing lines on Pine Mountain Rd · Clay County: most customers restored</span></div>
+
+  <div class="layout">
+    <div>
+      <div class="form-error" id="form-error">We couldn't submit your report. Please correct the fields in red.</div>
+
+      <form class="form-card" id="report" novalidate>
+        <h2>Section 2</h2>
+        <div class="row">
+          <div class="field" id="f-acct">
+            <label for="acct">Number <span class="req">*</span></label>
+            <input id="acct" type="text" inputmode="numeric">
+            <p class="hint">Your 10-digit account number is at the top of your bill.</p>
+            <div class="err">Invalid.</div>
+          </div>
+          <div class="field" id="f-phone">
+            <label for="phone">Phone on the account <span class="req">*</span></label>
+            <input id="phone" type="tel" autocomplete="off">
+            <div class="err">Error.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field" style="flex:2">
+            <label for="street">Street address <span class="req">*</span></label>
+            <input id="street-addr" type="text" autocomplete="street-address">
+          </div>
+          <div class="field">
+            <input id="o-zip" type="text" placeholder="ZIP code" autocomplete="postal-code" style="margin-top:24px">
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="q">What's happening? <span class="req">*</span><span class="tipwrap"><span class="tiptrig" id="tipd-t" tabindex="0">?</span><span class="tipbox" id="tipd">A partial outage means some lights or outlets work and others don't. That usually points to a problem on our side, so please report it.</span></span></p>
+          <div class="choices">
+            <label><input type="radio" name="what" value="none"> No power</label>
+            <label><input type="radio" name="what" value="partial"> Partial power</label>
+            <label><input type="radio" name="what" value="flicker"> Flickering lights</label>
+            <label><input type="radio" name="what" value="line"> Downed line</label>
+          </div>
+        </div>
+
+        <fieldset class="choices">
+          <legend>Send me restoration updates by</legend>
+          <label><input type="checkbox" name="notify" value="text"> Text message</label>
+          <label><input type="checkbox" name="notify" value="email"> Email</label>
+          <label><input type="checkbox" name="notify" value="call"> Phone call</label>
+        </fieldset>
+
+        <div class="field">
+          <label for="other">Other</label>
+          <textarea id="other" rows="3"></textarea>
+        </div>
+
+        <div class="field">
+          <input id="o-email" type="email" placeholder="Email for updates" autocomplete="email">
+        </div>
+
+        <p style="font-size:14px;color:#44566a;margin:4px 0 14px">Press the orange button to send your report.</p>
+        <button type="submit" class="btn btn-orange">Report Outage</button>
+      </form>
+    </div>
+
+    <aside>
+      <div class="safety">
+        <p><b>Storm safety</b></p>
+        <p>• Stay 30 feet from downed lines</p>
+        <p>• Never run a generator indoors</p>
+        <p>• Keep fridge and freezer doors closed</p>
+      </div>
+      <div class="box">
+        <h3>Updates</h3>
+        <svg width="100%" height="120" viewBox="0 0 300 120" role="img" aria-label="Restoration progress">
+          <rect x="10" y="40" width="280" height="26" rx="13" fill="#eef2f6"/>
+          <rect x="10" y="40" width="198" height="26" rx="13" fill="#dde6ee"/>
+          <rect x="10" y="40" width="96" height="26" rx="13" fill="#c9d6e2"/>
+          <text x="10" y="92" font-size="11" fill="#5b6b7a">Storm start</text>
+          <text x="290" y="92" font-size="11" fill="#5b6b7a" text-anchor="end">Now</text>
+        </svg>
+        <div class="restore-legend"><span><i style="background:#c9d6e2"></i>Restored</span><span><i style="background:#dde6ee"></i>Crew assigned</span><span><i style="background:#eef2f6"></i>Waiting</span></div>
+      </div>
+      <div class="box">
+        <h3>Before the next storm</h3>
+        <p>Sign up for outage alerts and build an emergency kit. Customers on medical equipment can enroll in our <a href="#" style="color:#44566a;text-decoration:none;font-weight:400">priority restoration list</a>.</p>
+        <p style="margin-top:10px"><a href="#">Learn more</a></p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="cols">
+    <div>
+      <h3>Customer Service</h3>
+      <ul>
+        <li><a href="tel:+18005550199">1-800-555-0199</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Payment locations</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Account</h3>
+      <ul>
+        <li><a href="#">Pay my bill</a></li>
+        <li><a href='/10-northvale-start-service'>Start, stop or move</a></li>
+        <li><a href='/11-northvale-outage-center'>Report an outage</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow us</h3>
+      <div class="social">
+        <a href="https://facebook.example.com/northvale"><i class="nv nv-fb"></i></a>
+        <a href="https://x.example.com/northvale"><i class="nv nv-x"></i></a>
+        <a href="https://youtube.example.com/northvale"><i class="nv nv-yt"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="fine">© 2026 Northvale Power &amp; Light Company. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a></p>
+</footer>
+
+<button class="va-launch" id="va-launch"><i class="nv nv-bolt"></i> Virtual Assistant</button>
+<div class="va-panel" id="va-panel">
+  <div class="head">Volt, your virtual assistant <button id="va-close"><i class="nv nv-close"></i></button></div>
+  <div class="msgs">Hi, I'm Volt! I can check outage status for your address.</div>
+  <div class="compose">
+    <input type="text" id="va-input" placeholder="Ask a question…">
+    <button type="button">Send</button>
+  </div>
+</div>
+
+<script>
+// Live counts refresh every 10 seconds
+(function () {
+  var n = 4812, a = 37, m = 0;
+  setInterval(function () {
+    n = Math.max(0, n - Math.floor(Math.random() * 60)); a = Math.max(0, a - (Math.random() < .3 ? 1 : 0)); m = 0;
+    document.getElementById('cust-out').textContent = n.toLocaleString();
+    document.getElementById('active').textContent = a;
+    document.getElementById('upd').textContent = 'Updated 0 minutes ago';
+  }, 10000);
+})();
+
+// "What's happening?" help hides after 3 seconds
+(function () {
+  var g = document.getElementById('tipd-t'), t = document.getElementById('tipd'), timer;
+  function show() { t.classList.add('show'); clearTimeout(timer); timer = setTimeout(function () { t.classList.remove('show'); }, 3000); }
+  g.addEventListener('mouseenter', show); g.addEventListener('focus', show);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') t.classList.remove('show'); });
+})();
+
+document.getElementById('report').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var bad = false;
+  function check(id, ok) { document.getElementById(id).classList.toggle('invalid', !ok); if (!ok) bad = true; }
+  check('f-acct', /^\d{10}$/.test(document.getElementById('acct').value));
+  check('f-phone', /^\D*(\d\D*){10}$/.test(document.getElementById('phone').value));
+  document.getElementById('form-error').classList.toggle('show', bad);
+});
+
+// Virtual assistant
+(function () {
+  var p = document.getElementById('va-panel'), inp = document.getElementById('va-input');
+  document.getElementById('va-launch').addEventListener('click', function () { p.classList.add('open'); inp.focus(); });
+  document.getElementById('va-close').addEventListener('click', function () { p.classList.remove('open'); });
+  // Keep the cursor in the question box while the assistant is open
+  inp.addEventListener('keydown', function (e) { if (e.key === 'Tab') { e.preventDefault(); inp.focus(); } });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an Appointment | Fernhollow Animal Hospital</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #2b3a35;
+  background: #fbfaf7;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+a { color: #2f7d63; }
+img { max-width: 100%; display: block; }
+
+/* Icon font stand-in: glyphs drawn with ::before, like Font Awesome */
+.fh { font-style: normal; display: inline-block; width: 1.2em; text-align: center; }
+.fh-phone::before { content: "\260E"; }
+.fh-pin::before { content: "\2316"; }
+.fh-clock::before { content: "\23F2"; }
+.fh-star::before { content: "\2605"; }
+.fh-heart::before { content: "\2665"; }
+.fh-mail::before { content: "\2709"; }
+.fh-chat::before { content: "\2709"; }
+.fh-close::before { content: "\2715"; }
+.fh-check::before { content: "\2714"; }
+.fh-cal::before { content: "\25A6"; }
+.fh-paw::before { content: "\2740"; }
+
+/* Utility bar */
+.utility {
+  background: #2f5d50;
+  color: #e7f0ec;
+  font-size: 13px;
+  padding: 6px 32px;
+  display: flex;
+  justify-content: space-between;
+}
+.utility a { color: #e7f0ec; text-decoration: none; }
+.utility .util-links a { margin-left: 18px; }
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: #fff;
+  border-bottom: 1px solid #e6ebe8;
+}
+.main-nav { font-size: 15px; color: #a9b8b2; }
+.main-nav a {
+  color: #2b3a35;
+  text-decoration: none;
+  padding: 6px 4px;
+}
+.main-nav a:hover { color: #2f7d63; }
+.main-nav a:focus { outline: none; }
+.main-nav a.current { color: #2f7d63; font-weight: 600; }
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary { background: #2e9a5b; color: #fff; }
+.btn-primary:focus { outline: 2px solid #cfe8dc; outline-offset: 2px; }
+.btn-ghost {
+  background: transparent;
+  color: #2f5d50;
+  border: 1px solid #dfe6e3;
+}
+.btn-ghost:focus { outline: none; box-shadow: 0 0 0 3px #e3efe9; }
+
+/* Breadcrumb */
+.crumbs { padding: 12px 32px; font-size: 13px; color: #6b7c76; }
+.crumbs a { color: #6b7c76; }
+.crumbs span.sep { margin: 0 6px; }
+
+/* Footer */
+.site-footer {
+  background: #23332e;
+  color: #7f8f89;
+  padding: 40px 32px 24px;
+  font-size: 14px;
+  margin-top: 56px;
+}
+.site-footer .cols { display: flex; gap: 48px; flex-wrap: wrap; }
+.site-footer h4 { color: #e7f0ec; font-size: 15px; margin-bottom: 10px; font-weight: 600; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 6px; }
+.site-footer a { color: #9fb1aa; text-decoration: none; }
+.site-footer a:focus { outline: none; color: #e9c46a; }
+.site-footer .legal { margin-top: 28px; border-top: 1px solid #34463f; padding-top: 14px; color: #5f716a; font-size: 12px; }
+
+/* Chat widget */
+.chat-launch {
+  position: fixed; right: 24px; bottom: 24px;
+  background: #2f5d50; color: #fff;
+  border-radius: 28px; padding: 12px 18px;
+  font-size: 14px; cursor: pointer; border: 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+.chat-panel {
+  position: fixed; right: 24px; bottom: 80px;
+  width: 300px; background: #fff;
+  border: 1px solid #dfe6e3; border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.18);
+  display: none; font-size: 14px;
+}
+.chat-panel.open { display: block; }
+.chat-panel header { background: #2f5d50; color: #fff; padding: 10px 14px; border-radius: 12px 12px 0 0; font-weight: 600; }
+.chat-panel .msgs { padding: 12px 14px; height: 140px; color: #4a5a54; }
+.chat-panel .compose { display: flex; border-top: 1px solid #e6ebe8; }
+.chat-panel .compose input { flex: 1; border: 0; padding: 10px 12px; font-size: 14px; }
+.chat-panel .compose button { border: 0; background: #2e9a5b; color: #fff; padding: 0 14px; cursor: pointer; }
+</style>
+<style>
+.page { max-width: 1100px; margin: 0 auto; padding: 8px 32px 0; display: grid; grid-template-columns: 1fr 320px; gap: 40px; }
+h1 { font-family: Georgia, serif; font-weight: normal; font-size: 36px; color: #1f3d34; margin: 8px 0 6px; }
+.lede { color: #4a5a54; margin-bottom: 26px; }
+
+.wait { background: #fff4e0; border: 1px solid #f1d9ad; color: #6b4a12; border-radius: 10px; padding: 10px 14px; font-size: 14px; margin-bottom: 24px; display: flex; gap: 8px; align-items: center; }
+.wait strong { font-size: 16px; }
+
+form h2 { font-size: 20px; color: #1f3d34; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #e6ebe8; }
+.row { display: flex; gap: 16px; }
+.field { flex: 1; margin-bottom: 16px; }
+.field label, .q { display: block; font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 10px 12px; font-size: 15px; font-family: inherit;
+  border: 1px solid #8a9a94; border-radius: 6px; background: #fff;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid #2f7d63; outline-offset: 1px; }
+.field .hint { font-size: 13px; color: #6b7c76; margin-top: 4px; }
+.field .err { display: none; font-size: 13px; color: #b3261e; margin-top: 4px; }
+.field.invalid input { border-color: #b3261e; }
+.field.invalid .err { display: block; }
+.req { color: #b3261e; }
+
+.radios label, .checks label { display: inline-flex; align-items: center; gap: 6px; margin-right: 18px; font-weight: normal; font-size: 15px; }
+fieldset { border: 0; margin-bottom: 16px; }
+legend { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+
+.date-wrap { position: relative; }
+.cal-btn { position: absolute; right: 6px; top: 6px; border: 0; background: #eef5f1; color: #2f5d50; border-radius: 4px; width: 30px; height: 30px; cursor: pointer; font-size: 16px; }
+
+.captcha { display: flex; gap: 12px; align-items: center; }
+.captcha img { border: 1px solid #c9d2ce; border-radius: 4px; }
+.captcha a { font-size: 13px; }
+
+.actions { display: flex; gap: 12px; margin-top: 22px; }
+.form-error { display: none; background: #fdecea; border: 1px solid #f3c1bc; color: #8a1c14; border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; font-size: 14px; }
+.form-error.show { display: block; }
+
+aside .box { background: #fff; border: 1px solid #e6ebe8; border-radius: 12px; padding: 20px 22px; margin-bottom: 20px; font-size: 14px; color: #4a5a54; }
+aside h3 { font-size: 16px; color: #1f3d34; margin-bottom: 8px; }
+aside ul { padding-left: 18px; }
+aside li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <span><i class="fh fh-phone"></i> (302) 555-0148 &nbsp; <i class="fh fh-clock"></i> Open today 7:30 AM – 7 PM</span>
+  <span class="util-links">
+    <a href="https://maps.example.com/?q=Fernhollow+Animal+Hospital" class="dir"><i class="fh fh-pin"></i></a>
+    <a href='/08-fernhollow-animal-hospital#portal'>Pet portal</a>
+    <a href="#">Pay my bill</a>
+  </span>
+</div>
+
+<header class="site-header">
+  <a href='/08-fernhollow-animal-hospital'><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCAyMjAgNTYiPgogIDxnIGZpbGw9IiMyZjVkNTAiPgogICAgPGVsbGlwc2UgY3g9IjI4IiBjeT0iMzYiIHJ4PSIxMSIgcnk9IjkiLz4KICAgIDxlbGxpcHNlIGN4PSIxNCIgY3k9IjIyIiByeD0iNSIgcnk9IjYuNSIvPgogICAgPGVsbGlwc2UgY3g9IjI0IiBjeT0iMTQiIHJ4PSI1IiByeT0iNi41Ii8+CiAgICA8ZWxsaXBzZSBjeD0iMzUiIGN5PSIxNCIgcng9IjUiIHJ5PSI2LjUiLz4KICAgIDxlbGxpcHNlIGN4PSI0NCIgY3k9IjIyIiByeD0iNSIgcnk9IjYuNSIvPgogIDwvZz4KICA8dGV4dCB4PSI1OCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMiIgZmlsbD0iIzJmNWQ1MCI+RmVybmhvbGxvdzwvdGV4dD4KICA8dGV4dCB4PSI1OSIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGV0dGVyLXNwYWNpbmc9IjIuNSIgZmlsbD0iIzZiOGY4NCI+QU5JTUFMIEhPU1BJVEFMPC90ZXh0Pgo8L3N2Zz4K" alt="logo" width="220" height="56"></a>
+  <div class="main-nav">
+    <a href='/08-fernhollow-animal-hospital'>Home</a> |
+    <a href='/08-fernhollow-animal-hospital#services'>Services</a> |
+    <a href='/08-fernhollow-animal-hospital#team'>Our Team</a> |
+    <a href='/08-fernhollow-animal-hospital#new-clients'>New Clients</a> |
+    <a href='/08-fernhollow-animal-hospital#info'>Hours &amp; Location</a> |
+    <a class='current' href='/09-fernhollow-book-online'>Book Online</a>
+  </div>
+  <div>
+    <a href="#" class="btn btn-ghost">Pay Bill</a>
+    <a class='btn btn-primary' href='/09-fernhollow-book-online'>Request a Visit</a>
+  </div>
+</header>
+
+<div class="crumbs">
+  <a href='/08-fernhollow-animal-hospital'>Home</a><span class="sep">›</span><a href='/08-fernhollow-animal-hospital#new-clients'>Appointments</a><span class="sep">›</span><span>Book online</span>
+</div>
+
+<main class="page">
+  <div>
+    <h1>Book an appointment</h1>
+    <p class="lede">Tell us a little about you and your pet and we'll confirm a time by phone or email within one business day.</p>
+
+    <div class="wait" id="wait"><i class="fh fh-clock"></i> Current urgent care wait: <strong id="wait-min">25 min</strong> <span id="wait-upd">· updated just now</span></div>
+
+    <div class="form-error" id="form-error">Some fields need attention. Fields outlined in red can't be submitted as entered.</div>
+
+    <form id="book" novalidate>
+      <h2>Section 1</h2>
+      <div class="row">
+        <div class="field">
+          <label for="first">First name <span class="req">*</span></label>
+          <input id="first" name="first" type="text" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="last">Last name <span class="req">*</span></label>
+          <input id="last" name="last" type="text" autocomplete="off">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field" id="f-email">
+          <label for="email">Email <span class="req">*</span></label>
+          <input id="email" name="email" type="email" autocomplete="email">
+          <div class="err" id="email-err" aria-live="off">Enter an email address like name@example.com.</div>
+        </div>
+        <div class="field" id="f-phone">
+          <label for="phone">Mobile phone <span class="req">*</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="phone">
+          <p class="hint">10 digits, numbers only</p>
+          <div class="err">Invalid phone.</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="street">Street address</label>
+        <input id="street" name="street" type="text" autocomplete="street-address">
+      </div>
+
+      <h2>Your pet</h2>
+      <div class="row">
+        <div class="field">
+          <label for="petname">Pet's name <span class="req">*</span></label>
+          <input id="pet-name" name="petname" type="text">
+        </div>
+        <div class="field">
+          <input id="pet-age" name="age" type="text" placeholder="Age (years)" style="margin-top:22px">
+        </div>
+      </div>
+      <div class="field">
+        <p class="q">Species <span class="req">*</span></p>
+        <div class="radios">
+          <label><input type="radio" name="species" value="dog"> Dog</label>
+          <label><input type="radio" name="species" value="cat"> Cat</label>
+          <label><input type="radio" name="species" value="other"> Other</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="breed">Breed</label>
+          <input id="breed" name="breed" type="text">
+        </div>
+        <div class="field">
+          <label for="chip">Number</label>
+          <input id="chip" name="chip" type="text">
+        </div>
+      </div>
+
+      <h2>Visit details</h2>
+      <fieldset class="checks">
+        <legend>Reason for visit</legend>
+        <label><input type="checkbox" name="reason" value="wellness"> Wellness exam</label>
+        <label><input type="checkbox" name="reason" value="vaccines"> Vaccines</label>
+        <label><input type="checkbox" name="reason" value="sick"> Sick or injured</label>
+        <label><input type="checkbox" name="reason" value="dental"> Dental</label>
+      </fieldset>
+      <div class="row">
+        <div class="field" id="f-date">
+          <label for="date">Preferred date <span class="req">*</span></label>
+          <div class="date-wrap">
+            <input id="date" name="date" type="text">
+            <button type="button" class="cal-btn"><i class="fh fh-cal"></i></button>
+          </div>
+          <div class="err">Invalid date.</div>
+        </div>
+        <div class="field">
+          <label for="time">Preferred time</label>
+          <select id="time" name="time">
+            <option>Morning</option><option>Midday</option><option>Afternoon</option><option>Evening</option>
+          </select>
+        </div>
+      </div>
+      <p class="hint" style="font-size:13px;color:#6b7c76;margin:-6px 0 16px">To pick a date, use the calendar icon to the right of the date field.</p>
+      <div class="field">
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="captcha">Type the characters shown</label>
+        <div class="captcha">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAxODAgNjAiPgogIDxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iNjAiIGZpbGw9IiNlY2VhZTQiLz4KICA8cGF0aCBkPSJNMCA0MCBRNDUgMTAgOTAgMzUgVDE4MCAyMCIgc3Ryb2tlPSIjOWE5NDhhIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNMCAxNSBRNjAgNTUgMTIwIDI1IFQxODAgNDUiIHN0cm9rZT0iI2I1YWZhNCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8ZyBmb250LWZhbWlseT0iQ291cmllciBOZXcsIG1vbm9zcGFjZSIgZm9udC1zaXplPSIzMCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzRhNDYzZiI+CiAgICA8dGV4dCB4PSIxNCIgeT0iNDIiIHRyYW5zZm9ybT0icm90YXRlKC0xMiAyNCA0MikiPks8L3RleHQ+CiAgICA8dGV4dCB4PSI0MiIgeT0iMzgiIHRyYW5zZm9ybT0icm90YXRlKDkgNTIgMzgpIj43PC90ZXh0PgogICAgPHRleHQgeD0iNzAiIHk9IjQ0IiB0cmFuc2Zvcm09InJvdGF0ZSgtNiA4MCA0NCkiPnc8L3RleHQ+CiAgICA8dGV4dCB4PSI5OCIgeT0iMzYiIHRyYW5zZm9ybT0icm90YXRlKDE0IDEwOCAzNikiPlE8L3RleHQ+CiAgICA8dGV4dCB4PSIxMjgiIHk9IjQzIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTAgMTM4IDQzKSI+NDwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="captcha" width="180" height="60">
+          <input id="captcha" name="captcha" type="text" style="width:140px">
+          <a href="#">New image</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Request a Visit</button>
+        <button type="reset" class="btn btn-ghost">Clear form</button>
+      </div>
+    </form>
+  </div>
+
+  <aside>
+    <div class="box">
+      <h3>Is it an emergency?</h3>
+      <p>If your pet is having trouble breathing, has collapsed, or may have eaten something toxic, call us at <a href="tel:+13025550148">(302) 555-0148</a> right away instead of booking online.</p>
+    </div>
+    <div class="box">
+      <h3>What to bring</h3>
+      <ul>
+        <li>Vaccination and medical records</li>
+        <li>A list of current medications and food</li>
+        <li>A fresh stool sample, if you have one</li>
+        <li>Dogs on a leash, cats in a carrier</li>
+      </ul>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="cols">
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>1420 Fernhollow Road</li>
+        <li>Millbrook, DE 19950</li>
+        <li><a href="tel:+13025550148">(302) 555-0148</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href='/08-fernhollow-animal-hospital#services'>Services</a></li>
+        <li><a href='/08-fernhollow-animal-hospital#team'>Our team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href='/09-fernhollow-book-online'>Book online</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Pet insurance</a></li>
+        <li><a href="#">Pet poison helpline</a></li>
+        <li><a href="#">Client forms</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">© 2026 Fernhollow Animal Hospital, LLC. All rights reserved. <a href="#">Privacy</a> · <a href="#">Accessibility</a></p>
+</footer>
+
+<button class="chat-launch" id="chat-launch"><i class="fh fh-chat"></i> Live help</button>
+<div class="chat-panel" id="chat-panel">
+  <header>Fernhollow front desk <button id="chat-close" style="float:right;background:none;border:0;color:#fff;cursor:pointer"><i class="fh fh-close"></i></button></header>
+  <div class="msgs">Hi! A team member will reply shortly. For emergencies, please call (302) 555-0148.</div>
+  <div class="compose">
+    <input type="text" id="chat-input" placeholder="Type a message…">
+    <button type="button" id="chat-send">Send</button>
+  </div>
+</div>
+
+<script>
+// Wait time refreshes every 8 seconds
+(function () {
+  var mins = [25, 30, 20, 35, 25, 15];
+  var i = 0;
+  setInterval(function () {
+    i = (i + 1) % mins.length;
+    document.getElementById('wait-min').textContent = mins[i] + ' min';
+    document.getElementById('wait-upd').textContent = '· updated just now';
+  }, 8000);
+})();
+
+document.getElementById('book').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var bad = false;
+  function check(id, ok) {
+    var f = document.getElementById(id);
+    f.classList.toggle('invalid', !ok);
+    if (!ok) bad = true;
+  }
+  check('f-email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(document.getElementById('email').value));
+  check('f-phone', /^\d{10}$/.test(document.getElementById('phone').value));
+  check('f-date', /^\d{2}\/\d{2}\/\d{4}$/.test(document.getElementById('date').value));
+  document.getElementById('form-error').classList.toggle('show', bad);
+});
+
+// Chat widget
+(function () {
+  var panel = document.getElementById('chat-panel');
+  var input = document.getElementById('chat-input');
+  document.getElementById('chat-launch').addEventListener('click', function () {
+    panel.classList.add('open'); input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+  // Keep focus in the message box so customers don't lose their draft
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') { e.preventDefault(); input.focus(); }
+  });
+})();
+</script>
+</body>
+</html>

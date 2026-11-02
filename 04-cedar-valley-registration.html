@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register: Introduction to Woodworking (WOOD 101) - Cedar Valley Community College</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #24303f;
+    background: #f4f6f9;
+    line-height: 1.55;
+  }
+  .page { width: 1100px; min-width: 1100px; margin: 0 auto; }
+  a { color: #1d5fa8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus, button:focus { outline: none !important; color: #c2185b !important; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: #1f3a5f; margin: 0; }
+
+  .utility { background: #16304f; color: #b9c8db; font-size: 13px; }
+  .utility .page { display: flex; justify-content: flex-end; gap: 22px; padding: 7px 0; }
+  .utility a { color: #dbe5f1; }
+  .masthead { background: #1f3a5f; }
+  .masthead .page { display: flex; align-items: center; justify-content: space-between; height: 86px; }
+  .college { display: flex; align-items: center; gap: 14px; color: #fff; }
+  .college svg { width: 48px; height: 48px; }
+  .college .nm { font-family: Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1.1; }
+  .college .nm small { display: block; font-family: inherit; font-size: 13px; font-weight: 400; color: #f2b632; letter-spacing: .14em; text-transform: uppercase; margin-top: 3px; }
+  .mainnav { display: flex; gap: 30px; }
+  .mainnav a { color: #fff; font-weight: 600; font-size: 15px; }
+  .mainnav a.on { color: #f2b632; }
+
+  .banner { margin: 22px auto 0; }
+  .banner img { display: block; width: 100%; border-radius: 10px; }
+
+  .crumbs { font-size: 14px; color: #6a7686; margin: 20px 0 6px; }
+  .crumb { color: #1d5fa8; cursor: pointer; }
+  .crumb:hover { text-decoration: underline; }
+  .crumb.current { color: #6a7686; cursor: default; text-decoration: none; }
+  .sep { margin: 0 8px; color: #a5afbd; }
+
+  .titlebar { display: flex; justify-content: space-between; align-items: end; margin-bottom: 22px; }
+  .titlebar h1 { font-size: 34px; }
+  .titlebar .code { font-size: 14px; color: #6a7686; }
+  .steps { display: flex; gap: 6px; }
+  .steps div { font-size: 13px; padding: 7px 14px; border-radius: 999px; background: #e1e7ef; color: #6a7686; font-weight: 600; }
+  .steps div.done { background: #d5e8da; color: #2f6b3d; }
+  .steps div.now { background: #1f3a5f; color: #fff; }
+
+  .layout { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; padding-bottom: 60px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 1px 2px rgba(16,40,70,.08), 0 8px 24px -16px rgba(16,40,70,.25); }
+  .course img { display: block; width: 100%; height: auto; border-radius: 12px 12px 0 0; }
+  .course .body { padding: 18px 20px 20px; }
+  .course h2 { font-size: 21px; margin-bottom: 8px; }
+  .course dl { display: grid; grid-template-columns: 90px 1fr; gap: 6px 10px; font-size: 14px; margin: 12px 0 0; }
+  .course dt { color: #6a7686; }
+  .course dd { margin: 0; font-weight: 600; }
+  .safety { font-size: 14px; color: #4a5768; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #edf0f4; }
+  .safety .hl { font-weight: 700; color: #b3261e; }
+  .policy { padding: 18px 20px; margin-top: 18px; }
+  .policy h3 { font-size: 17px; margin-bottom: 8px; }
+  .policy .txt { font-size: 14px; color: #4a5768; height: 236px; overflow: hidden; }
+  .policy .txt p { margin: 0 0 10px; }
+  .help { padding: 18px 20px; margin-top: 18px; font-size: 14px; }
+  .help strong { display: block; font-size: 15px; color: #1f3a5f; margin-bottom: 4px; }
+
+  .formcard { padding: 30px 34px 34px; }
+  .intro { font-size: 15px; color: #4a5768; margin: 6px 0 22px; }
+  .alert { background: #fdecec; border-left: 4px solid #c62828; color: #7d1a1a; padding: 12px 16px; border-radius: 6px; font-size: 14px; margin-bottom: 22px; }
+  .section-title { font-size: 19px; margin: 26px 0 12px; padding-top: 18px; border-top: 1px solid #edf0f4; }
+  .section-title:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; margin-bottom: 16px; }
+  .row.three { grid-template-columns: 2fr 1fr 1fr; }
+  .f label, .f .lbl { display: block; font-size: 14px; font-weight: 600; margin-bottom: 5px; }
+  .f .lbl.req, .f label.req { color: #c62828; }
+  .f input[type=text], .f input[type=email], .f input[type=tel], .f input[type=password], .f select {
+    width: 100%; box-sizing: border-box; font: inherit; font-size: 15px; padding: 10px 12px; height: 44px;
+    border: 1px solid #e3e6ea; border-radius: 6px; background: #fff; color: #24303f;
+  }
+  .f input:focus, .f select:focus { outline: 2px solid #dbe7f3; outline-offset: 0; }
+  .f small { display: block; font-size: 13px; color: #6a7686; margin-top: 4px; }
+  .f .err { display: block; font-size: 13px; color: #c62828; margin-top: 4px; font-weight: 600; }
+  .f.has-err input, .f.has-err select { border-color: #f0b9b9; background: #fff8f8; }
+  .dob { display: flex; gap: 10px; }
+  .dob select:nth-child(1) { flex: 2; } .dob select { flex: 1; }
+  .pw-wrap { position: relative; }
+  .pw-tip { display: none; position: absolute; left: 0; top: 76px; z-index: 5; width: 300px; background: #1f3a5f; color: #fff; font-size: 13px; padding: 12px 14px; border-radius: 8px; box-shadow: 0 10px 24px -8px rgba(0,0,0,.4); }
+  .pw-tip ul { margin: 6px 0 0; padding-left: 18px; }
+  .pw-wrap:hover .pw-tip, .pw-wrap:focus-within .pw-tip { display: block; }
+
+  .sessions { display: grid; gap: 8px; }
+  .sess { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #e3e6ea; border-radius: 8px; font-size: 15px; }
+  .sess input { width: 18px; height: 18px; accent-color: #1f3a5f; }
+  .sess .when { font-weight: 600; flex: 1; }
+  .sess .seats { font-size: 13px; color: #2f6b3d; }
+  .sess.full { color: #a9b1bc; }
+  .sess.full .seats { color: #a9b1bc; }
+  .diamond { color: #1d5fa8; }
+
+  .captcha { display: flex; gap: 18px; align-items: center; }
+  .captcha img { border-radius: 6px; border: 1px solid #e3e6ea; }
+  .captcha .refresh { background: none; border: 0; color: #1d5fa8; font: inherit; font-size: 14px; cursor: pointer; padding: 0; }
+
+  .check { display: flex; gap: 10px; font-size: 14px; color: #4a5768; margin: 18px 0 0; }
+  .actions { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 22px; border-top: 1px solid #edf0f4; }
+  .btn { font: inherit; font-weight: 700; font-size: 16px; padding: 13px 28px; border-radius: 8px; border: 0; cursor: pointer; }
+  .btn.go { background: #2e8b57; color: #fff; }
+  .btn.go:hover { background: #26744a; }
+  .btn.back { background: none; color: #1d5fa8; padding-left: 0; }
+
+  footer { background: #16304f; color: #9fb1c8; font-size: 14px; padding: 34px 0; }
+  footer .page { display: flex; justify-content: space-between; }
+  footer a { color: #dbe5f1; }
+
+  .rotate { display: none; }
+  @media (orientation: landscape) and (max-height: 500px) {
+    body > *:not(.rotate) { display: none !important; }
+    .rotate { display: flex; position: fixed; inset: 0; background: #1f3a5f; color: #fff; align-items: center; justify-content: center; text-align: center; padding: 30px; font-size: 18px; flex-direction: column; gap: 14px; }
+    .rotate svg { width: 64px; height: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="rotate">
+  <svg viewBox="0 0 64 64" fill="none" stroke="#f2b632" stroke-width="3"><rect x="20" y="8" width="24" height="44" rx="4"/><path d="M50 40a18 18 0 0 1-18 18M54 46l-4-6-6 3"/></svg>
+  <strong>Please rotate your device</strong>
+  <span>Registration works best in portrait mode.</span>
+</div>
+
+<div class="utility"><div class="page"><a href="#">Students</a><a href="#">Faculty &amp; Staff</a><a href="#">myCVCC</a><a href="#">Canvas</a><a href="#">Directory</a></div></div>
+<div class="masthead">
+  <div class="page">
+    <a href="#" class="college"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l18 7v13c0 11-8 19-18 22C14 42 6 34 6 23V10z" fill="#ffffff"/><path d="M24 6l15 6v11c0 9-7 16-15 19C16 39 9 32 9 23V12z" fill="#1f3a5f"/><path d="M24 11l-9 14h5l-6 9h20l-6-9h5z" fill="#f2b632"/><rect x="22.5" y="34" width="3" height="5" fill="#f2b632"/></svg><span class="nm">Cedar Valley Community College<small>Continuing &amp; Community Education</small></span></a>
+    <nav class="mainnav">
+      <a href="#">Course Catalog</a>
+      <a href="#" class="on">Register</a>
+      <a href="#">Certificates</a>
+      <a href="#">For Employers</a>
+      <a href="#">Help</a>
+    </nav>
+  </div>
+</div>
+
+<div class="page">
+  <div class="banner"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150' width='1200' height='150' %3E%3Crect width='1200' height='150' fill='%231f3a5f'/%3E %3Cpath d='M820 150L960 0h240v150z' fill='%23284b78'/%3E%3Cpath d='M930 150L1070 0h40L970 150z' fill='%23f2b632'/%3E %3Ctext x='40' y='58' font-family='Helvetica, Arial, sans-serif' font-size='18' letter-spacing='5' fill='%23f2b632'%3ESPRING 2027 · CONTINUING %26amp; COMMUNITY EDUCATION%3C/text%3E %3Ctext x='40' y='104' font-family='Georgia, serif' font-size='40' font-weight='700' fill='%23fff'%3ERegistration opens November 3%3C/text%3E %3Ctext x='40' y='134' font-family='Helvetica, Arial, sans-serif' font-size='17' fill='%23c9d7ea'%3EEarly-bird pricing: 10%25 off any course when you register by December 1.%3C/text%3E%3C/svg%3E" alt="Spring registration banner" width="1200" height="150"></div>
+
+  <div class="crumbs">
+    <span class="crumb" onclick="location.href='#'">Home</span><span class="sep">&rsaquo;</span>
+    <span class="crumb" onclick="location.href='#'">Continuing Education</span><span class="sep">&rsaquo;</span>
+    <span class="crumb" onclick="location.href='#'">Trades &amp; Making</span><span class="sep">&rsaquo;</span>
+    <span class="crumb current">Register</span>
+  </div>
+
+  <div class="titlebar">
+    <div>
+      <h1>Register: Introduction to Woodworking</h1>
+      <div class="code">WOOD 101 &middot; Non-credit &middot; 1.2 CEUs</div>
+    </div>
+    <div class="steps"><div class="done">1. Course</div><div class="now">2. Your info</div><div>3. Payment</div><div>4. Confirm</div></div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <div class="card course">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400' width='640' height='400' %3E%3Crect width='640' height='400' fill='%23f3e6d3'/%3E %3Crect y='250' width='640' height='150' fill='%23c08a52'/%3E%3Crect y='250' width='640' height='14' fill='%23a06f3c'/%3E %3Crect x='60' y='60' width='520' height='150' rx='6' fill='%23e9d5b6'/%3E %3Crect x='80' y='80' width='10' height='70' rx='4' fill='%236b4a2b'/%3E%3Crect x='74' y='150' width='22' height='34' rx='5' fill='%23d0583c'/%3E%3Crect x='140' y='80' width='10' height='90' rx='4' fill='%236b4a2b'/%3E%3Crect x='134' y='170' width='22' height='34' rx='5' fill='%232f6f8f'/%3E%3Crect x='200' y='80' width='10' height='110' rx='4' fill='%236b4a2b'/%3E%3Crect x='194' y='190' width='22' height='34' rx='5' fill='%23e2a73a'/%3E%3Crect x='260' y='80' width='10' height='70' rx='4' fill='%236b4a2b'/%3E%3Crect x='254' y='150' width='22' height='34' rx='5' fill='%234b7f52'/%3E%3Crect x='320' y='80' width='10' height='90' rx='4' fill='%236b4a2b'/%3E%3Crect x='314' y='170' width='22' height='34' rx='5' fill='%23d0583c'/%3E%3Crect x='380' y='80' width='10' height='110' rx='4' fill='%236b4a2b'/%3E%3Crect x='374' y='190' width='22' height='34' rx='5' fill='%232f6f8f'/%3E%3Crect x='440' y='80' width='10' height='70' rx='4' fill='%236b4a2b'/%3E%3Crect x='434' y='150' width='22' height='34' rx='5' fill='%23e2a73a'/%3E%3Crect x='500' y='80' width='10' height='90' rx='4' fill='%236b4a2b'/%3E%3Crect x='494' y='170' width='22' height='34' rx='5' fill='%234b7f52'/%3E %3Crect x='120' y='220' width='300' height='38' rx='4' fill='%23d9a46a'/%3E%3Cpath d='M130 226h280' stroke='%23b78350' stroke-width='3'/%3E %3Cpath d='M440 200l60 40-10 14-60-40z' fill='%239aa5ae'/%3E%3Crect x='480' y='230' width='70' height='22' rx='8' fill='%23d0583c' transform='rotate(34 515 241)'/%3E %3Ccircle cx='560' cy='300' r='30' fill='%23e2a73a'/%3E%3Ccircle cx='560' cy='300' r='10' fill='%23c08a52'/%3E%3C/svg%3E" alt="" width="640" height="400">
+        <div class="body">
+          <h2>Introduction to Woodworking</h2>
+          <p style="font-size:14px; color:#4a5768; margin:0">Learn safe use of hand and power tools while building a small cherry side table you'll take home.</p>
+          <dl>
+            <dt>Instructor</dt><dd>Hal Brennerman</dd>
+            <dt>Location</dt><dd>Trades Center, Shop 114</dd>
+            <dt>Length</dt><dd>6 weeks, 12 hours</dd>
+            <dt>Fee</dt><dd>$289 + $65 materials</dd>
+          </dl>
+          <p class="safety">Shop rules: <span class="hl">closed-toe shoes and safety glasses are required at every session.</span> Long hair must be tied back.</p>
+        </div>
+      </div>
+      <div class="card policy">
+        <h3>Refund &amp; withdrawal policy</h3>
+        <div class="txt">
+          <p>Withdraw at least 7 days before the first class meeting for a full refund minus a $15 processing fee.</p>
+          <p>Withdrawals 1&ndash;6 days before the first class receive a 50% refund. No refunds are issued after the first class meeting.</p>
+          <p>If Cedar Valley cancels a course for low enrollment, you will receive a full refund including materials fees within 10 business days.</p>
+        </div>
+      </div>
+      <div class="card help">
+        <strong>Need help registering?</strong>
+        Call the Continuing Ed office at <a href="tel:+15555012200">(555) 501-2200</a>, Monday&ndash;Friday 8am&ndash;5pm, or stop by the Welcome Center in Building A.
+      </div>
+    </aside>
+
+    <div class="card formcard">
+      <h2 style="font-size:24px">Your information</h2>
+      <p class="intro">Fill out the form below, then click the green button at the bottom right to continue to payment. Required fields are shown in red. Use the policy box on the left if you have questions about refunds.</p>
+
+      <div class="alert">There were problems with your submission. Please correct the fields below and try again.</div>
+
+      <form id="regForm" novalidate>
+        <h3 class="section-title">About you</h3>
+        <div class="row">
+          <div class="f"><label for="first" class="req">First name</label><input type="text" id="first" name="first" value="Morgan" autocomplete="off"></div>
+          <div class="f"><label for="last" class="req">Last name</label><input type="text" id="last" name="last" value="Alvarez" autocomplete="off"></div>
+        </div>
+        <div class="row">
+          <div class="f has-err"><label for="email" class="req">Email</label><input type="email" id="email" name="email" value="morgan.alvarez@" autocomplete="nope"><span class="err">Please enter a valid email address.</span></div>
+          <div class="f"><label for="phone" class="req">Mobile phone</label><input type="tel" id="phone" name="phone" value="(555) 018-4471"><small>Format: (555) 555-5555</small></div>
+        </div>
+        <div class="row">
+          <div class="f has-err">
+            <span class="lbl req">Date of birth</span>
+            <div class="dob">
+              <select id="dob-m" name="dob_m"><option>Month</option><option>January</option><option>February</option><option>March</option><option>April</option><option selected>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select>
+              <select id="dob-d" name="dob_d"><option selected>Day</option><option>1</option><option>2</option><option>3</option><option>14</option><option>28</option></select>
+              <select id="dob-y" name="dob_y"><option>Year</option><option selected>1988</option><option>1989</option><option>1990</option></select>
+            </div>
+            <span class="err">Date of birth is required.</span>
+          </div>
+          <div class="f"><label for="sid">Cedar Valley student ID</label><input type="text" id="sid" name="sid" placeholder="C0000000"><small>Format: the letter C followed by 7 digits. Leave blank if you're new.</small></div>
+        </div>
+
+        <h3 class="section-title">Mailing address</h3>
+        <div class="row" style="grid-template-columns:1fr">
+          <div class="f"><label for="street" class="req">Street address</label><input type="text" id="street" name="street" value="2210 Larch Hollow Rd"></div>
+        </div>
+        <div class="row three">
+          <div class="f"><label for="city" class="req">City</label><input type="text" id="city" name="city" value="Cedar Valley"></div>
+          <div class="f"><label for="state" class="req">State</label><select id="state" name="state"><option>OR</option><option>WA</option><option>ID</option><option>CA</option></select></div>
+          <div class="f has-err"><label for="zip" class="req">ZIP</label><input type="text" id="zip" name="zip" value="9741"><span class="err">ZIP code must be 5 digits.</span></div>
+        </div>
+
+        <h3 class="section-title">Emergency contact</h3>
+        <div class="row">
+          <div class="f"><label for="ec-name" class="req">Name</label><input type="text" id="ec-name" name="ec_name" value="Sam Alvarez"></div>
+          <div class="f"><label for="ec-phone" class="req">Phone</label><input type="tel" id="ec-phone" name="ec_phone" value="(555) 018-3390"></div>
+        </div>
+
+        <h3 class="section-title">Choose your session</h3>
+        <p class="lbl" style="font-weight:600; font-size:14px; margin:0 0 8px">Select one or more sessions. Sessions in gray are full. Sessions marked &#9670; are hybrid (one meeting online).</p>
+        <div class="sessions">
+          <label class="sess"><input type="checkbox" name="session" value="a"><span class="when">Tuesdays, Jan 13 &ndash; Feb 17 &middot; 6:00&ndash;8:00pm</span><span class="seats">4 seats left</span></label>
+          <label class="sess full"><input type="checkbox" name="session" value="b"><span class="when">Thursdays, Jan 15 &ndash; Feb 19 &middot; 6:00&ndash;8:00pm</span><span class="seats">0 seats left</span></label>
+          <label class="sess"><input type="checkbox" name="session" value="c"><span class="when"><span class="diamond">&#9670;</span> Saturdays, Jan 17 &ndash; Feb 21 &middot; 9:00&ndash;11:00am</span><span class="seats">9 seats left</span></label>
+          <label class="sess full"><input type="checkbox" name="session" value="d"><span class="when"><span class="diamond">&#9670;</span> Saturdays, Jan 17 &ndash; Feb 21 &middot; 1:00&ndash;3:00pm</span><span class="seats">0 seats left</span></label>
+        </div>
+
+        <h3 class="section-title">Create your account</h3>
+        <div class="row">
+          <div class="f"><label for="username" class="req">Username</label><input type="text" id="username" name="username" value="malvarez88"></div>
+          <div class="f has-err">
+            <label for="pw" class="req">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="pw" name="pw" value="cedar">
+              <small>At least 8 characters, including one number and one symbol.</small>
+              <div class="pw-tip">Strong passwords help protect your student records.<ul><li>8 or more characters</li><li>At least one number (0&ndash;9)</li><li>At least one symbol, like ! or #</li><li>Can't contain your username</li></ul></div>
+            </div>
+            <span class="err">Password does not meet requirements.</span>
+          </div>
+        </div>
+
+        <h3 class="section-title">Verify you're human</h3>
+        <div class="captcha">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 90' width='260' height='90' %3E%3Crect width='260' height='90' fill='%23eef1f6'/%3E%3Ccircle cx='39' cy='71' r='1.7' fill='%237d8aa3'/%3E%3Ccircle cx='160' cy='43' r='2.0' fill='%237d8aa3'/%3E%3Ccircle cx='254' cy='74' r='2.2' fill='%237d8aa3'/%3E%3Ccircle cx='35' cy='11' r='2.5' fill='%237d8aa3'/%3E%3Ccircle cx='242' cy='89' r='1.9' fill='%237d8aa3'/%3E%3Ccircle cx='31' cy='89' r='1.2' fill='%237d8aa3'/%3E%3Ccircle cx='228' cy='36' r='2.0' fill='%237d8aa3'/%3E%3Ccircle cx='177' cy='2' r='2.5' fill='%237d8aa3'/%3E%3Ccircle cx='181' cy='21' r='1.8' fill='%237d8aa3'/%3E%3Ccircle cx='252' cy='7' r='1.0' fill='%237d8aa3'/%3E%3Ccircle cx='147' cy='16' r='2.1' fill='%237d8aa3'/%3E%3Ccircle cx='203' cy='50' r='2.4' fill='%237d8aa3'/%3E%3Ccircle cx='254' cy='10' r='0.9' fill='%237d8aa3'/%3E%3Ccircle cx='205' cy='70' r='1.2' fill='%237d8aa3'/%3E%3Ccircle cx='70' cy='55' r='2.3' fill='%237d8aa3'/%3E%3Ccircle cx='142' cy='90' r='1.4' fill='%237d8aa3'/%3E%3Ccircle cx='183' cy='87' r='2.4' fill='%237d8aa3'/%3E%3Ccircle cx='118' cy='19' r='0.8' fill='%237d8aa3'/%3E%3Ccircle cx='77' cy='29' r='1.9' fill='%237d8aa3'/%3E%3Ccircle cx='6' cy='62' r='2.3' fill='%237d8aa3'/%3E%3Ccircle cx='93' cy='33' r='1.2' fill='%237d8aa3'/%3E%3Ccircle cx='74' cy='53' r='1.7' fill='%237d8aa3'/%3E%3Ccircle cx='163' cy='16' r='2.0' fill='%237d8aa3'/%3E%3Ccircle cx='27' cy='58' r='2.4' fill='%237d8aa3'/%3E%3Ccircle cx='200' cy='50' r='1.4' fill='%237d8aa3'/%3E%3Ccircle cx='53' cy='61' r='1.9' fill='%237d8aa3'/%3E%3Ccircle cx='31' cy='24' r='0.7' fill='%237d8aa3'/%3E%3Ccircle cx='106' cy='56' r='0.9' fill='%237d8aa3'/%3E%3Ccircle cx='174' cy='76' r='0.7' fill='%237d8aa3'/%3E%3Ccircle cx='0' cy='72' r='0.9' fill='%237d8aa3'/%3E%3Ccircle cx='51' cy='46' r='1.8' fill='%237d8aa3'/%3E%3Ccircle cx='36' cy='26' r='1.8' fill='%237d8aa3'/%3E%3Ccircle cx='76' cy='81' r='1.1' fill='%237d8aa3'/%3E%3Ccircle cx='177' cy='77' r='1.3' fill='%237d8aa3'/%3E%3Ccircle cx='62' cy='14' r='2.3' fill='%237d8aa3'/%3E%3Ccircle cx='238' cy='61' r='1.6' fill='%237d8aa3'/%3E%3Ccircle cx='43' cy='18' r='0.8' fill='%237d8aa3'/%3E%3Ccircle cx='175' cy='33' r='1.6' fill='%237d8aa3'/%3E%3Ccircle cx='82' cy='66' r='0.6' fill='%237d8aa3'/%3E%3Ccircle cx='185' cy='18' r='2.0' fill='%237d8aa3'/%3E%3Ccircle cx='13' cy='67' r='1.2' fill='%237d8aa3'/%3E%3Ccircle cx='46' cy='89' r='2.3' fill='%237d8aa3'/%3E%3Ccircle cx='187' cy='21' r='1.3' fill='%237d8aa3'/%3E%3Ccircle cx='114' cy='68' r='1.7' fill='%237d8aa3'/%3E%3Ccircle cx='257' cy='42' r='1.9' fill='%237d8aa3'/%3E%3Ccircle cx='99' cy='30' r='2.2' fill='%237d8aa3'/%3E%3Ccircle cx='116' cy='25' r='1.6' fill='%237d8aa3'/%3E%3Ccircle cx='182' cy='3' r='2.6' fill='%237d8aa3'/%3E%3Ccircle cx='143' cy='60' r='1.1' fill='%237d8aa3'/%3E%3Ccircle cx='176' cy='57' r='2.2' fill='%237d8aa3'/%3E%3Ccircle cx='178' cy='46' r='0.8' fill='%237d8aa3'/%3E%3Ccircle cx='52' cy='29' r='1.5' fill='%237d8aa3'/%3E%3Ccircle cx='172' cy='26' r='1.6' fill='%237d8aa3'/%3E%3Ccircle cx='0' cy='61' r='2.4' fill='%237d8aa3'/%3E%3Ccircle cx='176' cy='82' r='0.8' fill='%237d8aa3'/%3E%3Ccircle cx='61' cy='49' r='2.2' fill='%237d8aa3'/%3E%3Ccircle cx='102' cy='61' r='2.4' fill='%237d8aa3'/%3E%3Ccircle cx='222' cy='81' r='1.3' fill='%237d8aa3'/%3E%3Ccircle cx='202' cy='59' r='1.4' fill='%237d8aa3'/%3E%3Ccircle cx='43' cy='20' r='0.9' fill='%237d8aa3'/%3E%3Ctext x='28' y='60' transform='rotate(-13 38 48)' font-family='Georgia, Courier, serif' font-size='42' font-weight='700' fill='%232b553f'%3EK%3C/text%3E%3Ctext x='66' y='51' transform='rotate(-18 76 48)' font-family='Georgia, Courier, serif' font-size='44' font-weight='700' fill='%232b3a55'%3E7%3C/text%3E%3Ctext x='104' y='61' transform='rotate(15 114 48)' font-family='Georgia, Courier, serif' font-size='36' font-weight='700' fill='%232b553f'%3Em%3C/text%3E%3Ctext x='142' y='56' transform='rotate(-20 152 48)' font-family='Georgia, Courier, serif' font-size='37' font-weight='700' fill='%234a2b55'%3EP%3C/text%3E%3Ctext x='180' y='63' transform='rotate(-18 190 48)' font-family='Georgia, Courier, serif' font-size='39' font-weight='700' fill='%232b3a55'%3E4%3C/text%3E%3Ctext x='218' y='63' transform='rotate(-19 228 48)' font-family='Georgia, Courier, serif' font-size='45' font-weight='700' fill='%232b3a55'%3Ex%3C/text%3E%3Cpath d='M114 80C31 73 203 6 113 5' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3Cpath d='M68 37C214 18 60 73 157 71' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3Cpath d='M92 13C96 47 49 70 32 72' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3Cpath d='M30 79C105 63 218 40 238 74' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3Cpath d='M232 46C153 31 92 89 124 10' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3Cpath d='M153 67C253 43 229 36 37 15' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3Cpath d='M214 21C175 19 250 53 20 85' stroke='%237d8aa3' stroke-width='2' fill='none' opacity='.7'/%3E%3C/svg%3E" alt="captcha" width="260" height="90">
+          <div class="f" style="flex:1">
+            <label for="cap">Type the characters shown in the image</label>
+            <input type="text" id="cap" name="cap">
+            <button type="button" class="refresh" id="refreshCap">Show me a different image</button>
+          </div>
+        </div>
+
+        <label class="check"><input type="checkbox" name="agree"> I have read the refund and withdrawal policy and the shop safety requirements.</label>
+
+        <div class="actions">
+          <button type="button" class="btn back">&larr; Back to course</button>
+          <button type="submit" class="btn go">Continue to payment &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="page">
+    <span>Cedar Valley Community College &middot; 4100 College Way, Cedar Valley, OR</span>
+    <span><a href="#">Accessibility</a> &middot; <a href="#">Nondiscrimination</a> &middot; <a href="#">Privacy</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('refreshCap').addEventListener('click', function () {
+    var img = document.querySelector('.captcha img');
+    img.style.opacity = .3;
+    setTimeout(function () { img.style.opacity = 1; }, 250);
+  });
+  document.getElementById('regForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

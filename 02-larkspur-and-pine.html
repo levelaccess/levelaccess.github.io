@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridgeline 38L Trekking Pack | Larkspur &amp; Pine Outfitters</title>
+<meta name="description" content="A weatherproof 38-liter trekking pack with an adjustable torso, ventilated back panel and lifetime warranty.">
+<style>
+  :root {
+    --moss: #4f6b47;
+    --moss-dark: #34492f;
+    --rust: #a64e29;
+    --cream: #f7f3ea;
+    --sand: #ebe4d6;
+    --line: #ddd5c5;
+    --ink: #232825;
+    --muted: #5d6159;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font: 16px/1.6 "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--moss); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus, button:focus, .btn:focus { outline: 0; }
+  h1, h2, h3 { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0 0 .4em; letter-spacing: -.01em; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .announce { background: var(--moss-dark); color: #e8efe3; font-size: 13px; letter-spacing: .04em; text-align: center; padding: 9px 44px; position: relative; }
+  .announce button { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: 0; color: #e8efe3; font-size: 18px; cursor: pointer; line-height: 1; }
+
+  .site-header { background: var(--cream); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30; }
+  .site-header .container { display: flex; align-items: center; gap: 36px; height: 76px; }
+  .logo { display: flex; align-items: center; gap: 10px; color: var(--ink); font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 23px; font-weight: 600; white-space: nowrap; }
+  .logo:hover { text-decoration: none; }
+  .logo svg { width: 30px; height: 30px; }
+  .logo em { font-style: normal; color: var(--rust); }
+  .primary-nav { display: flex; gap: 26px; font-size: 15px; font-weight: 500; }
+  .primary-nav a { color: var(--ink); white-space: nowrap; }
+  .primary-nav a.sale { color: var(--rust); }
+  .header-tools { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+  .search { position: relative; }
+  .search input { width: 220px; padding: 10px 14px 10px 38px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: inherit; font-size: 14px; }
+  .search svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: var(--muted); fill: none; stroke-width: 2; }
+  .icon-link { position: relative; color: var(--ink); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; }
+  .icon-link:hover { background: var(--sand); }
+  .icon-link svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .cart-count { position: absolute; top: -2px; right: -4px; background: var(--rust); color: #fff; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: grid; place-items: center; padding: 0 4px; }
+
+  .crumbs { font-size: 13px; color: var(--muted); padding: 22px 0 6px; }
+  .crumbs a { color: var(--muted); }
+  .crumbs span { margin: 0 8px; opacity: .6; }
+
+  .product { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; padding: 18px 0 72px; }
+  .gallery { display: grid; grid-template-columns: 84px 1fr; gap: 16px; align-self: start; position: sticky; top: 100px; }
+  .thumbs { display: flex; flex-direction: column; gap: 12px; }
+  .thumbs button { padding: 0; border: 2px solid transparent; border-radius: 12px; overflow: hidden; cursor: pointer; background: none; }
+  .thumbs button.active { border-color: var(--ink); }
+  .main-img { border-radius: 20px; overflow: hidden; background: var(--sand); position: relative; }
+  .main-img .tag { position: absolute; top: 18px; left: 18px; background: var(--rust); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; }
+
+  .info .kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--moss); font-weight: 700; }
+  .info h1 { font-size: 44px; margin-top: 6px; }
+  .rating { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
+  .rating img { width: 110px; }
+  .price { font-size: 28px; font-weight: 600; margin: 18px 0 4px; display: flex; gap: 12px; align-items: baseline; }
+  .price s { font-size: 18px; color: var(--muted); font-weight: 400; }
+  .price .save { font-size: 13px; color: var(--rust); font-weight: 700; letter-spacing: .04em; }
+  .afterpay { font-size: 13px; color: var(--muted); }
+  .blurb { color: #4a4f49; margin: 18px 0 26px; font-size: 17px; }
+
+  .opt { margin-bottom: 24px; }
+  .opt-head { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+  .opt-head span { font-weight: 400; color: var(--muted); }
+  .opt-head a { font-weight: 500; text-decoration: underline; color: var(--ink); font-size: 13px; }
+  .swatches { display: flex; gap: 12px; }
+  .swatches input, .sizes input { position: absolute; opacity: 0; pointer-events: none; }
+  .swatch { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; box-shadow: inset 0 0 0 3px var(--cream); border: 2px solid transparent; }
+  .swatches input:checked + .swatch { border-color: var(--ink); }
+  .sizes { display: flex; gap: 10px; }
+  .sizes label { min-width: 84px; text-align: center; padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .sizes label small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
+  .sizes input:checked + label { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+  .sizes input:disabled + label { color: #b8b3a8; background: repeating-linear-gradient(135deg, #fff, #fff 6px, #f3efe6 6px, #f3efe6 12px); cursor: not-allowed; }
+
+  .buy-row { display: flex; gap: 12px; align-items: stretch; }
+  .qty { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; }
+  .qty button { background: none; border: 0; width: 40px; height: 100%; font-size: 18px; cursor: pointer; color: var(--ink); }
+  .qty input { width: 40px; border: 0; text-align: center; font: inherit; font-weight: 600; background: transparent; -moz-appearance: textfield; }
+  .qty input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .btn { flex: 1; background: var(--ink); color: #fff; border: 0; border-radius: 12px; font: inherit; font-weight: 600; font-size: 16px; padding: 16px 24px; cursor: pointer; transition: background .15s; }
+  .btn:hover { background: var(--moss-dark); }
+  .wish { width: 56px; border: 1.5px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; display: grid; place-items: center; }
+  .wish svg { width: 22px; height: 22px; stroke: var(--ink); fill: none; stroke-width: 1.8; }
+  .wish.on svg { fill: var(--rust); stroke: var(--rust); }
+  .ship-note { font-size: 13px; color: var(--muted); margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+  .ship-note::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #6aa057; }
+
+  .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .perk { display: flex; gap: 12px; align-items: center; font-size: 14px; line-height: 1.35; }
+  .perk img { width: 44px; height: 44px; flex: none; }
+  .perk b { display: block; }
+  .tip { position: relative; color: var(--moss); text-decoration: underline dotted; cursor: help; font-size: 13px; }
+  .tip .bubble { display: none; position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%); width: 240px; background: var(--ink); color: #fff; padding: 12px 14px; border-radius: 10px; font-size: 13px; line-height: 1.45; z-index: 5; }
+  .tip:hover .bubble { display: block; }
+
+  .tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--line); }
+  .tabs a { padding: 12px 0; color: var(--muted); font-weight: 600; font-size: 15px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .tabs a:hover { text-decoration: none; color: var(--ink); }
+  .tabs a.active { color: var(--ink); border-color: var(--ink); }
+  .panel { display: none; padding: 20px 0 0; font-size: 15px; color: #444a44; }
+  .panel.active { display: block; }
+  .panel ul.features { padding-left: 18px; margin: 0 0 18px; }
+  .panel ul.features li { margin-bottom: 6px; }
+  .panel p a { color: var(--moss); }
+  ul.callout { list-style: none; margin: 18px 0 0; padding: 18px 22px; background: var(--sand); border-radius: 14px; }
+  ul.callout p { margin: 0; font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 17px; font-style: italic; color: var(--ink); }
+  ul.callout p.sig { font-family: inherit; font-style: normal; font-size: 13px; color: var(--muted); margin-top: 8px; }
+  table.rates { width: 100%; border-collapse: collapse; margin: 6px 0 16px; font-size: 14px; }
+  table.rates td { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  table.rates tr.th-row td { font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 12px; color: var(--muted); background: var(--sand); }
+  dl.fineprint { margin: 0; }
+  dl.fineprint dd { margin: 0 0 0 22px; font-size: 13px; color: var(--muted); }
+
+  .story { position: relative; color: var(--ink); overflow: hidden; }
+  .story > img { width: 100%; height: 520px; object-fit: cover; }
+  .story .copy { position: absolute; left: 0; right: 0; top: 70px; text-align: center; }
+  .story h2 { font-size: 52px; }
+  .story p { max-width: 560px; margin: 0 auto; font-size: 18px; color: #4b4a40; }
+
+  section.block { padding: 84px 0; }
+  .block-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 30px; gap: 20px; }
+  .block-head h2 { font-size: 36px; margin: 0; }
+  .block-head p { margin: 4px 0 0; color: var(--muted); }
+
+  table.compare { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); font-size: 15px; }
+  table.compare th, table.compare td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #eee8dc; }
+  table.compare thead th { background: var(--moss-dark); color: #fff; font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 19px; font-weight: 600; }
+  table.compare thead th:first-child { background: var(--moss); font-family: inherit; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+  table.compare tbody th { font-weight: 600; width: 26%; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  table.compare td.here { background: #f4f7f1; font-weight: 600; }
+  table.compare tr.grp th { background: #f3efe6; color: var(--moss-dark); width: auto; padding: 9px 20px; font-size: 12px; }
+  table.compare tbody tr:last-child > * { border-bottom: 0; }
+
+  .fit { background: #fff; }
+  .fit-wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
+  .size-chart { border-radius: 16px; border: 1px solid var(--line); overflow: hidden; }
+  .sc-row { display: grid; grid-template-columns: 1fr 1.2fr 1.2fr 1fr; font-size: 15px; }
+  .sc-row > div { padding: 14px 18px; border-bottom: 1px solid #eee8dc; }
+  .sc-row:last-child > div { border-bottom: 0; }
+  .sc-row.sc-head > div { background: var(--sand); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .sc-row > div:first-child { font-weight: 700; }
+  .measure { background: var(--cream); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; }
+  .measure .topo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .14; }
+  .measure > *:not(.topo) { position: relative; }
+  .measure h3 { font-size: 24px; }
+  .measure ol { padding-left: 20px; color: #4a4f49; font-size: 15px; }
+  .store-finder { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .store-finder label { width: 100%; font-size: 13px; font-weight: 600; }
+  .store-finder input { flex: 1; min-width: 140px; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; font: inherit; background: #fff; }
+  .store-finder input:focus, .newsletter input:focus { outline: 0; border-color: var(--moss); }
+  .store-finder button { background: var(--moss); color: #fff; border: 0; border-radius: 10px; padding: 0 20px; font: inherit; font-weight: 600; cursor: pointer; }
+  .store-result { font-size: 14px; margin-top: 10px; color: var(--moss-dark); min-height: 1.4em; }
+
+  .reviews-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 56px; }
+  .score { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 64px; line-height: 1; }
+  .bars { margin: 18px 0 22px; font-size: 13px; color: var(--muted); }
+  .bars div { display: grid; grid-template-columns: 46px 1fr 34px; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .bars i { display: block; height: 6px; background: var(--sand); border-radius: 3px; overflow: hidden; }
+  .bars i::after { content: ""; display: block; height: 100%; width: var(--w); background: #d29b2c; }
+  .btn-outline { display: inline-block; border: 1.5px solid var(--ink); border-radius: 10px; padding: 10px 18px; color: var(--ink); font-weight: 600; font-size: 14px; }
+  .review { padding: 0 0 26px; margin-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .initials { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; font-size: 14px; }
+  .review-top .who { font-weight: 600; font-size: 15px; }
+  .review-top .meta { font-size: 13px; color: var(--muted); }
+  .mini-stars { --r: 5; width: 86px; height: 15px; background: linear-gradient(90deg, #d29b2c calc(var(--r) / 5 * 100%), #d9d2c3 0); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5l2.9 7.1 7.6.6-5.8 4.9 1.8 7.4L12 17.6l-6.5 3.9 1.8-7.4L1.5 9.2l7.6-.6z'/%3E%3C/svg%3E") 0 0/17.2px 15px repeat-x; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.5l2.9 7.1 7.6.6-5.8 4.9 1.8 7.4L12 17.6l-6.5 3.9 1.8-7.4L1.5 9.2l7.6-.6z'/%3E%3C/svg%3E") 0 0/17.2px 15px repeat-x; margin-left: auto; }
+  .review h4 { margin: 6px 0 4px; font-size: 16px; }
+  .review p { margin: 0; color: #4a4f49; font-size: 15px; }
+  .review .fitline { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+  .recs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .rec .card-img { display: block; border-radius: 16px; overflow: hidden; background: var(--sand); }
+  .rec .card-img img { transition: transform .4s; }
+  .rec:hover .card-img img { transform: scale(1.04); }
+  .rec .name { display: block; color: var(--ink); font-weight: 600; margin-top: 12px; }
+  .rec .p { font-size: 14px; color: var(--muted); }
+
+  .footer-ridge { display: block; width: 100%; height: 90px; margin-top: 40px; }
+  footer { background: #1f2a22; color: #b9c2b4; font-size: 14px; }
+  footer .container { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-top: 32px; padding-bottom: 48px; }
+  footer h3 { color: #fff; font-family: inherit; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 16px; }
+  footer ul { list-style: none; margin: 0; padding: 0; }
+  footer li { margin-bottom: 9px; }
+  footer a { color: #b9c2b4; }
+  .newsletter p { margin: 0 0 14px; }
+  .newsletter form { display: flex; gap: 8px; }
+  .newsletter input { flex: 1; padding: 12px 14px; border-radius: 10px; border: 1px solid #3c4a3f; background: #2a372d; color: #fff; font: inherit; }
+  .newsletter input::placeholder { color: #7f8c7f; }
+  .newsletter button { background: var(--rust); color: #fff; border: 0; border-radius: 10px; padding: 0 18px; font: inherit; font-weight: 600; cursor: pointer; }
+  .nl-msg { font-size: 13px; color: #9fd08c; margin-top: 8px; min-height: 1.3em; }
+  .socials { display: flex; gap: 10px; margin-top: 20px; }
+  .socials a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid #3c4a3f; display: grid; place-items: center; }
+  .socials svg { width: 18px; height: 18px; stroke: #dfe6da; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .bottom { border-top: 1px solid #2f3c32; font-size: 12px; color: #6f7c6f; }
+  .bottom .container { display: flex; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; gap: 12px; flex-wrap: wrap; }
+  .bottom a { color: #6f7c6f; }
+
+  .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 140%); opacity: 0; visibility: hidden; background: var(--ink); color: #fff; padding: 14px 20px; border-radius: 12px; display: flex; gap: 14px; align-items: center; box-shadow: 0 16px 40px -12px rgba(0,0,0,.4); transition: transform .3s ease, opacity .3s, visibility .3s; z-index: 50; font-size: 15px; }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
+  .toast a { color: #c9e3b9; font-weight: 600; }
+
+  @media (max-width: 1080px) {
+    .primary-nav { display: none; }
+    .search input { width: 160px; }
+  }
+  @media (max-width: 900px) {
+    .product, .fit-wrap, .reviews-wrap { grid-template-columns: 1fr; gap: 32px; }
+    .gallery { position: static; grid-template-columns: 1fr; }
+    .thumbs { flex-direction: row; order: 2; }
+    .thumbs button { width: 72px; }
+    .recs { grid-template-columns: 1fr 1fr; }
+    footer .container { grid-template-columns: 1fr 1fr; }
+    .compare-scroll { overflow-x: auto; }
+    table.compare { min-width: 620px; }
+  }
+  @media (max-width: 600px) {
+    .container { padding: 0 18px; }
+    .search { display: none; }
+    .site-header .container { gap: 12px; }
+    .logo { font-size: 19px; }
+    .header-tools { gap: 4px; }
+    .info h1 { font-size: 34px; }
+    .perks { grid-template-columns: 1fr; }
+    .sizes label { min-width: 0; flex: 1; }
+    .story > img { height: 420px; }
+    .story h2 { font-size: 36px; }
+    .story .copy { top: 40px; padding: 0 18px; }
+    .block-head { flex-direction: column; align-items: start; }
+    .sc-row { grid-template-columns: .8fr 1.2fr 1.2fr; }
+    .sc-row > div:nth-child(4) { display: none; }
+    footer .container { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="announce" id="announce">
+  Free shipping on orders over $75 &nbsp;&middot;&nbsp; 60-day trail-tested returns
+  <button aria-label="Close announcement" onclick="document.getElementById('announce').remove()">&times;</button>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#4f6b47"/><path d="M16 6l-7 11h4l-4 6h14l-4-6h4z" fill="#f7f3ea"/><rect x="15" y="23" width="2" height="4" fill="#f7f3ea"/></svg>
+      Larkspur <em>&amp;</em> Pine
+    </a>
+    <nav class="primary-nav">
+      <a href="#">Packs</a>
+      <a href="#">Tents &amp; Shelter</a>
+      <a href="#">Apparel</a>
+      <a href="#">Journal</a>
+      <a href="#" class="sale">Sale</a>
+    </nav>
+    <div class="header-tools">
+      <form class="search" onsubmit="return false">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" placeholder="Search gear">
+      </form>
+      <a href="#" class="icon-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="#" class="icon-link"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></a>
+      <a href="#" class="icon-link" id="cartLink"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-count" id="cartCount">2</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="crumbs"><a href="#">Home</a><span>/</span><a href="#">Packs</a><span>/</span><a href="#">Trekking</a><span>/</span>Ridgeline 38L</div>
+
+    <div class="product">
+      <div class="gallery">
+        <div class="thumbs" id="thumbs">
+          <button class="active" data-i="0"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='540' rx='170' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='160' y='250' width='40' height='190' rx='18' fill='%233b5035'/%3E%3Crect x='400' y='250' width='40' height='190' rx='18' fill='%233b5035'/%3E %3Crect x='150' y='330' width='44' height='120' rx='16' fill='%236e8568' opacity='.9'/%3E%3Crect x='406' y='330' width='44' height='120' rx='16' fill='%236e8568' opacity='.9'/%3E %3Crect x='180' y='150' width='240' height='380' rx='56' fill='%234f6b47'/%3E %3Cpath d='M200 236c40 18 160 18 200 0' stroke='%233b5035' stroke-width='4' fill='none'/%3E %3Cpath d='M172 196c0-62 50-96 128-96s128 34 128 96c0 18-12 26-30 26H202c-18 0-30-8-30-26z' fill='%233b5035'/%3E %3Cpath d='M286 100c0-24 28-24 28 0' stroke='%23262b28' stroke-width='7' fill='none'/%3E %3Crect x='268' y='150' width='64' height='34' rx='6' fill='%23f7f3ea'/%3E %3Cpath d='M300 156l-14 22h28z' fill='%234f6b47'/%3E%3Crect x='297' y='176' width='6' height='6' fill='%234f6b47'/%3E %3Crect x='214' y='300' width='172' height='200' rx='34' fill='%236e8568'/%3E %3Cg stroke='%234f6b47' stroke-width='3' opacity='.45'%3E%3Cpath d='M236 312v176'/%3E%3Cpath d='M254 312v176'/%3E%3Cpath d='M272 312v176'/%3E%3Cpath d='M290 312v176'/%3E%3Cpath d='M308 312v176'/%3E%3Cpath d='M326 312v176'/%3E%3Cpath d='M344 312v176'/%3E%3Cpath d='M362 312v176'/%3E%3C/g%3E %3Crect x='176' y='268' width='248' height='16' fill='%23262b28'/%3E%3Crect x='176' y='418' width='248' height='16' fill='%23262b28'/%3E %3Crect x='286' y='262' width='28' height='28' rx='5' fill='%231a1d1b'/%3E%3Crect x='286' y='412' width='28' height='28' rx='5' fill='%231a1d1b'/%3E %3Cpath d='M270 520c0 20 60 20 60 0' stroke='%23262b28' stroke-width='8' fill='none'/%3E %3C/svg%3E" alt="image 1" width="600" height="600"></button>
+          <button data-i="1"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='140' ry='16' fill='%23000' opacity='.12'/%3E %3Cpath d='M240 150c-20 120-20 260 0 380h110c28-120 28-260 0-380z' fill='%234f6b47'/%3E %3Cpath d='M232 170c0-50 30-70 70-70s60 20 60 70z' fill='%233b5035'/%3E %3Cpath d='M350 160c40 80 46 210 10 320' stroke='%23262b28' stroke-width='26' fill='none' stroke-linecap='round'/%3E %3Cpath d='M340 420c40 0 80 10 100 30-30 10-70 10-100 0z' fill='%23262b28'/%3E %3Crect x='222' y='350' width='70' height='150' rx='24' fill='%236e8568'/%3E %3Crect x='238' y='300' width='40' height='70' rx='10' fill='%239fc3cf' opacity='.85'/%3E%3Crect x='246' y='290' width='24' height='16' rx='4' fill='%23262b28'/%3E %3Crect x='232' y='250' width='130' height='12' fill='%23262b28'/%3E%3Crect x='232' y='420' width='130' height='12' fill='%23262b28'/%3E %3C/svg%3E" alt="image 2" width="600" height="600"></button>
+          <button data-i="2"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='190' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='180' y='140' width='240' height='390' rx='56' fill='%233b5035'/%3E %3Crect x='210' y='180' width='180' height='300' rx='36' fill='%233a3f3c'/%3E %3Cg stroke='%23555c58' stroke-width='3'%3E%3Cpath d='M222 200h156' /%3E%3Cpath d='M222 214h156' /%3E%3Cpath d='M222 228h156' /%3E%3Cpath d='M222 242h156' /%3E%3Cpath d='M222 256h156' /%3E%3Cpath d='M222 270h156' /%3E%3Cpath d='M222 284h156' /%3E%3Cpath d='M222 298h156' /%3E%3Cpath d='M222 312h156' /%3E%3Cpath d='M222 326h156' /%3E%3Cpath d='M222 340h156' /%3E%3Cpath d='M222 354h156' /%3E%3Cpath d='M222 368h156' /%3E%3Cpath d='M222 382h156' /%3E%3Cpath d='M222 396h156' /%3E%3Cpath d='M222 410h156' /%3E%3Cpath d='M222 424h156' /%3E%3Cpath d='M222 438h156' /%3E%3Cpath d='M222 452h156' /%3E%3Cpath d='M222 466h156' /%3E%3C/g%3E %3Cpath d='M232 150c-30 60-30 160 10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M368 150c30 60 30 160-10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M240 250h120' stroke='%236e8568' stroke-width='8'/%3E %3Cpath d='M110 440c40-20 340-20 380 0v40c-40-16-340-16-380 0z' fill='%23262b28'/%3E %3Crect x='270' y='438' width='60' height='30' rx='6' fill='%234f6b47'/%3E %3C/svg%3E" alt="image 3" width="600" height="600"></button>
+          <button data-i="3"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%234f6b47'/%3E %3Cg stroke='%233b5035' stroke-width='2' opacity='.5'%3E%3Cpath d='M0 0h600' /%3E%3Cpath d='M0 10h600' /%3E%3Cpath d='M0 20h600' /%3E%3Cpath d='M0 30h600' /%3E%3Cpath d='M0 40h600' /%3E%3Cpath d='M0 50h600' /%3E%3Cpath d='M0 60h600' /%3E%3Cpath d='M0 70h600' /%3E%3Cpath d='M0 80h600' /%3E%3Cpath d='M0 90h600' /%3E%3Cpath d='M0 100h600' /%3E%3Cpath d='M0 110h600' /%3E%3Cpath d='M0 120h600' /%3E%3Cpath d='M0 130h600' /%3E%3Cpath d='M0 140h600' /%3E%3Cpath d='M0 150h600' /%3E%3Cpath d='M0 160h600' /%3E%3Cpath d='M0 170h600' /%3E%3Cpath d='M0 180h600' /%3E%3Cpath d='M0 190h600' /%3E%3Cpath d='M0 200h600' /%3E%3Cpath d='M0 210h600' /%3E%3Cpath d='M0 220h600' /%3E%3Cpath d='M0 230h600' /%3E%3Cpath d='M0 240h600' /%3E%3Cpath d='M0 250h600' /%3E%3Cpath d='M0 260h600' /%3E%3Cpath d='M0 270h600' /%3E%3Cpath d='M0 280h600' /%3E%3Cpath d='M0 290h600' /%3E%3Cpath d='M0 300h600' /%3E%3Cpath d='M0 310h600' /%3E%3Cpath d='M0 320h600' /%3E%3Cpath d='M0 330h600' /%3E%3Cpath d='M0 340h600' /%3E%3Cpath d='M0 350h600' /%3E%3Cpath d='M0 360h600' /%3E%3Cpath d='M0 370h600' /%3E%3Cpath d='M0 380h600' /%3E%3Cpath d='M0 390h600' /%3E%3Cpath d='M0 400h600' /%3E%3Cpath d='M0 410h600' /%3E%3Cpath d='M0 420h600' /%3E%3Cpath d='M0 430h600' /%3E%3Cpath d='M0 440h600' /%3E%3Cpath d='M0 450h600' /%3E%3Cpath d='M0 460h600' /%3E%3Cpath d='M0 470h600' /%3E%3Cpath d='M0 480h600' /%3E%3Cpath d='M0 490h600' /%3E%3Cpath d='M0 500h600' /%3E%3Cpath d='M0 510h600' /%3E%3Cpath d='M0 520h600' /%3E%3Cpath d='M0 530h600' /%3E%3Cpath d='M0 540h600' /%3E%3Cpath d='M0 550h600' /%3E%3Cpath d='M0 560h600' /%3E%3Cpath d='M0 570h600' /%3E%3Cpath d='M0 580h600' /%3E%3Cpath d='M0 590h600' /%3E%3C/g%3E %3Crect x='0' y='250' width='600' height='80' fill='%23262b28'/%3E %3Crect x='210' y='225' width='180' height='130' rx='22' fill='%231a1d1b'/%3E %3Crect x='240' y='252' width='120' height='76' rx='12' fill='%232f3431'/%3E %3Cpath d='M300 262v56M270 290h60' stroke='%234a504c' stroke-width='10' stroke-linecap='round'/%3E %3Cpath d='M60 470c160-40 320-40 480 0' stroke='%23c9c2b0' stroke-width='10' fill='none' stroke-dasharray='2 14' stroke-linecap='round'/%3E %3Crect x='420' y='80' width='110' height='60' rx='8' fill='%23f7f3ea'/%3E%3Cpath d='M475 90l-20 32h40z' fill='%234f6b47'/%3E %3C/svg%3E" alt="image 4" width="600" height="600"></button>
+        </div>
+        <div class="main-img">
+          <span class="tag">New colors</span>
+          <img id="mainImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='540' rx='170' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='160' y='250' width='40' height='190' rx='18' fill='%233b5035'/%3E%3Crect x='400' y='250' width='40' height='190' rx='18' fill='%233b5035'/%3E %3Crect x='150' y='330' width='44' height='120' rx='16' fill='%236e8568' opacity='.9'/%3E%3Crect x='406' y='330' width='44' height='120' rx='16' fill='%236e8568' opacity='.9'/%3E %3Crect x='180' y='150' width='240' height='380' rx='56' fill='%234f6b47'/%3E %3Cpath d='M200 236c40 18 160 18 200 0' stroke='%233b5035' stroke-width='4' fill='none'/%3E %3Cpath d='M172 196c0-62 50-96 128-96s128 34 128 96c0 18-12 26-30 26H202c-18 0-30-8-30-26z' fill='%233b5035'/%3E %3Cpath d='M286 100c0-24 28-24 28 0' stroke='%23262b28' stroke-width='7' fill='none'/%3E %3Crect x='268' y='150' width='64' height='34' rx='6' fill='%23f7f3ea'/%3E %3Cpath d='M300 156l-14 22h28z' fill='%234f6b47'/%3E%3Crect x='297' y='176' width='6' height='6' fill='%234f6b47'/%3E %3Crect x='214' y='300' width='172' height='200' rx='34' fill='%236e8568'/%3E %3Cg stroke='%234f6b47' stroke-width='3' opacity='.45'%3E%3Cpath d='M236 312v176'/%3E%3Cpath d='M254 312v176'/%3E%3Cpath d='M272 312v176'/%3E%3Cpath d='M290 312v176'/%3E%3Cpath d='M308 312v176'/%3E%3Cpath d='M326 312v176'/%3E%3Cpath d='M344 312v176'/%3E%3Cpath d='M362 312v176'/%3E%3C/g%3E %3Crect x='176' y='268' width='248' height='16' fill='%23262b28'/%3E%3Crect x='176' y='418' width='248' height='16' fill='%23262b28'/%3E %3Crect x='286' y='262' width='28' height='28' rx='5' fill='%231a1d1b'/%3E%3Crect x='286' y='412' width='28' height='28' rx='5' fill='%231a1d1b'/%3E %3Cpath d='M270 520c0 20 60 20 60 0' stroke='%23262b28' stroke-width='8' fill='none'/%3E %3C/svg%3E" alt="product image" width="600" height="600">
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="kicker">Trekking &middot; 38 liters</div>
+        <h1>Ridgeline 38L Trekking Pack</h1>
+        <div class="rating"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 24' width='128' height='24' %3E%3Cg transform='translate(0 0)'%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d9d2c3'/%3E%3CclipPath id='c0'%3E%3Crect width='24' height='24'/%3E%3C/clipPath%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d29b2c' clip-path='url(%23c0)'/%3E%3C/g%3E%3Cg transform='translate(26 0)'%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d9d2c3'/%3E%3CclipPath id='c1'%3E%3Crect width='24' height='24'/%3E%3C/clipPath%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d29b2c' clip-path='url(%23c1)'/%3E%3C/g%3E%3Cg transform='translate(52 0)'%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d9d2c3'/%3E%3CclipPath id='c2'%3E%3Crect width='24' height='24'/%3E%3C/clipPath%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d29b2c' clip-path='url(%23c2)'/%3E%3C/g%3E%3Cg transform='translate(78 0)'%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d9d2c3'/%3E%3CclipPath id='c3'%3E%3Crect width='24' height='24'/%3E%3C/clipPath%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d29b2c' clip-path='url(%23c3)'/%3E%3C/g%3E%3Cg transform='translate(104 0)'%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d9d2c3'/%3E%3CclipPath id='c4'%3E%3Crect width='14.399999999999991' height='24'/%3E%3C/clipPath%3E%3Cpolygon points='12,1.5 14.9,8.6 22.5,9.2 16.7,14.1 18.5,21.5 12,17.6 5.5,21.5 7.3,14.1 1.5,9.2 9.1,8.6' fill='%23d29b2c' clip-path='url(%23c4)'/%3E%3C/g%3E%3C/svg%3E" alt="stars" width="128" height="24"> <a href="#reviews">4.6 &middot; 214 reviews</a></div>
+        <div class="price">$189 <s>$219</s> <span class="save">SAVE $30</span></div>
+        <div class="afterpay">or 4 interest-free payments of $47.25</div>
+        <p class="blurb">Our best-selling overnight pack, rebuilt with a lighter frame and a ventilated back panel. Big enough for a long weekend, trim enough for a summit day, and covered for life.</p>
+
+        <div class="opt">
+          <div class="opt-head">Color <span id="colorName">Moss</span></div>
+          <div class="swatches">
+            <input type="radio" name="color" id="c-moss" value="moss" checked><label for="c-moss" class="swatch" style="background:#4f6b47" title="Moss"></label>
+            <input type="radio" name="color" id="c-rust" value="rust"><label for="c-rust" class="swatch" style="background:#b4572f" title="Canyon Rust"></label>
+            <input type="radio" name="color" id="c-slate" value="slate"><label for="c-slate" class="swatch" style="background:#46566a" title="Slate"></label>
+          </div>
+        </div>
+
+        <div class="opt">
+          <div class="opt-head">Torso size <a href="#fit">Size guide</a></div>
+          <div class="sizes">
+            <input type="radio" name="size" id="s-sm" value="S/M"><label for="s-sm">S/M <small>15&ndash;18 in</small></label>
+            <input type="radio" name="size" id="s-ml" value="M/L" checked><label for="s-ml">M/L <small>17&ndash;20 in</small></label>
+            <input type="radio" name="size" id="s-lxl" value="L/XL" disabled><label for="s-lxl">L/XL <small>Sold out</small></label>
+          </div>
+        </div>
+
+        <div class="buy-row">
+          <div class="qty">
+            <button type="button" onclick="stepQty(-1)">&minus;</button>
+            <input type="number" id="qty" value="1" min="1" max="9" aria-label="Quantity">
+            <button type="button" onclick="stepQty(1)">+</button>
+          </div>
+          <button class="btn" id="addToCart">Add to cart &mdash; $189</button>
+          <button class="wish" id="wish"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+        </div>
+        <div class="ship-note">In stock &middot; Ships in 1&ndash;2 business days</div>
+
+        <div class="perks">
+          <div class="perk"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' width='56' height='56' %3E%3Ccircle cx='28' cy='28' r='28' fill='%23e3ebdf'/%3E%3Cg fill='none' stroke='%234f6b47' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 14s-10 12-10 19a10 10 0 0 0 20 0c0-7-10-19-10-19z'/%3E%3Cpath d='M23 34a5 5 0 0 0 5 5'/%3E%3C/g%3E%3C/svg%3E" alt="Water droplet icon"><div><b>Weatherproof</b>210D recycled ripstop</div></div>
+          <div class="perk"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' width='56' height='56' %3E%3Ccircle cx='28' cy='28' r='28' fill='%23e3ebdf'/%3E%3Cg fill='none' stroke='%234f6b47' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 13l12 5v9c0 8-5 14-12 17-7-3-12-9-12-17v-9z'/%3E%3Cpath d='M23 28l4 4 7-8'/%3E%3C/g%3E%3C/svg%3E" alt="Shield with checkmark icon"><div><b>Lifetime warranty</b>Repair or replace</div></div>
+          <div class="perk"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56' width='56' height='56' %3E%3Ccircle cx='28' cy='28' r='28' fill='%23e3ebdf'/%3E%3Cg fill='none' stroke='%234f6b47' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 39c0-14 10-23 24-24 0 14-9 24-22 24'/%3E%3Cpath d='M17 39l12-12'/%3E%3C/g%3E%3C/svg%3E" alt="Green leaf icon"><div><b>Climate neutral</b><span class="tip">What's this?<span class="bubble">We measure the full footprint of every pack &mdash; materials, factory, freight &mdash; and fund verified projects to offset it.</span></span></div></div>
+        </div>
+
+        <div class="tabs" id="tabs">
+          <a href="#" class="active" data-panel="p-details">Details</a>
+          <a href="#" data-panel="p-materials">Materials &amp; care</a>
+          <a href="#" data-panel="p-shipping">Shipping &amp; returns</a>
+        </div>
+        <div class="panel active" id="p-details">
+          <ul class="features">
+            <li>Adjustable torso (3 in range) with ventilated mesh back panel</li>
+            <li>Floating lid with two zip pockets and key clip</li>
+            <li>Stretch front shove-it pocket and side bottle pockets</li>
+            <li>Hipbelt pockets fit a large phone</li>
+            <li>Hydration sleeve and port, trekking pole and ice axe loops</li>
+          </ul>
+          <ul class="callout">
+            <li>
+              <p>&ldquo;We carried the prototypes 400 miles on the Colorado Trail before we changed a single stitch. The hipbelt is the part we're proudest of.&rdquo;</p>
+              <p class="sig">&mdash; Annika Strom, lead pack designer</p>
+            </li>
+          </ul>
+        </div>
+        <div class="panel" id="p-materials">
+          <p>Body: 210D recycled nylon ripstop with PFAS-free DWR. Base: 420D recycled nylon. Frame: 6061 aluminum perimeter stay.</p>
+          <p>Hand wash in cool water with mild soap and air dry. Never machine wash or dry. Torn a seam on the trail? Send it to our <a href="#">repair program</a> and we'll fix it free for life.</p>
+        </div>
+        <div class="panel" id="p-shipping">
+          <table class="rates">
+            <tr class="th-row"><td>Method</td><td>Delivery</td><td>Cost</td></tr>
+            <tr><td>Standard</td><td>4&ndash;6 business days</td><td>Free over $75</td></tr>
+            <tr><td>Expedited</td><td>2&ndash;3 business days</td><td>$14</td></tr>
+            <tr><td>Overnight</td><td>Next business day</td><td>$32</td></tr>
+          </table>
+          <p>Not the right fit? Return unwashed gear within 60 days for a full refund, even if you've taken it out on the trail.</p>
+          <dl class="fineprint">
+            <dd>Final-sale items, personalized gear and gift cards can't be returned. Refunds are issued to the original payment method within 5 business days of receipt.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="story">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 520' width='1440' height='520' preserveAspectRatio='xMidYMid slice'%3E %3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f3d9b1'/%3E%3Cstop offset='1' stop-color='%23f7efe2'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='1440' height='520' fill='url(%23sky)'/%3E %3Ccircle cx='1080' cy='170' r='70' fill='%23f0b45f'/%3E %3Cpath d='M0 330l180-150 120 90 170-170 210 200 130-90 220 160 160-120 250 180v90H0z' fill='%239aa88f'/%3E %3Cpath d='M0 400l140-90 180 100 200-140 230 160 170-80 210 110 160-70 150 90v40H0z' fill='%236f8566'/%3E %3Cpath d='M0 460c200-50 420-60 720-30s560 40 720-10v100H0z' fill='%234f6b47'/%3E %3Cpath d='M80 470l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='94' y='470' width='4' height='10' fill='%2334492f'/%3E%3Cpath d='M120 480l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='134' y='480' width='4' height='10' fill='%2334492f'/%3E%3Cpath d='M150 466l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='164' y='466' width='4' height='10' fill='%2334492f'/%3E%3Cpath d='M1240 474l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='1254' y='474' width='4' height='10' fill='%2334492f'/%3E%3Cpath d='M1280 462l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='1294' y='462' width='4' height='10' fill='%2334492f'/%3E%3Cpath d='M1320 480l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='1334' y='480' width='4' height='10' fill='%2334492f'/%3E%3Cpath d='M1380 470l16-46 16 46z' fill='%2334492f'/%3E%3Crect x='1394' y='470' width='4' height='10' fill='%2334492f'/%3E %3C/svg%3E" width="1440" height="520">
+    <div class="copy">
+      <h2>Built for the long way around</h2>
+      <p>Every Larkspur &amp; Pine pack is field-tested by our own staff for a full season before it reaches the shelf.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="block-head">
+        <div>
+          <h2>Compare the Ridgeline family</h2>
+          <p>Same frame and suspension, three capacities.</p>
+        </div>
+        <a href="#" class="btn-outline">Shop all trekking packs</a>
+      </div>
+      <div class="compare-scroll">
+        <table class="compare">
+          <thead>
+            <tr><th>Model</th><th>Ridgeline 28L</th><th>Ridgeline 38L</th><th>Ridgeline 48L</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Best for</th><td>Big day hikes</td><td class="here">Overnights &amp; long weekends</td><td>3&ndash;5 day trips</td></tr>
+            <tr class="grp"><th colspan="4">Carry &amp; fit</th></tr>
+            <tr><th>Weight</th><td>2 lb 6 oz</td><td class="here">2 lb 14 oz</td><td>3 lb 9 oz</td></tr>
+            <tr><th>Max load</th><td>25 lb</td><td class="here">35 lb</td><td>45 lb</td></tr>
+            <tr><th>Frame</th><td>Framesheet</td><td class="here">Aluminum perimeter</td><td>Aluminum perimeter</td></tr>
+            <tr><th>Torso sizes</th><td>One size</td><td class="here">S/M, M/L, L/XL</td><td>S/M, M/L, L/XL</td></tr>
+            <tr class="grp"><th colspan="4">Features &amp; price</th></tr>
+            <tr><th>Hydration</th><td>Sleeve</td><td class="here">Sleeve + port</td><td>Sleeve + port</td></tr>
+            <tr><th>Price</th><td>$149</td><td class="here">$189</td><td>$239</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block fit" id="fit">
+    <div class="container fit-wrap">
+      <div>
+        <div class="block-head"><div><h2>Find your fit</h2><p>Pack size is about torso length, not height.</p></div></div>
+        <div class="size-chart">
+          <div class="sc-row sc-head"><div>Size</div><div>Torso length</div><div>Hipbelt fits</div><div>Pack weight</div></div>
+          <div class="sc-row"><div>S/M</div><div>15&ndash;18 in / 38&ndash;46 cm</div><div>26&ndash;40 in / 66&ndash;102 cm</div><div>2 lb 11 oz</div></div>
+          <div class="sc-row"><div>M/L</div><div>17&ndash;20 in / 43&ndash;51 cm</div><div>28&ndash;44 in / 71&ndash;112 cm</div><div>2 lb 14 oz</div></div>
+          <div class="sc-row"><div>L/XL</div><div>19&ndash;22 in / 48&ndash;56 cm</div><div>32&ndash;50 in / 81&ndash;127 cm</div><div>3 lb 1 oz</div></div>
+        </div>
+      </div>
+      <div class="measure">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' width='600' height='400' %3E%3Cpath d='M-20 60c90-20 180 30 300 -10s200-40 340 10' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 86c90-23 180 28 300 -9s200-37 340 11' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 112c90-26 180 26 300 -8s200-34 340 12' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 138c90-29 180 24 300 -7s200-31 340 13' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 164c90-32 180 22 300 -6s200-28 340 14' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 190c90-35 180 20 300 -5s200-25 340 15' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 216c90-38 180 18 300 -4s200-22 340 16' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 242c90-41 180 16 300 -3s200-19 340 17' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 268c90-44 180 14 300 -2s200-16 340 18' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 294c90-47 180 12 300 -1s200-13 340 19' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 320c90-50 180 10 300 0s200-10 340 20' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 346c90-53 180 8 300 1s200-7 340 21' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 372c90-56 180 6 300 2s200-4 340 22' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3Cpath d='M-20 398c90-59 180 4 300 3s200-1 340 23' fill='none' stroke='%234f6b47' stroke-width='1.2'/%3E%3C/svg%3E" class="topo">
+        <h3>Measure your torso</h3>
+        <ol>
+          <li>Tilt your head forward and find the bony bump at the base of your neck (C7).</li>
+          <li>Place your hands on your hip bones, thumbs pointing back.</li>
+          <li>Measure from C7 straight down to the line between your thumbs.</li>
+        </ol>
+        <p style="font-size:15px; color:#4a4f49; margin-bottom:0">Still not sure? Our stores will fit you in five minutes.</p>
+        <div class="store-finder">
+          <label for="zip">ZIP code</label>
+          <input type="text" id="store-zip" inputmode="numeric" maxlength="5">
+          <button type="button" id="findStore">Find a store</button>
+        </div>
+        <div class="store-result" id="storeResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="reviews">
+    <div class="container reviews-wrap">
+      <div>
+        <h2 style="font-size:32px">Reviews</h2>
+        <div class="score">4.6</div>
+        <div style="font-size:14px; color:var(--muted); margin-top:6px">Based on 214 reviews</div>
+        <div class="bars">
+          <div>5 star<i style="--w:74%"></i>158</div>
+          <div>4 star<i style="--w:17%"></i>36</div>
+          <div>3 star<i style="--w:5%"></i>11</div>
+          <div>2 star<i style="--w:2%"></i>5</div>
+          <div>1 star<i style="--w:2%"></i>4</div>
+        </div>
+        <a href="#" class="btn-outline">Write a review</a>
+      </div>
+      <div>
+        <div class="review">
+          <div class="review-top"><div class="initials" style="background:#4f6b47">KM</div><div><div class="who">Kayla M.</div><div class="meta">Verified buyer &middot; Bend, OR</div></div><div class="mini-stars" style="--r:5"></div></div>
+          <h4>Carried it 90 miles, zero hot spots</h4>
+          <p>The hipbelt actually carries the weight. Did the Wonderland loop in five days with a bear can strapped on top and never had shoulder fatigue.</p>
+          <div class="fitline">Torso: 18 in &middot; Bought: M/L &middot; Fit: true to size</div>
+        </div>
+        <div class="review">
+          <div class="review-top"><div class="initials" style="background:#b4572f">DR</div><div><div class="who">Dmitri R.</div><div class="meta">Verified buyer &middot; Asheville, NC</div></div><div class="mini-stars" style="--r:4"></div></div>
+          <h4>Great pack, lid pockets are small</h4>
+          <p>Ventilation is a big upgrade over my old pack. Only knock is the lid pockets &mdash; my rain shell barely fits. Would still buy again.</p>
+          <div class="fitline">Torso: 19 in &middot; Bought: M/L &middot; Fit: true to size</div>
+        </div>
+        <div class="review">
+          <div class="review-top"><div class="initials" style="background:#46566a">JT</div><div><div class="who">Jess T.</div><div class="meta">Verified buyer &middot; Duluth, MN</div></div><div class="mini-stars" style="--r:5"></div></div>
+          <h4>Customer service is the real deal</h4>
+          <p>Ripped a side pocket on a granite scramble. Sent it in through the repair program and had it back in two weeks, free. That's how you earn a customer.</p>
+          <div class="fitline">Torso: 16 in &middot; Bought: S/M &middot; Fit: true to size</div>
+        </div>
+        <a href="#" style="font-weight:600; text-decoration:underline; color:var(--ink)">Read all 214 reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="container">
+      <div class="block-head"><div><h2>Pairs well with</h2></div></div>
+      <div class="recs">
+        <div class="rec"><a href="#" class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='540' rx='170' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='160' y='250' width='40' height='190' rx='18' fill='%2334404f'/%3E%3Crect x='400' y='250' width='40' height='190' rx='18' fill='%2334404f'/%3E %3Crect x='150' y='330' width='44' height='120' rx='16' fill='%23677484' opacity='.9'/%3E%3Crect x='406' y='330' width='44' height='120' rx='16' fill='%23677484' opacity='.9'/%3E %3Crect x='180' y='150' width='240' height='380' rx='56' fill='%2346566a'/%3E %3Cpath d='M200 236c40 18 160 18 200 0' stroke='%2334404f' stroke-width='4' fill='none'/%3E %3Cpath d='M172 196c0-62 50-96 128-96s128 34 128 96c0 18-12 26-30 26H202c-18 0-30-8-30-26z' fill='%2334404f'/%3E %3Cpath d='M286 100c0-24 28-24 28 0' stroke='%23262b28' stroke-width='7' fill='none'/%3E %3Crect x='268' y='150' width='64' height='34' rx='6' fill='%23f7f3ea'/%3E %3Cpath d='M300 156l-14 22h28z' fill='%2346566a'/%3E%3Crect x='297' y='176' width='6' height='6' fill='%2346566a'/%3E %3Crect x='214' y='300' width='172' height='200' rx='34' fill='%23677484'/%3E %3Cg stroke='%2346566a' stroke-width='3' opacity='.45'%3E%3Cpath d='M236 312v176'/%3E%3Cpath d='M254 312v176'/%3E%3Cpath d='M272 312v176'/%3E%3Cpath d='M290 312v176'/%3E%3Cpath d='M308 312v176'/%3E%3Cpath d='M326 312v176'/%3E%3Cpath d='M344 312v176'/%3E%3Cpath d='M362 312v176'/%3E%3C/g%3E %3Crect x='176' y='268' width='248' height='16' fill='%23262b28'/%3E%3Crect x='176' y='418' width='248' height='16' fill='%23262b28'/%3E %3Crect x='286' y='262' width='28' height='28' rx='5' fill='%231a1d1b'/%3E%3Crect x='286' y='412' width='28' height='28' rx='5' fill='%231a1d1b'/%3E %3Cpath d='M270 520c0 20 60 20 60 0' stroke='%23262b28' stroke-width='8' fill='none'/%3E %3C/svg%3E" alt="" width="600" height="600"></a><a href="#" class="name">Switchback 22L Daypack</a><div class="p">$119</div></div>
+        <div class="rec"><a href="#" class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='400' height='400' %3E%3Crect width='400' height='400' fill='%23ebe4d6'/%3E%3Cellipse cx='200' cy='300' rx='130' ry='12' fill='%23000' opacity='.1'/%3E%3Cpath d='M30 200c40-14 300-14 340 0v26c-40-12-300-12-340 0z' fill='%23262b28'/%3E%3Cpath d='M110 190c0-50 40-70 90-70s90 20 90 70v40c0 40-40 60-90 60s-90-20-90-60z' fill='%23b4572f'/%3E%3Cpath d='M120 200c40 12 120 12 160 0' stroke='%237d3c20' stroke-width='4' fill='none'/%3E%3Crect x='184' y='236' width='32' height='18' rx='4' fill='%23f7f3ea'/%3E%3C/svg%3E" alt="" width="400" height="400"></a><a href="#" class="name">Talus Hip Pack</a><div class="p">$54</div></div>
+        <div class="rec"><a href="#" class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='400' height='400' %3E%3Crect width='400' height='400' fill='%23ebe4d6'/%3E%3Cellipse cx='200' cy='340' rx='70' ry='10' fill='%23000' opacity='.1'/%3E%3Crect x='150' y='110' width='100' height='230' rx='30' fill='%2346566a'/%3E%3Crect x='170' y='70' width='60' height='50' rx='10' fill='%23262b28'/%3E%3Cpath d='M230 84c30 0 30 30 0 30' stroke='%23262b28' stroke-width='8' fill='none'/%3E%3Crect x='150' y='190' width='100' height='70' fill='%236b7787'/%3E%3Cpath d='M200 206l-16 26h32z' fill='%23f7f3ea'/%3E%3C/svg%3E" alt="" width="400" height="400"></a><a href="#" class="name">Basin 32oz Insulated Bottle</a><div class="p">$36</div></div>
+        <div class="rec"><a href="#" class="card-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' width='400' height='400' %3E%3Crect width='400' height='400' fill='%23ebe4d6'/%3E%3Cellipse cx='200' cy='320' rx='120' ry='10' fill='%23000' opacity='.1'/%3E%3Ccircle cx='200' cy='96' r='30' fill='%23f7f3ea'/%3E%3Cpath d='M100 250c0-90 40-140 100-140s100 50 100 140z' fill='%23c8913a'/%3E%3Cpath d='M140 130c-6 40-6 80 0 120' stroke='%23b07c2d' stroke-width='5' fill='none'/%3E%3Cpath d='M162 130c-6 40-6 80 0 120' stroke='%23b07c2d' stroke-width='5' fill='none'/%3E%3Cpath d='M184 130c-6 40-6 80 0 120' stroke='%23b07c2d' stroke-width='5' fill='none'/%3E%3Cpath d='M206 130c-6 40-6 80 0 120' stroke='%23b07c2d' stroke-width='5' fill='none'/%3E%3Cpath d='M228 130c-6 40-6 80 0 120' stroke='%23b07c2d' stroke-width='5' fill='none'/%3E%3Cpath d='M250 130c-6 40-6 80 0 120' stroke='%23b07c2d' stroke-width='5' fill='none'/%3E%3Crect x='90' y='240' width='220' height='70' rx='16' fill='%23b07c2d'/%3E%3Cpath d='M108 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M124 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M140 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M156 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M172 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M188 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M204 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M220 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M236 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M252 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M268 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3Cpath d='M284 248v54' stroke='%239c6d27' stroke-width='5'/%3E%3C/svg%3E" alt="" width="400" height="400"></a><a href="#" class="name">Firelookout Wool Beanie</a><div class="p">$32</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' width='1440' height='120' preserveAspectRatio='none'%3E%3Cpath d='M0 120V70l120-40 90 30 160-55 140 50 120-30 170 45 130-35 180 40 120-25 210 40v30z' fill='%231f2a22'/%3E%3C/svg%3E" class="footer-ridge" width="1440" height="120">
+<footer>
+  <div class="container">
+    <div class="newsletter">
+      <h3>Trail notes</h3>
+      <p>Trip reports, gear care tips and first dibs on new colors. Twice a month, never spammy.</p>
+      <form id="nlForm">
+        <label class="sr-only">Email address</label>
+        <input type="email" id="nl-email" placeholder="you@example.com">
+        <button type="submit">Sign up</button>
+      </form>
+      <div class="nl-msg" id="nlMsg"></div>
+      <div class="socials">
+        <a href="#" aria-label="Larkspur &amp; Pine on Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
+        <a href="#" aria-label="Larkspur &amp; Pine on YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+        <a href="#" aria-label="Larkspur &amp; Pine Journal RSS feed"><svg viewBox="0 0 24 24"><path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14"/><circle cx="6" cy="18" r="1"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <ul><li><a href="#">Packs</a></li><li><a href="#">Tents &amp; shelter</a></li><li><a href="#">Apparel</a></li><li><a href="#">Gift cards</a></li></ul>
+    </div>
+    <div>
+      <h3>Help</h3>
+      <ul><li><a href="#">Order status</a></li><li><a href="#">Returns &amp; exchanges</a></li><li><a href="#">Repair program</a></li><li><a href="#">Contact us</a></li></ul>
+    </div>
+    <div>
+      <h3>Company</h3>
+      <ul><li><a href="#">Our story</a></li><li><a href="#">Stores</a></li><li><a href="#">Impact report</a></li><li><a href="#">Careers</a></li></ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="container">
+      <span>&copy; 2026 Larkspur &amp; Pine Outfitters Co. Missoula, Montana.</span>
+      <span><a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="#">Accessibility</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Added to your cart <a href="#">View cart</a></div>
+
+<script>
+  var gallery = {
+      moss: ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='540' rx='170' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='160' y='250' width='40' height='190' rx='18' fill='%233b5035'/%3E%3Crect x='400' y='250' width='40' height='190' rx='18' fill='%233b5035'/%3E %3Crect x='150' y='330' width='44' height='120' rx='16' fill='%236e8568' opacity='.9'/%3E%3Crect x='406' y='330' width='44' height='120' rx='16' fill='%236e8568' opacity='.9'/%3E %3Crect x='180' y='150' width='240' height='380' rx='56' fill='%234f6b47'/%3E %3Cpath d='M200 236c40 18 160 18 200 0' stroke='%233b5035' stroke-width='4' fill='none'/%3E %3Cpath d='M172 196c0-62 50-96 128-96s128 34 128 96c0 18-12 26-30 26H202c-18 0-30-8-30-26z' fill='%233b5035'/%3E %3Cpath d='M286 100c0-24 28-24 28 0' stroke='%23262b28' stroke-width='7' fill='none'/%3E %3Crect x='268' y='150' width='64' height='34' rx='6' fill='%23f7f3ea'/%3E %3Cpath d='M300 156l-14 22h28z' fill='%234f6b47'/%3E%3Crect x='297' y='176' width='6' height='6' fill='%234f6b47'/%3E %3Crect x='214' y='300' width='172' height='200' rx='34' fill='%236e8568'/%3E %3Cg stroke='%234f6b47' stroke-width='3' opacity='.45'%3E%3Cpath d='M236 312v176'/%3E%3Cpath d='M254 312v176'/%3E%3Cpath d='M272 312v176'/%3E%3Cpath d='M290 312v176'/%3E%3Cpath d='M308 312v176'/%3E%3Cpath d='M326 312v176'/%3E%3Cpath d='M344 312v176'/%3E%3Cpath d='M362 312v176'/%3E%3C/g%3E %3Crect x='176' y='268' width='248' height='16' fill='%23262b28'/%3E%3Crect x='176' y='418' width='248' height='16' fill='%23262b28'/%3E %3Crect x='286' y='262' width='28' height='28' rx='5' fill='%231a1d1b'/%3E%3Crect x='286' y='412' width='28' height='28' rx='5' fill='%231a1d1b'/%3E %3Cpath d='M270 520c0 20 60 20 60 0' stroke='%23262b28' stroke-width='8' fill='none'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='140' ry='16' fill='%23000' opacity='.12'/%3E %3Cpath d='M240 150c-20 120-20 260 0 380h110c28-120 28-260 0-380z' fill='%234f6b47'/%3E %3Cpath d='M232 170c0-50 30-70 70-70s60 20 60 70z' fill='%233b5035'/%3E %3Cpath d='M350 160c40 80 46 210 10 320' stroke='%23262b28' stroke-width='26' fill='none' stroke-linecap='round'/%3E %3Cpath d='M340 420c40 0 80 10 100 30-30 10-70 10-100 0z' fill='%23262b28'/%3E %3Crect x='222' y='350' width='70' height='150' rx='24' fill='%236e8568'/%3E %3Crect x='238' y='300' width='40' height='70' rx='10' fill='%239fc3cf' opacity='.85'/%3E%3Crect x='246' y='290' width='24' height='16' rx='4' fill='%23262b28'/%3E %3Crect x='232' y='250' width='130' height='12' fill='%23262b28'/%3E%3Crect x='232' y='420' width='130' height='12' fill='%23262b28'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='190' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='180' y='140' width='240' height='390' rx='56' fill='%233b5035'/%3E %3Crect x='210' y='180' width='180' height='300' rx='36' fill='%233a3f3c'/%3E %3Cg stroke='%23555c58' stroke-width='3'%3E%3Cpath d='M222 200h156' /%3E%3Cpath d='M222 214h156' /%3E%3Cpath d='M222 228h156' /%3E%3Cpath d='M222 242h156' /%3E%3Cpath d='M222 256h156' /%3E%3Cpath d='M222 270h156' /%3E%3Cpath d='M222 284h156' /%3E%3Cpath d='M222 298h156' /%3E%3Cpath d='M222 312h156' /%3E%3Cpath d='M222 326h156' /%3E%3Cpath d='M222 340h156' /%3E%3Cpath d='M222 354h156' /%3E%3Cpath d='M222 368h156' /%3E%3Cpath d='M222 382h156' /%3E%3Cpath d='M222 396h156' /%3E%3Cpath d='M222 410h156' /%3E%3Cpath d='M222 424h156' /%3E%3Cpath d='M222 438h156' /%3E%3Cpath d='M222 452h156' /%3E%3Cpath d='M222 466h156' /%3E%3C/g%3E %3Cpath d='M232 150c-30 60-30 160 10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M368 150c30 60 30 160-10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M240 250h120' stroke='%236e8568' stroke-width='8'/%3E %3Cpath d='M110 440c40-20 340-20 380 0v40c-40-16-340-16-380 0z' fill='%23262b28'/%3E %3Crect x='270' y='438' width='60' height='30' rx='6' fill='%234f6b47'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%234f6b47'/%3E %3Cg stroke='%233b5035' stroke-width='2' opacity='.5'%3E%3Cpath d='M0 0h600' /%3E%3Cpath d='M0 10h600' /%3E%3Cpath d='M0 20h600' /%3E%3Cpath d='M0 30h600' /%3E%3Cpath d='M0 40h600' /%3E%3Cpath d='M0 50h600' /%3E%3Cpath d='M0 60h600' /%3E%3Cpath d='M0 70h600' /%3E%3Cpath d='M0 80h600' /%3E%3Cpath d='M0 90h600' /%3E%3Cpath d='M0 100h600' /%3E%3Cpath d='M0 110h600' /%3E%3Cpath d='M0 120h600' /%3E%3Cpath d='M0 130h600' /%3E%3Cpath d='M0 140h600' /%3E%3Cpath d='M0 150h600' /%3E%3Cpath d='M0 160h600' /%3E%3Cpath d='M0 170h600' /%3E%3Cpath d='M0 180h600' /%3E%3Cpath d='M0 190h600' /%3E%3Cpath d='M0 200h600' /%3E%3Cpath d='M0 210h600' /%3E%3Cpath d='M0 220h600' /%3E%3Cpath d='M0 230h600' /%3E%3Cpath d='M0 240h600' /%3E%3Cpath d='M0 250h600' /%3E%3Cpath d='M0 260h600' /%3E%3Cpath d='M0 270h600' /%3E%3Cpath d='M0 280h600' /%3E%3Cpath d='M0 290h600' /%3E%3Cpath d='M0 300h600' /%3E%3Cpath d='M0 310h600' /%3E%3Cpath d='M0 320h600' /%3E%3Cpath d='M0 330h600' /%3E%3Cpath d='M0 340h600' /%3E%3Cpath d='M0 350h600' /%3E%3Cpath d='M0 360h600' /%3E%3Cpath d='M0 370h600' /%3E%3Cpath d='M0 380h600' /%3E%3Cpath d='M0 390h600' /%3E%3Cpath d='M0 400h600' /%3E%3Cpath d='M0 410h600' /%3E%3Cpath d='M0 420h600' /%3E%3Cpath d='M0 430h600' /%3E%3Cpath d='M0 440h600' /%3E%3Cpath d='M0 450h600' /%3E%3Cpath d='M0 460h600' /%3E%3Cpath d='M0 470h600' /%3E%3Cpath d='M0 480h600' /%3E%3Cpath d='M0 490h600' /%3E%3Cpath d='M0 500h600' /%3E%3Cpath d='M0 510h600' /%3E%3Cpath d='M0 520h600' /%3E%3Cpath d='M0 530h600' /%3E%3Cpath d='M0 540h600' /%3E%3Cpath d='M0 550h600' /%3E%3Cpath d='M0 560h600' /%3E%3Cpath d='M0 570h600' /%3E%3Cpath d='M0 580h600' /%3E%3Cpath d='M0 590h600' /%3E%3C/g%3E %3Crect x='0' y='250' width='600' height='80' fill='%23262b28'/%3E %3Crect x='210' y='225' width='180' height='130' rx='22' fill='%231a1d1b'/%3E %3Crect x='240' y='252' width='120' height='76' rx='12' fill='%232f3431'/%3E %3Cpath d='M300 262v56M270 290h60' stroke='%234a504c' stroke-width='10' stroke-linecap='round'/%3E %3Cpath d='M60 470c160-40 320-40 480 0' stroke='%23c9c2b0' stroke-width='10' fill='none' stroke-dasharray='2 14' stroke-linecap='round'/%3E %3Crect x='420' y='80' width='110' height='60' rx='8' fill='%23f7f3ea'/%3E%3Cpath d='M475 90l-20 32h40z' fill='%234f6b47'/%3E %3C/svg%3E"],
+      rust: ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='540' rx='170' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='160' y='250' width='40' height='190' rx='18' fill='%23874123'/%3E%3Crect x='400' y='250' width='40' height='190' rx='18' fill='%23874123'/%3E %3Crect x='150' y='330' width='44' height='120' rx='16' fill='%23c17554' opacity='.9'/%3E%3Crect x='406' y='330' width='44' height='120' rx='16' fill='%23c17554' opacity='.9'/%3E %3Crect x='180' y='150' width='240' height='380' rx='56' fill='%23b4572f'/%3E %3Cpath d='M200 236c40 18 160 18 200 0' stroke='%23874123' stroke-width='4' fill='none'/%3E %3Cpath d='M172 196c0-62 50-96 128-96s128 34 128 96c0 18-12 26-30 26H202c-18 0-30-8-30-26z' fill='%23874123'/%3E %3Cpath d='M286 100c0-24 28-24 28 0' stroke='%23262b28' stroke-width='7' fill='none'/%3E %3Crect x='268' y='150' width='64' height='34' rx='6' fill='%23f7f3ea'/%3E %3Cpath d='M300 156l-14 22h28z' fill='%23b4572f'/%3E%3Crect x='297' y='176' width='6' height='6' fill='%23b4572f'/%3E %3Crect x='214' y='300' width='172' height='200' rx='34' fill='%23c17554'/%3E %3Cg stroke='%23b4572f' stroke-width='3' opacity='.45'%3E%3Cpath d='M236 312v176'/%3E%3Cpath d='M254 312v176'/%3E%3Cpath d='M272 312v176'/%3E%3Cpath d='M290 312v176'/%3E%3Cpath d='M308 312v176'/%3E%3Cpath d='M326 312v176'/%3E%3Cpath d='M344 312v176'/%3E%3Cpath d='M362 312v176'/%3E%3C/g%3E %3Crect x='176' y='268' width='248' height='16' fill='%23262b28'/%3E%3Crect x='176' y='418' width='248' height='16' fill='%23262b28'/%3E %3Crect x='286' y='262' width='28' height='28' rx='5' fill='%231a1d1b'/%3E%3Crect x='286' y='412' width='28' height='28' rx='5' fill='%231a1d1b'/%3E %3Cpath d='M270 520c0 20 60 20 60 0' stroke='%23262b28' stroke-width='8' fill='none'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='140' ry='16' fill='%23000' opacity='.12'/%3E %3Cpath d='M240 150c-20 120-20 260 0 380h110c28-120 28-260 0-380z' fill='%23b4572f'/%3E %3Cpath d='M232 170c0-50 30-70 70-70s60 20 60 70z' fill='%23874123'/%3E %3Cpath d='M350 160c40 80 46 210 10 320' stroke='%23262b28' stroke-width='26' fill='none' stroke-linecap='round'/%3E %3Cpath d='M340 420c40 0 80 10 100 30-30 10-70 10-100 0z' fill='%23262b28'/%3E %3Crect x='222' y='350' width='70' height='150' rx='24' fill='%23c17554'/%3E %3Crect x='238' y='300' width='40' height='70' rx='10' fill='%239fc3cf' opacity='.85'/%3E%3Crect x='246' y='290' width='24' height='16' rx='4' fill='%23262b28'/%3E %3Crect x='232' y='250' width='130' height='12' fill='%23262b28'/%3E%3Crect x='232' y='420' width='130' height='12' fill='%23262b28'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='190' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='180' y='140' width='240' height='390' rx='56' fill='%23874123'/%3E %3Crect x='210' y='180' width='180' height='300' rx='36' fill='%233a3f3c'/%3E %3Cg stroke='%23555c58' stroke-width='3'%3E%3Cpath d='M222 200h156' /%3E%3Cpath d='M222 214h156' /%3E%3Cpath d='M222 228h156' /%3E%3Cpath d='M222 242h156' /%3E%3Cpath d='M222 256h156' /%3E%3Cpath d='M222 270h156' /%3E%3Cpath d='M222 284h156' /%3E%3Cpath d='M222 298h156' /%3E%3Cpath d='M222 312h156' /%3E%3Cpath d='M222 326h156' /%3E%3Cpath d='M222 340h156' /%3E%3Cpath d='M222 354h156' /%3E%3Cpath d='M222 368h156' /%3E%3Cpath d='M222 382h156' /%3E%3Cpath d='M222 396h156' /%3E%3Cpath d='M222 410h156' /%3E%3Cpath d='M222 424h156' /%3E%3Cpath d='M222 438h156' /%3E%3Cpath d='M222 452h156' /%3E%3Cpath d='M222 466h156' /%3E%3C/g%3E %3Cpath d='M232 150c-30 60-30 160 10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M368 150c30 60 30 160-10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M240 250h120' stroke='%23c17554' stroke-width='8'/%3E %3Cpath d='M110 440c40-20 340-20 380 0v40c-40-16-340-16-380 0z' fill='%23262b28'/%3E %3Crect x='270' y='438' width='60' height='30' rx='6' fill='%23b4572f'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23b4572f'/%3E %3Cg stroke='%23874123' stroke-width='2' opacity='.5'%3E%3Cpath d='M0 0h600' /%3E%3Cpath d='M0 10h600' /%3E%3Cpath d='M0 20h600' /%3E%3Cpath d='M0 30h600' /%3E%3Cpath d='M0 40h600' /%3E%3Cpath d='M0 50h600' /%3E%3Cpath d='M0 60h600' /%3E%3Cpath d='M0 70h600' /%3E%3Cpath d='M0 80h600' /%3E%3Cpath d='M0 90h600' /%3E%3Cpath d='M0 100h600' /%3E%3Cpath d='M0 110h600' /%3E%3Cpath d='M0 120h600' /%3E%3Cpath d='M0 130h600' /%3E%3Cpath d='M0 140h600' /%3E%3Cpath d='M0 150h600' /%3E%3Cpath d='M0 160h600' /%3E%3Cpath d='M0 170h600' /%3E%3Cpath d='M0 180h600' /%3E%3Cpath d='M0 190h600' /%3E%3Cpath d='M0 200h600' /%3E%3Cpath d='M0 210h600' /%3E%3Cpath d='M0 220h600' /%3E%3Cpath d='M0 230h600' /%3E%3Cpath d='M0 240h600' /%3E%3Cpath d='M0 250h600' /%3E%3Cpath d='M0 260h600' /%3E%3Cpath d='M0 270h600' /%3E%3Cpath d='M0 280h600' /%3E%3Cpath d='M0 290h600' /%3E%3Cpath d='M0 300h600' /%3E%3Cpath d='M0 310h600' /%3E%3Cpath d='M0 320h600' /%3E%3Cpath d='M0 330h600' /%3E%3Cpath d='M0 340h600' /%3E%3Cpath d='M0 350h600' /%3E%3Cpath d='M0 360h600' /%3E%3Cpath d='M0 370h600' /%3E%3Cpath d='M0 380h600' /%3E%3Cpath d='M0 390h600' /%3E%3Cpath d='M0 400h600' /%3E%3Cpath d='M0 410h600' /%3E%3Cpath d='M0 420h600' /%3E%3Cpath d='M0 430h600' /%3E%3Cpath d='M0 440h600' /%3E%3Cpath d='M0 450h600' /%3E%3Cpath d='M0 460h600' /%3E%3Cpath d='M0 470h600' /%3E%3Cpath d='M0 480h600' /%3E%3Cpath d='M0 490h600' /%3E%3Cpath d='M0 500h600' /%3E%3Cpath d='M0 510h600' /%3E%3Cpath d='M0 520h600' /%3E%3Cpath d='M0 530h600' /%3E%3Cpath d='M0 540h600' /%3E%3Cpath d='M0 550h600' /%3E%3Cpath d='M0 560h600' /%3E%3Cpath d='M0 570h600' /%3E%3Cpath d='M0 580h600' /%3E%3Cpath d='M0 590h600' /%3E%3C/g%3E %3Crect x='0' y='250' width='600' height='80' fill='%23262b28'/%3E %3Crect x='210' y='225' width='180' height='130' rx='22' fill='%231a1d1b'/%3E %3Crect x='240' y='252' width='120' height='76' rx='12' fill='%232f3431'/%3E %3Cpath d='M300 262v56M270 290h60' stroke='%234a504c' stroke-width='10' stroke-linecap='round'/%3E %3Cpath d='M60 470c160-40 320-40 480 0' stroke='%23c9c2b0' stroke-width='10' fill='none' stroke-dasharray='2 14' stroke-linecap='round'/%3E %3Crect x='420' y='80' width='110' height='60' rx='8' fill='%23f7f3ea'/%3E%3Cpath d='M475 90l-20 32h40z' fill='%23b4572f'/%3E %3C/svg%3E"],
+      slate: ["data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='540' rx='170' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='160' y='250' width='40' height='190' rx='18' fill='%2334404f'/%3E%3Crect x='400' y='250' width='40' height='190' rx='18' fill='%2334404f'/%3E %3Crect x='150' y='330' width='44' height='120' rx='16' fill='%23677484' opacity='.9'/%3E%3Crect x='406' y='330' width='44' height='120' rx='16' fill='%23677484' opacity='.9'/%3E %3Crect x='180' y='150' width='240' height='380' rx='56' fill='%2346566a'/%3E %3Cpath d='M200 236c40 18 160 18 200 0' stroke='%2334404f' stroke-width='4' fill='none'/%3E %3Cpath d='M172 196c0-62 50-96 128-96s128 34 128 96c0 18-12 26-30 26H202c-18 0-30-8-30-26z' fill='%2334404f'/%3E %3Cpath d='M286 100c0-24 28-24 28 0' stroke='%23262b28' stroke-width='7' fill='none'/%3E %3Crect x='268' y='150' width='64' height='34' rx='6' fill='%23f7f3ea'/%3E %3Cpath d='M300 156l-14 22h28z' fill='%2346566a'/%3E%3Crect x='297' y='176' width='6' height='6' fill='%2346566a'/%3E %3Crect x='214' y='300' width='172' height='200' rx='34' fill='%23677484'/%3E %3Cg stroke='%2346566a' stroke-width='3' opacity='.45'%3E%3Cpath d='M236 312v176'/%3E%3Cpath d='M254 312v176'/%3E%3Cpath d='M272 312v176'/%3E%3Cpath d='M290 312v176'/%3E%3Cpath d='M308 312v176'/%3E%3Cpath d='M326 312v176'/%3E%3Cpath d='M344 312v176'/%3E%3Cpath d='M362 312v176'/%3E%3C/g%3E %3Crect x='176' y='268' width='248' height='16' fill='%23262b28'/%3E%3Crect x='176' y='418' width='248' height='16' fill='%23262b28'/%3E %3Crect x='286' y='262' width='28' height='28' rx='5' fill='%231a1d1b'/%3E%3Crect x='286' y='412' width='28' height='28' rx='5' fill='%231a1d1b'/%3E %3Cpath d='M270 520c0 20 60 20 60 0' stroke='%23262b28' stroke-width='8' fill='none'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='140' ry='16' fill='%23000' opacity='.12'/%3E %3Cpath d='M240 150c-20 120-20 260 0 380h110c28-120 28-260 0-380z' fill='%2346566a'/%3E %3Cpath d='M232 170c0-50 30-70 70-70s60 20 60 70z' fill='%2334404f'/%3E %3Cpath d='M350 160c40 80 46 210 10 320' stroke='%23262b28' stroke-width='26' fill='none' stroke-linecap='round'/%3E %3Cpath d='M340 420c40 0 80 10 100 30-30 10-70 10-100 0z' fill='%23262b28'/%3E %3Crect x='222' y='350' width='70' height='150' rx='24' fill='%23677484'/%3E %3Crect x='238' y='300' width='40' height='70' rx='10' fill='%239fc3cf' opacity='.85'/%3E%3Crect x='246' y='290' width='24' height='16' rx='4' fill='%23262b28'/%3E %3Crect x='232' y='250' width='130' height='12' fill='%23262b28'/%3E%3Crect x='232' y='420' width='130' height='12' fill='%23262b28'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%23ebe4d6'/%3E %3Cellipse cx='300' cy='545' rx='190' ry='18' fill='%23000' opacity='.12'/%3E %3Crect x='180' y='140' width='240' height='390' rx='56' fill='%2334404f'/%3E %3Crect x='210' y='180' width='180' height='300' rx='36' fill='%233a3f3c'/%3E %3Cg stroke='%23555c58' stroke-width='3'%3E%3Cpath d='M222 200h156' /%3E%3Cpath d='M222 214h156' /%3E%3Cpath d='M222 228h156' /%3E%3Cpath d='M222 242h156' /%3E%3Cpath d='M222 256h156' /%3E%3Cpath d='M222 270h156' /%3E%3Cpath d='M222 284h156' /%3E%3Cpath d='M222 298h156' /%3E%3Cpath d='M222 312h156' /%3E%3Cpath d='M222 326h156' /%3E%3Cpath d='M222 340h156' /%3E%3Cpath d='M222 354h156' /%3E%3Cpath d='M222 368h156' /%3E%3Cpath d='M222 382h156' /%3E%3Cpath d='M222 396h156' /%3E%3Cpath d='M222 410h156' /%3E%3Cpath d='M222 424h156' /%3E%3Cpath d='M222 438h156' /%3E%3Cpath d='M222 452h156' /%3E%3Cpath d='M222 466h156' /%3E%3C/g%3E %3Cpath d='M232 150c-30 60-30 160 10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M368 150c30 60 30 160-10 230' stroke='%23262b28' stroke-width='38' fill='none' stroke-linecap='round'/%3E %3Cpath d='M240 250h120' stroke='%23677484' stroke-width='8'/%3E %3Cpath d='M110 440c40-20 340-20 380 0v40c-40-16-340-16-380 0z' fill='%23262b28'/%3E %3Crect x='270' y='438' width='60' height='30' rx='6' fill='%2346566a'/%3E %3C/svg%3E", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E %3Crect width='600' height='600' fill='%2346566a'/%3E %3Cg stroke='%2334404f' stroke-width='2' opacity='.5'%3E%3Cpath d='M0 0h600' /%3E%3Cpath d='M0 10h600' /%3E%3Cpath d='M0 20h600' /%3E%3Cpath d='M0 30h600' /%3E%3Cpath d='M0 40h600' /%3E%3Cpath d='M0 50h600' /%3E%3Cpath d='M0 60h600' /%3E%3Cpath d='M0 70h600' /%3E%3Cpath d='M0 80h600' /%3E%3Cpath d='M0 90h600' /%3E%3Cpath d='M0 100h600' /%3E%3Cpath d='M0 110h600' /%3E%3Cpath d='M0 120h600' /%3E%3Cpath d='M0 130h600' /%3E%3Cpath d='M0 140h600' /%3E%3Cpath d='M0 150h600' /%3E%3Cpath d='M0 160h600' /%3E%3Cpath d='M0 170h600' /%3E%3Cpath d='M0 180h600' /%3E%3Cpath d='M0 190h600' /%3E%3Cpath d='M0 200h600' /%3E%3Cpath d='M0 210h600' /%3E%3Cpath d='M0 220h600' /%3E%3Cpath d='M0 230h600' /%3E%3Cpath d='M0 240h600' /%3E%3Cpath d='M0 250h600' /%3E%3Cpath d='M0 260h600' /%3E%3Cpath d='M0 270h600' /%3E%3Cpath d='M0 280h600' /%3E%3Cpath d='M0 290h600' /%3E%3Cpath d='M0 300h600' /%3E%3Cpath d='M0 310h600' /%3E%3Cpath d='M0 320h600' /%3E%3Cpath d='M0 330h600' /%3E%3Cpath d='M0 340h600' /%3E%3Cpath d='M0 350h600' /%3E%3Cpath d='M0 360h600' /%3E%3Cpath d='M0 370h600' /%3E%3Cpath d='M0 380h600' /%3E%3Cpath d='M0 390h600' /%3E%3Cpath d='M0 400h600' /%3E%3Cpath d='M0 410h600' /%3E%3Cpath d='M0 420h600' /%3E%3Cpath d='M0 430h600' /%3E%3Cpath d='M0 440h600' /%3E%3Cpath d='M0 450h600' /%3E%3Cpath d='M0 460h600' /%3E%3Cpath d='M0 470h600' /%3E%3Cpath d='M0 480h600' /%3E%3Cpath d='M0 490h600' /%3E%3Cpath d='M0 500h600' /%3E%3Cpath d='M0 510h600' /%3E%3Cpath d='M0 520h600' /%3E%3Cpath d='M0 530h600' /%3E%3Cpath d='M0 540h600' /%3E%3Cpath d='M0 550h600' /%3E%3Cpath d='M0 560h600' /%3E%3Cpath d='M0 570h600' /%3E%3Cpath d='M0 580h600' /%3E%3Cpath d='M0 590h600' /%3E%3C/g%3E %3Crect x='0' y='250' width='600' height='80' fill='%23262b28'/%3E %3Crect x='210' y='225' width='180' height='130' rx='22' fill='%231a1d1b'/%3E %3Crect x='240' y='252' width='120' height='76' rx='12' fill='%232f3431'/%3E %3Cpath d='M300 262v56M270 290h60' stroke='%234a504c' stroke-width='10' stroke-linecap='round'/%3E %3Cpath d='M60 470c160-40 320-40 480 0' stroke='%23c9c2b0' stroke-width='10' fill='none' stroke-dasharray='2 14' stroke-linecap='round'/%3E %3Crect x='420' y='80' width='110' height='60' rx='8' fill='%23f7f3ea'/%3E%3Cpath d='M475 90l-20 32h40z' fill='%2346566a'/%3E %3C/svg%3E"]
+    };
+  var names = { moss: 'Moss', rust: 'Canyon Rust', slate: 'Slate' };
+  var current = 'moss', idx = 0;
+  var mainImg = document.getElementById('mainImg');
+  var thumbs = document.querySelectorAll('#thumbs button');
+
+  function render() {
+    mainImg.src = gallery[current][idx];
+    thumbs.forEach(function (b, i) {
+      b.querySelector('img').src = gallery[current][i];
+      b.classList.toggle('active', i === idx);
+    });
+  }
+  thumbs.forEach(function (b) {
+    b.addEventListener('click', function () { idx = +b.dataset.i; render(); });
+  });
+  document.querySelectorAll('input[name=color]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      current = r.value; document.getElementById('colorName').textContent = names[current]; render();
+    });
+  });
+
+  function stepQty(d) {
+    var q = document.getElementById('qty');
+    q.value = Math.min(9, Math.max(1, (+q.value || 1) + d));
+  }
+
+  var count = 2;
+  document.getElementById('addToCart').addEventListener('click', function () {
+    count += +document.getElementById('qty').value || 1;
+    document.getElementById('cartCount').textContent = count;
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    clearTimeout(window._t);
+    window._t = setTimeout(function () { t.classList.remove('show'); }, 3200);
+  });
+  document.getElementById('wish').addEventListener('click', function () { this.classList.toggle('on'); });
+
+  document.querySelectorAll('#tabs a').forEach(function (tab) {
+    tab.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('#tabs a').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  document.getElementById('findStore').addEventListener('click', function () {
+    var z = document.getElementById('store-zip').value.trim();
+    document.getElementById('storeResult').textContent = /^\d{5}$/.test(z)
+      ? '3 stores near ' + z + ' — closest: Larkspur & Pine Downtown, 4.2 mi'
+      : 'Please enter a 5-digit ZIP code.';
+  });
+
+  document.getElementById('nlForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = document.getElementById('nl-email').value;
+    document.getElementById('nlMsg').textContent = v.indexOf('@') > 0 ? 'You’re in. Watch for your first trail note Friday.' : '';
+    if (v.indexOf('@') < 1) document.getElementById('nl-email').style.borderColor = '#e0735a';
+  });
+</script>
+</body>
+</html>

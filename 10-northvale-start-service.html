@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start, Stop or Move Service | Northvale Power &amp; Light</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1d2b38;
+  background: #f5f7fa;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+a { color: #0b5fa5; }
+img { max-width: 100%; display: block; }
+
+/* Icon font stand-in (glyphs via ::before) */
+.nv { font-style: normal; display: inline-block; width: 1.15em; text-align: center; }
+.nv-bolt::before { content: "\26A1"; }
+.nv-warn::before { content: "\26A0"; }
+.nv-phone::before { content: "\260E"; }
+.nv-user::before { content: "\263A"; }
+.nv-close::before { content: "\2715"; }
+.nv-help::before { content: "?"; }
+.nv-fb::before { content: "f"; font-weight: 700; }
+.nv-x::before { content: "\1D54F"; }
+.nv-yt::before { content: "\25B6"; }
+.nv-leaf::before { content: "\2618"; }
+.nv-check::before { content: "\2714"; }
+.nv-info::before { content: "\2139"; }
+
+.alert-bar {
+  background: #ffc83d; color: #3d2c00; font-size: 14px;
+  padding: 8px 32px; display: flex; gap: 8px; align-items: center;
+}
+.alert-bar a { color: #3d2c00; font-weight: 600; }
+
+.site-header {
+  background: #fff; border-bottom: 3px solid #0b4f8a;
+  padding: 14px 32px; display: flex; align-items: center; gap: 28px;
+}
+.site-header .tools { margin-left: auto; display: flex; gap: 14px; align-items: center; font-size: 14px; }
+.site-header .tools a { text-decoration: none; color: #0b4f8a; font-weight: 600; }
+
+.main-nav { background: #0b4f8a; padding: 0 32px; }
+.main-nav ul { list-style: none; display: flex; flex-wrap: wrap; }
+.main-nav a {
+  display: block; color: #fff; text-decoration: none;
+  font-size: 14px; font-weight: 600; padding: 12px 14px;
+}
+.main-nav a:hover { background: #0a437a; }
+.main-nav a:focus { outline: none; }
+.main-nav a.current { background: #08375f; }
+
+.btn {
+  display: inline-block; padding: 11px 22px; border-radius: 4px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  border: 0; cursor: pointer; font-family: inherit;
+}
+.btn-orange { background: #e8711a; color: #1d1203; }
+.btn-orange:focus { outline: 2px solid #f8d9c2; outline-offset: 2px; }
+.btn-outline { background: #fff; color: #0b4f8a; border: 2px solid #0b4f8a; }
+.btn-outline:focus { outline: 2px solid #0b4f8a; outline-offset: 2px; }
+
+.crumbs { font-size: 13px; color: #5b6b7a; padding: 12px 32px; }
+.crumbs a { color: #5b6b7a; text-decoration: none; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+h1 { font-size: 34px; color: #0b2f52; margin: 6px 0 8px; }
+.lede { color: #44566a; max-width: 680px; margin-bottom: 24px; }
+
+/* Forms */
+.form-card { background: #fff; border: 1px solid #dbe3ea; border-radius: 8px; padding: 28px 30px; }
+.form-card h2 { font-size: 19px; color: #0b2f52; margin: 22px 0 12px; }
+.form-card h2:first-of-type { margin-top: 0; }
+.row { display: flex; gap: 16px; }
+.field { flex: 1; margin-bottom: 16px; position: relative; }
+.field label, .q { display: block; font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 10px 12px; font-size: 15px; font-family: inherit;
+  border: 1px solid #7d8ea0; border-radius: 4px; background: #fff;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid #0b5fa5; outline-offset: 0; }
+.field .hint { font-size: 13px; color: #5b6b7a; margin-top: 4px; }
+.field .err { display: none; font-size: 13px; color: #b42318; margin-top: 4px; font-weight: 600; }
+.field.invalid input { border-color: #b42318; }
+.field.invalid .err { display: block; }
+.req { color: #b42318; }
+.choices label { display: inline-flex; gap: 6px; align-items: center; margin-right: 18px; font-weight: 400; font-size: 15px; }
+fieldset { border: 0; margin-bottom: 16px; }
+legend { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.form-error { display: none; background: #fdecea; border-left: 4px solid #b42318; padding: 12px 14px; margin-bottom: 18px; font-size: 14px; }
+.form-error.show { display: block; }
+
+/* Footer */
+.site-footer { background: #0a2a47; color: #8ea4b8; margin-top: 56px; padding: 36px 32px 20px; font-size: 14px; }
+.site-footer .cols { display: flex; gap: 56px; flex-wrap: wrap; }
+.site-footer h3 { color: #fff; font-size: 15px; margin-bottom: 10px; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 6px; }
+.site-footer a { color: #b8cadb; text-decoration: none; }
+.site-footer a:focus { outline: none; color: #ffc83d; }
+.site-footer .social a { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: #16405f; color: #fff; margin-right: 6px; }
+.site-footer .fine { margin-top: 24px; border-top: 1px solid #1d4466; padding-top: 12px; font-size: 12px; color: #5d7690; }
+
+/* Virtual assistant */
+.va-launch { position: fixed; right: 22px; bottom: 22px; background: #0b4f8a; color: #fff; border: 0; border-radius: 26px; padding: 12px 18px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.2); }
+.va-panel { position: fixed; right: 22px; bottom: 78px; width: 310px; background: #fff; border: 1px solid #dbe3ea; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.2); display: none; font-size: 14px; }
+.va-panel.open { display: block; }
+.va-panel .head { background: #0b4f8a; color: #fff; padding: 10px 14px; border-radius: 10px 10px 0 0; font-weight: 600; display: flex; justify-content: space-between; }
+.va-panel .head button { background: none; border: 0; color: #fff; cursor: pointer; }
+.va-panel .msgs { padding: 12px 14px; height: 130px; color: #44566a; }
+.va-panel .compose { display: flex; border-top: 1px solid #dbe3ea; }
+.va-panel .compose input { flex: 1; border: 0; padding: 10px 12px; font-size: 14px; }
+.va-panel .compose button { border: 0; background: #e8711a; color: #1d1203; font-weight: 700; padding: 0 14px; cursor: pointer; }
+</style>
+<style>
+.hero { position: relative; overflow: hidden; background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAwIiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDE0MDAgMzgwIj4KICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwYjNiNjYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxZjZmYWUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTQwMCIgaGVpZ2h0PSIzODAiIGZpbGw9InVybCgjcykiLz4KICA8cGF0aCBkPSJNMCAzMDAgTDIwMCAyNTAgTDQyMCAyOTAgTDY0MCAyMzAgTDg4MCAyODAgTDExMDAgMjIwIEwxNDAwIDI3MCBWMzgwIEgwWiIgZmlsbD0iIzBhMmY1MiIvPgogIDxnIHN0cm9rZT0iIzljYzNlNiIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBvcGFjaXR5PSIuNiI+CiAgICA8cGF0aCBkPSJNOTgwIDkwIEw5ODAgMzAwIE05NDAgMTEwIEwxMDIwIDExMCBNOTUwIDE0MCBMMTAxMCAxNDAiLz4KICAgIDxwYXRoIGQ9Ik0xMTgwIDcwIEwxMTgwIDMwMCBNMTE0MCA5MCBMMTIyMCA5MCBNMTE1MCAxMjAgTDEyMTAgMTIwIi8+CiAgICA8cGF0aCBkPSJNMTAyMCAxMTAgUTExMDAgMTUwIDExNDAgOTAgTTEwMTAgMTQwIFExMTAwIDE3NSAxMTUwIDEyMCIvPgogIDwvZz4KICA8cmVjdCB4PSIxMDAwIiB5PSIzMDAiIHdpZHRoPSIzMzAiIGhlaWdodD0iNTQiIHJ4PSIyNyIgZmlsbD0iI2ZmYzgzZCIvPgogIDx0ZXh0IHg9IjExNjUiIHk9IjMzNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjIwIiBmaWxsPSIjMGIyZjUyIj5SQVRFUyBGUk9aRU4gVEhST1VHSCAyMDI3PC90ZXh0Pgo8L3N2Zz4K") center / cover no-repeat; color: #fff; padding: 46px 32px 60px; }
+.hero video { position: absolute; right: 0; top: 0; height: 100%; width: 38%; object-fit: cover; opacity: .35; }
+.hero h1 { color: #fff; position: relative; }
+.hero p { position: relative; max-width: 560px; color: #dbe9f6; font-size: 17px; }
+
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 36px; margin-top: 32px; }
+
+.tips { background: #e9f3fb; border: 1px solid #c6dcee; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; gap: 10px; align-items: center; min-height: 58px; }
+.tips p { display: none; font-size: 15px; }
+.tips p.on { display: block; }
+
+.howto { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 14px; margin-bottom: 28px; }
+.howto div { flex: 1; background: #fff; border: 1px solid #dbe3ea; border-radius: 8px; padding: 14px 16px; font-size: 14px; }
+.howto b { display: block; color: #0b4f8a; font-size: 13px; letter-spacing: .5px; }
+
+.need-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.need-table td { vertical-align: top; padding: 0 18px 0 0; font-size: 14px; color: #44566a; width: 33%; }
+.need-table .t { font-weight: 700; color: #1d2b38; display: block; margin-bottom: 4px; }
+
+.important { font-weight: 700; color: #8a1f11; }
+
+.plans { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+.plan { border: 2px solid #dbe3ea; border-radius: 8px; padding: 14px 16px; font-size: 14px; }
+.plan.rec { border-color: #3c9a5f; }
+.plan h3 { font-size: 16px; margin-bottom: 4px; }
+.plan .rate { font-size: 22px; font-weight: 700; color: #0b2f52; }
+
+.tipwrap { position: relative; display: inline-block; margin-left: 6px; }
+.tiptrig { display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #e9f3fb; color: #0b4f8a; font-size: 12px; font-weight: 700; text-align: center; line-height: 20px; cursor: help; }
+.tipbox { position: absolute; left: -10px; top: 100%; width: 250px; background: #0b2f52; color: #fff; font-size: 13px; font-weight: 400; padding: 10px 12px; border-radius: 6px; display: none; z-index: 5; }
+.tipbox.show { display: block; }
+#tipb { top: calc(100% + 12px); }
+
+.captcha { display: flex; gap: 12px; align-items: center; }
+.captcha img { border: 1px solid #c3cfda; border-radius: 4px; }
+#promo { border: 1px solid #e4ebf1; }
+
+aside .box { background: #fff; border: 1px solid #dbe3ea; border-radius: 8px; padding: 18px 20px; margin-bottom: 18px; font-size: 14px; color: #44566a; }
+aside h3 { font-size: 16px; color: #0b2f52; margin-bottom: 8px; }
+aside .box.fixed { height: 210px; overflow: hidden; }
+.body-links a { color: #2c5578; text-decoration: none; }
+.divider { margin: 36px auto 0; }
+</style>
+</head>
+<body>
+
+<div class="alert-bar"><i class="nv nv-warn"></i> Planned maintenance Saturday 2–4 AM may briefly affect online account access. <a href='/11-northvale-outage-center'>Outage center</a></div>
+
+<header class="site-header">
+  <a href="#"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMzAiIGhlaWdodD0iNTIiIHZpZXdCb3g9IjAgMCAyMzAgNTIiPgogIDxjaXJjbGUgY3g9IjI2IiBjeT0iMjYiIHI9IjIyIiBmaWxsPSIjMGI0ZjhhIi8+CiAgPHBhdGggZD0iTTI5IDggTDE1IDI5IEgyNSBMMjEgNDQgTDM3IDIxIEgyNyBaIiBmaWxsPSIjZmZjODNkIi8+CiAgPHRleHQgeD0iNTgiIHk9IjI3IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjEiIGZpbGw9IiMwYjRmOGEiPk5PUlRIVkFMRTwvdGV4dD4KICA8dGV4dCB4PSI1OSIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGV0dGVyLXNwYWNpbmc9IjEuNiIgZmlsbD0iIzRiNmQ4YyI+UE9XRVIgJmFtcDsgTElHSFQ8L3RleHQ+Cjwvc3ZnPgo=" alt="nv_logo_final" width="230" height="52"></a>
+  <div class="tools">
+    <a href="tel:+18005550199"><i class="nv nv-phone"></i> 1-800-555-0199</a>
+    <a href="#"><i class="nv nv-user"></i> Sign in</a>
+    <a href="#" class="btn btn-orange" style="color:#1d1203">Pay My Bill</a>
+  </div>
+</header>
+
+<nav class="main-nav" aria-label="Main">
+  <ul>
+    <li><a href="#">Residential</a></li>
+    <li><a href="#">Business</a></li>
+    <li><a class='current' href='/10-northvale-start-service'>Start / Stop / Move</a></li>
+    <li><a href="#">Billing &amp; Payment</a></li>
+    <li><a href="#">Rates</a></li>
+    <li><a href="#">Save Energy</a></li>
+    <li><a href="#">Solar &amp; EV</a></li>
+    <li><a href='/11-northvale-outage-center'>Outages</a></li>
+    <li><a href="#">Safety</a></li>
+    <li><a href="#">About Us</a></li>
+  </ul>
+</nav>
+
+<div class="crumbs"><a href="#">Home</a> / <a href="#">Residential</a> / Start, stop or move service</div>
+
+<div class="hero">
+  <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" autoplay muted loop playsinline></video>
+  <h1>Start, stop or move your service</h1>
+  <p>Moving to or within our service area? Set up power at your new address in about five minutes.</p>
+</div>
+
+<div class="wrap">
+  <div class="layout">
+    <div>
+      <div class="tips" id="tips">
+        <i class="nv nv-leaf"></i>
+        <p class="on">Tip: Set your thermostat to 68°F in winter to save up to 10% a year on heating.</p>
+        <p>Tip: LED bulbs use at least 75% less energy than incandescent bulbs.</p>
+        <p>Tip: Wash clothes in cold water. About 90% of a washer's energy goes to heating water.</p>
+        <p>Tip: Unplug chargers and small appliances when you're not using them.</p>
+      </div>
+
+      <div class="howto">
+        <div><b>3</b>We confirm by email and your power is on by 5 PM on your start date.</div>
+        <div><b>2</b>Pick a start date at least two business days out.</div>
+        <div><b>1</b>Tell us who you are and where you're moving.</div>
+      </div>
+
+      <table class="need-table">
+        <tr>
+          <td><span class="t">Your ID</span>Last four digits of your Social Security number or a state ID number.</td>
+          <td><span class="t">New address</span>The full service address, including apartment or unit number.</td>
+          <td><span class="t">Start date</span>Same-day starts aren't available online. Call us for urgent requests.</td>
+        </tr>
+      </table>
+
+      <p style="font-size:15px;margin-bottom:20px"><span class="important">A deposit may be required if you haven't had service with us in the last 12 months.</span> We'll let you know before your service starts.</p>
+
+      <div class="form-error" id="form-error">There's a problem with your request. Check the fields shown in red.</div>
+
+      <form class="form-card" id="start" novalidate>
+        <h2>Step A</h2>
+        <div class="row">
+          <div class="field">
+            <label for="fullname">Full name <span class="req">*</span></label>
+            <input id="fullname" type="text" autocomplete="nope">
+          </div>
+          <div class="field">
+            <label for="ssn4">ID <span class="req">*</span><span class="tipwrap"><span class="tiptrig" id="tipa-t" tabindex="0">?</span><span class="tipbox" id="tipa">We use the last four digits to verify your identity and check for an existing account. We never store your full SSN.</span></span></label>
+            <input id="ssn4" type="text" inputmode="numeric">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field" id="f-email">
+            <label for="e-mail">Email <span class="req">*</span></label>
+            <input id="email" type="email" autocomplete="email">
+            <div class="err">Enter an email address in the format name@example.com.</div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input id="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+
+        <h2>Details</h2>
+        <div class="row">
+          <div class="field" style="flex:2">
+            <label for="addr">Service address <span class="req">*</span></label>
+            <input id="addr" type="text" autocomplete="address">
+          </div>
+          <div class="field">
+            <input id="unit" type="text" placeholder="Apt / Unit" style="margin-top:24px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field" id="f-zip">
+            <input id="zip" type="text" placeholder="ZIP" autocomplete="postal-code">
+            <p class="hint">5 digits</p>
+            <div class="err">Invalid entry.</div>
+          </div>
+          <div class="field" id="f-date">
+            <label for="startdate">Start date <span class="req">*</span></label>
+            <input id="startdate" type="text">
+            <div class="err">Date error.</div>
+          </div>
+        </div>
+
+        <fieldset class="choices">
+          <legend>Account type <span class="req">*</span></legend>
+          <label><input type="radio" name="acct" value="res"> Residential</label>
+          <label><input type="radio" name="acct" value="biz"> Business</label>
+        </fieldset>
+
+        <div class="field">
+          <p class="q">Are there dogs on the property? <span class="tipwrap"><span class="tiptrig" id="tipb-t">?</span><span class="tipbox" id="tipb">Our meter readers need safe access to your meter. Let us know about pets so we can plan visits.</span></span></p>
+          <div class="choices">
+            <label><input type="radio" name="dogs" value="yes"> Yes</label>
+            <label><input type="radio" name="dogs" value="no"> No</label>
+          </div>
+        </div>
+
+        <p class="q" style="margin-bottom:8px">Choose a rate plan</p>
+        <div class="plans">
+          <div class="plan rec">
+            <h3>Standard Residential</h3>
+            <div class="rate">13.2¢ <small style="font-size:13px;font-weight:400">/ kWh</small></div>
+            <p>Same price any time of day.</p>
+          </div>
+          <div class="plan">
+            <h3>Time of Use</h3>
+            <div class="rate">9.8–21.4¢ <small style="font-size:13px;font-weight:400">/ kWh</small></div>
+            <p>Lower prices overnight and on weekends.</p>
+          </div>
+        </div>
+
+        <div class="choices" style="margin-bottom:16px">
+          <label><input type="checkbox" id="autopay"> Enroll in AutoPay</label>
+          <span class="tipwrap"><span class="tiptrig" id="tipc-t" tabindex="0">?</span><span class="tipbox" id="tipc">AutoPay drafts your bill from your bank account on the due date. You can cancel any time.</span></span>
+        </div>
+
+        <div class="field" style="max-width:260px">
+          <label for="promo">Code</label>
+          <input id="promo" type="text">
+        </div>
+
+        <div class="field">
+          <label for="cap">Enter the characters in the image</label>
+          <div class="captcha">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzAiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCAxNzAgNTYiPgogIDxyZWN0IHdpZHRoPSIxNzAiIGhlaWdodD0iNTYiIGZpbGw9IiNlOGVkZjIiLz4KICA8cGF0aCBkPSJNMCAxOCBRNDAgNTAgODUgMjIgVDE3MCAzNCIgc3Ryb2tlPSIjOWFhOGI2IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KICA8ZyBmb250LWZhbWlseT0iQ291cmllciBOZXcsIG1vbm9zcGFjZSIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzNjNGE1OCI+CiAgICA8dGV4dCB4PSIxMiIgeT0iNDAiIHRyYW5zZm9ybT0icm90YXRlKDEwIDIyIDQwKSI+ODwvdGV4dD48dGV4dCB4PSI0MCIgeT0iMzYiIHRyYW5zZm9ybT0icm90YXRlKC0xNCA1MCAzNikiPmg8L3RleHQ+CiAgICA8dGV4dCB4PSI2OCIgeT0iNDIiIHRyYW5zZm9ybT0icm90YXRlKDYgNzggNDIpIj5SPC90ZXh0Pjx0ZXh0IHg9Ijk2IiB5PSIzNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTA2IDM1KSI+MjwvdGV4dD4KICAgIDx0ZXh0IHg9IjEyNCIgeT0iNDEiIHRyYW5zZm9ybT0icm90YXRlKDEyIDEzNCA0MSkiPm08L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" alt="security image" width="170" height="56">
+            <input id="cap" type="text" style="width:140px">
+          </div>
+        </div>
+
+        <p style="font-size:14px;color:#44566a;margin:4px 0 14px">When you're done, click the orange button below to continue.</p>
+        <button type="submit" class="btn btn-orange">Continue</button>
+      </form>
+    </div>
+
+    <aside>
+      <div class="box fixed">
+        <h3>Stopping service?</h3>
+        <p>Give us at least two business days' notice. We'll take a final meter reading on your stop date, and your final bill will be mailed to your forwarding address within 10 days. Any deposit is applied to that bill first.</p>
+      </div>
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzQwIDIwMCI+CiAgPHJlY3Qgd2lkdGg9IjM0MCIgaGVpZ2h0PSIyMDAiIHJ4PSIxMiIgZmlsbD0iI2U2ZjJlOSIvPgogIDxwYXRoIGQ9Ik00MCAxNTAgUTcwIDYwIDE1MCA1MCBRMTIwIDEyMCA0MCAxNTBaIiBmaWxsPSIjM2M5YTVmIi8+CiAgPHRleHQgeD0iMTcwIiB5PSI3OCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjI2IiBmaWxsPSIjMWY1YzM2Ij5HbyBwYXBlcmxlc3M8L3RleHQ+CiAgPHRleHQgeD0iMTcwIiB5PSIxMTIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzJkNmI0NSI+YW5kIGdldCBhPC90ZXh0PgogIDx0ZXh0IHg9IjE3MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMzQiIGZpbGw9IiMxZjVjMzYiPiQ1IGNyZWRpdDwvdGV4dD4KICA8dGV4dCB4PSIxNzAiIHk9IjE3NiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBmaWxsPSIjNGY3ZDYwIj5vbiB5b3VyIG5leHQgYmlsbDwvdGV4dD4KPC9zdmc+Cg==" alt="Go paperless" width="340" height="200" style="margin-bottom:18px">
+      <div class="box body-links">
+        <h3>Moving help</h3>
+        <p>See our <a href="#">moving checklist</a> and the <a href="#">new customer guide</a>. Questions about deposits? <a href="#" style="color:#0b5fa5;text-decoration:underline">Read the deposit policy</a>.</p>
+        <p style="margin-top:10px"><a href="#">Learn more</a></p>
+      </div>
+    </aside>
+  </div>
+  <img class="divider" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxODAgMjQiPgogIDxsaW5lIHgxPSIwIiB5MT0iMTIiIHgyPSI3NiIgeTI9IjEyIiBzdHJva2U9IiNjOWQ4ZTYiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIxMDQiIHkxPSIxMiIgeDI9IjE4MCIgeTI9IjEyIiBzdHJva2U9IiNjOWQ4ZTYiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Ik05MyAxIEw4MiAxNCBIODkgTDg2IDIzIEw5OCAxMCBIOTEgWiIgZmlsbD0iI2ZmYzgzZCIvPgo8L3N2Zz4K" width="180" height="24">
+</div>
+
+<footer class="site-footer">
+  <div class="cols">
+    <div>
+      <h3>Customer Service</h3>
+      <ul>
+        <li><a href="tel:+18005550199">1-800-555-0199</a></li>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Payment locations</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Account</h3>
+      <ul>
+        <li><a href="#">Pay my bill</a></li>
+        <li><a href='/10-northvale-start-service'>Start, stop or move</a></li>
+        <li><a href='/11-northvale-outage-center'>Report an outage</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow us</h3>
+      <div class="social">
+        <a href="https://facebook.example.com/northvale"><i class="nv nv-fb"></i></a>
+        <a href="https://x.example.com/northvale"><i class="nv nv-x"></i></a>
+        <a href="https://youtube.example.com/northvale"><i class="nv nv-yt"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="fine">© 2026 Northvale Power &amp; Light Company. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a></p>
+</footer>
+
+<button class="va-launch" id="va-launch"><i class="nv nv-bolt"></i> Ask Volt</button>
+<div class="va-panel" id="va-panel">
+  <div class="head">Volt, your virtual assistant <button id="va-close"><i class="nv nv-close"></i></button></div>
+  <div class="msgs">Hi, I'm Volt! Ask me about billing, outages or starting service.</div>
+  <div class="compose">
+    <input type="text" id="va-input" placeholder="Ask a question…">
+    <button type="button">Send</button>
+  </div>
+</div>
+
+<script>
+// Energy tips rotate every 6 seconds
+(function () {
+  var ps = document.querySelectorAll('#tips p'), i = 0;
+  setInterval(function () {
+    ps[i].classList.remove('on'); i = (i + 1) % ps.length; ps[i].classList.add('on');
+  }, 6000);
+})();
+
+// "ID" help: hover/focus, hoverable, no Escape
+(function () {
+  var w = document.getElementById('tipa-t').parentNode, t = document.getElementById('tipa'), g = document.getElementById('tipa-t');
+  w.addEventListener('mouseenter', function () { t.classList.add('show'); });
+  w.addEventListener('mouseleave', function () { t.classList.remove('show'); });
+  g.addEventListener('focus', function () { t.classList.add('show'); });
+  g.addEventListener('blur', function () { t.classList.remove('show'); });
+})();
+
+// Dogs help: bound to the icon only; tooltip sits below a gap
+(function () {
+  var g = document.getElementById('tipb-t'), t = document.getElementById('tipb');
+  g.addEventListener('mouseenter', function () { t.classList.add('show'); });
+  g.addEventListener('mouseleave', function () { t.classList.remove('show'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') t.classList.remove('show'); });
+})();
+
+// AutoPay help: disappears after 3 seconds
+(function () {
+  var g = document.getElementById('tipc-t'), t = document.getElementById('tipc'), timer;
+  function show() { t.classList.add('show'); clearTimeout(timer); timer = setTimeout(function () { t.classList.remove('show'); }, 3000); }
+  g.addEventListener('mouseenter', show); g.addEventListener('focus', show);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') t.classList.remove('show'); });
+})();
+
+document.getElementById('start').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var bad = false;
+  function check(id, ok) { document.getElementById(id).classList.toggle('invalid', !ok); if (!ok) bad = true; }
+  check('f-email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(document.getElementById('email').value));
+  check('f-zip', /^\d{5}$/.test(document.getElementById('zip').value));
+  check('f-date', /^\d{2}\/\d{2}\/\d{4}$/.test(document.getElementById('startdate').value));
+  document.getElementById('form-error').classList.toggle('show', bad);
+});
+
+// Virtual assistant
+(function () {
+  var p = document.getElementById('va-panel'), inp = document.getElementById('va-input');
+  document.getElementById('va-launch').addEventListener('click', function () { p.classList.add('open'); inp.focus(); });
+  document.getElementById('va-close').addEventListener('click', function () { p.classList.remove('open'); });
+  // Keep the cursor in the question box while the assistant is open
+  inp.addEventListener('keydown', function (e) { if (e.key === 'Tab') { e.preventDefault(); inp.focus(); } });
+})();
+</script>
+</body>
+</html>

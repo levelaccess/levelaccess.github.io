@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Lanternfish Audio — Independent podcasts for the small hours</title>
+<meta name="description" content="Lanternfish Audio is an independent, listener-supported podcast collective. Small Hours, The Long Haul, Kitchen Table Science and Second Chair.">
+<style>
+  @font-face {
+    font-family: 'lanternicons';
+    src: url(data:application/font-woff;charset=utf-8;base64,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) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  [class^="li-"], [class*=" li-"] {
+    font-family: 'lanternicons' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  .li-play:before { content: "\e900"; }
+  .li-pause:before { content: "\e901"; }
+  .li-skip-back:before { content: "\e902"; }
+  .li-skip-forward:before { content: "\e903"; }
+  .li-volume:before { content: "\e904"; }
+  .li-download:before { content: "\e905"; }
+  .li-share:before { content: "\e906"; }
+  .li-rss:before { content: "\e907"; }
+  .li-search:before { content: "\e908"; }
+  .li-heart:before { content: "\e909"; }
+  .li-menu:before { content: "\e90a"; }
+  .li-close:before { content: "\e90b"; }
+  .li-gear:before { content: "\e90c"; }
+  .li-info:before { content: "\e90d"; }
+  .li-star:before { content: "\e90e"; }
+  .li-check:before { content: "\e90f"; }
+  .li-warning:before { content: "\e910"; }
+  .li-clock:before { content: "\e911"; }
+  .li-mic:before { content: "\e912"; }
+  .li-headphones:before { content: "\e913"; }
+  .li-calendar:before { content: "\e914"; }
+  .li-pin:before { content: "\e915"; }
+  .li-chevron-right:before { content: "\e916"; }
+  .li-arrow-right:before { content: "\e917"; }
+  .li-external:before { content: "\e918"; }
+  .li-cc:before { content: "\e919"; }
+  .li-transcript:before { content: "\e91a"; }
+  .li-lock:before { content: "\e91b"; }
+  .li-user:before { content: "\e91c"; }
+  .li-mail:before { content: "\e91d"; }
+  .li-phone:before { content: "\e91e"; }
+  .li-plus:before { content: "\e91f"; }
+  .li-minus:before { content: "\e920"; }
+  .li-chat:before { content: "\e921"; }
+  .li-book:before { content: "\e922"; }
+  .li-home:before { content: "\e923"; }
+  .li-bell:before { content: "\e924"; }
+  .li-bolt:before { content: "\e925"; }
+  .li-refresh:before { content: "\e926"; }
+
+  :root {
+    --night: #161a30;
+    --plum: #31304d;
+    --plum-2: #252640;
+    --gold: #f6b17a;
+    --cream: #f0ece5;
+    --muted: #a9a6bd;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--night); color: var(--cream); font: 16px/1.6 "Inter", "Segoe UI", system-ui, -apple-system, sans-serif; }
+  a { color: var(--gold); text-decoration: none; }
+  :focus { outline: 2px solid #3a3d5c; outline-offset: 2px; }
+  img { display: block; max-width: 100%; height: auto; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, "Times New Roman", serif; font-weight: 700; line-height: 1.1; margin: 0; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+  button { font: inherit; color: inherit; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--cream); font-family: Georgia, serif; font-size: 22px; font-weight: 700; letter-spacing: .01em; }
+  .brand svg { width: 34px; height: 34px; }
+  .nav { display: flex; gap: 28px; align-items: center; font-size: 15px; }
+  .nav a { color: var(--cream); opacity: .85; }
+  .nav a:hover { opacity: 1; color: var(--gold); }
+  .icon-btn { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--plum); display: grid; place-items: center; cursor: pointer; font-size: 18px; }
+  .icon-btn:hover { background: #3f3e63; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--night); font-weight: 700; padding: 10px 18px; border-radius: 999px; font-size: 14px; border: 0; cursor: pointer; }
+  .nav a.pill { color: var(--night); opacity: 1; }
+  .pill.ghost { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1.5px #4a4970; }
+
+  .hero { display: grid; grid-template-columns: 420px 1fr; gap: 56px; align-items: center; padding: 40px 0 70px; }
+  .hero-art { border-radius: 24px; overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
+  .kicker { color: var(--gold); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 700; }
+  .hero h1 { font-size: 4.4vw; margin: 12px 0 14px; max-width: 14ch; }
+  .hero .meta { display: flex; gap: 18px; color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero p.desc { color: #cfcbe0; max-width: 56ch; font-size: 17px; height: 112px; overflow: hidden; }
+
+  .player { margin-top: 26px; background: var(--plum-2); border-radius: 18px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; }
+  .player .play { width: 56px; height: 56px; border-radius: 50%; background: var(--gold); color: var(--night); border: 0; font-size: 22px; display: grid; place-items: center; cursor: pointer; flex: none; }
+  .player .ctl { background: none; border: 0; font-size: 20px; color: var(--cream); cursor: pointer; opacity: .85; padding: 6px; }
+  .player .ctl:hover { opacity: 1; }
+  .track { flex: 1; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .bar { flex: 1; height: 6px; background: #3b3a5c; border-radius: 3px; position: relative; cursor: pointer; }
+  .bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); border-radius: 3px; }
+  .rate { background: #3b3a5c; border: 0; border-radius: 6px; padding: 3px 8px; font-size: 12px; cursor: pointer; }
+
+  .notes { margin-top: 22px; font-size: 15px; color: #cfcbe0; }
+  .notes a { color: var(--gold); }
+
+  section { padding: 70px 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; gap: 20px; }
+  .sec-head h2 { font-size: 38px; }
+  .sec-head p { color: var(--muted); margin: 6px 0 0; }
+
+  .shows { background: #1d2140; }
+  .show-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .show { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px; background: var(--plum-2); border-radius: 18px; padding: 14px 14px 20px; }
+  .show img { border-radius: 12px; }
+  .show h3 { font-size: 22px; }
+  .show .host { font-size: 13px; color: var(--gold); }
+  .show p { margin: 0; font-size: 14px; color: #cfcbe0; }
+  .show .cadence { font-size: 12px; color: var(--muted); }
+
+  .eps { display: flex; flex-direction: column; }
+  .ep { display: grid; grid-template-columns: 72px 1fr auto; gap: 18px; align-items: center; padding: 16px 0; border-bottom: 1px solid #2a2c4a; position: relative; }
+  .ep img { border-radius: 10px; }
+  .ep .ep-title { font-size: 17px; font-weight: 600; color: var(--cream); line-height: 1.3; }
+  .ep .sub { font-size: 13px; color: var(--muted); display: flex; gap: 14px; }
+  .ep .sub span { display: inline-flex; gap: 5px; align-items: center; }
+  .ep .acts { display: flex; gap: 16px; font-size: 14px; font-weight: 600; }
+  .ep .acts a.more { color: var(--muted); }
+  .peek { display: none; position: absolute; left: 90px; top: 100%; z-index: 10; width: 380px; background: var(--cream); color: var(--night); padding: 16px 18px; border-radius: 14px; font-size: 14px; box-shadow: 0 20px 40px -12px rgba(0,0,0,.6); }
+  .peek.show { display: block; }
+  .peek b { display: block; margin-bottom: 4px; }
+
+  .videos { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .vid { background: var(--plum-2); border-radius: 18px; overflow: hidden; }
+  .vid video { width: 100%; aspect-ratio: 16/9; background: #000; display: block; }
+  .vid .cap { padding: 18px 22px 22px; }
+  .vid h3 { font-size: 22px; margin-bottom: 6px; }
+  .vid p { margin: 0; color: #cfcbe0; font-size: 15px; }
+  details { margin-top: 14px; font-size: 14px; color: #cfcbe0; }
+  summary { cursor: pointer; color: var(--gold); font-weight: 600; }
+  details p { margin: 8px 0 0 !important; font-size: 14px !important; }
+
+  .ask { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; background: linear-gradient(135deg, #2b2a4a, #1d2140); border-radius: 26px; padding: 44px; }
+  .ask > * { min-width: 0; }
+  .ask h2 { font-size: 34px; margin-bottom: 10px; }
+  .ask p { color: #cfcbe0; }
+  .ask form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .ask label { font-size: 13px; font-weight: 700; display: block; margin-bottom: 6px; color: var(--cream); }
+  .ask input, .ask textarea, .ask select { width: 100%; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 10px; border: 1.5px solid #46456b; background: #1a1c33; color: var(--cream); }
+  .ask textarea { min-height: 110px; resize: vertical; }
+  .captcha { background: #1a1c33; border-radius: 12px; padding: 14px; border: 1px dashed #46456b; }
+  .captcha .row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; font-size: 14px; color: #cfcbe0; }
+  .captcha audio { height: 34px; flex: 1; min-width: 0; }
+  .form-msg { color: #9be3b5; font-size: 14px; min-height: 1.4em; }
+
+  footer { border-top: 1px solid #2a2c4a; margin-top: 40px; padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer .links { display: flex; gap: 22px; flex-wrap: wrap; }
+  footer .links a { color: var(--muted); }
+  .social { display: flex; gap: 10px; }
+  .social a { width: 38px; height: 38px; border-radius: 50%; background: var(--plum); display: grid; place-items: center; color: var(--cream); font-size: 16px; }
+
+  @media (min-width: 1001px) and (max-width: 1050px) { .hero p.desc { height: 138px; } }
+  @media (min-width: 471px) and (max-width: 550px) { .hero p.desc { height: 138px; } }
+  @media (min-width: 396px) and (max-width: 470px) { .hero p.desc { height: 166px; } }
+  @media (min-width: 336px) and (max-width: 395px) { .hero p.desc { height: 192px; } }
+  @media (max-width: 335px) { .hero p.desc { height: 222px; } }
+  @media (max-width: 1000px) {
+    .nav a { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-art { max-width: 360px; }
+    .hero h1 { font-size: 7vw; }
+    .show-grid { grid-template-columns: 1fr 1fr; }
+    .videos, .ask { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 18px; }
+    .hero h1 { font-size: 9vw; }
+    .show-grid { grid-template-columns: 1fr; }
+    .ep { grid-template-columns: 56px 1fr; }
+    .ep .acts { grid-column: 2; }
+    .peek { left: 0; width: 100%; }
+    .ask { padding: 26px 20px; }
+    .player { flex-wrap: wrap; }
+    .track { flex-basis: 100%; order: 3; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="#" class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c8 0 14 6 14 14 0 10-14 18-14 18S6 28 6 18C6 10 12 4 20 4z" fill="#f6b17a"/><circle cx="20" cy="18" r="6" fill="#161a30"/><circle cx="20" cy="18" r="3" fill="#fff4d6"/><path d="M20 4V0" stroke="#f6b17a" stroke-width="3"/></svg> Lanternfish</a>
+    <nav class="nav">
+      <a href="#shows">Shows</a>
+      <a href="#episodes">Episodes</a>
+      <a href="#watch">Watch</a>
+      <a href="#ask">Ask us</a>
+      <button class="icon-btn" id="searchBtn"><i class="li-search"></i></button>
+      <a href="#" class="pill"><i class="li-rss"></i> Subscribe</a>
+    </nav>
+  </header>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-art"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231d2150'/%3E%3Cstop offset='1' stop-color='%235b3f78'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='600' height='600' fill='url(%23g)'/%3E%3Ccircle cx='80' cy='90' r='2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='150' cy='200' r='1.5' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='420' cy='70' r='2.2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='520' cy='160' r='1.4' fill='%23fff' opacity='0.6'/%3E%3Ccircle cx='300' cy='120' r='1.2' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='470' cy='260' r='1.8' fill='%23fff' opacity='0.8'/%3E%3Ccircle cx='60' cy='300' r='1.3' fill='%23fff' opacity='0.5'/%3E%3Ccircle cx='240' cy='60' r='1.6' fill='%23fff' opacity='0.8'/%3E %3Ccircle cx='420' cy='190' r='80' fill='%23f6b17a'/%3E%3Ccircle cx='452' cy='170' r='72' fill='%2328285a'/%3E %3Cpath d='M0 470c120-40 200-30 300 0s200 40 300 0v130H0z' fill='%23141631'/%3E %3Crect x='120' y='400' width='26' height='70' fill='%23f6d27a' opacity='.9'/%3E%3Crect x='170' y='380' width='26' height='90' fill='%23141631'/%3E%3Crect x='176' y='392' width='14' height='14' fill='%23f6d27a'/%3E %3Ctext x='50' y='555' font-family='Georgia, serif' font-size='66' font-weight='700' fill='%23f0ece5' letter-spacing='2'%3ESMALL HOURS%3C/text%3E%3C/svg%3E" alt="" width="600" height="600"></div>
+      <div>
+        <span class="kicker">New episode &middot; Small Hours</span>
+        <h1>Ep. 142: The Night Shift Nurse</h1>
+        <div class="meta">
+          <span><i class="li-calendar"></i> Oct 7, 2026</span>
+          <span><i class="li-clock"></i> 48 min</span>
+          <span><i class="li-mic"></i> Noor Haddad</span>
+        </div>
+        <p class="desc">Dana has worked nights in a pediatric ICU for nineteen years. She talks with Noor about the strange intimacy of 4am, the parents who never leave, the snack-drawer economy of the break room, and why she has never once wanted the day shift.</p>
+
+        <div class="player" id="player">
+          <button class="ctl" id="back15"><i class="li-skip-back"></i></button>
+          <button class="play" id="playBtn"><i class="li-pause" id="playIcon"></i></button>
+          <button class="ctl" id="fwd30"><i class="li-skip-forward"></i></button>
+          <div class="track"><span id="cur">0:00</span><div class="bar" id="bar"><i id="fill"></i></div><span>48:12</span></div>
+          <button class="rate" id="rate">1x</button>
+          <button class="ctl"><i class="li-volume"></i></button>
+          <a class="ctl" href="media/small-hours-142.mp3" download><i class="li-download"></i></a>
+          <button class="ctl"><i class="li-share"></i></button>
+        </div>
+        <audio id="audio" src="media/small-hours-142.mp3" autoplay preload="auto"></audio>
+
+        <div class="notes">
+          Mentioned in this episode: the <a href="#">night-shift sleep study</a> Dana cites, and the <a href="#">nurse-run snack co-op</a> that started on her floor. Support the show at <a href="#">lanternfish.example/members</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="shows" id="shows">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2>Our shows</h2><p>Four independent shows, one small team, zero ads you'd skip.</p></div>
+        <a href="#" class="pill ghost">All shows <i class="li-arrow-right"></i></a>
+      </div>
+      <div class="show-grid">
+        <div class="show">
+          <span class="cadence">New episodes Tuesdays</span>
+          <p>Long, unhurried conversations with people whose work happens while everyone else is asleep.</p>
+          <span class="host">Hosted by Noor Haddad</span>
+          <h3>Small Hours</h3>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231d2150'/%3E%3Cstop offset='1' stop-color='%235b3f78'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='600' height='600' fill='url(%23g)'/%3E%3Ccircle cx='80' cy='90' r='2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='150' cy='200' r='1.5' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='420' cy='70' r='2.2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='520' cy='160' r='1.4' fill='%23fff' opacity='0.6'/%3E%3Ccircle cx='300' cy='120' r='1.2' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='470' cy='260' r='1.8' fill='%23fff' opacity='0.8'/%3E%3Ccircle cx='60' cy='300' r='1.3' fill='%23fff' opacity='0.5'/%3E%3Ccircle cx='240' cy='60' r='1.6' fill='%23fff' opacity='0.8'/%3E %3Ccircle cx='420' cy='190' r='80' fill='%23f6b17a'/%3E%3Ccircle cx='452' cy='170' r='72' fill='%2328285a'/%3E %3Cpath d='M0 470c120-40 200-30 300 0s200 40 300 0v130H0z' fill='%23141631'/%3E %3Crect x='120' y='400' width='26' height='70' fill='%23f6d27a' opacity='.9'/%3E%3Crect x='170' y='380' width='26' height='90' fill='%23141631'/%3E%3Crect x='176' y='392' width='14' height='14' fill='%23f6d27a'/%3E %3Ctext x='50' y='555' font-family='Georgia, serif' font-size='66' font-weight='700' fill='%23f0ece5' letter-spacing='2'%3ESMALL HOURS%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+        </div>
+        <div class="show">
+          <span class="cadence">Every other Thursday</span>
+          <p>Stories from long-haul truckers, rail crews and the diners that keep them going, recorded on the road.</p>
+          <span class="host">Hosted by Rusty Delgado</span>
+          <h3>The Long Haul</h3>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f08a5d'/%3E%3Cstop offset='.55' stop-color='%23f9c784'/%3E%3Cstop offset='.55' stop-color='%233a3a46'/%3E%3Cstop offset='1' stop-color='%2323232c'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='600' height='600' fill='url(%23g)'/%3E%3Ccircle cx='300' cy='330' r='70' fill='%23fde2a7'/%3E %3Cpath d='M0 330h600' stroke='%2323232c' stroke-width='6'/%3E %3Cpath d='M260 330L80 600h440L340 330z' fill='%234a4a58'/%3E %3Cpath d='M298 340h4l6 40h-16zM294 410h12l8 60h-28zM288 500h24l10 100h-44z' fill='%23f9c784'/%3E %3Ctext x='300' y='120' text-anchor='middle' font-family='Helvetica, Arial, sans-serif' font-size='30' letter-spacing='10' fill='%233a1f1f'%3ETHE%3C/text%3E %3Ctext x='300' y='196' text-anchor='middle' font-family='Georgia, serif' font-size='84' font-weight='700' fill='%233a1f1f'%3ELong Haul%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+        </div>
+        <div class="show">
+          <span class="cadence">Fridays &middot; transcripts available</span>
+          <p>Two scientists, one kitchen. Why bread rises, why onions sting, why your ice cubes are cloudy.</p>
+          <span class="host">Hosted by Priya Raman &amp; Ben Okoro</span>
+          <h3>Kitchen Table Science</h3>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Crect width='600' height='600' fill='%23e8f1e4'/%3E %3Ccircle cx='470' cy='120' r='150' fill='%23cfe3c6'/%3E %3Cpath d='M150 180h80v110l70 150c10 22-4 40-26 40H106c-22 0-36-18-26-40l70-150z' fill='%23fff' stroke='%232f5d50' stroke-width='10' stroke-linejoin='round'/%3E %3Cpath d='M98 420l52-110h80l52 110c6 14-2 24-16 24H114c-14 0-22-10-16-24z' fill='%239fd3b9'/%3E %3Ccircle cx='170' cy='380' r='10' fill='%23fff'/%3E%3Ccircle cx='210' cy='350' r='7' fill='%23fff'/%3E%3Ccircle cx='190' cy='410' r='6' fill='%23fff'/%3E %3Cpath d='M330 360c0-60 50-90 120-90s120 30 120 90v40H330z' fill='%23d79a4f'/%3E%3Cpath d='M360 300c20 20 30 40 30 70M430 286c10 26 14 54 10 84M500 300c-14 22-22 46-20 70' stroke='%23b8793a' stroke-width='8' fill='none' stroke-linecap='round'/%3E %3Crect x='320' y='396' width='260' height='20' rx='6' fill='%238b5a2b'/%3E %3Ctext x='300' y='525' text-anchor='middle' font-family='Helvetica, Arial, sans-serif' font-size='44' font-weight='800' fill='%232f5d50'%3EKITCHEN TABLE%3C/text%3E %3Ctext x='300' y='570' text-anchor='middle' font-family='Helvetica, Arial, sans-serif' font-size='30' letter-spacing='14' fill='%232f5d50'%3ESCIENCE%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+        </div>
+        <div class="show">
+          <span class="cadence">Monthly</span>
+          <p>Interviews and live sessions with the musicians who aren't the name on the poster &mdash; and wouldn't want to be.</p>
+          <span class="host">Hosted by Margo Lind</span>
+          <h3>Second Chair</h3>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Crect width='600' height='600' fill='%23264653'/%3E%3Crect x='40' y='270' width='22' height='60' rx='11' fill='%23e76f51'/%3E%3Crect x='84' y='230' width='22' height='140' rx='11' fill='%23f4a261'/%3E%3Crect x='128' y='180' width='22' height='240' rx='11' fill='%23e9c46a'/%3E%3Crect x='172' y='210' width='22' height='180' rx='11' fill='%232a9d8f'/%3E%3Crect x='216' y='140' width='22' height='320' rx='11' fill='%23e76f51'/%3E%3Crect x='260' y='190' width='22' height='220' rx='11' fill='%23f4a261'/%3E%3Crect x='304' y='240' width='22' height='120' rx='11' fill='%23e9c46a'/%3E%3Crect x='348' y='160' width='22' height='280' rx='11' fill='%232a9d8f'/%3E%3Crect x='392' y='220' width='22' height='160' rx='11' fill='%23e76f51'/%3E%3Crect x='436' y='260' width='22' height='80' rx='11' fill='%23f4a261'/%3E%3Crect x='480' y='200' width='22' height='200' rx='11' fill='%23e9c46a'/%3E%3Crect x='524' y='250' width='22' height='100' rx='11' fill='%232a9d8f'/%3E %3Ctext x='40' y='540' font-family='Georgia, serif' font-style='italic' font-size='78' fill='%23fdf6e3'%3ESecond Chair%3C/text%3E %3Ctext x='44' y='90' font-family='Helvetica, Arial, sans-serif' font-size='20' letter-spacing='6' fill='%23e9c46a'%3EA LANTERNFISH SHOW%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="episodes">
+    <div class="wrap">
+      <div class="sec-head"><div><h2>Latest episodes</h2></div><a href="#">See all &rarr;</a></div>
+      <div class="eps">
+        <div class="ep" data-peek="Dana has worked nights in a pediatric ICU for nineteen years. Noor asks her about 4am, parents who never leave, and the snack-drawer economy.">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231d2150'/%3E%3Cstop offset='1' stop-color='%235b3f78'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='600' height='600' fill='url(%23g)'/%3E%3Ccircle cx='80' cy='90' r='2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='150' cy='200' r='1.5' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='420' cy='70' r='2.2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='520' cy='160' r='1.4' fill='%23fff' opacity='0.6'/%3E%3Ccircle cx='300' cy='120' r='1.2' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='470' cy='260' r='1.8' fill='%23fff' opacity='0.8'/%3E%3Ccircle cx='60' cy='300' r='1.3' fill='%23fff' opacity='0.5'/%3E%3Ccircle cx='240' cy='60' r='1.6' fill='%23fff' opacity='0.8'/%3E %3Ccircle cx='420' cy='190' r='80' fill='%23f6b17a'/%3E%3Ccircle cx='452' cy='170' r='72' fill='%2328285a'/%3E %3Cpath d='M0 470c120-40 200-30 300 0s200 40 300 0v130H0z' fill='%23141631'/%3E %3Crect x='120' y='400' width='26' height='70' fill='%23f6d27a' opacity='.9'/%3E%3Crect x='170' y='380' width='26' height='90' fill='%23141631'/%3E%3Crect x='176' y='392' width='14' height='14' fill='%23f6d27a'/%3E %3Ctext x='50' y='555' font-family='Georgia, serif' font-size='66' font-weight='700' fill='%23f0ece5' letter-spacing='2'%3ESMALL HOURS%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+          <div><div class="ep-title">Small Hours 142: The Night Shift Nurse</div><div class="sub"><span><i class="li-calendar"></i> Oct 7</span><span><i class="li-clock"></i> 48 min</span></div></div>
+          <div class="acts"><a href="#">Listen</a><a href="#" class="more">More</a></div>
+        </div>
+        <div class="ep" data-peek="Ice cubes go cloudy because of dissolved air and impurities pushed to the center as water freezes from the outside in. Priya tries three ways to get them clear.">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Crect width='600' height='600' fill='%23e8f1e4'/%3E %3Ccircle cx='470' cy='120' r='150' fill='%23cfe3c6'/%3E %3Cpath d='M150 180h80v110l70 150c10 22-4 40-26 40H106c-22 0-36-18-26-40l70-150z' fill='%23fff' stroke='%232f5d50' stroke-width='10' stroke-linejoin='round'/%3E %3Cpath d='M98 420l52-110h80l52 110c6 14-2 24-16 24H114c-14 0-22-10-16-24z' fill='%239fd3b9'/%3E %3Ccircle cx='170' cy='380' r='10' fill='%23fff'/%3E%3Ccircle cx='210' cy='350' r='7' fill='%23fff'/%3E%3Ccircle cx='190' cy='410' r='6' fill='%23fff'/%3E %3Cpath d='M330 360c0-60 50-90 120-90s120 30 120 90v40H330z' fill='%23d79a4f'/%3E%3Cpath d='M360 300c20 20 30 40 30 70M430 286c10 26 14 54 10 84M500 300c-14 22-22 46-20 70' stroke='%23b8793a' stroke-width='8' fill='none' stroke-linecap='round'/%3E %3Crect x='320' y='396' width='260' height='20' rx='6' fill='%238b5a2b'/%3E %3Ctext x='300' y='525' text-anchor='middle' font-family='Helvetica, Arial, sans-serif' font-size='44' font-weight='800' fill='%232f5d50'%3EKITCHEN TABLE%3C/text%3E %3Ctext x='300' y='570' text-anchor='middle' font-family='Helvetica, Arial, sans-serif' font-size='30' letter-spacing='14' fill='%232f5d50'%3ESCIENCE%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+          <div><div class="ep-title">Kitchen Table Science 88: Why are my ice cubes cloudy?</div><div class="sub"><span><i class="li-calendar"></i> Oct 3</span><span><i class="li-clock"></i> 31 min</span></div></div>
+          <div class="acts"><a href="#">Listen</a><a href="#">Transcript</a><a href="#" class="more">More</a></div>
+        </div>
+        <div class="ep" data-peek="Rusty rides along on a 1,400-mile reefer load from Yakima to Dallas, and learns why the best truck-stop pie is always behind the register.">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f08a5d'/%3E%3Cstop offset='.55' stop-color='%23f9c784'/%3E%3Cstop offset='.55' stop-color='%233a3a46'/%3E%3Cstop offset='1' stop-color='%2323232c'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='600' height='600' fill='url(%23g)'/%3E%3Ccircle cx='300' cy='330' r='70' fill='%23fde2a7'/%3E %3Cpath d='M0 330h600' stroke='%2323232c' stroke-width='6'/%3E %3Cpath d='M260 330L80 600h440L340 330z' fill='%234a4a58'/%3E %3Cpath d='M298 340h4l6 40h-16zM294 410h12l8 60h-28zM288 500h24l10 100h-44z' fill='%23f9c784'/%3E %3Ctext x='300' y='120' text-anchor='middle' font-family='Helvetica, Arial, sans-serif' font-size='30' letter-spacing='10' fill='%233a1f1f'%3ETHE%3C/text%3E %3Ctext x='300' y='196' text-anchor='middle' font-family='Georgia, serif' font-size='84' font-weight='700' fill='%233a1f1f'%3ELong Haul%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+          <div><div class="ep-title">The Long Haul 57: Cold Chain</div><div class="sub"><span><i class="li-calendar"></i> Oct 2</span><span><i class="li-clock"></i> 1 hr 4 min</span></div></div>
+          <div class="acts"><a href="#">Listen</a><a href="#" class="more">More</a></div>
+        </div>
+        <div class="ep" data-peek="The touring bassist who has played 900 shows and been recognized exactly twice. Margo talks with her about craft, invisibility, and the best green rooms in America.">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Crect width='600' height='600' fill='%23264653'/%3E%3Crect x='40' y='270' width='22' height='60' rx='11' fill='%23e76f51'/%3E%3Crect x='84' y='230' width='22' height='140' rx='11' fill='%23f4a261'/%3E%3Crect x='128' y='180' width='22' height='240' rx='11' fill='%23e9c46a'/%3E%3Crect x='172' y='210' width='22' height='180' rx='11' fill='%232a9d8f'/%3E%3Crect x='216' y='140' width='22' height='320' rx='11' fill='%23e76f51'/%3E%3Crect x='260' y='190' width='22' height='220' rx='11' fill='%23f4a261'/%3E%3Crect x='304' y='240' width='22' height='120' rx='11' fill='%23e9c46a'/%3E%3Crect x='348' y='160' width='22' height='280' rx='11' fill='%232a9d8f'/%3E%3Crect x='392' y='220' width='22' height='160' rx='11' fill='%23e76f51'/%3E%3Crect x='436' y='260' width='22' height='80' rx='11' fill='%23f4a261'/%3E%3Crect x='480' y='200' width='22' height='200' rx='11' fill='%23e9c46a'/%3E%3Crect x='524' y='250' width='22' height='100' rx='11' fill='%232a9d8f'/%3E %3Ctext x='40' y='540' font-family='Georgia, serif' font-style='italic' font-size='78' fill='%23fdf6e3'%3ESecond Chair%3C/text%3E %3Ctext x='44' y='90' font-family='Helvetica, Arial, sans-serif' font-size='20' letter-spacing='6' fill='%23e9c46a'%3EA LANTERNFISH SHOW%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+          <div><div class="ep-title">Second Chair 31: Low End Theory</div><div class="sub"><span><i class="li-calendar"></i> Sep 26</span><span><i class="li-clock"></i> 56 min</span></div></div>
+          <div class="acts"><a href="#">Listen</a><a href="#" class="more">More</a></div>
+        </div>
+        <div class="ep" data-peek="A lighthouse keeper's daughter, a 911 dispatcher and a bakery owner who starts work at 2:30am compare notes on the quietest hour of the night.">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' width='600' height='600' %3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231d2150'/%3E%3Cstop offset='1' stop-color='%235b3f78'/%3E%3C/linearGradient%3E%3C/defs%3E %3Crect width='600' height='600' fill='url(%23g)'/%3E%3Ccircle cx='80' cy='90' r='2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='150' cy='200' r='1.5' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='420' cy='70' r='2.2' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='520' cy='160' r='1.4' fill='%23fff' opacity='0.6'/%3E%3Ccircle cx='300' cy='120' r='1.2' fill='%23fff' opacity='0.7'/%3E%3Ccircle cx='470' cy='260' r='1.8' fill='%23fff' opacity='0.8'/%3E%3Ccircle cx='60' cy='300' r='1.3' fill='%23fff' opacity='0.5'/%3E%3Ccircle cx='240' cy='60' r='1.6' fill='%23fff' opacity='0.8'/%3E %3Ccircle cx='420' cy='190' r='80' fill='%23f6b17a'/%3E%3Ccircle cx='452' cy='170' r='72' fill='%2328285a'/%3E %3Cpath d='M0 470c120-40 200-30 300 0s200 40 300 0v130H0z' fill='%23141631'/%3E %3Crect x='120' y='400' width='26' height='70' fill='%23f6d27a' opacity='.9'/%3E%3Crect x='170' y='380' width='26' height='90' fill='%23141631'/%3E%3Crect x='176' y='392' width='14' height='14' fill='%23f6d27a'/%3E %3Ctext x='50' y='555' font-family='Georgia, serif' font-size='66' font-weight='700' fill='%23f0ece5' letter-spacing='2'%3ESMALL HOURS%3C/text%3E%3C/svg%3E" alt="" width="600" height="600">
+          <div><div class="ep-title">Small Hours 141: The Quietest Hour</div><div class="sub"><span><i class="li-calendar"></i> Sep 30</span><span><i class="li-clock"></i> 52 min</span></div></div>
+          <div class="acts"><a href="#">Listen</a><a href="#" class="more">More</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="watch" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div><h2>Watch</h2><p>Live sessions and video editions from the Lanternfish studio.</p></div></div>
+      <div class="videos">
+        <div class="vid">
+          <video controls preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720' width='1280' height='720' %3E%3Crect width='1280' height='720' fill='%231c1c28'/%3E %3Cellipse cx='640' cy='760' rx='760' ry='240' fill='%233a2b1f'/%3E %3Cpath d='M460 0L340 720h120L560 0z' fill='%23f6d27a' opacity='.12'/%3E%3Cpath d='M820 0l120 720H820L720 0z' fill='%23f6d27a' opacity='.12'/%3E %3Cg transform='translate(340 380)'%3E%3Ccircle cx='0' cy='-40' r='34' fill='%23c98b5b'/%3E%3Cpath d='M-50 200c0-120 20-190 50-190s50 70 50 190z' fill='%232a3d66'/%3E%3Cpath d='M30 -10c60 10 110 40 120 90' stroke='%23e5b84a' stroke-width='14' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='150' cy='86' r='30' fill='%23e5b84a'/%3E%3C/g%3E%3Cg transform='translate(600 380)'%3E%3Ccircle cx='0' cy='-40' r='34' fill='%23c98b5b'/%3E%3Cpath d='M-50 200c0-120 20-190 50-190s50 70 50 190z' fill='%236b2d3f'/%3E%3Cpath d='M30 -10c60 10 110 40 120 90' stroke='%23e5b84a' stroke-width='14' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='150' cy='86' r='30' fill='%23e5b84a'/%3E%3C/g%3E%3Cg transform='translate(860 380)'%3E%3Ccircle cx='0' cy='-40' r='34' fill='%23c98b5b'/%3E%3Cpath d='M-50 200c0-120 20-190 50-190s50 70 50 190z' fill='%232d5a4a'/%3E%3Cpath d='M30 -10c60 10 110 40 120 90' stroke='%23e5b84a' stroke-width='14' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='150' cy='86' r='30' fill='%23e5b84a'/%3E%3C/g%3E %3Crect x='40' y='40' width='190' height='44' rx='8' fill='%23e76f51'/%3E%3Ctext x='135' y='70' text-anchor='middle' font-family='Helvetica, Arial' font-size='20' font-weight='700' fill='%23fff'%3ELIVE · STUDIO B%3C/text%3E%3C/svg%3E">
+            <source src="media/second-chair-live-brass.mp4" type="video/mp4">
+          </video>
+          <div class="cap">
+            <h3>Second Chair Live: The Brass Section</h3>
+            <p>Three horn players from the city symphony talk shop between songs, recorded live in Studio B. 22 minutes.</p>
+          </div>
+        </div>
+        <div class="vid">
+          <video controls preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720' width='1280' height='720' %3E%3Crect width='1280' height='720' fill='%23f3e9da'/%3E %3Crect y='470' width='1280' height='250' fill='%23a8744a'/%3E%3Crect y='470' width='1280' height='16' fill='%238b5a2b'/%3E %3Cpath d='M300 470v-120h220v120' fill='%23fff' stroke='%232f5d50' stroke-width='10'/%3E%3Cpath d='M300 470v-60h220v60z' fill='%23e9dcc3'/%3E %3Cpath d='M300 410c20-80 200-80 220 0' fill='%23f3e3c4' stroke='%23d2b48c' stroke-width='6'/%3E %3Cpath d='M700 470c0-110 70-170 190-170s190 60 190 170z' fill='%23d79a4f'/%3E%3Cpath d='M760 360c30 20 50 50 50 100M880 330c14 36 18 80 10 130M990 360c-26 26-36 60-34 100' stroke='%23b8793a' stroke-width='12' fill='none' stroke-linecap='round'/%3E %3Ccircle cx='1100' cy='140' r='90' fill='%239fd3b9' opacity='.5'/%3E %3Ctext x='80' y='140' font-family='Helvetica, Arial' font-size='64' font-weight='800' fill='%232f5d50'%3EWhy does bread rise?%3C/text%3E %3Ctext x='84' y='196' font-family='Helvetica, Arial' font-size='28' fill='%232f5d50'%3EKitchen Table Science · Video edition%3C/text%3E%3C/svg%3E" id="breadVideo">
+            <source src="media/kts-why-bread-rises.mp4" type="video/mp4">
+            <track kind="captions" srclang="en" label="English" src="data:text/vtt;charset=utf-8,WEBVTT%0A%0A00:00:00.500 --> 00:00:04.000%0ASo this is a bowl of doe I mixed about two hours ago.%0A%0A00:00:04.000 --> 00:00:08.500%0AAnd this one is the same recipe.%0A%0A00:00:08.500 --> 00:00:13.000%0AThe difference is east. East eats the sugars in the flower%0A%0A00:00:13.000 --> 00:00:17.500%0Aand gives off car bond dioxide [INAUDIBLE]%0A%0A00:00:21.000 --> 00:00:23.000%0Alike tiny balloons.%0A%0A00:00:23.000 --> 00:00:27.000%0AWarmer kitchen faster rise too warm though and the yeast dyes off.%0A" default>
+          </video>
+          <div class="cap">
+            <h3>Why does bread rise?</h3>
+            <p>Priya and Ben put two bowls of dough side by side. Kitchen Table Science, video edition. 27 seconds. Captions on.</p>
+            <details>
+              <summary>Read the transcript</summary>
+              <p><b>Priya:</b> So this is a ball of dough I mixed about two hours ago. And this one is the same recipe, mixed five minutes ago.</p>
+              <p><b>Ben:</b> The difference is yeast. Yeast eats the sugars in the flour and gives off carbon dioxide and a little bit of alcohol.</p>
+              <p><b>Priya:</b> The gluten network traps those gas bubbles, like tiny balloons.</p>
+              <p><b>Ben:</b> Warmer kitchen, faster rise. Too warm, though, and the yeast dies off.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ask">
+    <div class="wrap">
+      <div class="ask">
+        <div>
+          <span class="kicker">Listener mailbag</span>
+          <h2>Ask Kitchen Table Science</h2>
+          <p>Wondering why your sourdough went flat or why the microwave makes sparks? Send us your question. We pick three every month for the mailbag episode.</p>
+          <p style="font-size:14px; color:var(--muted)">Questions longer than 500 characters may be trimmed for time. <a href="#">Read our submission guidelines</a>.</p>
+        </div>
+        <form id="askForm" novalidate>
+          <div><label for="ask-name">First name</label><input id="ask-name" type="text"></div>
+          <div><label for="ask-email">Email</label><input id="ask-email" type="email"></div>
+          <div><label for="ask-q">Your question</label><textarea id="ask-q"></textarea></div>
+          <div class="captcha">
+            <div class="row"><i class="li-headphones"></i> Press play and type the numbers you hear.</div>
+            <div class="row"><audio controls src="media/captcha/7f3a9c.mp3" preload="none"></audio><button type="button" class="ctl icon-btn" id="newCaptcha"><i class="li-refresh"></i></button></div>
+            <input id="captcha" type="text" inputmode="numeric" aria-label="Captcha answer">
+          </div>
+          <div><button class="pill" type="submit">Send question <i class="li-arrow-right"></i></button></div>
+          <div class="form-msg" id="askMsg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Lanternfish Audio Collective &middot; Listener supported</div>
+    <div class="links"><a href="#">About</a><a href="#">Membership</a><a href="#">Press</a><a href="#">Privacy</a><a href="#">Accessibility</a></div>
+    <div class="social">
+      <a href="#" aria-label="RSS feed"><i class="li-rss"></i></a>
+      <a href="#" aria-label="Email the team"><i class="li-mail"></i></a>
+      <a href="#" aria-label="Listener chat"><i class="li-chat"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var audio = document.getElementById('audio');
+  var playIcon = document.getElementById('playIcon');
+  var playing = true;
+  // start the newest episode right away
+  window.addEventListener('load', function () {
+    var p = audio.play();
+    if (p && p.catch) p.catch(function () {});
+  });
+  document.getElementById('playBtn').addEventListener('click', function () {
+    playing = !playing;
+    playing ? audio.play().catch(function(){}) : audio.pause();
+    playIcon.className = playing ? 'li-pause' : 'li-play';
+  });
+  document.getElementById('back15').addEventListener('click', function () { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+  document.getElementById('fwd30').addEventListener('click', function () { audio.currentTime += 30; });
+  var rates = [1, 1.25, 1.5, 2], ri = 0;
+  document.getElementById('rate').addEventListener('click', function () { ri = (ri + 1) % rates.length; audio.playbackRate = rates[ri]; this.textContent = rates[ri] + 'x'; });
+  audio.addEventListener('timeupdate', function () {
+    var t = audio.currentTime, m = Math.floor(t / 60), s = Math.floor(t % 60);
+    document.getElementById('cur').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    document.getElementById('fill').style.width = (t / 2892 * 100) + '%';
+  });
+
+  // episode previews
+  document.querySelectorAll('.ep').forEach(function (ep) {
+    var peek = document.createElement('div');
+    peek.className = 'peek';
+    peek.innerHTML = '<b>Episode preview</b>' + ep.getAttribute('data-peek');
+    ep.appendChild(peek);
+    var t;
+    ep.addEventListener('mouseenter', function () {
+      peek.classList.add('show');
+      clearTimeout(t);
+      t = setTimeout(function () { peek.classList.remove('show'); }, 1800);
+    });
+    ep.addEventListener('mouseleave', function () { peek.classList.remove('show'); });
+  });
+
+  document.getElementById('askForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var c = document.getElementById('captcha').value.trim();
+    document.getElementById('askMsg').textContent = c.length === 6 ? 'Thanks! Your question is in the mailbag.' : '';
+    document.getElementById('captcha').style.borderColor = c.length === 6 ? '' : '#ff7b7b';
+  });
+</script>
+</body>
+</html>

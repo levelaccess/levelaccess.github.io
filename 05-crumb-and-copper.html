@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crumb &amp; Copper Bakehouse · Naturally leavened bread &amp; laminated pastry</title>
+<style>
+  :root { --cream: #fbf5ec; --copper: #b5651d; --brown: #3b2618; --sage: #5f7f50; --line: #eadbc6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: var(--brown); font: 17px/1.65 "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
+  a { color: var(--copper); }
+  img { max-width: 100%; height: auto; display: block; }
+  .sans { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  .bar { position: fixed; top: 0; left: 0; right: 0; z-index: 20; height: 68px; overflow: hidden; white-space: nowrap; background: rgba(43, 28, 18, .82); backdrop-filter: blur(8px); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: flex; align-items: center; gap: 12px; color: #fbf5ec; text-decoration: none; font-size: 22px; letter-spacing: .02em; }
+  .logo svg { width: 40px; height: 40px; }
+  .bar nav { display: flex; gap: 30px; font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+  .bar nav a { color: #f2e2cc; text-decoration: none; }
+  .bar nav a:hover { color: #fff; }
+  .bar nav a:focus { outline: none; color: #f0a85c; }
+  .bar nav a.order { background: var(--copper); color: #fff; padding: 9px 16px; border-radius: 4px; }
+  .bar nav a.order:focus { color: #f0a85c; }
+
+  .hero { position: relative; height: 92vh; min-height: 560px; overflow: hidden; color: #fbf5ec; }
+  .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(30,18,10,.85) 0%, rgba(30,18,10,.35) 55%, rgba(30,18,10,0) 100%); }
+  .hero .copy { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .hero .eyebrow { font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: #f0a85c; }
+  .hero h1 { font-size: 5.6vw; line-height: 1.02; font-weight: 400; margin: 14px 0 18px; max-width: 11ch; }
+  .hero h1 i { color: #f0a85c; }
+  .hero p { max-width: 34em; font-size: 19px; color: #ead9c2; margin: 0 0 28px; }
+  .cta { display: inline-block; font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; padding: 15px 26px; border-radius: 4px; background: var(--copper); color: #fff; text-decoration: none; }
+  .cta.light { background: transparent; box-shadow: inset 0 0 0 1.5px #f2e2cc; color: #f2e2cc; margin-left: 10px; }
+  .hours-chip { position: absolute; right: 28px; bottom: 28px; z-index: 2; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 13px; background: rgba(251,245,236,.92); color: var(--brown); padding: 10px 16px; border-radius: 999px; }
+
+  section { padding: 90px 0; }
+  .head { text-align: center; margin-bottom: 44px; }
+  .head .eyebrow { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--copper); }
+  .head h2 { font-size: 46px; font-weight: 400; margin: 8px 0 6px; }
+  .head p { color: #7a5e48; margin: 0 auto; max-width: 40em; }
+
+  .menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .menu-cols h3 { font-size: 26px; font-weight: 400; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin: 0 0 8px; }
+  table.menu-layout { width: 100%; border-collapse: collapse; }
+  table.menu-layout td { padding: 14px 0; border-bottom: 1px dashed var(--line); vertical-align: middle; }
+  table.menu-layout td.pic { width: 104px; padding-right: 18px; }
+  table.menu-layout td.pic img { width: 104px; border-radius: 8px; }
+  table.menu-layout .nm { font-size: 19px; }
+  table.menu-layout .nm.vegan { color: #4f7a3d; }
+  table.menu-layout .ds { font-size: 14.5px; color: #7a5e48; font-family: "Avenir Next", "Segoe UI", sans-serif; line-height: 1.5; }
+  table.menu-layout td.pr { text-align: right; font-size: 18px; white-space: nowrap; padding-left: 14px; }
+  .tags { display: inline-flex; gap: 4px; margin-left: 6px; vertical-align: -5px; }
+  .tag { display: inline-block; width: 22px; height: 22px; background-size: contain; background-repeat: no-repeat; }
+  .tag.gf { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' width='28' height='28' %3E%3Ccircle cx='14' cy='14' r='13' fill='%23e8f0e3' stroke='%237c9a6d' stroke-width='1.5'/%3E%3Cpath d='M14 7v14M14 10l-3-2M14 10l3-2M14 14l-3-2M14 14l3-2M14 18l-3-2M14 18l3-2' stroke='%237c9a6d' stroke-width='1.6' fill='none'/%3E%3Cpath d='M6 6l16 16' stroke='%23b23a2c' stroke-width='2'/%3E%3C/svg%3E"); }
+  .tag.vg { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' width='28' height='28' %3E%3Ccircle cx='14' cy='14' r='13' fill='%23e8f0e3' stroke='%234f7a3d' stroke-width='1.5'/%3E%3Cpath d='M8 19c0-7 5-11 12-11 0 7-5 11-12 11z' fill='%234f7a3d'/%3E%3Cpath d='M8 19l7-7' stroke='%23e8f0e3' stroke-width='1.4'/%3E%3C/svg%3E"); }
+  .tag.nut { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' width='28' height='28' %3E%3Ccircle cx='14' cy='14' r='13' fill='%23fbeadb' stroke='%23b5651d' stroke-width='1.5'/%3E%3Cpath d='M14 6c4 0 7 3 7 7 0 5-4 9-7 9s-7-4-7-9c0-4 3-7 7-7z' fill='%23b5651d'/%3E%3Cpath d='M8 11h12' stroke='%23fbeadb' stroke-width='1.4'/%3E%3C/svg%3E"); }
+  .tag.dairy { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' width='28' height='28' %3E%3Ccircle cx='14' cy='14' r='13' fill='%23eaf1f7' stroke='%234d7ea8' stroke-width='1.5'/%3E%3Cpath d='M11 6h6v3l2 3v10H9V12l2-3z' fill='%234d7ea8'/%3E%3Crect x='11' y='14' width='6' height='4' fill='%23eaf1f7'/%3E%3C/svg%3E"); }
+  .warn { color: #a3361f; font-weight: 700; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
+  .legend { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 13.5px; color: #7a5e48; margin-top: 26px; text-align: center; }
+  .legend span { color: #4f7a3d; }
+
+  .specials { background: #efe2cf; }
+  .specials .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+  .specials .grid > * { min-width: 0; }
+  .specials img { border-radius: 14px; box-shadow: 0 30px 60px -30px rgba(59,38,24,.6); }
+  .specials h2 { font-size: 42px; font-weight: 400; margin: 6px 0 14px; }
+  .specials .box { background: #fff; border-radius: 12px; padding: 22px 24px; margin-top: 20px; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 15px; }
+  .specials .box .t { font-family: "Iowan Old Style", Georgia, serif; font-size: 20px; margin-bottom: 6px; }
+  .em { font-weight: 700; color: var(--copper); }
+
+  .how .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .step { background: #fff; border-radius: 14px; padding: 30px 26px; border: 1px solid var(--line); }
+  .step .n { font-size: 56px; line-height: 1; color: var(--copper); }
+  .step h3 { font-size: 22px; font-weight: 400; margin: 10px 0 6px; }
+  .step p { margin: 0; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 15px; color: #7a5e48; }
+  .step.s1 { order: 1; } .step.s2 { order: 2; } .step.s3 { order: 3; }
+  .how .note { text-align: center; margin-top: 26px; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 15px; color: #7a5e48; }
+
+  .watch .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+  .watch .grid > * { min-width: 0; }
+  .video-frame { position: relative; padding-top: 56.25%; background: #2b1c12; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(59,38,24,.6); }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .watch h2 { font-size: 40px; font-weight: 400; margin: 6px 0 12px; }
+  .watch p { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; color: #7a5e48; }
+
+  .visit { background: var(--brown); color: #ead9c2; }
+  .visit .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .visit h3 { color: #fbf5ec; font-weight: 400; font-size: 24px; margin: 0 0 12px; }
+  .visit p { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 15px; margin: 0 0 12px; }
+  .visit a { color: #f0a85c; }
+  footer { background: #2b1c12; color: #9c8068; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 13px; padding: 22px 0; }
+  footer .wrap { display: flex; justify-content: space-between; }
+  footer a { color: #c9ab8f; }
+
+  @media (max-width: 900px) {
+    .bar nav a:not(.order) { display: none; }
+    .menu-cols, .specials .grid, .watch .grid, .visit .grid { grid-template-columns: 1fr; }
+    .how .steps { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 11vw; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    .head h2 { font-size: 36px; }
+    table.menu-layout td.pic { width: 76px; padding-right: 12px; }
+    table.menu-layout td.pic img { width: 76px; }
+    .cta.light { margin: 10px 0 0; }
+    .logo { font-size: 18px; gap: 8px; }
+    .logo svg { width: 32px; height: 32px; }
+    .bar nav a.order { padding: 8px 12px; font-size: 12px; }
+    .hours-chip { left: 18px; right: auto; }
+    footer .wrap { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a href="#" class="logo"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#b5651d"/><path d="M10 28c4-10 24-10 28 0" stroke="#fbf5ec" stroke-width="3" fill="none"/><path d="M14 27c1-6 4-9 7-9M34 27c-1-6-4-9-7-9M24 17v10" stroke="#fbf5ec" stroke-width="2.5" fill="none"/><path d="M12 32h24" stroke="#fbf5ec" stroke-width="3" stroke-linecap="round"/></svg> Crumb &amp; Copper</a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#specials">Specials</a>
+      <a href="#how">Pre-order</a>
+      <a href="#watch">The Process</a>
+      <a href="#visit">Visit</a>
+      <a href="#how" class="order">Order ahead</a>
+    </nav>
+  </div>
+</div>
+
+<div class="hero">
+  <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' width='1600' height='900' %3E%3Crect width='1600' height='900' fill='%232d1c12'/%3E %3CradialGradient id='l' cx='.7' cy='.3' r='.7'%3E%3Cstop offset='0' stop-color='%237a4a26'/%3E%3Cstop offset='1' stop-color='%232d1c12'/%3E%3C/radialGradient%3E %3Crect width='1600' height='900' fill='url(%23l)'/%3E %3Crect x='700' y='520' width='900' height='380' rx='20' fill='%238a5a32'/%3E%3Crect x='700' y='520' width='900' height='18' fill='%236e4524'/%3E %3Cg transform='translate(820 290) scale(1.6)'%3E%3Cg%3E%3Cellipse cx='76' cy='182' rx='14' ry='16' transform='rotate(-58 76 182)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M69.0 178.8q7.0 5.6 14 0' transform='rotate(-58 76 182)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='244' cy='182' rx='14' ry='16' transform='rotate(58 244 182)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M237.0 178.8q7.0 5.6 14 0' transform='rotate(58 244 182)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='98' cy='164' rx='22' ry='26' transform='rotate(-40 98 164)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M87.0 158.8q11.0 9.1 22 0' transform='rotate(-40 98 164)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='222' cy='164' rx='22' ry='26' transform='rotate(40 222 164)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M211.0 158.8q11.0 9.1 22 0' transform='rotate(40 222 164)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='126' cy='150' rx='30' ry='36' transform='rotate(-18 126 150)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M111.0 142.8q15.0 12.6 30 0' transform='rotate(-18 126 150)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='194' cy='150' rx='30' ry='36' transform='rotate(18 194 150)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M179.0 142.8q15.0 12.6 30 0' transform='rotate(18 194 150)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='160' cy='144' rx='36' ry='44' transform='rotate(0 160 144)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M142.0 135.2q18.0 15.399999999999999 36 0' transform='rotate(0 160 144)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(1130 420) scale(1.1)'%3E%3Ccircle cx='120' cy='80' r='62' fill='%23d79a4f'/%3E%3Cpath d='M120 80m-40 0a40 40 0 1 1 40 40a26 26 0 1 1 -26 -26a14 14 0 1 1 14 14' fill='none' stroke='%23a8692b' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='100' cy='50' r='3' fill='%23fff'/%3E%3Ccircle cx='144' cy='62' r='3' fill='%23fff'/%3E%3Ccircle cx='126' cy='114' r='3' fill='%23fff'/%3E%3C/g%3E %3Cg opacity='.25' fill='%23f3d7a6'%3E%3Ccircle cx='900' cy='120' r='2'/%3E%3Ccircle cx='961' cy='167' r='3'/%3E%3Ccircle cx='1022' cy='214' r='4'/%3E%3Ccircle cx='1083' cy='261' r='2'/%3E%3Ccircle cx='1144' cy='308' r='3'/%3E%3Ccircle cx='1205' cy='355' r='4'/%3E%3Ccircle cx='1266' cy='402' r='2'/%3E%3Ccircle cx='1327' cy='149' r='3'/%3E%3Ccircle cx='1388' cy='196' r='4'/%3E%3Ccircle cx='1449' cy='243' r='2'/%3E%3Ccircle cx='910' cy='290' r='3'/%3E%3Ccircle cx='971' cy='337' r='4'/%3E%3Ccircle cx='1032' cy='384' r='2'/%3E%3Ccircle cx='1093' cy='131' r='3'/%3E%3Ccircle cx='1154' cy='178' r='4'/%3E%3Ccircle cx='1215' cy='225' r='2'/%3E%3Ccircle cx='1276' cy='272' r='3'/%3E%3Ccircle cx='1337' cy='319' r='4'/%3E%3Ccircle cx='1398' cy='366' r='2'/%3E%3Ccircle cx='1459' cy='413' r='3'/%3E%3Ccircle cx='920' cy='160' r='4'/%3E%3Ccircle cx='981' cy='207' r='2'/%3E%3Ccircle cx='1042' cy='254' r='3'/%3E%3Ccircle cx='1103' cy='301' r='4'/%3E%3Ccircle cx='1164' cy='348' r='2'/%3E%3Ccircle cx='1225' cy='395' r='3'/%3E%3Ccircle cx='1286' cy='142' r='4'/%3E%3Ccircle cx='1347' cy='189' r='2'/%3E%3Ccircle cx='1408' cy='236' r='3'/%3E%3Ccircle cx='1469' cy='283' r='4'/%3E%3C/g%3E%3C/svg%3E">
+    <source src="media/bakehouse-morning-loop.mp4" type="video/mp4">
+  </video>
+  <div class="copy">
+    <span class="eyebrow">Bakehouse &middot; Est. 2014 &middot; Lowertown</span>
+    <h1>Slow bread for <i>fast</i> mornings.</h1>
+    <p>Naturally leavened loaves, laminated pastry and a very good cup of coffee. Everything is mixed, shaped and baked on Fourth Street starting at 2:30 every morning.</p>
+    <div><a href="#menu" class="cta">See today's bake</a><a href="#how" class="cta light">Order ahead</a></div>
+  </div>
+  <div class="hours-chip">Open today &middot; 6:30am &ndash; 2pm</div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Daily bake</span>
+      <h2>On the counter today</h2>
+      <p>Our case changes with the season and sells out most days by noon. Items in green are vegan.</p>
+    </div>
+    <div class="menu-cols">
+      <div>
+        <h3>Pastry</h3>
+        <table class="menu-layout">
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Cg%3E%3Cellipse cx='116' cy='202' rx='14' ry='16' transform='rotate(-58 116 202)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M109.0 198.8q7.0 5.6 14 0' transform='rotate(-58 116 202)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='284' cy='202' rx='14' ry='16' transform='rotate(58 284 202)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M277.0 198.8q7.0 5.6 14 0' transform='rotate(58 284 202)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='138' cy='184' rx='22' ry='26' transform='rotate(-40 138 184)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M127.0 178.8q11.0 9.1 22 0' transform='rotate(-40 138 184)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='262' cy='184' rx='22' ry='26' transform='rotate(40 262 184)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M251.0 178.8q11.0 9.1 22 0' transform='rotate(40 262 184)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='166' cy='170' rx='30' ry='36' transform='rotate(-18 166 170)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M151.0 162.8q15.0 12.6 30 0' transform='rotate(-18 166 170)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='234' cy='170' rx='30' ry='36' transform='rotate(18 234 170)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M219.0 162.8q15.0 12.6 30 0' transform='rotate(18 234 170)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3Cellipse cx='200' cy='164' rx='36' ry='44' transform='rotate(0 200 164)' fill='%23d9913f' stroke='%23b86f26' stroke-width='3'/%3E%3Cpath d='M182.0 155.2q18.0 15.399999999999999 36 0' transform='rotate(0 200 164)' stroke='%23b86f26' stroke-width='2.5' fill='none' opacity='.6'/%3E%3C/g%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm">Butter croissant <span class="tags"><span class="tag dairy"></span></span></div><div class="ds">Three-day laminated dough with cultured butter from Hollis Creek Dairy.</div></td>
+            <td class="pr">$4.25</td>
+          </tr>
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Ccircle cx='200' cy='180' r='62' fill='%23d79a4f'/%3E%3Cpath d='M200 180m-40 0a40 40 0 1 1 40 40a26 26 0 1 1 -26 -26a14 14 0 1 1 14 14' fill='none' stroke='%23a8692b' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='180' cy='150' r='3' fill='%23fff'/%3E%3Ccircle cx='224' cy='162' r='3' fill='%23fff'/%3E%3Ccircle cx='206' cy='214' r='3' fill='%23fff'/%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm">Morning bun <span class="tags"><span class="tag dairy"></span><span class="tag nut"></span></span></div><div class="ds">Croissant dough rolled with orange zest and cinnamon sugar. <span class="warn">Contains walnuts</span></div></td>
+            <td class="pr">$4.75</td>
+          </tr>
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Cpath d='M200 114l56 30 10 60-66 40-66-40 10-60z' fill='%23c47a2c'/%3E%3Cpath d='M200 130l40 22 6 44-46 28-46-28 6-44z' fill='%23e0a654'/%3E%3Cpath d='M170 160l30 18 30-18' stroke='%239a5a1e' stroke-width='5' fill='none'/%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm">Kouign-amann <span class="tags"><span class="tag dairy"></span></span></div><div class="ds">Caramelized, salty-sweet and shatteringly crisp. Saturdays only.</div></td>
+            <td class="pr">$5.00</td>
+          </tr>
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Cpath d='M130 180c0-50 60-60 70-20s70 40 70-10-80-60-90 0 50 70 90 40' fill='none' stroke='%23c98a4b' stroke-width='34' stroke-linecap='round'/%3E%3Ccircle cx='140' cy='160' r='3' fill='%235a3a1a'/%3E%3Ccircle cx='164' cy='190' r='3' fill='%235a3a1a'/%3E%3Ccircle cx='188' cy='160' r='3' fill='%235a3a1a'/%3E%3Ccircle cx='212' cy='190' r='3' fill='%235a3a1a'/%3E%3Ccircle cx='236' cy='160' r='3' fill='%235a3a1a'/%3E%3Ccircle cx='260' cy='190' r='3' fill='%235a3a1a'/%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm vegan">Cardamom knot</div><div class="ds">Swedish-style knot made with oat milk and coconut oil. <span class="warn">Made on shared equipment with tree nuts</span></div></td>
+            <td class="pr">$4.50</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h3>Bread</h3>
+        <table class="menu-layout">
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Cellipse cx='200' cy='176' rx='110' ry='58' fill='%23c98a4b'/%3E%3Cellipse cx='200' cy='190' rx='110' ry='44' fill='%238e5a2b' opacity='.25'/%3E%3Cpath d='M130 146q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M166 146q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M202 146q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M238 146q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm vegan">Country sourdough</div><div class="ds">Our house loaf: 20% whole wheat, 36-hour cold ferment, dark crust.</div></td>
+            <td class="pr">$9</td>
+          </tr>
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Cg transform='rotate(-14 200 180)'%3E%3Crect x='50' y='158' width='300' height='44' rx='22' fill='%23d9a35b'/%3E%3Cpath d='M80 166l30 22' stroke='%23f3dcb4' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M132 166l30 22' stroke='%23f3dcb4' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M184 166l30 22' stroke='%23f3dcb4' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M236 166l30 22' stroke='%23f3dcb4' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M288 166l30 22' stroke='%23f3dcb4' stroke-width='7' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm vegan">Baguette</div><div class="ds">Poolish baguette, out of the oven at 7am and again at 11am.</div></td>
+            <td class="pr">$4</td>
+          </tr>
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Cellipse cx='200' cy='178' rx='110' ry='58' fill='%237a4f2e'/%3E%3Cellipse cx='200' cy='192' rx='110' ry='44' fill='%234e311c' opacity='.25'/%3E%3Cpath d='M130 148q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M166 148q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Cpath d='M202 148q18 22 6 56' stroke='%23f1d8b4' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='120' cy='158' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='142' cy='172' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='164' cy='186' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='186' cy='158' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='208' cy='172' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='230' cy='186' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='252' cy='158' r='2.5' fill='%23d9c2a0'/%3E%3Ccircle cx='274' cy='172' r='2.5' fill='%23d9c2a0'/%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm vegan">Dark rye</div><div class="ds">70% rye with caraway and molasses. Best sliced thin on day two.</div></td>
+            <td class="pr">$10</td>
+          </tr>
+          <tr>
+            <td class="pic"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300' %3E%3Crect width='400' height='300' fill='%23f3e7d6'/%3E%3Cellipse cx='200' cy='232' rx='150' ry='26' fill='%23000' opacity='.08'/%3E%3Cellipse cx='200' cy='222' rx='150' ry='30' fill='%23fff'/%3E%3Cellipse cx='200' cy='218' rx='128' ry='22' fill='%23f6f1ea'/%3E%3Crect x='80' y='132' width='240' height='96' rx='18' fill='%23e3b35d'/%3E%3Ccircle cx='104' cy='156' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='142' cy='156' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='180' cy='156' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='218' cy='156' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='256' cy='156' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='294' cy='156' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='104' cy='188' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='142' cy='188' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='180' cy='188' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='218' cy='188' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='256' cy='188' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='294' cy='188' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='104' cy='220' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='142' cy='220' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='180' cy='220' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='218' cy='220' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='256' cy='220' r='6' fill='%23c48a2e'/%3E%3Ccircle cx='294' cy='220' r='6' fill='%23c48a2e'/%3E%3Cpath d='M140 164l10 -8 8 10M240 194l10 -8 8 10' stroke='%237c9a6d' stroke-width='5' fill='none'/%3E%3Ccircle cx='270' cy='160' r='8' fill='%23b23a2c'/%3E%3Ccircle cx='170' cy='206' r='8' fill='%23b23a2c'/%3E%3C/svg%3E" alt="" width="400" height="300"></td>
+            <td><div class="nm">Focaccia slab <span class="tags"><span class="tag gf"></span><span class="tag dairy"></span></span></div><div class="ds">Gluten-free focaccia with rosemary, cherry tomato and flaky salt. <span class="warn">Contains milk</span></div></td>
+            <td class="pr">$6</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <p class="legend">Look for the icons next to each item for allergens and dietary info. Names in <span>green</span> are vegan.</p>
+  </div>
+</section>
+
+<section class="specials" id="specials">
+  <div class="wrap grid">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 560' width='900' height='560' %3E%3Crect width='900' height='560' rx='18' fill='%238a5a32'/%3E%3Crect x='22' y='22' width='856' height='516' rx='8' fill='%232b2f2a'/%3E %3Cg opacity='.06' fill='%23fff'%3E%3Cellipse cx='0' cy='0' rx='60' ry='14'/%3E%3Cellipse cx='97' cy='53' rx='60' ry='14'/%3E%3Cellipse cx='194' cy='106' rx='60' ry='14'/%3E%3Cellipse cx='291' cy='159' rx='60' ry='14'/%3E%3Cellipse cx='388' cy='212' rx='60' ry='14'/%3E%3Cellipse cx='485' cy='265' rx='60' ry='14'/%3E%3Cellipse cx='582' cy='318' rx='60' ry='14'/%3E%3Cellipse cx='679' cy='371' rx='60' ry='14'/%3E%3Cellipse cx='776' cy='424' rx='60' ry='14'/%3E%3Cellipse cx='873' cy='477' rx='60' ry='14'/%3E%3Cellipse cx='70' cy='530' rx='60' ry='14'/%3E%3Cellipse cx='167' cy='23' rx='60' ry='14'/%3E%3Cellipse cx='264' cy='76' rx='60' ry='14'/%3E%3Cellipse cx='361' cy='129' rx='60' ry='14'/%3E%3Cellipse cx='458' cy='182' rx='60' ry='14'/%3E%3Cellipse cx='555' cy='235' rx='60' ry='14'/%3E%3Cellipse cx='652' cy='288' rx='60' ry='14'/%3E%3Cellipse cx='749' cy='341' rx='60' ry='14'/%3E%3Cellipse cx='846' cy='394' rx='60' ry='14'/%3E%3Cellipse cx='43' cy='447' rx='60' ry='14'/%3E%3Cellipse cx='140' cy='500' rx='60' ry='14'/%3E%3Cellipse cx='237' cy='553' rx='60' ry='14'/%3E%3Cellipse cx='334' cy='46' rx='60' ry='14'/%3E%3Cellipse cx='431' cy='99' rx='60' ry='14'/%3E%3Cellipse cx='528' cy='152' rx='60' ry='14'/%3E%3Cellipse cx='625' cy='205' rx='60' ry='14'/%3E%3Cellipse cx='722' cy='258' rx='60' ry='14'/%3E%3Cellipse cx='819' cy='311' rx='60' ry='14'/%3E%3Cellipse cx='16' cy='364' rx='60' ry='14'/%3E%3Cellipse cx='113' cy='417' rx='60' ry='14'/%3E%3C/g%3E %3Ctext x='450' y='104' text-anchor='middle' font-family='Segoe Print, Bradley Hand, Comic Sans MS, cursive' font-size='54' fill='%23f6efe2'%3EThis Week's Specials%3C/text%3E %3Cpath d='M260 126c120 12 260 12 380 0' stroke='%23e8b04a' stroke-width='4' fill='none'/%3E %3Cg font-family='Segoe Print, Bradley Hand, Comic Sans MS, cursive' fill='%23f6efe2' font-size='32'%3E %3Ctext x='90' y='210'%3EPumpkin cardamom knot%3C/text%3E%3Ctext x='810' y='210' text-anchor='end' fill='%23e8b04a'%3E$5.25%3C/text%3E %3Ctext x='90' y='280'%3EPear %26amp; gruyere galette%3C/text%3E%3Ctext x='810' y='280' text-anchor='end' fill='%23e8b04a'%3E$6.75%3C/text%3E %3Ctext x='90' y='350'%3EApple cider donut muffin%3C/text%3E%3Ctext x='810' y='350' text-anchor='end' fill='%23e8b04a'%3E$4.50%3C/text%3E %3Ctext x='90' y='420'%3ERye %26amp; caraway pullman%3C/text%3E%3Ctext x='810' y='420' text-anchor='end' fill='%23e8b04a'%3E$11%3C/text%3E%3C/g%3E %3Ctext x='450' y='496' text-anchor='middle' font-family='Segoe Print, Bradley Hand, Comic Sans MS, cursive' font-size='24' fill='%23cfe0c6'%3EThursday–Sunday only · while they last!%3C/text%3E%3C/svg%3E" alt="specials" width="900" height="560">
+    <div>
+      <span class="eyebrow sans" style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--copper)">Seasonal</span>
+      <h2>This week on the chalkboard</h2>
+      <p>Fall is here, which means pears, pumpkins and our first rye of the season. Specials are baked in small batches Thursday through Sunday.</p>
+      <div class="box">
+        <div class="t">Thanksgiving pre-orders</div>
+        <p style="margin:0 0 10px">Pies, dinner rolls and pullman loaves for your table. <span class="em">Orders close Sunday, November 22 at 2pm.</span> No exceptions &mdash; we're a small crew!</p>
+        <p style="margin:0">What's in the holiday box:<br>&bull; 1 apple-cranberry pie or pumpkin pie<br>&bull; 12 parker house rolls<br>&bull; 1 rye &amp; caraway pullman<br>&bull; a jar of cultured honey butter</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Order ahead</span>
+      <h2>Skip the line</h2>
+      <p>Pre-orders are ready on a shelf by the door, labeled with your name.</p>
+    </div>
+    <div class="steps">
+      <div class="step s2"><div class="n">2</div><h3>Pick a pickup time</h3><p>Choose any 15-minute window from 7am to noon, up to six days out.</p></div>
+      <div class="step s3"><div class="n">3</div><h3>Grab it and go</h3><p>Your bag will be on the pickup shelf with your name on it. Pay ahead or at the counter.</p></div>
+      <div class="step s1"><div class="n">1</div><h3>Choose your bake</h3><p>Order anything from today's case by 6pm the night before. Whole loaves can be sliced on request.</p></div>
+    </div>
+    <p class="note">How it works:<br>1. Order online or call (555) 504-1180<br>2. We'll text you when it's on the shelf<br>3. Bring your own bag for 25&cent; off</p>
+  </div>
+</section>
+
+<section class="watch" id="watch" style="padding-top:20px">
+  <div class="wrap grid">
+    <div class="video-frame">
+      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Qx3rPz8LmVk?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div>
+      <span class="eyebrow sans" style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--copper)">The process</span>
+      <h2>81 layers, one morning</h2>
+      <p>Our head baker Lise laminating a full batch of croissant dough, start to finish, in a 2-minute timelapse. Silent &mdash; no narration, no music. Watch for the cross-section at the very end: that's where you can count the layers.</p>
+      <p>Want to try it at home? Our Sunday afternoon lamination class has a few spots left this month.</p>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap grid">
+    <div><h3>Find us</h3><p>412 Fourth Street, Lowertown<br>Street parking and bike racks out front</p><p><a href="#">Get directions</a></p></div>
+    <div><h3>Hours</h3><p>Wednesday &ndash; Sunday<br>6:30am &ndash; 2pm (or until we sell out)<br>Closed Monday &amp; Tuesday</p></div>
+    <div><h3>Say hello</h3><p>hello@crumbandcopper.example<br>(555) 504-1180</p><p>Wholesale inquiries welcome.</p></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>&copy; 2026 Crumb &amp; Copper Bakehouse</span><span><a href="#">Allergen guide</a> &middot; <a href="#">Careers</a> &middot; <a href="#">Accessibility</a></span></div></footer>
+
+</body>
+</html>

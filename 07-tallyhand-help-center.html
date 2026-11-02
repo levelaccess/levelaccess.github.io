@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up recurring invoices – Tallyhand Help Center</title>
+<style>
+  @font-face {
+    font-family: 'tallyicons';
+    src: url(data:application/font-woff;charset=utf-8;base64,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) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  [class^="ti-"], [class*=" ti-"] {
+    font-family: 'tallyicons' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  .ti-play:before { content: "\e900"; }
+  .ti-pause:before { content: "\e901"; }
+  .ti-skip-back:before { content: "\e902"; }
+  .ti-skip-forward:before { content: "\e903"; }
+  .ti-volume:before { content: "\e904"; }
+  .ti-download:before { content: "\e905"; }
+  .ti-share:before { content: "\e906"; }
+  .ti-rss:before { content: "\e907"; }
+  .ti-search:before { content: "\e908"; }
+  .ti-heart:before { content: "\e909"; }
+  .ti-menu:before { content: "\e90a"; }
+  .ti-close:before { content: "\e90b"; }
+  .ti-gear:before { content: "\e90c"; }
+  .ti-info:before { content: "\e90d"; }
+  .ti-star:before { content: "\e90e"; }
+  .ti-check:before { content: "\e90f"; }
+  .ti-warning:before { content: "\e910"; }
+  .ti-clock:before { content: "\e911"; }
+  .ti-mic:before { content: "\e912"; }
+  .ti-headphones:before { content: "\e913"; }
+  .ti-calendar:before { content: "\e914"; }
+  .ti-pin:before { content: "\e915"; }
+  .ti-chevron-right:before { content: "\e916"; }
+  .ti-arrow-right:before { content: "\e917"; }
+  .ti-external:before { content: "\e918"; }
+  .ti-cc:before { content: "\e919"; }
+  .ti-transcript:before { content: "\e91a"; }
+  .ti-lock:before { content: "\e91b"; }
+  .ti-user:before { content: "\e91c"; }
+  .ti-mail:before { content: "\e91d"; }
+  .ti-phone:before { content: "\e91e"; }
+  .ti-plus:before { content: "\e91f"; }
+  .ti-minus:before { content: "\e920"; }
+  .ti-chat:before { content: "\e921"; }
+  .ti-book:before { content: "\e922"; }
+  .ti-home:before { content: "\e923"; }
+  .ti-bell:before { content: "\e924"; }
+  .ti-bolt:before { content: "\e925"; }
+  .ti-refresh:before { content: "\e926"; }
+
+  :root { --ind: #5b5bd6; --ind-50: #eef0fb; --ink: #1c2033; --body: #3d4458; --mute: #6b7287; --line: #e6e8f0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.7 "Inter", "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--body); background: #fff; }
+  h1, h2, h3 { color: var(--ink); line-height: 1.25; margin: 0; letter-spacing: -.01em; }
+  a { color: #4b6bdb; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  .top { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 20; }
+  .top .in { max-width: 1280px; margin: 0 auto; padding: 0 28px; height: 68px; display: flex; align-items: center; gap: 28px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--ink); font-size: 18px; }
+  .brand .mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, #5b5bd6, #9b7bf7); display: grid; place-items: center; color: #fff; font-size: 16px; }
+  .brand small { font-weight: 500; color: var(--mute); font-size: 15px; margin-left: 4px; }
+  .search { flex: 1; max-width: 460px; display: flex; align-items: center; background: #fff; border: 1px solid #edf0f5; border-radius: 10px; padding: 0 6px 0 14px; }
+  .search input { flex: 1; border: 0; font: inherit; font-size: 15px; padding: 10px 0; outline: none; background: transparent; }
+  .search button { border: 0; background: var(--ind-50); color: var(--ind); width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 16px; }
+  .top nav { margin-left: auto; display: flex; gap: 22px; align-items: center; font-size: 15px; font-weight: 600; }
+  .top nav a { color: var(--body); }
+  .top nav a.cta { background: var(--ink); color: #fff; padding: 8px 14px; border-radius: 8px; }
+  .new { position: relative; font-size: 12px; font-weight: 700; color: var(--ind); background: var(--ind-50); padding: 3px 9px; border-radius: 999px; cursor: default; }
+  .new-card { display: none; position: absolute; top: 34px; right: 0; width: 280px; background: #fff; color: var(--body); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-weight: 400; font-size: 14px; box-shadow: 0 20px 40px -18px rgba(28,32,51,.35); }
+  .new-card.show { display: block; }
+  .new-card b { color: var(--ink); display: block; margin-bottom: 4px; }
+
+  .shell { max-width: 1280px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 240px minmax(0, 1fr) 220px; gap: 48px; }
+  .side { padding: 34px 0; font-size: 15px; }
+  .side h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--mute); margin: 0 0 10px; }
+  .side a { display: flex; align-items: center; gap: 10px; color: var(--body); padding: 7px 10px; border-radius: 8px; }
+  .side a:hover { background: #f5f6fa; }
+  .side a.on { background: var(--ind-50); color: var(--ind); font-weight: 600; }
+  .side a i { font-size: 16px; color: var(--mute); }
+  .side a.on i { color: var(--ind); }
+  .side .grp { margin-bottom: 26px; }
+
+  article { padding: 34px 0 80px; min-width: 0; }
+  .crumbs { list-style: none; padding: 0; margin: 0 0 16px; display: flex; gap: 6px; font-size: 14px; color: var(--mute); flex-wrap: wrap; }
+  .crumbs li { cursor: pointer; }
+  .crumbs li:hover { color: var(--ind); }
+  .crumbs li.sep { cursor: default; color: #c3c8d6; }
+  .crumbs li.here { color: var(--ink); font-weight: 600; cursor: default; }
+  article h1 { font-size: 38px; margin-bottom: 10px; }
+  .meta { font-size: 14px; color: var(--mute); display: flex; gap: 16px; align-items: center; margin-bottom: 26px; flex-wrap: wrap; }
+  .tools { margin-left: auto; display: flex; gap: 6px; }
+  .tools button { border: 1px solid var(--line); background: #fff; width: 34px; height: 34px; border-radius: 8px; cursor: pointer; color: var(--mute); font-size: 15px; }
+  article h2 { font-size: 24px; margin: 40px 0 12px; }
+  article p { margin: 0 0 14px; }
+  .ui { font-weight: 700; color: var(--ink); }
+  .kbd { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; background: #f3f4f8; border: 1px solid var(--line); border-bottom-width: 2px; padding: 1px 6px; border-radius: 5px; }
+  .term { border-bottom: 1.5px dotted var(--ind); cursor: help; }
+  .glossary-tip { position: absolute; z-index: 30; width: 260px; background: var(--ink); color: #e6e8f0; font-size: 13.5px; line-height: 1.5; padding: 12px 14px; border-radius: 10px; display: none; }
+  .glossary-tip b { color: #fff; display: block; }
+
+  .callout { display: flex; gap: 12px; border-radius: 12px; padding: 14px 16px; margin: 18px 0; font-size: 15px; line-height: 1.3; height: var(--ch, 96px); overflow: hidden; }
+  .callout p { margin: 0; }
+  .callout { --ch: 88px; }
+  @media (min-width: 1101px) and (max-width: 1140px) { .callout { --ch: 108px; } }
+  @media (min-width: 851px) and (max-width: 1100px) { .callout { --ch: 88px; } }
+  @media (min-width: 821px) and (max-width: 850px) { .callout { --ch: 108px; } }
+  @media (min-width: 594px) and (max-width: 820px) { .callout { --ch: 88px; } }
+  @media (min-width: 444px) and (max-width: 593px) { .callout { --ch: 108px; } }
+  @media (min-width: 401px) and (max-width: 443px) { .callout { --ch: 128px; } }
+  @media (min-width: 351px) and (max-width: 400px) { .callout { --ch: 148px; } }
+  @media (max-width: 350px) { .callout { --ch: 168px; } }
+  .callout.note { background: #eef4ff; }
+  .callout.warn { background: #fff6e8; }
+  .callout .lbl { font-weight: 800; color: var(--ink); }
+  .callout.warn .lbl { color: #b45309; }
+  .callout i { font-size: 18px; margin-top: 3px; color: var(--ind); }
+  .callout.warn i { color: #d97706; }
+
+  table.glance { width: 100%; border-collapse: collapse; margin: 10px 0 8px; }
+  table.glance td { vertical-align: top; padding: 0; }
+  table.glance td.img { width: 58%; padding-right: 26px; }
+  table.glance img { border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 20px 40px -26px rgba(28,32,51,.4); }
+  table.glance .k { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--mute); font-weight: 700; margin-top: 10px; }
+  table.glance .v { color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+
+  .steps-text p.step { padding-left: 0; }
+  .steps-text p.step b { color: var(--ink); }
+
+  .flow { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 6px; margin: 20px 0; }
+  .flow svg { width: 100%; height: auto; display: block; }
+
+  .vid { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); margin: 20px 0 8px; background: #000; }
+  .vid video { width: 100%; display: block; aspect-ratio: 16/9; }
+  details { font-size: 15px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+  details p { margin: 8px 0 0; }
+
+  .yt { position: relative; padding-top: 56.25%; border-radius: 14px; overflow: hidden; background: #0f1222; margin: 18px 0 8px; }
+  .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .helpful { margin-top: 44px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 14px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .helpful .q { font-weight: 700; color: var(--ink); }
+  .helpful button { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid #e8ebf2; background: #fff; cursor: pointer; font-size: 16px; color: var(--mute); }
+  .helpful button:hover { border-color: var(--ind); color: var(--ind); }
+  .switch { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .switch input { appearance: none; -webkit-appearance: none; width: 40px; height: 22px; border-radius: 11px; background: #edf0f5; position: relative; cursor: pointer; margin: 0; }
+  .switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: left .15s; }
+  .switch input:checked { background: var(--ind); }
+  .switch input:checked::after { left: 21px; }
+
+  .related { margin-top: 36px; }
+  .related h3 { font-size: 18px; margin-bottom: 12px; }
+  .rel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rel { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .rel .t { color: var(--ink); font-weight: 700; margin-bottom: 4px; }
+  .rel p { font-size: 14px; margin: 0 0 8px; }
+  .rel a { font-weight: 600; font-size: 14px; }
+
+  .contact { margin-top: 44px; background: #f7f8fc; border-radius: 16px; padding: 28px; }
+  .contact h3 { font-size: 20px; margin-bottom: 6px; }
+  .contact form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .contact label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+  .contact input, .contact textarea { width: 100%; font: inherit; font-size: 15px; padding: 10px 12px; border: 1px solid #d5d9e5; border-radius: 9px; background: #fff; }
+  .contact .full { grid-column: 1 / -1; }
+  .contact textarea { min-height: 96px; }
+  .audio-cap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px; }
+  .audio-cap audio { height: 36px; }
+  .btn { background: var(--ind); color: #fff; border: 0; border-radius: 9px; padding: 12px 20px; font: inherit; font-weight: 700; cursor: pointer; justify-self: start; }
+
+  .toc { padding: 34px 0; font-size: 14px; position: sticky; top: 68px; align-self: start; }
+  .toc h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--mute); margin: 0 0 10px; }
+  .toc a { display: block; color: var(--mute); padding: 4px 0 4px 12px; border-left: 2px solid var(--line); }
+  .toc a.on { color: var(--ind); border-color: var(--ind); }
+
+  footer { border-top: 1px solid var(--line); font-size: 14px; color: var(--mute); }
+  footer .in { max-width: 1280px; margin: 0 auto; padding: 26px 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  footer a { color: var(--mute); }
+
+  @media (max-width: 1100px) { .shell { grid-template-columns: 220px minmax(0, 1fr); } .toc { display: none; } }
+  @media (max-width: 820px) {
+    .shell { grid-template-columns: minmax(0, 1fr); }
+    .side { display: none; }
+    .search { display: none; }
+    .top nav a:not(.cta) { display: none; }
+    table.glance td { display: block; width: 100% !important; padding: 0 0 16px !important; }
+    .rel-grid, .contact form { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) { .shell, .top .in { padding: 0 18px; } article h1 { font-size: 30px; } .switch { margin-left: 0; } }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="in">
+    <a href="#" class="brand"><span class="mark"><i class="ti-bolt"></i></span>Tallyhand<small>Help Center</small></a>
+    <form class="search" onsubmit="return false"><input type="search" placeholder="Search for articles…" aria-label="Search help articles"><button><i class="ti-search"></i></button></form>
+    <nav>
+      <span class="new" id="whatsNew">What's new<span class="new-card" id="newCard"><b>Recurring invoices 2.0</b>Schedules now support custom intervals, auto-reminders and partial payments.</span></span>
+      <a href="#">Community</a>
+      <a href="#">Status</a>
+      <a href="#" class="cta">Sign in</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="grp">
+      <h4>Getting started</h4>
+      <a href="#"><i class="ti-home"></i> Welcome to Tallyhand</a>
+      <a href="#"><i class="ti-user"></i> Invite your team</a>
+      <a href="#"><i class="ti-gear"></i> Account settings</a>
+    </div>
+    <div class="grp">
+      <h4>Invoicing</h4>
+      <a href="#"><i class="ti-book"></i> Create an invoice</a>
+      <a href="#" class="on"><i class="ti-refresh"></i> Recurring invoices</a>
+      <a href="#"><i class="ti-bell"></i> Payment reminders</a>
+      <a href="#"><i class="ti-lock"></i> Online payments</a>
+    </div>
+    <div class="grp">
+      <h4>Need a hand?</h4>
+      <a href="#contact"><i class="ti-chat"></i> Contact support</a>
+      <a href="#"><i class="ti-mail"></i> Email us</a>
+    </div>
+  </aside>
+
+  <article>
+    <ol class="crumbs">
+      <li role="button" onclick="location.href='#'">Help Center</li><li class="sep">/</li>
+      <li role="button" onclick="location.href='#'">Invoicing</li><li class="sep">/</li>
+      <li class="here">Recurring invoices</li>
+    </ol>
+    <h1>Set up recurring invoices</h1>
+    <div class="meta">
+      <span>Updated 3 days ago</span><span>&middot;</span><span>5 min read</span>
+      <div class="tools"><button><i class="ti-share"></i></button><button><i class="ti-download"></i></button><button><i class="ti-bell"></i></button></div>
+    </div>
+
+    <p>Recurring invoices let you bill the same client on a regular schedule without recreating the invoice every time. Tallyhand creates a fresh <span class="term" data-term="Draft">draft</span> from your template, applies your <span class="term" data-term="Net terms">net terms</span>, and sends it automatically on each <span class="term" data-term="Billing period">billing period</span>.</p>
+
+    <table class="glance">
+      <tr>
+        <td class="img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 860 460' width='860' height='460' %3E%3Crect width='860' height='460' rx='14' fill='%23fff'/%3E%3Crect width='860' height='44' rx='14' fill='%23eef0f7'/%3E%3Crect y='30' width='860' height='14' fill='%23eef0f7'/%3E %3Ccircle cx='24' cy='22' r='6' fill='%23ff6b6b'/%3E%3Ccircle cx='44' cy='22' r='6' fill='%23ffd166'/%3E%3Ccircle cx='64' cy='22' r='6' fill='%2306d6a0'/%3E %3Crect x='0' y='44' width='220' height='416' fill='%231c2033'/%3E %3Crect x='24' y='80' width='110' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='120' width='130' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='160' width='150' height='12' rx='6' fill='%238b8ff0'/%3E%3Crect x='24' y='200' width='110' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='240' width='130' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='280' width='150' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='320' width='110' height='12' rx='6' fill='%233a3f5c'/%3E %3Ctext x='250' y='100' font-family='Helvetica, Arial' font-size='22' font-weight='700' fill='%231c2033'%3ERecurring invoices%3C/text%3E %3Crect x='690' y='78' width='120' height='34' rx='17' fill='%2322c55e'/%3E%3Ctext x='750' y='100' text-anchor='middle' font-family='Helvetica, Arial' font-size='13' font-weight='700' fill='%23fff'%3E+ New schedule%3C/text%3E %3Ccircle cx='830' cy='22' r='10' fill='none' stroke='%235b5bd6' stroke-width='3'/%3E%3Crect x='250' y='150' width='560' height='38' rx='6' fill='%23fff'/%3E%3Crect x='266' y='163' width='120' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='163' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='159' width='80' height='18' rx='9' fill='%23dcfce7'/%3E%3Crect x='250' y='196' width='560' height='38' rx='6' fill='%23f6f7fb'/%3E%3Crect x='266' y='209' width='157' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='209' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='205' width='80' height='18' rx='9' fill='%23e0e7ff'/%3E%3Crect x='250' y='242' width='560' height='38' rx='6' fill='%23fff'/%3E%3Crect x='266' y='255' width='194' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='255' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='251' width='80' height='18' rx='9' fill='%23fef3c7'/%3E%3Crect x='250' y='288' width='560' height='38' rx='6' fill='%23f6f7fb'/%3E%3Crect x='266' y='301' width='151' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='301' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='297' width='80' height='18' rx='9' fill='%23dcfce7'/%3E%3Crect x='250' y='334' width='560' height='38' rx='6' fill='%23fff'/%3E%3Crect x='266' y='347' width='188' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='347' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='343' width='80' height='18' rx='9' fill='%23fee2e2'/%3E%3Crect x='250' y='380' width='560' height='38' rx='6' fill='%23f6f7fb'/%3E%3Crect x='266' y='393' width='145' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='393' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='389' width='80' height='18' rx='9' fill='%23dcfce7'/%3E %3Ccircle cx='830' cy='22' r='22' fill='none' stroke='%23ff6b6b' stroke-width='3' stroke-dasharray='6 5'/%3E%3C/svg%3E" alt="Screenshot of the Recurring invoices page in Tallyhand" width="860" height="460"></td>
+        <td>
+          <div class="k">Available on</div><div class="v">Growth and Business plans</div>
+          <div class="k">Who can do this</div><div class="v">Owners and Admins</div>
+          <div class="k">Time to set up</div><div class="v">About 5 minutes</div>
+          <div class="k">Works with</div><div class="v">Card, ACH, and manual payments</div>
+        </td>
+      </tr>
+    </table>
+
+    <h2 id="before">Before you begin</h2>
+    <p>&ndash; Make sure the client already exists in <span class="ui">Clients</span>.<br>&ndash; Connect a payment method if you want automatic collection.<br>&ndash; Decide whether line items will stay the same every period.</p>
+
+    <div class="callout note"><i class="ti-info"></i><p><span class="lbl">Note:</span> Changes to a schedule only affect future invoices. Invoices that have already been sent keep their original amounts, dates and terms, and you'll need to edit or void them individually.</p></div>
+
+    <h2 id="create">Create a schedule</h2>
+    <div class="steps-text">
+      <p class="step"><b>1.</b> Click the gear icon in the upper-right corner of any page and choose <span class="ui">Invoicing</span>.</p>
+      <p class="step"><b>2.</b> Open <span class="ui">Recurring</span> and click the round green button on the right.</p>
+      <p class="step"><b>3.</b> Choose the client and an invoice template from the panel on the left.</p>
+      <p class="step"><b>4.</b> Set the start date and how often to send: weekly, monthly, quarterly, or a custom interval.</p>
+      <p class="step"><b>5.</b> Press <span class="kbd">Ctrl</span> + <span class="kbd">S</span> or click <span class="ui">Save schedule</span>.</p>
+    </div>
+
+    <div class="flow">
+      <svg viewBox="0 0 680 170" aria-hidden="true"><rect x="10" y="40" width="120" height="56" rx="28" fill="#fff" stroke="#dfe3ee" stroke-width="2"/><text x="70" y="74" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" font-weight="700" fill="#1c2033">Draft</text><path d="M136 68h48" stroke="#e3e7f0" stroke-width="3"/><path d="M184 62l8 6-8 6" fill="none" stroke="#e3e7f0" stroke-width="3"/><rect x="190" y="40" width="120" height="56" rx="28" fill="#fff" stroke="#dfe3ee" stroke-width="2"/><text x="250" y="74" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" font-weight="700" fill="#1c2033">Scheduled</text><path d="M316 68h48" stroke="#e3e7f0" stroke-width="3"/><path d="M364 62l8 6-8 6" fill="none" stroke="#e3e7f0" stroke-width="3"/><rect x="370" y="40" width="120" height="56" rx="28" fill="#fff" stroke="#dfe3ee" stroke-width="2"/><text x="430" y="74" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" font-weight="700" fill="#1c2033">Sent</text><path d="M496 68h48" stroke="#e3e7f0" stroke-width="3"/><path d="M544 62l8 6-8 6" fill="none" stroke="#e3e7f0" stroke-width="3"/><rect x="550" y="40" width="120" height="56" rx="28" fill="#fff" stroke="#dfe3ee" stroke-width="2"/><text x="610" y="74" text-anchor="middle" font-family="Helvetica, Arial" font-size="16" font-weight="700" fill="#1c2033">Paid</text><path d="M610 102v30H250v-30" fill="none" stroke="#e8ebf3" stroke-width="2.5" stroke-dasharray="6 6"/><text x="430" y="152" text-anchor="middle" font-family="Helvetica, Arial" font-size="13" fill="#9aa1b5">repeats every billing period</text></svg>
+    </div>
+
+    <div class="callout warn"><i class="ti-warning"></i><p><span class="lbl">Important:</span> If a client's card fails, the invoice stays in <span class="ui">Sent</span> and we retry three times over seven days. After the third failure the schedule pauses until you update the payment method.</p></div>
+
+    <h2 id="video">Watch it in action</h2>
+    <p>Prefer video? Dev from our support team walks through the whole setup in under a minute.</p>
+    <div class="vid">
+      <video controls preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720' width='1280' height='720' %3E%3Crect width='1280' height='720' fill='%23eef0fb'/%3E%3Cg transform='translate(210 120) scale(1)'%3E%3Crect width='860' height='460' rx='14' fill='%23fff'/%3E%3Crect width='860' height='44' rx='14' fill='%23eef0f7'/%3E%3Crect y='30' width='860' height='14' fill='%23eef0f7'/%3E %3Ccircle cx='24' cy='22' r='6' fill='%23ff6b6b'/%3E%3Ccircle cx='44' cy='22' r='6' fill='%23ffd166'/%3E%3Ccircle cx='64' cy='22' r='6' fill='%2306d6a0'/%3E %3Crect x='0' y='44' width='220' height='416' fill='%231c2033'/%3E %3Crect x='24' y='80' width='110' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='120' width='130' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='160' width='150' height='12' rx='6' fill='%238b8ff0'/%3E%3Crect x='24' y='200' width='110' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='240' width='130' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='280' width='150' height='12' rx='6' fill='%233a3f5c'/%3E%3Crect x='24' y='320' width='110' height='12' rx='6' fill='%233a3f5c'/%3E %3Ctext x='250' y='100' font-family='Helvetica, Arial' font-size='22' font-weight='700' fill='%231c2033'%3ERecurring invoices%3C/text%3E %3Crect x='690' y='78' width='120' height='34' rx='17' fill='%2322c55e'/%3E%3Ctext x='750' y='100' text-anchor='middle' font-family='Helvetica, Arial' font-size='13' font-weight='700' fill='%23fff'%3E+ New schedule%3C/text%3E %3Ccircle cx='830' cy='22' r='10' fill='none' stroke='%235b5bd6' stroke-width='3'/%3E%3Crect x='250' y='150' width='560' height='38' rx='6' fill='%23fff'/%3E%3Crect x='266' y='163' width='120' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='163' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='159' width='80' height='18' rx='9' fill='%23dcfce7'/%3E%3Crect x='250' y='196' width='560' height='38' rx='6' fill='%23f6f7fb'/%3E%3Crect x='266' y='209' width='157' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='209' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='205' width='80' height='18' rx='9' fill='%23e0e7ff'/%3E%3Crect x='250' y='242' width='560' height='38' rx='6' fill='%23fff'/%3E%3Crect x='266' y='255' width='194' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='255' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='251' width='80' height='18' rx='9' fill='%23fef3c7'/%3E%3Crect x='250' y='288' width='560' height='38' rx='6' fill='%23f6f7fb'/%3E%3Crect x='266' y='301' width='151' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='301' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='297' width='80' height='18' rx='9' fill='%23dcfce7'/%3E%3Crect x='250' y='334' width='560' height='38' rx='6' fill='%23fff'/%3E%3Crect x='266' y='347' width='188' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='347' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='343' width='80' height='18' rx='9' fill='%23fee2e2'/%3E%3Crect x='250' y='380' width='560' height='38' rx='6' fill='%23f6f7fb'/%3E%3Crect x='266' y='393' width='145' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='560' y='393' width='70' height='10' rx='5' fill='%23c9cde0'/%3E%3Crect x='700' y='389' width='80' height='18' rx='9' fill='%23dcfce7'/%3E %3Ccircle cx='830' cy='22' r='22' fill='none' stroke='%23ff6b6b' stroke-width='3' stroke-dasharray='6 5'/%3E%3C/g%3E%3Ccircle cx='1036' cy='140' r='48' fill='%235b5bd6' opacity='.15'/%3E%3Cpath d='M1020 118l40 22-40 22z' fill='%235b5bd6'/%3E%3Crect x='60' y='40' width='330' height='44' rx='22' fill='%235b5bd6'/%3E%3Ctext x='225' y='69' text-anchor='middle' font-family='Helvetica, Arial' font-size='18' font-weight='700' fill='%23fff'%3EVIDEO TUTORIAL · 0:40%3C/text%3E%3C/svg%3E" id="tutorial">
+        <source src="media/recurring-invoices-tutorial.mp4" type="video/mp4">
+        <track kind="captions" srclang="en" label="English (auto)" src="data:text/vtt;charset=utf-8,WEBVTT%0A%0A00:00:00.500 --> 00:00:04.000%0Ahi I'm death from tally hand support%0A%0A00:00:04.000 --> 00:00:09.000%0Alet's set up a recurring in voice first open invoices%0A%0A00:00:10.500 --> 00:00:14.000%0Aclick this than pick your client from the fist%0A%0A00:00:14.000 --> 00:00:21.000%0Aset the start date and how off and then%0A%0A00:00:24.000 --> 00:00:30.000%0A[MUSIC]%0A%0A00:00:30.000 --> 00:00:38.000%0Aand that's it you're all set it'll go out automatically on the first%0A" default>
+      </video>
+    </div>
+    <details>
+      <summary>Video transcript</summary>
+      <p>Hi, I'm Dev from Tallyhand support. Let's set up a recurring invoice. First, open Invoices and go over here. Click this, then pick your client from the list. Set the start date and how often, and then this one here &mdash; turn that on if you want us to collect automatically. And that's it, you're all set. It'll go out automatically on the first.</p>
+    </details>
+
+    <h2 id="webinar">Webinar replay</h2>
+    <p>Our hour-long deep dive on recurring billing, partial payments and reminders. <a href="#" style="text-decoration:underline">Read the full webinar transcript</a>.</p>
+    <div class="yt">
+      <iframe src="https://www.youtube-nocookie.com/embed/Tk4vB2nWq9e?rel=0" title="Webinar replay: Getting paid on time with recurring billing" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h2 id="faq">Common questions</h2>
+    <p><b style="color:var(--ink)">Can I change the amount for just one period?</b> Yes. Open the upcoming draft from the schedule and edit it before the send date. You can read more about editing drafts <a href="#">here</a>.</p>
+    <p><b style="color:var(--ink)">What time do invoices send?</b> At 9:00am in your workspace's time zone. You can change your time zone in <a href="#">workspace settings</a>.</p>
+
+    <div class="helpful">
+      <span class="q">Was this article helpful?</span>
+      <button><i class="ti-check"></i></button><button><i class="ti-close"></i></button>
+      <label class="switch"><input type="checkbox" id="watch"> Email me when this article changes</label>
+    </div>
+
+    <div class="related">
+      <h3>Related articles</h3>
+      <div class="rel-grid">
+        <div class="rel"><div class="t">Automatic payment reminders</div><p>Nudge clients before and after the due date.</p><a href="#">Read more</a></div>
+        <div class="rel"><div class="t">Accept partial payments</div><p>Let clients pay in installments on large invoices.</p><a href="#">Read more</a></div>
+        <div class="rel"><div class="t">Pause or cancel a schedule</div><p>Stop future invoices without deleting history.</p><a href="#">Learn more</a></div>
+        <div class="rel"><div class="t">Invoice templates</div><p>Reuse line items, notes and branding.</p><a href="#">Learn more</a></div>
+      </div>
+    </div>
+
+    <div class="contact" id="contact">
+      <h3>Still stuck?</h3>
+      <p style="margin:0; font-size:15px">Send us a note and a real human will reply within one business day.</p>
+      <form id="contactForm" novalidate>
+        <div><label for="c-name">Name</label><input id="c-name" type="text" autocomplete="name"></div>
+        <div><label for="c-email">Work email</label><input id="c-email" type="email" autocomplete="email"></div>
+        <div class="full"><label for="c-msg">How can we help?</label><textarea id="c-msg"></textarea></div>
+        <div class="full">
+          <label for="c-code">Security check: listen and enter the 5-digit code</label>
+          <div class="audio-cap"><audio controls preload="none" src="media/verify/4c19e.mp3"></audio><input id="c-code" type="text" inputmode="numeric" style="max-width:160px"></div>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+      </form>
+    </div>
+  </article>
+
+  <nav class="toc" aria-label="On this page">
+    <h4>On this page</h4>
+    <a href="#before" class="on">Before you begin</a>
+    <a href="#create">Create a schedule</a>
+    <a href="#video">Watch it in action</a>
+    <a href="#webinar">Webinar replay</a>
+    <a href="#faq">Common questions</a>
+  </nav>
+</div>
+
+<footer><div class="in"><span>&copy; 2026 Tallyhand, Inc.</span><span><a href="#">Status</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Accessibility</a></span></div></footer>
+
+<div class="glossary-tip" id="gtip"></div>
+
+<script>
+  var defs = {
+    'Draft': 'An invoice that has been created but not sent. Drafts can be edited freely.',
+    'Net terms': 'How many days the client has to pay after the invoice date, e.g. Net 15 or Net 30.',
+    'Billing period': 'The interval between invoices in a schedule: weekly, monthly, quarterly or custom.'
+  };
+  var tip = document.getElementById('gtip');
+  document.querySelectorAll('.term').forEach(function (t) {
+    t.addEventListener('mouseenter', function () {
+      var r = t.getBoundingClientRect();
+      tip.innerHTML = '<b>' + t.dataset.term + '</b>' + defs[t.dataset.term];
+      tip.style.left = (r.left + window.scrollX) + 'px';
+      tip.style.top = (r.bottom + window.scrollY + 14) + 'px';
+      tip.style.display = 'block';
+    });
+    t.addEventListener('mouseleave', function () { tip.style.display = 'none'; });
+  });
+
+  var nw = document.getElementById('whatsNew'), card = document.getElementById('newCard'), nt;
+  nw.addEventListener('mouseenter', function () {
+    card.classList.add('show');
+    clearTimeout(nt);
+    nt = setTimeout(function () { card.classList.remove('show'); }, 2000);
+  });
+  nw.addEventListener('mouseleave', function () { card.classList.remove('show'); });
+
+  document.getElementById('contactForm').addEventListener('submit', function (e) { e.preventDefault(); });
+</script>
+</body>
+</html>

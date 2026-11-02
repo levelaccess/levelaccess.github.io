@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fernhollow Animal Hospital | Veterinary Care in Millbrook</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #2b3a35;
+  background: #fbfaf7;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+a { color: #2f7d63; }
+img { max-width: 100%; display: block; }
+
+/* Icon font stand-in: glyphs drawn with ::before, like Font Awesome */
+.fh { font-style: normal; display: inline-block; width: 1.2em; text-align: center; }
+.fh-phone::before { content: "\260E"; }
+.fh-pin::before { content: "\2316"; }
+.fh-clock::before { content: "\23F2"; }
+.fh-star::before { content: "\2605"; }
+.fh-heart::before { content: "\2665"; }
+.fh-mail::before { content: "\2709"; }
+.fh-chat::before { content: "\2709"; }
+.fh-close::before { content: "\2715"; }
+.fh-check::before { content: "\2714"; }
+.fh-cal::before { content: "\25A6"; }
+.fh-paw::before { content: "\2740"; }
+
+/* Utility bar */
+.utility {
+  background: #2f5d50;
+  color: #e7f0ec;
+  font-size: 13px;
+  padding: 6px 32px;
+  display: flex;
+  justify-content: space-between;
+}
+.utility a { color: #e7f0ec; text-decoration: none; }
+.utility .util-links a { margin-left: 18px; }
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  background: #fff;
+  border-bottom: 1px solid #e6ebe8;
+}
+.main-nav { font-size: 15px; color: #a9b8b2; }
+.main-nav a {
+  color: #2b3a35;
+  text-decoration: none;
+  padding: 6px 4px;
+}
+.main-nav a:hover { color: #2f7d63; }
+.main-nav a:focus { outline: none; }
+.main-nav a.current { color: #2f7d63; font-weight: 600; }
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary { background: #2e9a5b; color: #fff; }
+.btn-primary:focus { outline: 2px solid #cfe8dc; outline-offset: 2px; }
+.btn-ghost {
+  background: transparent;
+  color: #2f5d50;
+  border: 1px solid #dfe6e3;
+}
+.btn-ghost:focus { outline: none; box-shadow: 0 0 0 3px #e3efe9; }
+
+/* Breadcrumb */
+.crumbs { padding: 12px 32px; font-size: 13px; color: #6b7c76; }
+.crumbs a { color: #6b7c76; }
+.crumbs span.sep { margin: 0 6px; }
+
+/* Footer */
+.site-footer {
+  background: #23332e;
+  color: #7f8f89;
+  padding: 40px 32px 24px;
+  font-size: 14px;
+  margin-top: 56px;
+}
+.site-footer .cols { display: flex; gap: 48px; flex-wrap: wrap; }
+.site-footer h4 { color: #e7f0ec; font-size: 15px; margin-bottom: 10px; font-weight: 600; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 6px; }
+.site-footer a { color: #9fb1aa; text-decoration: none; }
+.site-footer a:focus { outline: none; color: #e9c46a; }
+.site-footer .legal { margin-top: 28px; border-top: 1px solid #34463f; padding-top: 14px; color: #5f716a; font-size: 12px; }
+
+/* Chat widget */
+.chat-launch {
+  position: fixed; right: 24px; bottom: 24px;
+  background: #2f5d50; color: #fff;
+  border-radius: 28px; padding: 12px 18px;
+  font-size: 14px; cursor: pointer; border: 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+.chat-panel {
+  position: fixed; right: 24px; bottom: 80px;
+  width: 300px; background: #fff;
+  border: 1px solid #dfe6e3; border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.18);
+  display: none; font-size: 14px;
+}
+.chat-panel.open { display: block; }
+.chat-panel header { background: #2f5d50; color: #fff; padding: 10px 14px; border-radius: 12px 12px 0 0; font-weight: 600; }
+.chat-panel .msgs { padding: 12px 14px; height: 140px; color: #4a5a54; }
+.chat-panel .compose { display: flex; border-top: 1px solid #e6ebe8; }
+.chat-panel .compose input { flex: 1; border: 0; padding: 10px 12px; font-size: 14px; }
+.chat-panel .compose button { border: 0; background: #2e9a5b; color: #fff; padding: 0 14px; cursor: pointer; }
+</style>
+<style>
+.hero {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDAwIiBoZWlnaHQ9IjQ2MCIgdmlld0JveD0iMCAwIDE0MDAgNDYwIj4KICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjZmUzZDgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4ZmI4YTgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTQwMCIgaGVpZ2h0PSI0NjAiIGZpbGw9InVybCgjZykiLz4KICA8Y2lyY2xlIGN4PSIxMTIwIiBjeT0iMjUwIiByPSIxNzAiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9Ii4zNSIvPgogIDxnIGZpbGw9IiMyZjVkNTAiIG9wYWNpdHk9Ii44NSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA0MCAxNzApIHNjYWxlKDMpIj4KICAgIDxlbGxpcHNlIGN4PSIyOCIgY3k9IjM2IiByeD0iMTEiIHJ5PSI5Ii8+PGVsbGlwc2UgY3g9IjE0IiBjeT0iMjIiIHJ4PSI1IiByeT0iNi41Ii8+PGVsbGlwc2UgY3g9IjI0IiBjeT0iMTQiIHJ4PSI1IiByeT0iNi41Ii8+PGVsbGlwc2UgY3g9IjM1IiBjeT0iMTQiIHJ4PSI1IiByeT0iNi41Ii8+PGVsbGlwc2UgY3g9IjQ0IiBjeT0iMjIiIHJ4PSI1IiByeT0iNi41Ii8+CiAgPC9nPgogIDxyZWN0IHg9IjEwMTAiIHk9IjM5MCIgd2lkdGg9IjIzMCIgaGVpZ2h0PSI0NCIgcng9IjIyIiBmaWxsPSIjYzg1NTNkIi8+CiAgPHRleHQgeD0iMTEyNSIgeT0iNDE5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiNmZmYiPk5PVyBBQ0NFUFRJTkcgTkVXIFBBVElFTlRTPC90ZXh0Pgo8L3N2Zz4K") center right / cover no-repeat;
+  padding: 72px 32px 88px;
+}
+.hero h1 { font-family: Georgia, serif; font-weight: normal; font-size: 42px; line-height: 1.15; max-width: 560px; color: #1f3d34; }
+.hero p { max-width: 500px; margin: 16px 0 26px; font-size: 18px; color: #2f4a42; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+section { margin-top: 56px; }
+section h2 { font-family: Georgia, serif; font-weight: normal; font-size: 30px; color: #1f3d34; margin-bottom: 18px; }
+
+.promo { margin-top: 32px; }
+
+.divider { margin: 48px auto 0; }
+
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { background: #fff; border: 1px solid #e6ebe8; border-radius: 12px; padding: 24px; }
+.card h4 { font-size: 19px; margin-bottom: 8px; color: #1f3d34; }
+.card h4 .fh { color: #c8553d; margin-right: 4px; }
+.card p { color: #4a5a54; font-size: 15px; margin-bottom: 14px; }
+.card a { font-weight: 600; font-size: 14px; }
+
+.body-copy a.inline { color: #3f6d5d; text-decoration: none; }
+.warn { color: #b3261e; font-weight: 700; }
+
+.steps { display: flex; gap: 20px; }
+.step { flex: 1; background: #eef5f1; border-radius: 12px; padding: 20px; }
+.step .num { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #2f7d63; }
+.step h3 { font-size: 18px; margin: 4px 0 6px; }
+.step p { font-size: 15px; color: #4a5a54; }
+.step.s1 { order: 1; } .step.s2 { order: 2; } .step.s3 { order: 3; }
+
+.plan { display: flex; gap: 32px; align-items: flex-start; background: #fff; border: 1px solid #e6ebe8; border-radius: 12px; padding: 28px; }
+.plan .price { font-size: 34px; font-family: Georgia, serif; color: #1f3d34; }
+.plan .price small { font-size: 15px; color: #6b7c76; }
+.tip-wrap { position: relative; display: inline-block; margin: 10px 18px 0 0; }
+.tip-trigger { border-bottom: 1px dashed #2f7d63; color: #2f7d63; cursor: help; font-size: 14px; font-weight: 600; }
+.tip {
+  position: absolute; left: 0; top: calc(100% + 14px);
+  width: 260px; background: #1f3d34; color: #fff;
+  font-size: 13px; padding: 12px 14px; border-radius: 8px;
+  display: none; z-index: 5;
+}
+.tip.show { display: block; }
+.badge { display: inline-flex; align-items: center; gap: 6px; background: #f4e3c3; color: #5a2e1f; border-radius: 16px; padding: 4px 12px; font-size: 13px; font-weight: 600; cursor: default; }
+
+.team-table { width: 100%; border-collapse: collapse; }
+.team-table td { vertical-align: top; padding: 0 16px 0 0; width: 33%; }
+.team-table img { width: 120px; height: 120px; margin-bottom: 10px; }
+.team-table .name { font-weight: 700; color: #1f3d34; }
+.team-table .role { font-size: 14px; color: #6b7c76; }
+.team-table .bio { font-size: 14px; color: #4a5a54; margin-top: 6px; }
+.eyebrow-big { font-family: Georgia, serif; font-size: 30px; color: #1f3d34; margin-bottom: 18px; }
+
+.testimonials { background: #2f5d50; color: #fff; border-radius: 14px; padding: 36px 40px; position: relative; min-height: 170px; }
+.testimonials blockquote { font-family: Georgia, serif; font-size: 21px; line-height: 1.45; display: none; }
+.testimonials blockquote.active { display: block; }
+.testimonials cite { display: block; margin-top: 12px; font-size: 14px; font-style: normal; color: #b9d3c9; }
+.dots { position: absolute; right: 32px; bottom: 20px; display: flex; gap: 8px; }
+.dots span { width: 9px; height: 9px; border-radius: 50%; background: #5d8a7c; }
+.dots span.on { background: #fff; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.hours-card { background: #fff; border: 1px solid #e6ebe8; border-radius: 12px; padding: 20px 22px; height: 250px; overflow: hidden; }
+.hours-card h3, .chart-card h3, .portal h3 { font-size: 17px; margin-bottom: 10px; color: #1f3d34; }
+.hours-card dl { display: grid; grid-template-columns: 90px 1fr; row-gap: 4px; font-size: 14px; line-height: 1.35; }
+.hours-card dt { color: #6b7c76; }
+.hours-card dd.uc { color: #d9822b; }
+.hours-card .note { font-size: 12px; color: #6b7c76; margin-top: 8px; }
+
+.chart-card { background: #fff; border: 1px solid #e6ebe8; border-radius: 12px; padding: 20px 22px; }
+.chart-card .legend { font-size: 12px; color: #6b7c76; display: flex; gap: 14px; margin-top: 6px; }
+.chart-card .legend i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: -1px; }
+
+.portal { background: #fff; border: 1px solid #e6ebe8; border-radius: 12px; padding: 20px 22px; font-size: 14px; }
+.portal label { display: block; font-weight: 600; margin: 8px 0 3px; }
+.portal input { width: 100%; padding: 8px 10px; border: 1px solid #8a9a94; border-radius: 6px; font-size: 14px; }
+.portal .audio-cap { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+.portal .audio-cap button { border: 1px solid #8a9a94; background: #f3f6f4; border-radius: 6px; padding: 7px 10px; cursor: pointer; font-size: 13px; }
+.portal .audio-cap input { width: 110px; }
+.portal .btn { margin-top: 12px; padding: 9px 18px; }
+
+.ambient { display: flex; gap: 32px; align-items: center; }
+.ambient video { width: 420px; border-radius: 14px; }
+.ambient p { color: #4a5a54; margin-bottom: 12px; }
+
+.newsletter { background: #eef5f1; border-radius: 14px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.newsletter h2 { font-size: 24px; margin: 0; }
+.newsletter form { display: flex; gap: 10px; }
+.newsletter input { width: 280px; padding: 11px 14px; border: 1px solid #e3ebe7; border-radius: 24px; background: #fff; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <span><i class="fh fh-phone"></i> (302) 555-0148 &nbsp; <i class="fh fh-clock"></i> Open today 7:30 AM – 7 PM</span>
+  <span class="util-links">
+    <a href="https://maps.example.com/?q=Fernhollow+Animal+Hospital" class="dir"><i class="fh fh-pin"></i></a>
+    <a href="#portal">Pet portal</a>
+    <a href="#">Pay my bill</a>
+  </span>
+</div>
+
+<header class="site-header">
+  <a href='/08-fernhollow-animal-hospital'><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCAyMjAgNTYiPgogIDxnIGZpbGw9IiMyZjVkNTAiPgogICAgPGVsbGlwc2UgY3g9IjI4IiBjeT0iMzYiIHJ4PSIxMSIgcnk9IjkiLz4KICAgIDxlbGxpcHNlIGN4PSIxNCIgY3k9IjIyIiByeD0iNSIgcnk9IjYuNSIvPgogICAgPGVsbGlwc2UgY3g9IjI0IiBjeT0iMTQiIHJ4PSI1IiByeT0iNi41Ii8+CiAgICA8ZWxsaXBzZSBjeD0iMzUiIGN5PSIxNCIgcng9IjUiIHJ5PSI2LjUiLz4KICAgIDxlbGxpcHNlIGN4PSI0NCIgY3k9IjIyIiByeD0iNSIgcnk9IjYuNSIvPgogIDwvZz4KICA8dGV4dCB4PSI1OCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMiIgZmlsbD0iIzJmNWQ1MCI+RmVybmhvbGxvdzwvdGV4dD4KICA8dGV4dCB4PSI1OSIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGV0dGVyLXNwYWNpbmc9IjIuNSIgZmlsbD0iIzZiOGY4NCI+QU5JTUFMIEhPU1BJVEFMPC90ZXh0Pgo8L3N2Zz4K" alt="logo" width="220" height="56"></a>
+  <div class="main-nav">
+    <a class='current' href='/08-fernhollow-animal-hospital'>Home</a> |
+    <a href="#services">Services</a> |
+    <a href="#team">Our Team</a> |
+    <a href="#new-clients">New Clients</a> |
+    <a href="#info">Hours &amp; Location</a> |
+    <a href='/09-fernhollow-book-online'>Book Online</a>
+  </div>
+  <div>
+    <a href="#" class="btn btn-ghost">Pay Bill</a>
+    <a class='btn btn-primary' href='/09-fernhollow-book-online'>Book Appointment</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Compassionate care for every stage of your pet's life</h1>
+    <p>Family-owned since 1998, Fernhollow offers wellness, dental, surgical and urgent care for dogs, cats and small mammals.</p>
+    <a class='btn btn-primary' href='/09-fernhollow-book-online'>Book Appointment</a>
+  </div>
+
+  <div class="wrap">
+    <img class="promo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgOTAwIDEyMCI+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxMjAiIHJ4PSIxMCIgZmlsbD0iI2Y0ZTNjMyIvPgogIDxjaXJjbGUgY3g9IjcwIiBjeT0iNjAiIHI9IjM4IiBmaWxsPSIjYzg1NTNkIi8+CiAgPHRleHQgeD0iNzAiIHk9IjcwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMzAiIGZpbGw9IiNmZmYiPis8L3RleHQ+CiAgPHRleHQgeD0iMTMwIiB5PSI1NSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjMyIiBmaWxsPSIjNWEyZTFmIj5XYWxrLWluIHVyZ2VudCBjYXJlLCBub3cgb24gU3VuZGF5czwvdGV4dD4KICA8dGV4dCB4PSIxMzAiIHk9IjkwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM3YTRiM2EiPjkgQU0gdG8gMSBQTSDCtyBObyBhcHBvaW50bWVudCBuZWVkZWQgwrcgQ2FsbCBhaGVhZCBmb3Igd2FpdCB0aW1lczwvdGV4dD4KPC9zdmc+Cg==" alt="Walk-in urgent care, now on Sundays" width="900" height="120">
+
+    <section id="services">
+      <h2>What we do</h2>
+      <div class="services">
+        <div class="card">
+          <h4><i class="fh fh-heart"></i> Wellness exams</h4>
+          <p>Nose-to-tail checkups, vaccines and parasite prevention tailored to your pet's age and lifestyle.</p>
+          <a href="#">Read more</a>
+        </div>
+        <div class="card">
+          <h4><i class="fh fh-star"></i> Dental care</h4>
+          <p>Cleanings, digital X-rays and extractions under monitored anesthesia, with take-home care plans.</p>
+          <a href="#">Read more</a>
+        </div>
+        <div class="card">
+          <h4><i class="fh fh-paw"></i> Surgery</h4>
+          <p>Spay and neuter, soft-tissue and orthopedic procedures in our fully equipped surgical suite.</p>
+          <a href="#">Read more</a>
+        </div>
+      </div>
+    </section>
+
+    <img class="divider" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxNjAgMjAiPgogIDxsaW5lIHgxPSIwIiB5MT0iMTAiIHgyPSI2MiIgeTI9IjEwIiBzdHJva2U9IiNiOWNmYzYiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxsaW5lIHgxPSI5OCIgeTE9IjEwIiB4Mj0iMTYwIiB5Mj0iMTAiIHN0cm9rZT0iI2I5Y2ZjNiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGcgZmlsbD0iIzhmYjhhOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjYgLTIpIHNjYWxlKC41KSI+PGVsbGlwc2UgY3g9IjI4IiBjeT0iMzYiIHJ4PSIxMSIgcnk9IjkiLz48ZWxsaXBzZSBjeD0iMTQiIGN5PSIyMiIgcng9IjUiIHJ5PSI2LjUiLz48ZWxsaXBzZSBjeD0iMjQiIGN5PSIxNCIgcng9IjUiIHJ5PSI2LjUiLz48ZWxsaXBzZSBjeD0iMzUiIGN5PSIxNCIgcng9IjUiIHJ5PSI2LjUiLz48ZWxsaXBzZSBjeD0iNDQiIGN5PSIyMiIgcng9IjUiIHJ5PSI2LjUiLz48L2c+Cjwvc3ZnPgo=" width="160" height="20">
+
+    <section id="new-clients" class="body-copy">
+      <h2>New to Fernhollow?</h2>
+      <p>We're glad you found us. New clients can book online any time, or call the front desk during business hours. Ask about our <a class="inline" href="#">senior pet program</a> and our <a class="inline" href="#">multi-pet discount</a>.</p>
+      <p style="margin-top:12px"><span class="warn">Please bring your pet's vaccination records to the first visit.</span> If your previous clinic can email them, we'll add them to your file before you arrive.</p>
+      <p style="margin-top:12px">To get started, use the green button in the top right corner of the page. To download our new client form, <a href="#">click here</a>. You can also read our <a href="#" style="text-decoration:underline">new client FAQ</a>.</p>
+
+      <h3 style="font-size:20px;margin:32px 0 14px">How a visit works</h3>
+      <div class="steps">
+        <div class="step s3"><div class="num">STEP 3</div><h3>Go home with a plan</h3><p>Leave with written instructions, any medications, and a reminder for the next visit.</p></div>
+        <div class="step s1"><div class="num">STEP 1</div><h3>Check in</h3><p>Check in from the parking lot by text. We'll call you in when an exam room is ready.</p></div>
+        <div class="step s2"><div class="num">STEP 2</div><h3>Meet your vet</h3><p>Your vet does a full exam and talks you through any findings before we treat.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Wellness plans</h2>
+      <div class="plan">
+        <div>
+          <div class="price">$34<small> / month</small></div>
+          <p style="color:#4a5a54;font-size:15px;margin-top:6px">Two exams a year, core vaccines, heartworm test and 10% off dental.</p>
+          <span class="tip-wrap">
+            <span class="tip-trigger" id="tip1-trigger" tabindex="0">What's included?</span>
+            <span class="tip" id="tip1" style="top:100%">Two comprehensive exams, rabies and DHPP or FVRCP vaccines, annual heartworm or FeLV/FIV test, fecal test, and 10% off dental cleanings and in-house lab work.</span>
+          </span>
+          <span class="tip-wrap">
+            <span class="tip-trigger" id="tip3-trigger" tabindex="0">Payment options</span>
+            <span class="tip" id="tip3" style="top:100%">We accept all major cards and CareCredit. Plans renew monthly and can be canceled after 12 months.</span>
+          </span>
+        </div>
+        <div>
+          <span class="tip-wrap">
+            <span class="badge" id="tip2-trigger"><i class="fh fh-check"></i> Fear Free Certified</span>
+            <span class="tip" id="tip2">Every member of our team is Fear Free certified, so visits are calmer and less stressful for your pet.</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <p class="eyebrow-big"><b>Meet the team</b></p>
+      <table class="team-table">
+        <tr>
+          <td>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiB2aWV3Qm94PSIwIDAgMTYwIDE2MCI+CiAgPHJlY3Qgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxNjAiIHJ4PSI4MCIgZmlsbD0iIi8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSI2NCIgcj0iMjgiIGZpbGw9IiNmM2UyZDMiLz4KICA8cGF0aCBkPSJNMzAgMTUwIFE4MCA5MCAxMzAgMTUwWiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxwYXRoIGQ9Ik02OCAxMDQgTDgwIDEzMCBMOTIgMTA0IiBzdHJva2U9IiMyZjVkNTAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K" alt="Dr. Priya Raman">
+            <div class="name">Dr. Priya Raman, DVM</div>
+            <div class="role">Medical Director</div>
+            <p class="bio">Dr. Raman has led Fernhollow since 2011 and has a special interest in feline medicine.</p>
+          </td>
+          <td>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiB2aWV3Qm94PSIwIDAgMTYwIDE2MCI+CiAgPHJlY3Qgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxNjAiIHJ4PSI4MCIgZmlsbD0iI2Q5YTY3OSIvPgogIDxjaXJjbGUgY3g9IjgwIiBjeT0iNjQiIHI9IjI4IiBmaWxsPSIjZjNlMmQzIi8+CiAgPHBhdGggZD0iTTMwIDE1MCBRODAgOTAgMTMwIDE1MFoiIGZpbGw9IiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNNjggMTA0IEw4MCAxMzAgTDkyIDEwNCIgc3Ryb2tlPSIjMmY1ZDUwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg==" alt="photo">
+            <div class="name">Dr. Marcus Oyelaran, DVM</div>
+            <div class="role">Surgeon</div>
+            <p class="bio">Dr. Oyelaran performs most of our orthopedic and soft-tissue surgeries.</p>
+          </td>
+          <td>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiB2aWV3Qm94PSIwIDAgMTYwIDE2MCI+CiAgPHJlY3Qgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxNjAiIHJ4PSI4MCIgZmlsbD0iIzlmYjdjOSIvPgogIDxjaXJjbGUgY3g9IjgwIiBjeT0iNjQiIHI9IjI4IiBmaWxsPSIjZjNlMmQzIi8+CiAgPHBhdGggZD0iTTMwIDE1MCBRODAgOTAgMTMwIDE1MFoiIGZpbGw9IiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNNjggMTA0IEw4MCAxMzAgTDkyIDEwNCIgc3Ryb2tlPSIjMmY1ZDUwIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz4KPC9zdmc+Cg==" alt="IMG_4471.jpg">
+            <div class="name">Dr. Hannah Lindqvist, DVM</div>
+            <div class="role">Associate Veterinarian</div>
+            <p class="bio">Dr. Lindqvist sees wellness and urgent care patients and runs our puppy and kitten program.</p>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="testimonials" id="testimonials">
+        <blockquote class="active">"They squeezed our beagle in on a Sunday when he ate a sock. Kind, fast, and they called the next morning to check on him."<cite>Danielle R., Millbrook</cite></blockquote>
+        <blockquote>"Our cat hates the vet, but the Fear Free approach really works. She was calm the whole visit."<cite>Tom and Ana P., Riverside</cite></blockquote>
+        <blockquote>"Dr. Raman took the time to explain every option for our senior dog. We never felt rushed."<cite>Gloria M., Millbrook</cite></blockquote>
+        <div class="dots"><span class="on"></span><span></span><span></span></div>
+      </div>
+      <p style="text-align:right;margin-top:10px;font-size:14px;font-weight:600"><a href="#" class="more">See more</a></p>
+    </section>
+
+    <section class="ambient">
+      <video src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" autoplay muted loop playsinline></video>
+      <div>
+        <h2>A calmer place to heal</h2>
+        <p>Our renovated clinic has separate dog and cat waiting areas, a garden walk for anxious patients, and quiet recovery rooms with natural light.</p>
+        <p>Read more about <a href="#" style="text-decoration:underline">our facility and equipment</a>.</p>
+      </div>
+    </section>
+
+    <img class="divider" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxNjAgMjAiPgogIDxsaW5lIHgxPSIwIiB5MT0iMTAiIHgyPSI2MiIgeTI9IjEwIiBzdHJva2U9IiNiOWNmYzYiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxsaW5lIHgxPSI5OCIgeTE9IjEwIiB4Mj0iMTYwIiB5Mj0iMTAiIHN0cm9rZT0iI2I5Y2ZjNiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGcgZmlsbD0iIzhmYjhhOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjYgLTIpIHNjYWxlKC41KSI+PGVsbGlwc2UgY3g9IjI4IiBjeT0iMzYiIHJ4PSIxMSIgcnk9IjkiLz48ZWxsaXBzZSBjeD0iMTQiIGN5PSIyMiIgcng9IjUiIHJ5PSI2LjUiLz48ZWxsaXBzZSBjeD0iMjQiIGN5PSIxNCIgcng9IjUiIHJ5PSI2LjUiLz48ZWxsaXBzZSBjeD0iMzUiIGN5PSIxNCIgcng9IjUiIHJ5PSI2LjUiLz48ZWxsaXBzZSBjeD0iNDQiIGN5PSIyMiIgcng9IjUiIHJ5PSI2LjUiLz48L2c+Cjwvc3ZnPgo=" alt="" width="160" height="20">
+
+    <section id="info">
+      <h2>Info</h2>
+      <div class="info-grid">
+        <div class="hours-card">
+          <h3>Hours</h3>
+          <dl>
+            <dt>Mon – Thu</dt><dd>7:30 AM – 7 PM</dd>
+            <dt>Friday</dt><dd>7:30 AM – 6 PM</dd>
+            <dt>Saturday</dt><dd>8 AM – 2 PM</dd>
+            <dt>Sunday</dt><dd class="uc">9 AM – 1 PM</dd>
+          </dl>
+          <p class="note">Hours in orange are urgent care only. 1420 Fernhollow Road, Millbrook, DE 19950. Free parking behind the building.</p>
+        </div>
+
+        <div class="chart-card">
+          <h3>Reminders that turned into visits</h3>
+          <svg width="100%" height="140" viewBox="0 0 280 140" role="img" aria-label="Bar chart">
+            <line x1="20" y1="120" x2="270" y2="120" stroke="#e6ebe8"/>
+            <g>
+              <rect x="34" y="40" width="18" height="80" fill="#2f7d63"/><rect x="54" y="66" width="18" height="54" fill="#dcebe4"/>
+              <rect x="96" y="30" width="18" height="90" fill="#2f7d63"/><rect x="116" y="50" width="18" height="70" fill="#dcebe4"/>
+              <rect x="158" y="46" width="18" height="74" fill="#2f7d63"/><rect x="178" y="58" width="18" height="62" fill="#dcebe4"/>
+              <rect x="220" y="24" width="18" height="96" fill="#2f7d63"/><rect x="240" y="36" width="18" height="84" fill="#dcebe4"/>
+            </g>
+            <g font-size="10" fill="#6b7c76" text-anchor="middle">
+              <text x="53" y="134">Q1</text><text x="115" y="134">Q2</text><text x="177" y="134">Q3</text><text x="239" y="134">Q4</text>
+            </g>
+          </svg>
+          <div class="legend"><span><i style="background:#2f7d63"></i>Reminders sent</span><span><i style="background:#dcebe4"></i>Visits booked</span></div>
+        </div>
+
+        <div class="portal" id="portal">
+          <h3>Pet portal sign-in</h3>
+          <label for="p-user">Username</label>
+          <input id="p-user" type="text">
+          <label for="p-pass">Password</label>
+          <input id="p-pass" type="password">
+          <div class="audio-cap">
+            <button type="button" id="play-code">&#9654; Play code</button>
+            <input type="text" id="cap-audio" aria-label="Code you heard">
+          </div>
+          <audio id="cap-audio-src" src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3" preload="none"></audio>
+          <button class="btn btn-primary" type="button">Sign in</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>Tips, reminders and clinic news</h2>
+      <form onsubmit="return false">
+        <input type="email" placeholder="Email address">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="cols">
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>1420 Fernhollow Road</li>
+        <li>Millbrook, DE 19950</li>
+        <li><a href="tel:+13025550148">(302) 555-0148</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Our team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href='/09-fernhollow-book-online'>Book online</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Pet insurance</a></li>
+        <li><a href="#">Pet poison helpline</a></li>
+        <li><a href="#">Client forms</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">© 2026 Fernhollow Animal Hospital, LLC. All rights reserved. <a href="#">Privacy</a> · <a href="#">Accessibility</a></p>
+</footer>
+
+<button class="chat-launch" id="chat-launch"><i class="fh fh-chat"></i> Chat with us</button>
+<div class="chat-panel" id="chat-panel">
+  <header>Fernhollow front desk <button id="chat-close" style="float:right;background:none;border:0;color:#fff;cursor:pointer"><i class="fh fh-close"></i></button></header>
+  <div class="msgs">Hi! A team member will reply shortly. For emergencies, please call (302) 555-0148.</div>
+  <div class="compose">
+    <input type="text" id="chat-input" placeholder="Type a message…">
+    <button type="button" id="chat-send">Send</button>
+  </div>
+</div>
+
+<script>
+// Testimonials rotate every 5 seconds
+(function () {
+  var quotes = document.querySelectorAll('#testimonials blockquote');
+  var dots = document.querySelectorAll('#testimonials .dots span');
+  var i = 0;
+  setInterval(function () {
+    quotes[i].classList.remove('active'); dots[i].classList.remove('on');
+    i = (i + 1) % quotes.length;
+    quotes[i].classList.add('active'); dots[i].classList.add('on');
+  }, 5000);
+})();
+
+// "What's included?": hover or focus to show; stays while hovered; no Escape
+(function () {
+  var wrap = document.getElementById('tip1-trigger').parentNode;
+  var tip = document.getElementById('tip1');
+  var t = document.getElementById('tip1-trigger');
+  wrap.addEventListener('mouseenter', function () { tip.classList.add('show'); });
+  wrap.addEventListener('mouseleave', function () { tip.classList.remove('show'); });
+  t.addEventListener('focus', function () { tip.classList.add('show'); });
+  t.addEventListener('blur', function () { tip.classList.remove('show'); });
+})();
+
+// "Fear Free Certified": tied to the badge only, so moving onto the tooltip hides it
+(function () {
+  var badge = document.getElementById('tip2-trigger');
+  var tip = document.getElementById('tip2');
+  badge.addEventListener('mouseenter', function () { tip.classList.add('show'); });
+  badge.addEventListener('mouseleave', function () { tip.classList.remove('show'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') tip.classList.remove('show'); });
+})();
+
+// "Payment options": hides itself after 2.5 seconds
+(function () {
+  var t = document.getElementById('tip3-trigger');
+  var tip = document.getElementById('tip3');
+  var timer;
+  function show() {
+    tip.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function () { tip.classList.remove('show'); }, 2500);
+  }
+  t.addEventListener('mouseenter', show);
+  t.addEventListener('focus', show);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') tip.classList.remove('show'); });
+})();
+
+document.getElementById('play-code').addEventListener('click', function () {
+  document.getElementById('cap-audio-src').play();
+});
+
+// Chat widget
+(function () {
+  var panel = document.getElementById('chat-panel');
+  var input = document.getElementById('chat-input');
+  document.getElementById('chat-launch').addEventListener('click', function () {
+    panel.classList.add('open'); input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+  // Keep focus in the message box so customers don't lose their draft
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') { e.preventDefault(); input.focus(); }
+  });
+})();
+</script>
+</body>
+</html>

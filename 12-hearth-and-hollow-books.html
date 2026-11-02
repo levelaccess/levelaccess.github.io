@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearth &amp; Hollow Books | Independent Bookshop in Old Town Ashford</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Iowan Old Style", Georgia, serif; color: #3d2e22; background: #fbf5ea; line-height: 1.6; font-size: 17px; }
+a { color: #8c3b1f; }
+img { display: block; max-width: 100%; }
+
+/* icon glyphs (font-icon style) */
+.ic { font-style: normal; display: inline-block; width: 1.2em; text-align: center; }
+.ic-cart::before { content: "\1F6D2"; }
+.ic-user::before { content: "\263A"; }
+.ic-heart::before { content: "\2661"; }
+.ic-search::before { content: "\2315"; }
+.ic-leaf::before { content: "\2766"; }
+.ic-ig::before { content: "\25CE"; }
+.ic-fb::before { content: "f"; font-weight: 700; font-family: Arial, sans-serif; }
+.ic-mail::before { content: "\2709"; }
+.ic-cup::before { content: "\2615"; }
+
+.topbar { background: #4a2f22; color: #f3e3c8; text-align: center; font-size: 14px; padding: 7px 16px; font-family: Arial, sans-serif; }
+
+header.masthead { display: flex; align-items: center; gap: 28px; padding: 22px 40px; border-bottom: 1px solid #e6d6bd; background: #fbf5ea; }
+.brand { text-decoration: none; color: #4a2f22; }
+.brand .name { font-size: 30px; font-style: italic; letter-spacing: .5px; }
+.brand .sub { display: block; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 3px; color: #8a6c52; }
+.search { flex: 1; max-width: 420px; display: flex; border: 1px solid #b89a7a; border-radius: 22px; overflow: hidden; background: #fff; }
+.search input { flex: 1; border: 0; padding: 9px 16px; font-size: 15px; font-family: inherit; background: transparent; }
+.search button { border: 0; background: #4a2f22; color: #fff; padding: 0 16px; cursor: pointer; font-size: 15px; }
+.icons { margin-left: auto; display: flex; gap: 18px; font-size: 21px; }
+.icons a { color: #4a2f22; text-decoration: none; position: relative; }
+.icons .count { position: absolute; top: -6px; right: -10px; background: #8c3b1f; color: #fff; font-size: 11px; font-family: Arial, sans-serif; border-radius: 9px; padding: 0 5px; }
+
+nav.sections { padding: 0 40px; background: #f3e7d3; }
+nav.sections ul { list-style: none; display: flex; gap: 4px; }
+nav.sections a { display: block; padding: 11px 14px; color: #4a2f22; text-decoration: none; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600; }
+nav.sections a:focus { outline: none; color: #b5562f; }
+nav.sections a:hover { color: #b5562f; }
+
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; padding: 48px 40px; background: linear-gradient(120deg, #f6e6cc, #ead2ad); }
+.hero h1 { font-size: 44px; font-weight: normal; line-height: 1.15; color: #3a2418; }
+.hero p { margin: 14px 0 24px; max-width: 520px; }
+.btn { display: inline-block; font-family: Arial, sans-serif; font-weight: 700; font-size: 15px; padding: 12px 24px; border-radius: 26px; border: 0; cursor: pointer; text-decoration: none; }
+.btn-ember { background: #8c3b1f; color: #fff; }
+.btn-ember:focus { outline: 2px solid #f0dcc2; outline-offset: 2px; }
+.btn-soft { background: #fff; color: #4a2f22; border: 1px solid #b89a7a; }
+.btn-soft:focus { outline: 2px solid #f0dcc2; outline-offset: 2px; }
+
+main { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+section { margin-top: 56px; }
+section > h2 { font-size: 30px; font-weight: normal; color: #3a2418; margin-bottom: 18px; }
+.ornament { text-align: center; color: #c19a6b; font-size: 22px; margin-top: 48px; }
+
+.picks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.pick img { width: 100%; border-radius: 3px; box-shadow: 0 6px 14px rgba(74,47,34,.25); }
+.pick h3 { font-size: 18px; margin-top: 12px; line-height: 1.3; }
+.pick .by { font-size: 14px; color: #6e5642; font-style: italic; }
+.pick .note { font-size: 14px; margin-top: 6px; color: #5a4636; }
+.pick .staff { font-family: Arial, sans-serif; font-size: 12px; color: #8a6c52; margin-top: 4px; }
+.more-row { text-align: right; margin-top: 18px; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.botm { display: flex; flex-direction: column-reverse; background: #fff; border: 1px solid #e6d6bd; border-radius: 10px; padding: 24px; }
+.botm .label { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 2px; color: #8a6c52; }
+.botm h3 { font-size: 24px; font-weight: normal; margin: 4px 0 2px; }
+.botm .inner { display: flex; gap: 20px; margin-top: 14px; }
+.botm .inner img { width: 120px; flex: none; }
+.botm .signed { font-weight: 700; color: #8c3b1f; }
+
+.bestsellers { background: #fff; border: 1px solid #e6d6bd; border-radius: 10px; padding: 24px; }
+.bestsellers h3 { font-size: 20px; margin-bottom: 10px; }
+.bestsellers p { font-size: 15px; line-height: 1.9; }
+
+.events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.event { background: #fff; border: 1px solid #e6d6bd; border-radius: 10px; padding: 18px 20px; height: 196px; overflow: hidden; }
+.event .date { font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; color: #8a6c52; }
+.event h3 { font-size: 18px; line-height: 1.3; margin: 4px 0 6px; }
+.event p { font-size: 14px; color: #5a4636; }
+.event.soldout h3, .event.soldout p { color: #a99784; }
+.event.few h3 { color: #b3261e; }
+
+.body-copy a { color: #9a6a45; text-decoration: none; }
+
+.genre { background: #fff; border: 1px solid #e6d6bd; border-radius: 10px; padding: 24px; display: flex; gap: 28px; align-items: center; }
+.genre ul { list-style: none; font-family: Arial, sans-serif; font-size: 13px; }
+.genre li { margin-bottom: 6px; }
+.genre li i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 8px; vertical-align: -1px; }
+
+.cat { display: flex; gap: 28px; align-items: center; }
+.cat img { width: 320px; border-radius: 14px; }
+
+.club { background: #4a2f22; color: #f3e3c8; border-radius: 14px; padding: 32px 36px; }
+.club h2 { color: #fff; font-size: 28px; font-weight: normal; }
+.club p.intro { margin: 6px 0 20px; }
+.club form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 22px; font-family: Arial, sans-serif; }
+.club .f label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.club .f input, .club .f select { width: 100%; padding: 10px 12px; border-radius: 6px; border: 1px solid #b89a7a; font-size: 15px; font-family: inherit; }
+.club .f input:focus, .club .f select:focus { outline: 3px solid #f3c982; }
+.club .f .err { display: none; font-size: 13px; color: #ffb4a8; margin-top: 4px; }
+.club .f.bad .err { display: block; }
+.club .f.bad input { border-color: #ff8a78; }
+.club .wide { grid-column: 1 / -1; }
+.club .cap { display: flex; gap: 12px; align-items: center; }
+.club .cap img { border-radius: 4px; }
+.club .cap input { width: 150px; }
+
+footer { margin-top: 64px; background: #3a2418; color: #a58a70; padding: 36px 40px 22px; font-family: Arial, sans-serif; font-size: 14px; }
+footer .cols { display: flex; gap: 60px; flex-wrap: wrap; }
+footer h4 { color: #f3e3c8; font-size: 14px; margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer li { margin-bottom: 5px; }
+footer a { color: #d9c3a5; text-decoration: none; }
+footer .social a { font-size: 20px; margin-right: 12px; }
+footer .tiny { margin-top: 22px; font-size: 12px; color: #7d6450; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><i class="ic ic-leaf" aria-hidden="true"></i> Free local delivery on orders over $35 · Open daily 9–8, Fridays till 10</div>
+
+<header class="masthead">
+  <a class="brand" href="#"><span class="name">Hearth &amp; Hollow</span><span class="sub">BOOKS · COFFEE · CATS</span></a>
+  <form class="search" role="search" onsubmit="return false">
+    <input type="search" aria-label="Search books, authors, ISBN" placeholder="Search books, authors, ISBN">
+    <button type="submit">Search</button>
+  </form>
+  <div class="icons">
+    <a href="#"><i class="ic ic-heart"></i></a>
+    <a href="#"><i class="ic ic-user"></i></a>
+    <a href="#" class="cart"><i class="ic ic-cart"></i><span class="count">3</span></a>
+  </div>
+</header>
+
+<nav class="sections" aria-label="Shop">
+  <ul>
+    <li><a href="#">New &amp; Notable</a></li>
+    <li><a href="#">Fiction</a></li>
+    <li><a href="#">Mystery</a></li>
+    <li><a href="#">Fantasy &amp; Sci-Fi</a></li>
+    <li><a href="#">Kids &amp; YA</a></li>
+    <li><a href="#">Used &amp; Rare</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#club">Book Club</a></li>
+    <li><a href="#">Gift Cards</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>Pull up a chair. Stay for a chapter.</h1>
+    <p>A neighborhood bookshop since 1987, with creaky floors, a reading loft, strong coffee and a resident cat who will absolutely sit on your book.</p>
+    <a href="#" class="btn btn-ember">Shop Autumn Reads</a>
+    <a href="#events" class="btn btn-soft" style="margin-left:8px">See Events</a>
+  </div>
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMjAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMyMzQwNGEiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxNzYiIGhlaWdodD0iMjc2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmM2QyOGIiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiNmM2QyOGIiIG9wYWNpdHk9Ii4xOCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2YzZDI4YiI+QSBMQU5URVJOPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMTAyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGxldHRlci1zcGFjaW5nPSIxLjUiIGZpbGw9IiNmM2QyOGIiPkZPUiBXSU5URVI8L3RleHQ+CiAgPHRleHQgeD0iMTAwIiB5PSIyNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZjNkMjhiIj5UaGVvIE1hcnNoPC90ZXh0Pgo8L3N2Zz4=" alt="A Lantern for Winter by Theo Marsh" width="200" height="300" style="width:200px;justify-self:center;box-shadow:0 10px 24px rgba(74,47,34,.3);transform:rotate(-3deg)">
+</div>
+
+<main>
+  <section>
+    <h2>Staff picks</h2>
+    <div class="picks">
+      <div class="pick">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMjAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM3YTNiMmUiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxNzYiIGhlaWdodD0iMjc2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmMWRjYzAiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiNmMWRjYzAiIG9wYWNpdHk9Ii4xOCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2YxZGNjMCI+VEhFIFNBTFQ8L3RleHQ+CiAgPHRleHQgeD0iMTAwIiB5PSIxMDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2YxZGNjMCI+T1JDSEFSRDwvdGV4dD4KICA8dGV4dCB4PSIxMDAiIHk9IjI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXN0eWxlPSJpdGFsaWMiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNmMWRjYzAiPkltb2dlbiBWZWlsPC90ZXh0Pgo8L3N2Zz4=" alt="book cover" width="200" height="300">
+        <h3>The Salt Orchard</h3>
+        <div class="by">Imogen Veil</div>
+        <p class="note">"A slow, salty, gorgeous family saga set on the Cornish coast."</p>
+        <div class="staff">Picked by June</div>
+      </div>
+      <div class="pick">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMjAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM1YjZiM2EiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxNzYiIGhlaWdodD0iMjc2IiBmaWxsPSJub25lIiBzdHJva2U9IiNlZmU2Y2YiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiNlZmU2Y2YiIG9wYWNpdHk9Ii4xOCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2VmZTZjZiI+U01BTEwgSE9VUlM8L3RleHQ+CiAgPHRleHQgeD0iMTAwIiB5PSIxMDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2VmZTZjZiI+T04gQlJJTkRMRSBMTjwvdGV4dD4KICA8dGV4dCB4PSIxMDAiIHk9IjI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXN0eWxlPSJpdGFsaWMiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNlZmU2Y2YiPkFkYSBPa2Fmb3I8L3RleHQ+Cjwvc3ZnPg==" alt="book cover" width="200" height="300">
+        <h3>Small Hours on Brindle Lane</h3>
+        <div class="by">Ada Okafor</div>
+        <p class="note">"Cozy mystery perfection. Bring tea and a blanket."</p>
+        <div class="staff">Picked by Felix</div>
+      </div>
+      <div class="pick">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMjAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMzYzJmNTIiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxNzYiIGhlaWdodD0iMjc2IiBmaWxsPSJub25lIiBzdHJva2U9IiNlOWM5YTAiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiNlOWM5YTAiIG9wYWNpdHk9Ii4xOCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2U5YzlhMCI+VEhFIE1BUE1BS0VSJ1M8L3RleHQ+CiAgPHRleHQgeD0iMTAwIiB5PSIxMDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2U5YzlhMCI+TEFTVCBTVU1NRVI8L3RleHQ+CiAgPHRleHQgeD0iMTAwIiB5PSIyNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZTljOWEwIj5SLiBKLiBIb2xsb3dheTwvdGV4dD4KPC9zdmc+" alt="cover.jpg" width="200" height="300">
+        <h3>The Mapmaker's Last Summer</h3>
+        <div class="by">R. J. Holloway</div>
+        <p class="note">"Quietly devastating. I read it in one sitting."</p>
+        <div class="staff">Picked by Priya</div>
+      </div>
+      <div class="pick">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMjAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiMyMzQwNGEiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxNzYiIGhlaWdodD0iMjc2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmM2QyOGIiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiNmM2QyOGIiIG9wYWNpdHk9Ii4xOCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2YzZDI4YiI+QSBMQU5URVJOPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMTAyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGxldHRlci1zcGFjaW5nPSIxLjUiIGZpbGw9IiNmM2QyOGIiPkZPUiBXSU5URVI8L3RleHQ+CiAgPHRleHQgeD0iMTAwIiB5PSIyNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZjNkMjhiIj5UaGVvIE1hcnNoPC90ZXh0Pgo8L3N2Zz4=" alt="A Lantern for Winter by Theo Marsh" width="200" height="300">
+        <h3>A Lantern for Winter</h3>
+        <div class="by">Theo Marsh</div>
+        <p class="note">"Snowbound inn, found family, one very grumpy innkeeper."</p>
+        <div class="staff">Picked by June</div>
+      </div>
+    </div>
+    <p class="more-row"><a href="#">More</a></p>
+  </section>
+
+  <div class="ornament" aria-hidden="true">❦</div>
+
+  <section class="two">
+    <div class="botm">
+      <div class="inner">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgMjAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM4YTRiMmEiLz4KICA8cmVjdCB4PSIxMiIgeT0iMTIiIHdpZHRoPSIxNzYiIGhlaWdodD0iMjc2IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNmUzYzQiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNiIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iNDYiIGZpbGw9IiNmNmUzYzQiIG9wYWNpdHk9Ii4xOCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iNzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0iI2Y2ZTNjNCI+V0hFUkUgVEhFPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMTAyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTkiIGxldHRlci1zcGFjaW5nPSIxLjUiIGZpbGw9IiNmNmUzYzQiPlJJVkVSIEJFTkRTPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2Y2ZTNjNCI+TGVuYSBBY2h0ZXJiZXJnPC90ZXh0Pgo8L3N2Zz4=" alt="Where the River Bends by Lena Achterberg" width="200" height="300">
+        <div>
+          <p style="font-size:15px">Three sisters return to the Dutch river town they fled twenty years ago, and the flood that changed everything. Lyrical, warm and wise.</p>
+          <p style="font-size:15px;margin-top:8px"><span class="signed">Signed copies while supplies last.</span></p>
+          <a href="#" class="btn btn-ember" style="margin-top:14px;font-size:14px;padding:9px 18px">Reserve a copy</a>
+        </div>
+      </div>
+      <h3>Where the River Bends</h3>
+      <div class="label">OCTOBER BOOK OF THE MONTH</div>
+    </div>
+
+    <div class="bestsellers">
+      <h3>This week's bestsellers</h3>
+      <p>1. Where the River Bends, Lena Achterberg<br>
+         2. The Salt Orchard, Imogen Veil<br>
+         3. Small Hours on Brindle Lane, Ada Okafor<br>
+         4. Ninefold Crown, Sefa Mensah<br>
+         5. The Quiet Kitchen, Marguerite Dunne</p>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2>Upcoming events</h2>
+    <div class="events">
+      <div class="event soldout">
+        <div class="date">THU · OCT 30 · 7 PM</div>
+        <h3>An evening with Imogen Veil</h3>
+        <p>The author of The Salt Orchard reads from her new novel and signs books in the reading loft. Wine and cider from Ashford Hollow Cidery.</p>
+      </div>
+      <div class="event few">
+        <div class="date">SAT · NOV 1 · 10:30 AM</div>
+        <h3>Spooky storytime for little readers</h3>
+        <p>Costumes encouraged! Ages 3–7 with a grown-up. We'll read three not-too-scary picture books and make paper bats.</p>
+      </div>
+      <div class="event">
+        <div class="date">TUE · NOV 4 · 6:30 PM</div>
+        <h3>Mystery book club: Brindle Lane</h3>
+        <p>New members welcome. This month we're discussing Small Hours on Brindle Lane. Pick up your copy at 15% off.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="body-copy">
+      <h2>More than a bookshop</h2>
+      <p>Our café serves locally roasted coffee, chai and pastries from <a href="#">Juniper Street Bakery</a>. Upstairs, the <a href="#">used and rare room</a> has over 8,000 secondhand titles. We buy books too, Tuesday through Saturday.</p>
+      <p style="margin-top:12px">Can't make it in? Browse our full catalog on <a href="#" style="text-decoration:underline">our online store</a> and pick up in two hours.</p>
+    </div>
+    <div class="genre">
+      <svg width="150" height="150" viewBox="0 0 42 42" role="img" aria-label="Pie chart">
+        <circle cx="21" cy="21" r="15.9" fill="#fff"/>
+        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#e8cfae" stroke-width="8" stroke-dasharray="38 62" stroke-dashoffset="25"/>
+        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#efdcc2" stroke-width="8" stroke-dasharray="24 76" stroke-dashoffset="87"/>
+        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#f5e8d5" stroke-width="8" stroke-dasharray="22 78" stroke-dashoffset="63"/>
+        <circle cx="21" cy="21" r="15.9" fill="none" stroke="#e2c6a1" stroke-width="8" stroke-dasharray="16 84" stroke-dashoffset="41"/>
+      </svg>
+      <div>
+        <h3 style="font-size:18px;margin-bottom:8px">What Ashford is reading</h3>
+        <ul>
+          <li><i style="background:#e8cfae"></i>Literary fiction</li>
+          <li><i style="background:#efdcc2"></i>Mystery &amp; thriller</li>
+          <li><i style="background:#f5e8d5"></i>Fantasy &amp; sci-fi</li>
+          <li><i style="background:#e2c6a1"></i>Nonfiction</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjAiIGhlaWdodD0iMjIwIiB2aWV3Qm94PSIwIDAgMzIwIDIyMCI+CiAgPHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSIyMjAiIHJ4PSIxNCIgZmlsbD0iI2U5ZDZiOCIvPgogIDxyZWN0IHg9IjAiIHk9IjE1MCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSI3MCIgZmlsbD0iI2E4NzQ0YSIvPgogIDxyZWN0IHg9IjMwIiB5PSI0MCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjExMCIgZmlsbD0iIzZkM2YyYSIvPjxyZWN0IHg9IjU2IiB5PSI1NSIgd2lkdGg9IjE4IiBoZWlnaHQ9Ijk1IiBmaWxsPSIjMmY0YTNhIi8+PHJlY3QgeD0iNzgiIHk9IjM1IiB3aWR0aD0iMjAiIGhlaWdodD0iMTE1IiBmaWxsPSIjOGEyZjJmIi8+CiAgPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjE0MCIgcng9IjYyIiByeT0iMzAiIGZpbGw9IiMzYTNhM2EiLz4KICA8Y2lyY2xlIGN4PSIyNTAiIGN5PSIxMTgiIHI9IjI0IiBmaWxsPSIjM2EzYTNhIi8+CiAgPHBhdGggZD0iTTIzNCAxMDAgTDIzOCA4MiBMMjQ4IDk3IFogTTI1NCA5NyBMMjY0IDgyIEwyNjggMTAwIFoiIGZpbGw9IiMzYTNhM2EiLz4KICA8cGF0aCBkPSJNMTQwIDE1MCBRMTIwIDE3MCAxNTAgMTcyIiBzdHJva2U9IiMzYTNhM2EiIHN0cm9rZS13aWR0aD0iOSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMjQ0IiBjeT0iMTE2IiByPSIzIiBmaWxsPSIjZTljNDZhIi8+PGNpcmNsZSBjeD0iMjU4IiBjeT0iMTE2IiByPSIzIiBmaWxsPSIjZTljNDZhIi8+Cjwvc3ZnPg==" alt="A black cat named Marlowe sleeping on a wooden bookshop counter in front of a shelf of red, green and brown books" width="320" height="220">
+    <div>
+      <h2 style="font-size:30px;font-weight:normal">Meet Marlowe</h2>
+      <p>Marlowe has supervised the front counter since 2019. He enjoys sunbeams, poetry and sitting on whatever you're about to buy. Please don't feed him; he is on a diet and he knows it.</p>
+    </div>
+  </section>
+
+  <section class="club" id="club">
+    <h2>Join the Hearth &amp; Hollow reading club</h2>
+    <p class="intro">Members get 10% off every book, a birthday coupon and first dibs on event tickets. It's free.</p>
+    <form id="club-form" novalidate>
+      <div class="f">
+        <label for="c-name">Name</label>
+        <input id="c-name" type="text" autocomplete="off">
+      </div>
+      <div class="f" id="f-email">
+        <label for="email-address">Email</label>
+        <input id="c-email" type="email" autocomplete="email">
+        <div class="err">Invalid value.</div>
+      </div>
+      <div class="f">
+        <label for="c-genre">Type</label>
+        <select id="c-genre">
+          <option>Choose one</option><option>Literary fiction</option><option>Mystery &amp; thriller</option><option>Fantasy &amp; sci-fi</option><option>Romance</option><option>Nonfiction</option><option>Kids &amp; YA</option>
+        </select>
+      </div>
+      <div class="f" id="f-bday">
+        <label for="c-bday">Birthday (for your coupon)</label>
+        <input id="c-bday" type="text" autocomplete="bday-month">
+        <div class="err">Invalid value.</div>
+      </div>
+      <div class="f">
+        <label for="c-zip">ZIP code</label>
+        <input id="c-zip" type="text" autocomplete="zip">
+      </div>
+      <div class="f">
+        <label for="c-cap">Type the letters you see</label>
+        <div class="cap">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iNTQiIHZpZXdCb3g9IjAgMCAxNjAgNTQiPgogIDxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iNTQiIGZpbGw9IiNlZmU2ZDYiLz4KICA8cGF0aCBkPSJNMCAzMCBRNDAgNiA4MCAyOCBUMTYwIDIyIiBzdHJva2U9IiNiOWE4OGYiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxnIGZvbnQtZmFtaWx5PSJDb3VyaWVyIE5ldywgbW9ub3NwYWNlIiBmb250LXNpemU9IjI3IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNWE0NjMwIj4KICAgIDx0ZXh0IHg9IjEyIiB5PSIzOCIgdHJhbnNmb3JtPSJyb3RhdGUoLTEwIDIyIDM4KSI+cDwvdGV4dD48dGV4dCB4PSI0MCIgeT0iMzUiIHRyYW5zZm9ybT0icm90YXRlKDEyIDUwIDM1KSI+MzwvdGV4dD4KICAgIDx0ZXh0IHg9IjY4IiB5PSI0MCIgdHJhbnNmb3JtPSJyb3RhdGUoLTUgNzggNDApIj5WPC90ZXh0Pjx0ZXh0IHg9Ijk2IiB5PSIzNCIgdHJhbnNmb3JtPSJyb3RhdGUoOSAxMDYgMzQpIj54PC90ZXh0PgogICAgPHRleHQgeD0iMTIyIiB5PSIzOSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyIDEzMiAzOSkiPjk8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="captcha image" width="160" height="54">
+          <input id="c-cap" type="text">
+        </div>
+      </div>
+      <div class="wide"><button type="submit" class="btn btn-ember">Join the club</button></div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="cols">
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>214 Mill Street, Ashford, VT 05601</li>
+        <li><a href="tel:+18025550123">(802) 555-0123</a></li>
+        <li><a href="#">Directions &amp; parking</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Gift cards</a></li>
+        <li><a href="#">Special orders</a></li>
+        <li><a href="#">Sell us your books</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Say hello</h4>
+      <div class="social">
+        <a href="https://instagram.example.com/hearthandhollow"><i class="ic ic-ig"></i></a>
+        <a href="https://facebook.example.com/hearthandhollow"><i class="ic ic-fb"></i></a>
+        <a href="mailto:hello@hearthandhollow.example"><i class="ic ic-mail"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="tiny">© 2026 Hearth &amp; Hollow Books. Proudly independent.</p>
+</footer>
+
+<script>
+document.getElementById('club-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  function check(id, ok) { document.getElementById(id).classList.toggle('bad', !ok); }
+  check('f-email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(document.getElementById('c-email').value));
+  check('f-bday', /^(0?[1-9]|1[0-2])\/(0?[1-9]|[12]\d|3[01])$/.test(document.getElementById('c-bday').value));
+});
+</script>
+</body>
+</html>
