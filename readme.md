@@ -1,6 +1,5 @@
 ---
 title: Misfit Sites
-layout: none
 ---
 
 Self-contained websites with planted accessibility failures.
