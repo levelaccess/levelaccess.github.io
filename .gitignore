@@ -68,3 +68,8 @@ Thumbs.db
 
 # Windows download metadata streams — never want these
 *Zone.Identifier
+
+# Jekyll build output
+_site/
+.jekyll-cache/
+.sass-cache/
