@@ -1,4 +1,6 @@
-# Misfit sites
+---
+title: Misfit sites
+---
 
 Self-contained websites with planted accessibility failures.
 
