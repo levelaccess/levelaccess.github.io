@@ -21,3 +21,4 @@ All links open in a new tab.
 - <a href="./northvale-start-service.html" target="_blank" rel="noopener">Northvale Utility</a>
 - <a href="./northvale-outage-center.html" target="_blank" rel="noopener">Northvale Outage Center</a>
 - <a href="./hearth-and-hollow-books.html" target="_blank" rel="noopener">Hearth and Hollow</a>
+- <a href="./fernhollow-seed-checkout.html" target="_blank" rel="noopener">Fernhollow Seed Co.</a>
