@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Council approves plan to reopen the Millrace footbridge | The Harlow Valley Courier</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f5f7f6;
+    --surface: #ffffff;
+    --text: #1d2326;
+    --muted: #4f5a5f;
+    --rule: #c9d2d5;
+    --link: #0b5a70;
+    --brand: #0f4c5c;
+    --brand-text: #ffffff;
+    --brand-muted: #cfe3e8;
+    --ticker-bg: #1f2a2e;
+    --ticker-text: #ffffff;
+    --breaking: #b3261e;
+    --button-bg: #0f4c5c;
+    --button-text: #ffffff;
+    --field-border: #66727a;
+    --error: #a3261b;
+    --focus: #0f4c5c;
+    --focus-on-dark: #ffd166;
+    --headline: Rockwell, "Rockwell Nova", "Roboto Slab", "Sitka Heading", "DejaVu Serif", Georgia, serif;
+    --body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #121719;
+      --surface: #1a2124;
+      --text: #e6ecee;
+      --muted: #a9b6bb;
+      --rule: #34413f;
+      --link: #8fd0e3;
+      --brand: #0d3f4c;
+      --brand-muted: #c3dbe1;
+      --ticker-bg: #0a1013;
+      --breaking: #b3261e;
+      --button-bg: #8fd0e3;
+      --button-text: #0b1e24;
+      --field-border: #7f8d93;
+      --error: #ff9b8f;
+      --focus: #ffd166;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--link); text-underline-offset: 0.15em; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  img { max-width: 100%; height: auto; display: block; }
+  h1, h2, h3 { font-family: var(--headline); line-height: 1.2; }
+
+  .skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: -10rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    color: var(--link);
+    font-weight: 600;
+  }
+  .skip-link:focus { top: 0.75rem; }
+
+  /* Masthead */
+  .masthead { background: var(--brand); color: var(--brand-text); }
+  .masthead :focus-visible { outline-color: var(--focus-on-dark); }
+  .masthead__bar {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1.5rem;
+  }
+  .wordmark {
+    font-family: var(--headline);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--brand-text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .wordmark:hover { text-decoration: underline; }
+  .masthead__date { margin: 0; color: var(--brand-muted); font-size: 0.9375rem; }
+  .sections { margin-left: auto; }
+  .sections ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+  .sections a {
+    display: inline-block;
+    padding: 0.25rem 0;
+    color: var(--brand-text);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .sections a:hover { text-decoration: underline; }
+
+  .ticker { background: var(--ticker-bg); color: var(--ticker-text); }
+  .ticker__inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+  }
+  .ticker__line { margin: 0; flex: 1 1 24rem; font-size: 0.9375rem; }
+  .ticker__label {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0 0.5rem;
+    background: var(--breaking);
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 2px;
+  }
+  .ticker-text.is-changing { animation: ticker-in 400ms ease-out; }
+  @keyframes ticker-in { from { opacity: 0; } to { opacity: 1; } }
+  .ticker-toggle {
+    font: inherit;
+    font-size: 0.875rem;
+    min-height: 2rem;
+    padding: 0.125rem 0.75rem;
+    background: transparent;
+    color: var(--ticker-text);
+    border: 1px solid var(--ticker-text);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .ticker__more { color: var(--ticker-text); font-size: 0.875rem; display: inline-block; padding: 0.25rem 0; }
+
+  @media (min-width: 48em) and (min-height: 32em) {
+    .masthead { position: sticky; top: 0; z-index: 10; }
+  }
+
+  /* Page layout */
+  .page {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    display: grid;
+    gap: 3rem;
+  }
+  @media (min-width: 60em) {
+    .page { grid-template-columns: minmax(0, 1fr) 19rem; }
+  }
+
+  .story__section {
+    display: inline-block;
+    padding: 0.125rem 0;
+    font-weight: 700;
+    color: var(--link);
+  }
+  .story h1 { font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem); margin: 0.5rem 0 0.75rem; max-width: 22ch; }
+  .story__dek { font-size: 1.25rem; line-height: 1.45; margin: 0 0 1.25rem; max-width: 38rem; }
+  .story__byline, .story__time { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+  .story__byline a { font-weight: 600; }
+
+  .share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin: 1.25rem 0 1.5rem; }
+  .share button, .share a {
+    font: inherit;
+    font-size: 0.9375rem;
+    min-height: 2.25rem;
+    padding: 0.25rem 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--field-border);
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .share__status { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+
+  .story figure { margin: 0 0 1.75rem; }
+  .story figcaption { color: var(--muted); font-size: 0.875rem; margin-top: 0.5rem; }
+
+  .story__body { max-width: 40rem; }
+  .story__body p { margin: 0 0 1.15rem; }
+  .story__body h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; }
+  .story__body q { font-style: italic; }
+
+  .editors-note {
+    max-width: 40rem;
+    margin: 2rem 0 1.5rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .editors-note summary { cursor: pointer; padding: 0.625rem 0; font-weight: 600; }
+  .editors-note p { margin: 0 0 1rem; color: var(--muted); }
+
+  .topics h2 { font-size: 1rem; font-family: var(--body); margin: 0 0 0.5rem; }
+  .topics ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .topics a {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--field-border);
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+
+  /* Comments */
+  .comments { margin-top: 3rem; max-width: 40rem; }
+  .comments > h2 { font-size: 1.5rem; margin: 0 0 1rem; }
+  .comment-list { list-style: none; margin: 0; padding: 0; }
+  .comment-list li { padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .comment-list p { margin: 0; }
+  .comment__meta { color: var(--muted); font-size: 0.875rem; }
+  .comment__meta strong { color: var(--text); }
+  .comments-more {
+    display: inline-block;
+    margin: 0.5rem 0 1.5rem;
+    padding: 0.375rem 1rem;
+    border: 1px solid var(--field-border);
+    border-radius: 3px;
+    color: var(--link);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .comment-guidelines {
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border-left: 4px solid var(--brand);
+  }
+  .comment-guidelines h3 { margin: 0 0 0.5rem; font-size: 1.125rem; }
+  .comment-guidelines p { margin: 0 0 0.5rem; }
+  .comment-form h3 { font-size: 1.25rem; margin: 1.5rem 0 1rem; }
+
+  .field { margin-bottom: 1rem; }
+  .field label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+  .field input[type="text"], .field input[type="email"], .field textarea {
+    width: 100%;
+    font: inherit;
+    padding: 0.5rem 0.625rem;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--field-border);
+    border-radius: 3px;
+  }
+  .field textarea { min-height: 8rem; resize: vertical; }
+  .field [aria-invalid="true"] { border: 2px solid var(--error); }
+  .field-error { margin: 0.25rem 0 0; color: var(--error); font-weight: 600; font-size: 0.9375rem; }
+  .field-error:empty { display: none; }
+
+  .button {
+    font: inherit;
+    font-weight: 600;
+    min-height: 2.5rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 2px solid var(--button-bg);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .button--quiet { background: transparent; color: var(--text); border-color: var(--field-border); }
+  .form-status { margin: 0.75rem 0 0; font-weight: 600; }
+
+  /* Rail */
+  .rail h2 { font-size: 1.25rem; margin: 0 0 0.75rem; }
+  .related { list-style: none; margin: 0 0 2.5rem; padding: 0; }
+  .related li { padding: 0.75rem 0; border-top: 1px solid var(--rule); }
+  .related a { font-weight: 600; text-decoration: none; display: block; }
+  .related a:hover { text-decoration: underline; }
+  .related p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.875rem; }
+  .newsletter {
+    padding: 1.25rem;
+    background: var(--surface);
+    border-top: 4px solid var(--brand);
+  }
+  .newsletter p { margin: 0 0 1rem; }
+
+  /* Dialog */
+  .signup-dialog {
+    width: min(32rem, calc(100vw - 2rem));
+    padding: 1.5rem;
+    border: 1px solid var(--field-border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+  }
+  .signup-dialog::backdrop { background: rgb(10 20 24 / 0.6); }
+  .signup-dialog h2 { margin: 0 0 0.5rem; font-size: 1.5rem; }
+  .signup-dialog fieldset { border: 1px solid var(--rule); border-radius: 3px; margin: 0 0 1rem; padding: 0.5rem 1rem 0.75rem; }
+  .signup-dialog legend { font-weight: 600; padding: 0 0.25rem; }
+  .choice { display: flex; align-items: center; gap: 0.5rem; min-height: 2rem; }
+  .choice input { width: 1.125rem; height: 1.125rem; margin: 0; }
+  .dialog-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--rule); background: var(--surface); }
+  .site-footer__inner { max-width: 72rem; margin: 0 auto; padding: 1.5rem 1.25rem 2rem; }
+  .site-footer ul { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+  .site-footer a { display: inline-block; padding: 0.125rem 0; }
+  .site-footer p { margin: 0; color: var(--muted); font-size: 0.875rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-text.is-changing { animation: none; }
+  }
+  @media print {
+    .masthead, .share, .comments, .rail, .site-footer, .skip-link { display: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="masthead">
+  <div class="masthead__bar">
+    <a class="wordmark" href="/">The Harlow Valley Courier</a>
+    <p class="masthead__date"><time datetime="2026-11-05">Thursday, November 5, 2026</time></p>
+    <nav class="sections" aria-label="Sections">
+      <ul>
+        <li><a href="/local/">Local</a></li>
+        <li><a href="/schools/">Schools</a></li>
+        <li><a href="/business/">Business</a></li>
+        <li><a href="/sports/">Sports</a></li>
+        <li><a href="/opinion/">Opinion</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="ticker">
+    <div class="ticker__inner">
+      <p class="ticker__line"><span class="ticker__label">Breaking</span> <span class="ticker-text">Route 9 is closed between Elm Street and Quarry Road while crews repair a water main.</span></p>
+      <button type="button" class="ticker-toggle">Pause</button>
+      <a class="ticker__more" href="/live/">All updates</a>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <main id="main">
+    <article class="story">
+      <header class="story__header">
+        <a class="story__section" href="/local/">Local</a>
+        <h1>Council approves plan to reopen the Millrace footbridge</h1>
+        <p class="story__dek">The 1931 truss bridge over the Millrace Canal has been fenced off since 2023. Repairs could start in April, with the crossing open again by fall.</p>
+        <p class="story__byline">By <a href="/staff/dana-whitfield/">Dana Whitfield</a>, Courier staff</p>
+        <p class="story__time">Published <time datetime="2026-11-05T09:30-05:00">Nov. 5, 2026, 9:30 a.m.</time> Updated <time datetime="2026-11-05T16:10-05:00">4:10 p.m.</time></p>
+        <div class="share">
+          <button type="button" class="share__copy" aria-label="Copy article URL">Copy link</button>
+          <a href="mailto:?subject=Council%20approves%20plan%20to%20reopen%20the%20Millrace%20footbridge">Email</a>
+          <button type="button" class="share__print">Print</button>
+          <p class="share__status" role="status"></p>
+        </div>
+      </header>
+
+      <figure>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDYwMCI+CjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI2Q3ZTZlOCIvPgo8cmVjdCB5PSIzNjAiIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjI0MCIgZmlsbD0iIzVkOGM5NiIvPgo8cGF0aCBkPSJNMCAzMzAgTDMzMCAzMDAgTDM2MCA2MDAgTDAgNjAwIFoiIGZpbGw9IiM2Zjg0NjIiLz4KPHBhdGggZD0iTTEyMDAgMzIwIEw4NjAgMzAwIEw4MzAgNjAwIEwxMjAwIDYwMCBaIiBmaWxsPSIjNmY4NDYyIi8+CjxyZWN0IHg9IjMwMCIgeT0iMjgyIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjE4IiBmaWxsPSIjMmMzYTNmIi8+CjxnIHN0cm9rZT0iIzJjM2EzZiIgc3Ryb2tlLXdpZHRoPSIxMCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0zMDAgMjgyIEwzNjAgMjAwIEw4NDAgMjAwIEw5MDAgMjgyIi8+CjxwYXRoIGQ9Ik0zNjAgMjAwIEw0MjAgMjgyIEw0ODAgMjAwIEw1NDAgMjgyIEw2MDAgMjAwIEw2NjAgMjgyIEw3MjAgMjAwIEw3ODAgMjgyIEw4NDAgMjAwIi8+CjwvZz4KPGcgc3Ryb2tlPSIjYzQ1NjFhIiBzdHJva2Utd2lkdGg9IjgiPgo8cGF0aCBkPSJNODQ2IDIxNCBMODQ2IDMwMCBNODcwIDIxNCBMODcwIDMwMCBNODk0IDIxNCBMODk0IDMwMCIvPgo8cGF0aCBkPSJNODQwIDIzMCBMOTAwIDIzMCBNODQwIDI3MCBMOTAwIDI3MCIvPgo8L2c+CjxnIGZpbGw9IiM0YzZiNzUiIG9wYWNpdHk9IjAuNSI+CjxyZWN0IHg9IjM4MCIgeT0iNDIwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjYiLz48cmVjdCB4PSI2MjAiIHk9IjQ3MCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSI2Ii8+PHJlY3QgeD0iMTUwIiB5PSI1MjAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNiIvPgo8L2c+Cjwvc3ZnPgo=" width="1200" height="600" alt="Illustration of the Millrace footbridge, a steel truss span over the canal, with an orange construction fence blocking its east end.">
+        <figcaption>The footbridge links Millrace Park to Canal Street. Illustration: Courier graphics</figcaption>
+      </figure>
+
+      <div class="story__body">
+        <p>The Harlow Valley City Council voted 6–1 Wednesday night to spend $2.4 million repairing the Millrace footbridge, the narrow steel crossing that connected the east side to downtown for more than 90 years before inspectors closed it.</p>
+        <p>The bridge was fenced off in March 2023 after a state inspection found corrosion in two of its floor beams. Since then, people walking from the Eastgate neighborhood to Canal Street have had to detour roughly half a mile along Route 9, which has no sidewalk for part of the way.</p>
+        <p>“We heard from parents, from people who work downtown, from folks who don’t drive,” said council member Andre Fields, who sponsored the measure. “This is the cheapest way we have to make that walk safe again.”</p>
+        <p>Marisol Ortega, who has run a bakery on Canal Street for 22 years, watched the vote from the second row. <q>Este puente es parte de nuestra historia</q>, she said afterward — this bridge is part of our history. “Half my morning customers used to walk over it.”</p>
+        <p>The lone vote against the plan came from council member Ruth Ellison, who said she supported reopening the bridge but wanted the city to seek more state money first. “I don’t want local taxpayers carrying a bill the state has helped cover in other towns,” she said.</p>
+
+        <h2>What happens next</h2>
+        <p>The city will put the work out to bid in December. County engineer Paul Mercado said repairs would replace the corroded beams, add a new deck and bring the railings up to current height standards while keeping the bridge’s original trusses.</p>
+        <p>If bids come in on budget, construction could begin in April and the bridge could reopen by October 2027, Mercado said. The city has applied for a state grant that would cover up to half the cost.</p>
+        <p>Residents can review the engineering report and the project timeline on the <a href="/city/millrace-footbridge/">city’s project page</a>. A public meeting on the design is scheduled for Jan. 14 at the Harlow Valley Public Library.</p>
+      </div>
+
+      <details class="editors-note">
+        <summary>Editor’s note</summary>
+        <p>This story was updated at 4:10 p.m. to add comments from county engineer Paul Mercado. An earlier version misstated the month the bridge closed. It closed in March 2023.</p>
+      </details>
+
+      <footer class="topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/topics/city-council/">City council</a></li>
+          <li><a href="/topics/transportation/">Transportation</a></li>
+          <li><a href="/topics/eastgate/">Eastgate</a></li>
+        </ul>
+      </footer>
+    </article>
+
+    <section class="comments" aria-labelledby="comments-heading">
+      <h2 id="comments-heading">Comments (7)</h2>
+      <ol class="comment-list">
+        <li>
+          <p class="comment__meta"><strong>Greg H.</strong> <time datetime="2026-11-05T10:02-05:00">10:02 a.m.</time></p>
+          <p>Finally. I used to walk my kids to Canal Street over that bridge every Saturday.</p>
+        </li>
+        <li>
+          <p class="comment__meta"><strong>Priya N.</strong> <time datetime="2026-11-05T10:41-05:00">10:41 a.m.</time></p>
+          <p>Does anyone know if the new railings will still let you see the canal? The old ones had the best view in town.</p>
+        </li>
+        <li>
+          <p class="comment__meta"><strong>Lou Benton</strong> <time datetime="2026-11-05T11:15-05:00">11:15 a.m.</time></p>
+          <p>Ellison has a point about the state grant, but three years is long enough to wait.</p>
+        </li>
+      </ol>
+      <div class="comments-more" tabindex="0">Show 4 more comments</div>
+
+      <form class="comment-form" novalidate>
+        <h3>Add a comment</h3>
+        <div class="comment-guidelines" tabindex="-1" hidden>
+          <h3>Before you comment</h3>
+          <p>Keep it civil and on topic. Comments are reviewed by our staff before they appear, usually within a few hours.</p>
+          <p><a href="/community-guidelines/">Read our community guidelines</a></p>
+        </div>
+        <div class="field">
+          <label for="comment-name">Display name (required)</label>
+          <input type="text" id="comment-name" name="name" autocomplete="nickname" required aria-describedby="comment-name-error">
+          <p class="field-error" id="comment-name-error"></p>
+        </div>
+        <div class="field">
+          <label for="comment-body">Comment (required)</label>
+          <textarea id="comment-body" name="comment" required aria-describedby="comment-body-error"></textarea>
+          <p class="field-error" id="comment-body-error"></p>
+        </div>
+        <button type="submit" class="button">Post comment</button>
+        <p class="form-status comment-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <aside class="rail" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related stories</h2>
+    <ul class="related">
+      <li>
+        <a href="/local/route-9-water-main-repairs/">Route 9 water main repairs expected to wrap up by Friday</a>
+        <p><time datetime="2026-11-04">Nov. 4, 2026</time></p>
+      </li>
+      <li>
+        <a href="/local/canal-days-returns/">Canal Days festival returns to Millrace Park in May</a>
+        <p><time datetime="2026-10-29">Oct. 29, 2026</time></p>
+      </li>
+      <li>
+        <a href="/schools/eastgate-walk-to-school/">Eastgate parents push for safer walking routes to school</a>
+        <p><time datetime="2026-10-21">Oct. 21, 2026</time></p>
+      </li>
+      <li>
+        <a href="/opinion/footbridge-was-never-a-shortcut/">Opinion: The footbridge was never just a shortcut</a>
+        <p><time datetime="2026-09-30">Sept. 30, 2026</time></p>
+      </li>
+    </ul>
+
+    <section class="newsletter" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">The Morning Brief</h2>
+      <p>The day’s local news in your inbox at 6 a.m. Free, and you can unsubscribe anytime.</p>
+      <button type="button" class="button" id="newsletter-open">Subscribe</button>
+    </section>
+  </aside>
+</div>
+
+<dialog class="signup-dialog" id="newsletter-dialog" aria-labelledby="newsletter-dialog-title">
+  <h2 id="newsletter-dialog-title">Subscribe to The Morning Brief</h2>
+  <p>We’ll send a link to confirm your address.</p>
+  <form class="newsletter-form" novalidate>
+    <div class="field">
+      <label for="newsletter-email">Email address (required)</label>
+      <input type="email" id="newsletter-email" name="email" autocomplete="email" required aria-describedby="newsletter-email-error">
+      <p class="field-error" id="newsletter-email-error"></p>
+    </div>
+    <fieldset>
+      <legend>How often</legend>
+      <label class="choice"><input type="radio" name="frequency" value="weekdays" checked> Weekdays</label>
+      <label class="choice"><input type="radio" name="frequency" value="daily"> Every day</label>
+      <label class="choice"><input type="radio" name="frequency" value="sunday"> Sundays only</label>
+    </fieldset>
+    <div class="dialog-actions">
+      <button type="submit" class="button">Sign up</button>
+      <button type="button" class="button button--quiet dialog-close">Close</button>
+    </div>
+    <p class="form-status newsletter-status" role="status"></p>
+  </form>
+</dialog>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <ul>
+      <li><a href="/about/">About us</a></li>
+      <li><a href="/contact/">Contact the newsroom</a></li>
+      <li><a href="/corrections/">Corrections</a></li>
+      <li><a href="/privacy/">Privacy policy</a></li>
+      <li><a href="/terms/">Terms of use</a></li>
+    </ul>
+    <p>© 2026 The Harlow Valley Courier, 114 Canal Street, Harlow Valley</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const masthead = document.querySelector('.masthead');
+
+  // Keep focused controls clear of the sticky masthead.
+  const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]';
+  document.addEventListener('focusin', (event) => {
+    const el = event.target;
+    if (!(el instanceof Element) || !el.matches(FOCUSABLE)) return;
+    if (masthead.contains(el) || el.closest('dialog')) return;
+    requestAnimationFrame(() => {
+      const offset = masthead.getBoundingClientRect().bottom;
+      const top = el.getBoundingClientRect().top;
+      const gap = 16;
+      if (top < offset + gap) window.scrollBy(0, top - offset - gap);
+    });
+  });
+
+  // Breaking news
+  const updates = [
+    'Route 9 is closed between Elm Street and Quarry Road while crews repair a water main.',
+    'County schools will dismiss two hours early Friday for staff training.',
+    'Harlow Valley Fire Department says a brush fire near Ridge Road is contained.',
+    'Leaf collection on the east side moves to Mondays starting next week.'
+  ];
+  const tickerText = document.querySelector('.ticker-text');
+  const tickerToggle = document.querySelector('.ticker-toggle');
+  let current = 0;
+  let timer = null;
+
+  function nextUpdate() {
+    current = (current + 1) % updates.length;
+    tickerText.classList.remove('is-changing');
+    void tickerText.offsetWidth;
+    tickerText.textContent = updates[current];
+    tickerText.classList.add('is-changing');
+  }
+  function startTicker() {
+    timer = setInterval(nextUpdate, 7000);
+    tickerToggle.textContent = 'Pause';
+  }
+  function stopTicker() {
+    clearInterval(timer);
+    timer = null;
+    tickerToggle.textContent = 'Resume';
+  }
+  tickerToggle.addEventListener('click', () => (timer ? stopTicker() : startTicker()));
+  startTicker();
+
+  // Share
+  const shareStatus = document.querySelector('.share__status');
+  document.querySelector('.share__copy').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      shareStatus.textContent = 'Link copied.';
+    } catch {
+      shareStatus.textContent = 'Couldn’t copy the link. Copy it from your browser’s address bar.';
+    }
+  });
+  document.querySelector('.share__print').addEventListener('click', () => window.print());
+
+  // Comments
+  const moreComments = [
+    { name: 'Carmen R.', time: '2026-11-05T12:03-05:00', label: '12:03 p.m.', text: 'The detour along Route 9 is miserable in winter. Glad this is moving.' },
+    { name: 'Tom Albrecht', time: '2026-11-05T12:40-05:00', label: '12:40 p.m.', text: 'Will the bridge be accessible for wheelchairs and strollers when it reopens? The old ramp on the park side was steep.' },
+    { name: 'Rae Coulter', time: '2026-11-05T13:22-05:00', label: '1:22 p.m.', text: 'Good reporting. Please follow up on the state grant.' },
+    { name: 'Dev Patel', time: '2026-11-05T14:58-05:00', label: '2:58 p.m.', text: 'Fall 2027 feels optimistic, but I hope I’m wrong.' }
+  ];
+  const commentList = document.querySelector('.comment-list');
+  const moreButton = document.querySelector('.comments-more');
+
+  function renderComment(comment) {
+    const li = document.createElement('li');
+    const meta = document.createElement('p');
+    meta.className = 'comment__meta';
+    const name = document.createElement('strong');
+    name.textContent = comment.name;
+    const time = document.createElement('time');
+    time.dateTime = comment.time;
+    time.textContent = comment.label;
+    meta.append(name, ' ', time);
+    const body = document.createElement('p');
+    body.textContent = comment.text;
+    li.append(meta, body);
+    return li;
+  }
+  function showMoreComments() {
+    const items = moreComments.map(renderComment);
+    commentList.append(...items);
+    items[0].tabIndex = -1;
+    moreButton.remove();
+    items[0].focus();
+  }
+  moreButton.addEventListener('click', showMoreComments);
+  moreButton.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      showMoreComments();
+    }
+  });
+
+  const commentForm = document.querySelector('.comment-form');
+  const guidelines = commentForm.querySelector('.comment-guidelines');
+  const commentName = document.getElementById('comment-name');
+  const commentBody = document.getElementById('comment-body');
+  const commentStatus = commentForm.querySelector('.comment-status');
+
+  function showGuidelines() {
+    guidelines.hidden = false;
+    guidelines.focus();
+  }
+  commentBody.addEventListener('focus', showGuidelines, { once: true });
+
+  function setError(field, message) {
+    const error = document.getElementById(field.id + '-error');
+    error.textContent = message;
+    if (message) field.setAttribute('aria-invalid', 'true');
+    else field.removeAttribute('aria-invalid');
+  }
+
+  commentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    commentBody.removeEventListener('focus', showGuidelines);
+    guidelines.hidden = false;
+    commentStatus.textContent = '';
+
+    const invalid = [];
+    if (!commentName.value.trim()) {
+      setError(commentName, 'Enter a display name, such as your first name and last initial.');
+      invalid.push(commentName);
+    } else setError(commentName, '');
+    if (!commentBody.value.trim()) {
+      setError(commentBody, 'Write your comment before posting.');
+      invalid.push(commentBody);
+    } else setError(commentBody, '');
+
+    if (invalid.length) {
+      invalid[0].focus();
+      return;
+    }
+    commentForm.reset();
+    commentStatus.textContent = 'Comment sent. It will appear after a staff member reviews it.';
+  });
+
+  // Newsletter
+  const dialog = document.getElementById('newsletter-dialog');
+  const openButton = document.getElementById('newsletter-open');
+  const signupForm = dialog.querySelector('.newsletter-form');
+  const email = document.getElementById('newsletter-email');
+  const signupStatus = dialog.querySelector('.newsletter-status');
+
+  openButton.addEventListener('click', () => {
+    signupStatus.textContent = '';
+    dialog.showModal();
+    email.focus();
+  });
+  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => openButton.focus());
+
+  signupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const value = email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setError(email, 'Enter an email address in the format name@example.com.');
+      email.focus();
+      return;
+    }
+    setError(email, '');
+    signupStatus.textContent = 'You’re signed up. Check ' + value + ' for a link to confirm.';
+  });
+})();
+</script>
+</body>
+</html>

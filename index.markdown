@@ -22,3 +22,5 @@ All links open in a new tab.
 - <a href="./northvale-outage-center.html" target="_blank" rel="noopener">Northvale Outage Center</a>
 - <a href="./hearth-and-hollow-books.html" target="_blank" rel="noopener">Hearth and Hollow</a>
 - <a href="./fernhollow-seed-checkout.html" target="_blank" rel="noopener">Fernhollow Seed Co.</a>
+- <a href="./harlow-valley-courier.html" target="_blank" rel="noopener">Harlow Valley Courier</a>
+- <a href="./bramble-bushel-stores.html" target="_blank" rel="noopener">Bramble Bushel Stores</a>

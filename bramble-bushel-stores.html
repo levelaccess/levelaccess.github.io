@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stores &amp; delivery | Bramble &amp; Bushel</title>
+<style>
+  :root {
+    --ink: #1F3326;
+    --muted: #465A4C;
+    --paper: #FFFFFF;
+    --celery: #EAF2DC;
+    --beet: #8A1E45;
+    --beet-dark: #6E1636;
+    --tag: #FBE38E;
+    --line: #C9D6BF;
+    --field-border: #5B6E60;
+    --error: #A3201B;
+    --slab: Rockwell, "Roboto Slab", "Zilla Slab", "Museo Slab", Georgia, serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 1.0625rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  h1, h2, h3 { font-family: var(--slab); line-height: 1.2; margin: 0 0 .5rem; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.375rem; }
+  p { margin: 0 0 .75rem; }
+  a { color: var(--beet); }
+  a:hover { color: var(--beet-dark); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 10;
+    background: var(--paper); color: var(--ink); padding: .75rem 1rem;
+    border: 2px solid var(--ink); border-radius: 4px; font-weight: 600;
+  }
+  .skip-link:focus { top: 1rem; }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Offer bar */
+  .promo { background: var(--ink); color: #fff; }
+  .promo .wrap { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .25rem .5rem; padding-block: .4rem; font-size: .9375rem; }
+  .promo p { margin: 0; }
+  .promo a { color: #fff; display: inline-block; padding: .25rem .375rem; min-height: 24px; }
+  .promo :focus-visible { outline-color: var(--tag); }
+  .promo-dismiss {
+    width: 16px; height: 16px; padding: 0; margin-left: 2px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: #fff; border: 0; cursor: pointer;
+  }
+  .promo-dismiss svg { width: 10px; height: 10px; }
+
+  /* Header */
+  .site-header { border-bottom: 1px solid var(--line); }
+  .site-header .wrap { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 2rem; padding-block: 1rem; }
+  .brand { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--ink); font-family: var(--slab); font-size: 1.5rem; font-weight: 700; min-height: 44px; }
+  .brand svg { width: 2rem; height: 2rem; color: var(--beet); }
+  .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+  .site-nav a { display: inline-block; padding: .6rem .25rem; color: var(--ink); text-decoration: none; border-bottom: 3px solid transparent; }
+  .site-nav a:hover { border-bottom-color: var(--line); }
+  .site-nav a[aria-current="page"] { border-bottom-color: var(--beet); font-weight: 600; }
+  .region { margin-left: auto; display: flex; align-items: center; gap: .5rem; }
+  .region label { font-size: .9375rem; color: var(--muted); }
+
+  /* Form controls */
+  input[type="text"], input[type="tel"], select, textarea {
+    font: inherit; color: var(--ink); background: #fff;
+    border: 2px solid var(--field-border); border-radius: 4px;
+    padding: .5rem .7rem; min-height: 2.75rem;
+  }
+  textarea { width: 100%; min-height: 5rem; resize: vertical; }
+  [aria-invalid="true"] { border-color: var(--error); }
+  input[type="radio"], input[type="checkbox"] { width: 1.5rem; height: 1.5rem; margin: 0; accent-color: var(--beet); flex: none; }
+  .choice { display: flex; align-items: center; gap: .6rem; padding: .3rem 0; }
+  fieldset { border: 0; margin: 0 0 1.5rem; padding: 0; min-width: 0; }
+  legend { font-weight: 700; padding: 0; margin-bottom: .4rem; }
+  .field { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1.25rem; }
+  .field > label { font-weight: 700; }
+  .hint { color: var(--muted); font-size: .9375rem; margin: 0; }
+  .error { color: var(--error); font-weight: 600; margin: 0; }
+  .button {
+    font: inherit; font-weight: 600; cursor: pointer;
+    background: var(--beet); color: #fff; border: 2px solid var(--beet);
+    border-radius: 4px; padding: .55rem 1.15rem; min-height: 2.75rem;
+  }
+  .button:hover { background: var(--beet-dark); border-color: var(--beet-dark); }
+  .button-quiet { background: #fff; color: var(--beet); }
+  .button-quiet:hover { background: var(--celery); color: var(--beet-dark); }
+  .text-button {
+    font: inherit; font-weight: 600; cursor: pointer; background: none; border: 0;
+    color: var(--beet); text-decoration: underline; padding: .5rem .25rem; min-height: 2.75rem;
+    display: inline-flex; align-items: center; gap: .35rem;
+  }
+  .text-button svg { width: 1.1rem; height: 1.1rem; }
+
+  /* Intro */
+  main:focus { outline: none; }
+  .intro { padding-block: 2.5rem 1.5rem; }
+  .intro p { max-width: 40rem; color: var(--muted); font-size: 1.125rem; }
+
+  /* Store finder */
+  .finder {
+    position: relative; background: var(--tag);
+    border-radius: 6px 28px 6px 6px;
+    padding: 1.75rem 1.5rem 1.5rem 3rem;
+  }
+  .finder::before {
+    content: ""; position: absolute; left: 1.1rem; top: 1.35rem;
+    width: .8rem; height: .8rem; border-radius: 50%;
+    background: var(--paper); box-shadow: inset 0 0 0 2px rgba(31, 51, 38, .4);
+  }
+  .finder h2 { margin-bottom: 1rem; }
+  .finder-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+  .finder-row .field { flex: 1 1 12rem; max-width: 18rem; }
+  .finder .services { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+  .finder-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; }
+
+  /* Results */
+  .results { padding-block: 2rem 3rem; }
+  .results-summary { font-family: var(--slab); font-size: 1.25rem; margin-bottom: .25rem; }
+  .store-status { color: var(--muted); min-height: 1.55em; }
+  .store-list { list-style: none; margin: 1rem 0 1.5rem; padding: 0; }
+  .store {
+    display: grid; grid-template-columns: 6.5rem 1fr;
+    grid-template-areas: "dist name" "dist details" "dist action";
+    column-gap: 1.25rem; padding: 1.25rem 0; border-top: 1px solid var(--line);
+  }
+  .store:last-child { border-bottom: 1px solid var(--line); }
+  .store-name { grid-area: name; margin-bottom: .25rem; }
+  .store-distance { grid-area: dist; margin: 0; font-family: var(--slab); color: var(--beet); font-size: 2.25rem; line-height: 1; }
+  .store-distance .unit { font-size: 1rem; margin-left: .15em; }
+  .store-details { grid-area: details; }
+  .store-details address { font-style: normal; margin-bottom: .5rem; }
+  .store-details a { display: inline-block; padding-block: .2rem; min-height: 24px; }
+  .store-badge { display: inline-block; background: var(--celery); color: var(--ink); font-weight: 700; padding: .1rem .5rem; border-radius: 3px; }
+  .store-badge[hidden] { display: none; }
+  .store-services { color: var(--muted); }
+  .choose-store { grid-area: action; justify-self: start; }
+  @media (max-width: 34rem) {
+    .store { grid-template-columns: 1fr; grid-template-areas: "name" "dist" "details" "action"; }
+    .store-distance { font-size: 1.5rem; margin-bottom: .5rem; }
+    .region { margin-left: 0; }
+    .finder { padding-left: 1.5rem; padding-top: 2.5rem; }
+  }
+
+  /* Delivery */
+  .delivery { background: var(--celery); padding-block: 2.5rem 3rem; }
+  .delivery-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 2.5rem; }
+  @media (max-width: 52rem) { .delivery-grid { grid-template-columns: 1fr; } }
+  .delivering-from { font-size: 1.125rem; margin-bottom: 1.5rem; }
+  .delivery-form { background: var(--paper); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--line); }
+  .when-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+  .when-row .field { flex: 1 1 12rem; }
+  .spot-details { margin: .5rem 0 0 2.1rem; display: flex; flex-direction: column; gap: .3rem; }
+  .spot-details[hidden] { display: none; }
+  .form-status { margin-top: 1rem; font-weight: 600; }
+  .fees h3 { margin-top: .25rem; }
+  .fee-list { margin: .75rem 0 0; padding-left: 1.25rem; }
+  .fee-list li { margin-bottom: .35rem; }
+
+  /* Footer */
+  .site-footer { background: var(--ink); color: #fff; padding-block: 2.5rem 1.5rem; }
+  .site-footer :focus-visible { outline-color: var(--tag); }
+  .site-footer a { color: #fff; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 2rem; }
+  .site-footer h2 { font-size: 1.375rem; }
+  .site-footer label { display: block; font-weight: 700; margin-bottom: .25rem; }
+  .footer-hint { color: #DCE6D4; font-size: .9375rem; margin-bottom: .4rem; }
+  .legal { color: #DCE6D4; font-size: .875rem; margin-top: 2rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<aside class="promo" id="promo" aria-label="Current offer">
+  <div class="wrap">
+    <p>Free delivery on your first order of $35 or more.</p>
+    <a href="#fees-heading">See details</a>
+    <button type="button" class="promo-dismiss" id="promo-dismiss" aria-label="Dismiss offer">
+      <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</aside>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 3c5 3 8 8 8 13 0 6-4 10-8 13-4-3-8-7-8-13 0-5 3-10 8-13zm0 5v18"/><path d="M16 9v17M16 15l-4-3M16 20l4-3" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      Bramble &amp; Bushel
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/weekly-ad">Weekly ad</a></li>
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/stores" aria-current="page">Stores &amp; delivery</a></li>
+        <li><a href="/account">My account</a></li>
+      </ul>
+    </nav>
+    <div class="region">
+      <label for="region">Shopping in</label>
+      <select id="region" name="region">
+        <option value="central-ohio">Central Ohio</option>
+        <option value="northern-kentucky">Northern Kentucky</option>
+        <option value="pittsburgh">Pittsburgh area</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap intro">
+    <h1>Stores &amp; delivery</h1>
+    <p>Find your nearest Bramble &amp; Bushel, then tell us how you like your groceries delivered. Showing stores in <span data-region-name>Central Ohio</span>.</p>
+  </div>
+
+  <section class="wrap" id="find-a-store" aria-labelledby="finder-heading">
+    <form class="finder" id="store-search" role="search" aria-labelledby="finder-heading" novalidate>
+      <h2 id="finder-heading">Find a store</h2>
+      <div class="finder-row">
+        <div class="field">
+          <label for="store-zip">ZIP code</label>
+          <p class="hint" id="store-zip-hint">5 digits, like <span data-region-zip>43215</span></p>
+          <input type="text" id="store-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" aria-describedby="store-zip-hint store-zip-error">
+          <p class="error" id="store-zip-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="store-radius">Distance</label>
+          <p class="hint" id="store-radius-hint">From your ZIP code</p>
+          <select id="store-radius" name="radius" aria-describedby="store-radius-hint">
+            <option value="5">Within 5 miles</option>
+            <option value="10">Within 10 miles</option>
+            <option value="25" selected>Within 25 miles</option>
+            <option value="50">Within 50 miles</option>
+          </select>
+        </div>
+      </div>
+      <fieldset>
+        <legend>Only show stores with</legend>
+        <div class="services">
+          <label class="choice"><input type="checkbox" name="service" value="pharmacy"> Pharmacy</label>
+          <label class="choice"><input type="checkbox" name="service" value="bakery"> Bakery</label>
+          <label class="choice"><input type="checkbox" name="service" value="fuel"> Fuel station</label>
+          <label class="choice"><input type="checkbox" name="service" value="curbside"> Curbside pickup</label>
+        </div>
+      </fieldset>
+      <div class="finder-actions">
+        <button type="submit" class="button" id="store-search-submit">Find stores</button>
+        <button type="button" class="text-button" id="use-location" aria-label="Find nearby stores">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10 1a6 6 0 0 0-6 6c0 4.5 6 12 6 12s6-7.5 6-12a6 6 0 0 0-6-6zm0 8.2A2.2 2.2 0 1 1 10 4.8a2.2 2.2 0 0 1 0 4.4z"/></svg>
+          Use my location
+        </button>
+      </div>
+    </form>
+
+    <div class="results">
+      <p class="results-summary" id="results-summary">Enter your ZIP code to see the stores closest to you.</p>
+      <p class="store-status" id="store-status" role="status"></p>
+      <ul class="store-list" id="store-results"></ul>
+      <button type="button" class="button button-quiet" id="more-stores" hidden>Show more stores</button>
+    </div>
+  </section>
+
+  <section class="delivery" aria-labelledby="delivery-heading">
+    <div class="wrap">
+      <h2 id="delivery-heading">Delivery preferences</h2>
+      <p class="delivering-from" id="delivering-from">Pick a store above and we’ll deliver from there.</p>
+      <div class="delivery-grid">
+        <form class="delivery-form" id="delivery-form" novalidate>
+          <fieldset>
+            <legend>Where should we leave your order?</legend>
+            <label class="choice"><input type="radio" name="dropoff" id="dropoff-hand" value="hand" checked> Hand it to me</label>
+            <label class="choice"><input type="radio" name="dropoff" id="dropoff-door" value="door"> Leave it at my front door</label>
+            <label class="choice"><input type="radio" name="dropoff" id="dropoff-spot" value="spot"> Leave it somewhere else</label>
+            <div class="spot-details" id="spot-details" hidden>
+              <label for="spot-text"><strong>Describe the spot</strong></label>
+              <p class="hint" id="spot-hint">For example, side porch behind the bench.</p>
+              <textarea id="spot-text" name="spotText" rows="3" aria-describedby="spot-hint spot-error"></textarea>
+              <p class="error" id="spot-error" hidden></p>
+            </div>
+          </fieldset>
+
+          <div class="when-row">
+            <div class="field">
+              <label for="delivery-day">Preferred day</label>
+              <select id="delivery-day" name="day">
+                <option value="any">Any day</option>
+                <option value="mon">Monday</option>
+                <option value="tue">Tuesday</option>
+                <option value="wed">Wednesday</option>
+                <option value="thu">Thursday</option>
+                <option value="fri">Friday</option>
+                <option value="sat">Saturday</option>
+                <option value="sun">Sunday</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="delivery-window">Preferred time</label>
+              <select id="delivery-window" name="window">
+                <option value="morning">Morning, 8 am to noon</option>
+                <option value="afternoon">Afternoon, noon to 5 pm</option>
+                <option value="evening">Evening, 5 pm to 9 pm</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>If an item is out of stock</legend>
+            <label class="choice"><input type="radio" name="substitute" value="similar" checked> Swap in something similar</label>
+            <label class="choice"><input type="radio" name="substitute" value="ask"> Text me before swapping</label>
+            <label class="choice"><input type="radio" name="substitute" value="refund"> Skip it and refund me</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Delivery updates</legend>
+            <label class="choice"><input type="checkbox" name="notifyText" id="notify-text"> Text me when my driver is on the way</label>
+            <div class="field" style="margin-top:.75rem">
+              <label for="mobile-number">Mobile number</label>
+              <p class="hint" id="mobile-number-hint">10 digits, like 614-555-0100</p>
+              <input type="tel" id="mobile-number" name="mobile" autocomplete="tel-national" inputmode="tel" aria-describedby="mobile-number-hint mobile-number-error">
+              <p class="error" id="mobile-number-error" hidden></p>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="button">Save delivery preferences</button>
+          <p class="form-status" id="delivery-status" role="status"></p>
+        </form>
+
+        <section class="fees" aria-labelledby="fees-heading">
+          <h3 id="fees-heading">Delivery fees</h3>
+          <p>Your first order of $35 or more is delivered free. After that, delivery starts at $4.95.</p>
+          <button type="button" class="text-button" id="fee-details-toggle">How delivery fees work</button>
+          <div id="fee-details" hidden>
+            <ul class="fee-list">
+              <li>Orders of $35 to $74.99: $4.95</li>
+              <li>Orders of $75 or more: $1.95</li>
+              <li>Evening deliveries add $2.00</li>
+              <li>Tips go entirely to your driver</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <section aria-labelledby="directory-heading">
+        <h2 id="directory-heading">Store directory</h2>
+        <label for="state-directory">State</label>
+        <p class="footer-hint" id="state-directory-note">Choosing a state opens that state’s store directory page.</p>
+        <select id="state-directory" aria-describedby="state-directory-note">
+          <option value="">Choose a state</option>
+          <option value="KY">Kentucky</option>
+          <option value="OH">Ohio</option>
+          <option value="PA">Pennsylvania</option>
+        </select>
+      </section>
+      <section aria-labelledby="help-heading">
+        <h2 id="help-heading">Help</h2>
+        <p>Questions about an order? Call <a href="tel:+18005550199">1-800-555-0199</a>, 7 am to 10 pm every day.</p>
+        <p class="help-note">Se habla español. Llame al mismo número y marque el 2.</p>
+      </section>
+    </div>
+    <p class="legal">© 2026 Bramble &amp; Bushel Markets. Hours and services vary by store.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var REGIONS = {
+    "central-ohio": { name: "Central Ohio", zip: "43215", center: [39.9653, -83.0035] },
+    "northern-kentucky": { name: "Northern Kentucky", zip: "41011", center: [39.0837, -84.5086] },
+    "pittsburgh": { name: "Pittsburgh area", zip: "15222", center: [40.4474, -79.9930] }
+  };
+
+  var ZIP_POINTS = {
+    "43201": [39.9907, -83.0006], "43206": [39.9431, -82.9890], "43209": [39.9530, -82.9300],
+    "43212": [39.9866, -83.0447], "43214": [40.0530, -83.0187], "43215": [39.9653, -83.0035],
+    "43026": [40.0270, -83.1600], "43081": [40.1103, -82.9230], "43085": [40.0995, -83.0170],
+    "43123": [39.8814, -83.0930], "43230": [40.0337, -82.8697],
+    "41011": [39.0662, -84.5277], "41017": [39.0225, -84.5636], "41042": [38.9951, -84.6430],
+    "41071": [39.0835, -84.4855], "41075": [39.0770, -84.4460],
+    "15201": [40.4746, -79.9520], "15203": [40.4250, -79.9760], "15217": [40.4319, -79.9210],
+    "15222": [40.4474, -79.9930], "15228": [40.3710, -80.0440], "15232": [40.4520, -79.9320],
+    "15237": [40.5480, -80.0390]
+  };
+
+  var STATE_NAMES = { OH: "Ohio", KY: "Kentucky", PA: "Pennsylvania" };
+  var SERVICE_LABELS = { pharmacy: "Pharmacy", bakery: "Bakery", fuel: "Fuel station", curbside: "Curbside pickup" };
+
+  var STORES = [
+    { id: "short-north", region: "central-ohio", name: "Short North", street: "1120 N High St", city: "Columbus", state: "OH", zip: "43201", at: [39.9840, -83.0045], phone: "(614) 555-0132", hours: "Open 7 am to 11 pm daily", services: ["pharmacy", "bakery"] },
+    { id: "german-village", region: "central-ohio", name: "German Village", street: "655 S Third St", city: "Columbus", state: "OH", zip: "43206", at: [39.9480, -82.9930], phone: "(614) 555-0147", hours: "Open 7 am to 10 pm daily", services: ["bakery"] },
+    { id: "clintonville", region: "central-ohio", name: "Clintonville", street: "3400 Indianola Ave", city: "Columbus", state: "OH", zip: "43214", at: [40.0300, -83.0090], phone: "(614) 555-0168", hours: "Open 6 am to 11 pm daily", services: ["pharmacy", "curbside"] },
+    { id: "worthington", region: "central-ohio", name: "Worthington", street: "7020 N High St", city: "Worthington", state: "OH", zip: "43085", at: [40.0960, -83.0180], phone: "(614) 555-0175", hours: "Open 24 hours", services: ["pharmacy", "bakery", "fuel", "curbside"] },
+    { id: "bexley", region: "central-ohio", name: "Bexley", street: "2250 E Main St", city: "Bexley", state: "OH", zip: "43209", at: [39.9580, -82.9370], phone: "(614) 555-0183", hours: "Open 7 am to 10 pm daily", services: ["bakery", "curbside"] },
+    { id: "grandview", region: "central-ohio", name: "Grandview", street: "1480 W Fifth Ave", city: "Columbus", state: "OH", zip: "43212", at: [39.9880, -83.0480], phone: "(614) 555-0191", hours: "Open 7 am to 10 pm daily", services: ["pharmacy"] },
+    { id: "grove-city", region: "central-ohio", name: "Grove City", street: "3900 Broadway", city: "Grove City", state: "OH", zip: "43123", at: [39.8790, -83.0800], phone: "(614) 555-0204", hours: "Open 6 am to midnight daily", services: ["pharmacy", "fuel", "curbside"] },
+    { id: "gahanna", region: "central-ohio", name: "Gahanna", street: "1100 N Hamilton Rd", city: "Gahanna", state: "OH", zip: "43230", at: [40.0390, -82.8650], phone: "(614) 555-0216", hours: "Open 7 am to 10 pm daily", services: ["bakery", "fuel"] },
+    { id: "hilliard", region: "central-ohio", name: "Hilliard", street: "4000 Main St", city: "Hilliard", state: "OH", zip: "43026", at: [40.0330, -83.1590], phone: "(614) 555-0229", hours: "Open 7 am to 10 pm daily", services: ["pharmacy", "curbside"] },
+    { id: "westerville", region: "central-ohio", name: "Westerville", street: "600 S State St", city: "Westerville", state: "OH", zip: "43081", at: [40.1130, -82.9300], phone: "(614) 555-0237", hours: "Open 6 am to 11 pm daily", services: ["bakery", "fuel", "curbside"] },
+
+    { id: "covington", region: "northern-kentucky", name: "Covington", street: "600 Madison Ave", city: "Covington", state: "KY", zip: "41011", at: [39.0820, -84.5100], phone: "(859) 555-0114", hours: "Open 7 am to 10 pm daily", services: ["pharmacy", "bakery"] },
+    { id: "newport", region: "northern-kentucky", name: "Newport", street: "130 Pavilion Pkwy", city: "Newport", state: "KY", zip: "41071", at: [39.0930, -84.4900], phone: "(859) 555-0126", hours: "Open 6 am to 11 pm daily", services: ["bakery", "curbside"] },
+    { id: "fort-mitchell", region: "northern-kentucky", name: "Fort Mitchell", street: "2100 Dixie Hwy", city: "Fort Mitchell", state: "KY", zip: "41017", at: [39.0480, -84.5600], phone: "(859) 555-0139", hours: "Open 7 am to 10 pm daily", services: ["pharmacy", "fuel"] },
+    { id: "florence", region: "northern-kentucky", name: "Florence", street: "7700 Mall Rd", city: "Florence", state: "KY", zip: "41042", at: [38.9960, -84.6380], phone: "(859) 555-0152", hours: "Open 24 hours", services: ["pharmacy", "bakery", "fuel", "curbside"] },
+    { id: "fort-thomas", region: "northern-kentucky", name: "Fort Thomas", street: "90 Alexandria Pike", city: "Fort Thomas", state: "KY", zip: "41075", at: [39.0750, -84.4500], phone: "(859) 555-0161", hours: "Open 7 am to 9 pm daily", services: ["bakery"] },
+
+    { id: "lawrenceville", region: "pittsburgh", name: "Lawrenceville", street: "3600 Butler St", city: "Pittsburgh", state: "PA", zip: "15201", at: [40.4690, -79.9610], phone: "(412) 555-0118", hours: "Open 7 am to 11 pm daily", services: ["bakery", "curbside"] },
+    { id: "squirrel-hill", region: "pittsburgh", name: "Squirrel Hill", street: "1850 Murray Ave", city: "Pittsburgh", state: "PA", zip: "15217", at: [40.4330, -79.9230], phone: "(412) 555-0127", hours: "Open 7 am to 10 pm daily", services: ["pharmacy", "bakery"] },
+    { id: "shadyside", region: "pittsburgh", name: "Shadyside", street: "5500 Walnut St", city: "Pittsburgh", state: "PA", zip: "15232", at: [40.4510, -79.9330], phone: "(412) 555-0135", hours: "Open 7 am to 10 pm daily", services: ["pharmacy"] },
+    { id: "south-side", region: "pittsburgh", name: "South Side", street: "2700 E Carson St", city: "Pittsburgh", state: "PA", zip: "15203", at: [40.4280, -79.9670], phone: "(412) 555-0144", hours: "Open 6 am to midnight daily", services: ["bakery", "fuel", "curbside"] },
+    { id: "mt-lebanon", region: "pittsburgh", name: "Mt. Lebanon", street: "700 Washington Rd", city: "Mt. Lebanon", state: "PA", zip: "15228", at: [40.3780, -80.0450], phone: "(412) 555-0153", hours: "Open 7 am to 10 pm daily", services: ["pharmacy", "bakery", "curbside"] },
+    { id: "north-hills", region: "pittsburgh", name: "North Hills", street: "4800 McKnight Rd", city: "Pittsburgh", state: "PA", zip: "15237", at: [40.5300, -80.0100], phone: "(412) 555-0169", hours: "Open 24 hours", services: ["pharmacy", "fuel", "curbside"] }
+  ];
+
+  var PAGE_SIZE = 4;
+  var params = new URLSearchParams(location.search);
+  var regionKey = REGIONS[params.get("region")] ? params.get("region") : "central-ohio";
+  var region = REGIONS[regionKey];
+
+  var regionSelect = document.getElementById("region");
+  var searchForm = document.getElementById("store-search");
+  var zipInput = document.getElementById("store-zip");
+  var zipError = document.getElementById("store-zip-error");
+  var radiusSelect = document.getElementById("store-radius");
+  var serviceBoxes = searchForm.querySelectorAll('input[name="service"]');
+  var searchButton = document.getElementById("store-search-submit");
+  var locateButton = document.getElementById("use-location");
+  var summary = document.getElementById("results-summary");
+  var storeStatus = document.getElementById("store-status");
+  var list = document.getElementById("store-results");
+  var moreButton = document.getElementById("more-stores");
+  var deliveringFrom = document.getElementById("delivering-from");
+  var directorySelect = document.getElementById("state-directory");
+
+  var results = [];
+  var shownCount = 0;
+  var showDistance = true;
+  var myStoreId = null;
+
+  regionSelect.value = regionKey;
+  document.querySelectorAll("[data-region-name]").forEach(function (el) { el.textContent = region.name; });
+  document.querySelectorAll("[data-region-zip]").forEach(function (el) { el.textContent = region.zip; });
+
+  function navigateWith(key, value, hash) {
+    var url = new URL(location.href);
+    url.searchParams.set(key, value);
+    url.hash = hash || "";
+    return url.toString();
+  }
+
+  /* Header region switcher */
+  regionSelect.addEventListener("change", function () {
+    var url = new URL(navigateWith("region", regionSelect.value));
+    url.searchParams.delete("state");
+    location.assign(url.toString());
+  });
+
+  /* Footer state directory */
+  directorySelect.addEventListener("change", function () {
+    if (!directorySelect.value) return;
+    location.assign(navigateWith("state", directorySelect.value, "find-a-store"));
+  });
+
+  function miles(a, b) {
+    var toRad = Math.PI / 180;
+    var dLat = (b[0] - a[0]) * toRad;
+    var dLng = (b[1] - a[1]) * toRad;
+    var h = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(a[0] * toRad) * Math.cos(b[0] * toRad) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    return 3958.8 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+  }
+
+  function telHref(phone) { return "tel:+1" + phone.replace(/\D/g, ""); }
+
+  function renderStore(store) {
+    var li = document.createElement("li");
+    li.className = "store";
+    li.dataset.store = store.id;
+    var headingId = "store-name-" + store.id;
+    var distance = store.distance.toFixed(1);
+    var services = store.services.map(function (s) { return SERVICE_LABELS[s]; }).join(", ");
+    li.innerHTML =
+      '<h3 class="store-name" id="' + headingId + '">' + store.name + '</h3>' +
+      (showDistance
+        ? '<p class="store-distance"><span aria-hidden="true">' + distance + '<span class="unit">mi</span></span>' +
+          '<span class="visually-hidden">' + distance + ' miles away</span></p>'
+        : '') +
+      '<div class="store-details">' +
+        '<p class="store-badge"' + (store.id === myStoreId ? '' : ' hidden') + '>Your store</p>' +
+        '<address>' + store.street + '<br>' + store.city + ', ' + store.state + ' ' + store.zip + '</address>' +
+        '<p>' + store.hours + '</p>' +
+        '<p><a href="' + telHref(store.phone) + '">' + store.phone + '</a></p>' +
+        '<p class="store-services">' + services + '</p>' +
+      '</div>' +
+      '<button type="button" class="button button-quiet choose-store" data-store="' + store.id + '" aria-describedby="' + headingId + '">Set as my store</button>';
+    return li;
+  }
+
+  function showNextPage() {
+    var page = results.slice(shownCount, shownCount + PAGE_SIZE);
+    page.forEach(function (store) { list.appendChild(renderStore(store)); });
+    shownCount += page.length;
+    moreButton.hidden = shownCount >= results.length;
+  }
+
+  function search(origin, placeLabel) {
+    var radius = Number(radiusSelect.value);
+    var wanted = Array.prototype.filter.call(serviceBoxes, function (b) { return b.checked; })
+      .map(function (b) { return b.value; });
+    showDistance = true;
+    results = STORES
+      .filter(function (s) { return s.region === regionKey; })
+      .map(function (s) { return Object.assign({}, s, { distance: miles(origin, s.at) }); })
+      .filter(function (s) {
+        return s.distance <= radius && wanted.every(function (w) { return s.services.indexOf(w) !== -1; });
+      })
+      .sort(function (a, b) { return a.distance - b.distance; });
+
+    list.innerHTML = "";
+    shownCount = 0;
+
+    if (!results.length) {
+      summary.textContent = wanted.length
+        ? "No stores within " + radius + " miles of " + placeLabel + " have everything you checked. Try a larger distance or fewer services."
+        : "No stores within " + radius + " miles of " + placeLabel + ". Try a larger distance.";
+      moreButton.hidden = true;
+      return;
+    }
+    summary.textContent = results.length + (results.length === 1 ? " store" : " stores") +
+      " within " + radius + " miles of " + placeLabel;
+    showNextPage();
+  }
+
+  function showDirectory(state) {
+    showDistance = false;
+    results = STORES
+      .filter(function (s) { return s.state === state; })
+      .map(function (s) { return Object.assign({}, s, { distance: 0 }); })
+      .sort(function (a, b) { return a.name.localeCompare(b.name); });
+    list.innerHTML = "";
+    shownCount = 0;
+    summary.textContent = STATE_NAMES[state] + " store directory: " + results.length + " stores";
+    showNextPage();
+  }
+
+  function setZipError(message) {
+    zipError.textContent = message;
+    zipError.hidden = false;
+    zipInput.setAttribute("aria-invalid", "true");
+  }
+
+  function clearZipError() {
+    zipError.textContent = "";
+    zipError.hidden = true;
+    zipInput.removeAttribute("aria-invalid");
+  }
+
+  zipInput.addEventListener("input", function () {
+    if (/^\d{5}$/.test(zipInput.value.trim())) searchButton.focus();
+  });
+
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var zip = zipInput.value.trim();
+    if (!zip) {
+      setZipError("Enter a ZIP code, like " + region.zip + ", or use your location.");
+      zipInput.focus();
+      return;
+    }
+    if (!/^\d{5}$/.test(zip)) {
+      setZipError("ZIP codes have 5 digits. Check the number and try again, like " + region.zip + ".");
+      zipInput.focus();
+      return;
+    }
+    clearZipError();
+    search(ZIP_POINTS[zip] || region.center, zip);
+  });
+
+  locateButton.addEventListener("click", function () {
+    clearZipError();
+    search(region.center, "your location");
+  });
+
+  moreButton.addEventListener("click", showNextPage);
+
+  function announce(el, message) {
+    el.textContent = "";
+    window.setTimeout(function () { el.textContent = message; }, 60);
+  }
+
+  list.addEventListener("click", function (event) {
+    var button = event.target.closest(".choose-store");
+    if (!button) return;
+    myStoreId = button.dataset.store;
+    var store = STORES.filter(function (s) { return s.id === myStoreId; })[0];
+    list.querySelectorAll(".store").forEach(function (item) {
+      item.querySelector(".store-badge").hidden = item.dataset.store !== myStoreId;
+    });
+    deliveringFrom.textContent = "Your orders will come from our " + store.name + " store at " +
+      store.street + ", " + store.city + ".";
+    announce(storeStatus, store.name + " is now your store.");
+  });
+
+  var stateParam = params.get("state");
+  if (STATE_NAMES[stateParam]) {
+    directorySelect.value = stateParam;
+    showDirectory(stateParam);
+  }
+
+  /* Offer bar */
+  document.getElementById("promo-dismiss").addEventListener("click", function () {
+    document.getElementById("promo").remove();
+    document.querySelector(".brand").focus();
+  });
+
+  /* Delivery fees */
+  var feeToggle = document.getElementById("fee-details-toggle");
+  var feeDetails = document.getElementById("fee-details");
+  feeToggle.addEventListener("click", function () {
+    feeDetails.hidden = !feeDetails.hidden;
+  });
+
+  /* Delivery preferences */
+  var deliveryForm = document.getElementById("delivery-form");
+  var dropoffRadios = deliveryForm.querySelectorAll('input[name="dropoff"]');
+  var spotRadio = document.getElementById("dropoff-spot");
+  var spotDetails = document.getElementById("spot-details");
+  var spotText = document.getElementById("spot-text");
+  var spotError = document.getElementById("spot-error");
+  var notifyBox = document.getElementById("notify-text");
+  var mobileInput = document.getElementById("mobile-number");
+  var mobileError = document.getElementById("mobile-number-error");
+  var deliveryStatus = document.getElementById("delivery-status");
+
+  dropoffRadios.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      spotDetails.hidden = !spotRadio.checked;
+      if (spotRadio.checked) spotText.focus();
+    });
+  });
+
+  function showFieldError(field, errorEl, message) {
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+    field.setAttribute("aria-invalid", "true");
+  }
+
+  function clearFieldError(field, errorEl) {
+    errorEl.textContent = "";
+    errorEl.hidden = true;
+    field.removeAttribute("aria-invalid");
+  }
+
+  deliveryForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    clearFieldError(spotText, spotError);
+    clearFieldError(mobileInput, mobileError);
+    deliveryStatus.textContent = "";
+
+    var invalid = [];
+    if (spotRadio.checked && !spotText.value.trim()) {
+      showFieldError(spotText, spotError, "Describe where to leave your order, like side porch behind the bench.");
+      invalid.push(spotText);
+    }
+
+    var digits = mobileInput.value.replace(/\D/g, "");
+    if (digits.length === 11 && digits.charAt(0) === "1") digits = digits.slice(1);
+    if (notifyBox.checked && !digits) {
+      showFieldError(mobileInput, mobileError, "Enter a mobile number so we can text you, or uncheck text updates.");
+      invalid.push(mobileInput);
+    } else if (digits && digits.length !== 10) {
+      showFieldError(mobileInput, mobileError, "Enter a 10-digit mobile number, like 614-555-0100.");
+      invalid.push(mobileInput);
+    }
+
+    if (invalid.length) {
+      invalid[0].focus();
+      return;
+    }
+    announce(deliveryStatus, "Delivery preferences saved.");
+  });
+})();
+</script>
+</body>
+</html>
