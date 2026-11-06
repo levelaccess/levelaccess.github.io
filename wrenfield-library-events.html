@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events and Programs | Wrenfield Public Library</title>
+<style>
+  :root { --ink: #1f2a33; --muted: #4a5763; --brand: #1d5c4a; --paper: #fbfaf6; --line: #d9d4c7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 1rem/1.55 Georgia, "Times New Roman", serif; color: var(--ink); background: var(--paper); }
+  a { color: var(--brand); }
+  a:focus, button:focus, select:focus { outline: 3px solid #1a1a1a; outline-offset: 2px; }
+  .skip { position: absolute; left: -999px; top: 0; background: #fff; padding: .5rem 1rem; }
+  .skip:focus { left: 1rem; }
+  header { background: var(--brand); color: #fff; padding: 1rem 1.5rem; }
+  header a { color: #fff; }
+  .brand { font-size: 1.4rem; font-weight: bold; text-decoration: none; }
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 1.25rem; margin: .75rem 0 0; padding: 0; }
+  main { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
+  .filters { display: flex; gap: .75rem; align-items: center; margin: 1rem 0 1.5rem; }
+  select { font: inherit; padding: .35rem .5rem; border: 1px solid #6b6b6b; }
+  .events { list-style: none; margin: 0; padding: 0; }
+  .event { border-top: 1px solid var(--line); padding: 1rem 0; }
+  .event h3 { margin: 0 0 .25rem; font-size: 1.15rem; }
+  .meta { color: var(--muted); margin: 0 0 .35rem; }
+  .event p { margin: 0 0 .35rem; }
+  .more { margin: 1.5rem 0; }
+  .btn { font: inherit; background: var(--brand); color: #fff; border: 0; padding: .6rem 1.2rem; cursor: pointer; }
+  footer { border-top: 1px solid var(--line); padding: 1.5rem; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+  <a class="brand" href="#">Wrenfield Public Library</a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#">Catalog</a></li>
+      <li><a href="#" aria-current="page">Events</a></li>
+      <li><a href="#">Locations and hours</a></li>
+      <li><a href="#">Get a card</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <h1>Events and programs</h1>
+  <p>Free programs for every age at all three Wrenfield branches. Most events don't need registration.</p>
+
+  <div class="filters">
+    <label for="branch">Branch</label>
+    <select id="branch">
+      <option>All branches</option>
+      <option>Main Street</option>
+      <option>Hollis Park</option>
+      <option>Eastgate</option>
+    </select>
+  </div>
+
+  <h2>Upcoming events</h2>
+  <ul class="events" id="event-list">
+    <li class="event">
+      <h3><a href="#">Toddler Story Time</a></h3>
+      <p class="meta">Mon, Nov 9 · 10:00 AM · Main Street</p>
+      <p>Songs, rhymes and picture books for ages 1 to 3 with a caregiver.</p>
+    </li>
+    <li class="event">
+      <h3><a href="#">Resume Help Drop-In</a></h3>
+      <p class="meta">Tue, Nov 10 · 5:30 PM · Eastgate</p>
+      <p>Bring a draft or start from scratch with a career volunteer.</p>
+    </li>
+    <li class="event">
+      <h3><a href="#">Knit and Natter</a></h3>
+      <p class="meta">Wed, Nov 11 · 2:00 PM · Hollis Park</p>
+      <p>All skill levels. Spare needles and yarn on hand.</p>
+    </li>
+    <li class="event">
+      <h3><a href="#">Teen Game Night</a></h3>
+      <p class="meta">Thu, Nov 12 · 6:00 PM · Main Street</p>
+      <p>Board games, card games and snacks for ages 13 to 18.</p>
+    </li>
+  </ul>
+
+  <div class="more" id="more-wrap">
+    <button type="button" class="btn" id="load-more-events">Load more events</button>
+  </div>
+</main>
+
+<footer>
+  <p>Wrenfield Public Library · 210 Main Street · (555) 014-2290</p>
+</footer>
+
+<script>
+  var moreEvents = [
+    ["Local History Talk: The Mill Fire of 1911", "Sat, Nov 14 · 11:00 AM · Main Street", "Photos and stories from the Wrenfield Historical Society."],
+    ["Seed Library Swap", "Sat, Nov 14 · 1:00 PM · Hollis Park", "Trade saved seeds and pick up winter sowing tips."],
+    ["Intro to Spreadsheets", "Mon, Nov 16 · 6:00 PM · Eastgate", "Hands-on class on library laptops. Registration required."],
+    ["Bilingual Story Time", "Tue, Nov 17 · 10:30 AM · Hollis Park", "Stories and songs in English and Spanish for ages 2 to 5."]
+  ];
+
+  // Appends the rest of the events and removes the button. Focus is not moved,
+  // so it is lost when the focused button leaves the DOM.
+  document.getElementById("load-more-events").addEventListener("click", function () {
+    var list = document.getElementById("event-list");
+    moreEvents.forEach(function (e) {
+      var li = document.createElement("li");
+      li.className = "event";
+      li.innerHTML = '<h3><a href="#">' + e[0] + '</a></h3><p class="meta">' + e[1] + '</p><p>' + e[2] + '</p>';
+      list.appendChild(li);
+    });
+    document.getElementById("more-wrap").remove();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My notes | Pebblebrook Notes</title>
+<style>
+  :root { --ink: #22252a; --muted: #50565f; --brand: #2b4f81; --paper: #f6f7f9; --line: #d5d9df; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 1rem/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--paper); }
+  a { color: var(--brand); }
+  a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid #1a1a1a; outline-offset: 2px; }
+  .skip { position: absolute; left: -999px; top: 0; background: #fff; padding: .5rem 1rem; }
+  .skip:focus { left: 1rem; }
+  header { background: var(--brand); color: #fff; padding: .9rem 1.5rem; }
+  header a { color: #fff; }
+  .brand { font-weight: 700; font-size: 1.25rem; text-decoration: none; }
+  main { max-width: 760px; margin: 0 auto; padding: 1.5rem; }
+  form { background: #fff; border: 1px solid var(--line); padding: 1rem; margin-bottom: 1.5rem; }
+  label { display: block; font-weight: 600; margin: .5rem 0 .25rem; }
+  input, textarea { width: 100%; font: inherit; padding: .45rem .5rem; border: 1px solid #6b7078; }
+  .btn { font: inherit; background: var(--brand); color: #fff; border: 0; padding: .5rem 1rem; cursor: pointer; margin-top: .75rem; }
+  .btn-quiet { background: #fff; color: var(--brand); border: 1px solid var(--brand); padding: .3rem .7rem; margin: 0; }
+  .notes { list-style: none; margin: 0; padding: 0; }
+  .note { background: #fff; border: 1px solid var(--line); padding: 1rem; margin-bottom: .75rem; }
+  .note h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+  .note p { margin: 0 0 .5rem; }
+  .hint { color: var(--muted); font-size: .95rem; }
+  .gallery { background: #fff; border: 1px solid var(--line); padding: 1rem; margin-top: 2rem; }
+  .photo { height: 160px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.2rem; margin-bottom: .75rem; }
+  .row { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+  .toggle { display: flex; gap: .5rem; align-items: center; font-weight: 400; margin: .75rem 0 0; }
+  .toggle input { width: auto; }
+  footer { text-align: center; color: var(--muted); padding: 1.5rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+  <a class="brand" href="#">Pebblebrook Notes</a>
+</header>
+
+<main id="main">
+  <h1>My notes</h1>
+
+  <form id="new-note">
+    <h2>New note</h2>
+    <label for="note-title">Title</label>
+    <input id="note-title" type="text" autocomplete="off">
+    <label for="note-body">Note</label>
+    <textarea id="note-body" rows="3"></textarea>
+    <button type="submit" class="btn">Save note</button>
+  </form>
+
+  <h2>Saved notes</h2>
+  <p class="hint">Deleted a note by mistake? Shake your phone to bring it back.</p>
+  <div id="status" role="status"></div>
+  <ul class="notes" id="note-list">
+    <li class="note"><h3>Groceries</h3><p>Oat milk, lemons, rice, dish soap.</p><button type="button" class="btn btn-quiet delete">Delete</button></li>
+    <li class="note"><h3>Call the vet</h3><p>Book Juniper's annual checkup before the 20th.</p><button type="button" class="btn btn-quiet delete">Delete</button></li>
+    <li class="note"><h3>Gift ideas</h3><p>Pottery class voucher, the blue scarf from the market.</p><button type="button" class="btn btn-quiet delete">Delete</button></li>
+  </ul>
+
+  <section class="gallery" aria-labelledby="gallery-h">
+    <h2 id="gallery-h">Note backgrounds</h2>
+    <p class="hint">Tilt your phone left or right to browse backgrounds, or use the buttons.</p>
+    <div class="photo" id="bg-preview" style="background:#3c6e71">Harbor</div>
+    <div class="row">
+      <button type="button" class="btn btn-quiet" id="bg-prev">Previous background</button>
+      <button type="button" class="btn btn-quiet" id="bg-next">Next background</button>
+    </div>
+    <label class="toggle"><input type="checkbox" id="tilt-on" checked> Browse backgrounds by tilting</label>
+  </section>
+</main>
+
+<footer>
+  <p>Pebblebrook Notes · Your notes stay on this device.</p>
+</footer>
+
+<script>
+  var list = document.getElementById("note-list");
+  var status = document.getElementById("status");
+  var trash = [];
+
+  list.addEventListener("click", function (e) {
+    if (!e.target.classList.contains("delete")) return;
+    var li = e.target.closest("li");
+    trash.push({ node: li, next: li.nextSibling });
+    li.remove();
+    status.textContent = "Note deleted.";
+  });
+
+  document.getElementById("new-note").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var t = document.getElementById("note-title").value.trim();
+    if (!t) return;
+    var li = document.createElement("li");
+    li.className = "note";
+    li.innerHTML = "<h3></h3><p></p>";
+    li.querySelector("h3").textContent = t;
+    li.querySelector("p").textContent = document.getElementById("note-body").value;
+    li.insertAdjacentHTML("beforeend", '<button type="button" class="btn btn-quiet delete">Delete</button>');
+    list.prepend(li);
+    this.reset();
+  });
+
+  // Undo delete: shake only. No on-screen undo control and no setting to turn it off.
+  var lastShake = 0;
+  window.addEventListener("devicemotion", function (e) {
+    var a = e.accelerationIncludingGravity;
+    if (!a) return;
+    var force = Math.abs(a.x) + Math.abs(a.y) + Math.abs(a.z);
+    var now = Date.now();
+    if (force > 35 && now - lastShake > 1000 && trash.length) {
+      lastShake = now;
+      var item = trash.pop();
+      list.insertBefore(item.node, item.next && item.next.parentNode === list ? item.next : null);
+      status.textContent = "Note restored.";
+    }
+  });
+
+  // Backgrounds: tilt OR buttons, and tilt can be turned off.
+  var bgs = [["Harbor", "#3c6e71"], ["Meadow", "#4f6d2f"], ["Dusk", "#4b3b6b"], ["Clay", "#8a4b2d"]];
+  var bi = 0, lastTilt = 0;
+  function showBg(i) {
+    bi = (i + bgs.length) % bgs.length;
+    var p = document.getElementById("bg-preview");
+    p.textContent = bgs[bi][0];
+    p.style.background = bgs[bi][1];
+  }
+  document.getElementById("bg-prev").addEventListener("click", function () { showBg(bi - 1); });
+  document.getElementById("bg-next").addEventListener("click", function () { showBg(bi + 1); });
+  window.addEventListener("deviceorientation", function (e) {
+    if (!document.getElementById("tilt-on").checked || e.gamma == null) return;
+    var now = Date.now();
+    if (now - lastTilt < 800) return;
+    if (e.gamma > 30) { lastTilt = now; showBg(bi + 1); }
+    else if (e.gamma < -30) { lastTilt = now; showBg(bi - 1); }
+  });
+</script>
+</body>
+</html>

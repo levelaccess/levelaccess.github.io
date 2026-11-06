@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rain Shells | Copperline Outfitters</title>
+<style>
+  :root { --ink: #1c1f24; --muted: #4d5560; --brand: #8a3b12; --paper: #ffffff; --line: #e1ddd8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 1rem/1.5 "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: var(--paper); }
+  a { color: var(--brand); }
+  a:focus, button:focus, [tabindex="-1"]:focus { outline: 3px solid #1a1a1a; outline-offset: 2px; }
+  .skip { position: absolute; left: -999px; top: 0; background: #fff; padding: .5rem 1rem; }
+  .skip:focus { left: 1rem; }
+  header { border-bottom: 4px solid var(--brand); padding: 1rem 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+  .brand { font-weight: 800; font-size: 1.35rem; color: var(--ink); text-decoration: none; letter-spacing: .02em; }
+  nav ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+  main { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.25rem; }
+  .card { border: 1px solid var(--line); padding: 1rem; }
+  .swatch { height: 120px; margin-bottom: .75rem; }
+  .card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+  .price { font-weight: bold; margin: 0; }
+  .btn { font: inherit; background: var(--brand); color: #fff; border: 0; padding: .6rem 1.2rem; cursor: pointer; margin-top: 1.25rem; }
+  .count { color: var(--muted); }
+  .reviews { list-style: none; margin: 0; padding: 0; }
+  .review { border-top: 1px solid var(--line); padding: 1rem 0; }
+  .review h3 { margin: 0 0 .25rem; font-size: 1rem; }
+  section { margin-top: 2.5rem; }
+  footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.5rem; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+  <a class="brand" href="#">COPPERLINE OUTFITTERS</a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#">Jackets</a></li>
+      <li><a href="#">Packs</a></li>
+      <li><a href="#">Footwear</a></li>
+      <li><a href="#">Cart (0)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <h1>Rain shells</h1>
+  <p>Waterproof, breathable shells for wet trails and city commutes.</p>
+
+  <section aria-labelledby="products-h">
+    <h2 id="products-h">Products</h2>
+    <p class="count" id="product-count">Showing 4 of 8</p>
+    <ul class="grid" id="product-grid">
+      <li class="card"><div class="swatch" style="background:#2f5d50"></div><h3><a href="#">Ridgeback 2.5L Shell</a></h3><p class="price">$189</p></li>
+      <li class="card"><div class="swatch" style="background:#7a2e1b"></div><h3><a href="#">Drizzle Packable Jacket</a></h3><p class="price">$119</p></li>
+      <li class="card"><div class="swatch" style="background:#28374a"></div><h3><a href="#">Tidewater Commuter Shell</a></h3><p class="price">$149</p></li>
+      <li class="card"><div class="swatch" style="background:#5b5b2a"></div><h3><a href="#">Basin Hooded Anorak</a></h3><p class="price">$135</p></li>
+    </ul>
+    <button type="button" class="btn" id="show-more-products">Show more products</button>
+  </section>
+
+  <section aria-labelledby="reviews-h">
+    <h2 id="reviews-h">Customer reviews</h2>
+    <ul class="reviews" id="review-list">
+      <li class="review"><h3>Dry through a full day on the coast</h3><p>Kept me dry on a six-hour hike in steady rain. Hood adjusts well.</p></li>
+      <li class="review"><h3>Packs small</h3><p>The Drizzle fits in its own pocket. Great backup layer.</p></li>
+    </ul>
+    <button type="button" class="btn" id="more-reviews">Load more reviews</button>
+  </section>
+</main>
+
+<footer>
+  <p>Copperline Outfitters · Free returns within 60 days</p>
+</footer>
+
+<script>
+  var moreProducts = [
+    ["Summit Lite Shell", "$209", "#3d4f6b"],
+    ["Fernway Kids' Rain Jacket", "$69", "#a0522d"],
+    ["Overcast Insulated Shell", "$229", "#2c4a3e"],
+    ["Mistral Cycling Jacket", "$159", "#4a3b5c"]
+  ];
+
+  // Appends products; focus stays on the "Show more products" button instead
+  // of moving to the first new product.
+  var productsLoaded = false;
+  document.getElementById("show-more-products").addEventListener("click", function () {
+    if (productsLoaded) return;
+    productsLoaded = true;
+    var grid = document.getElementById("product-grid");
+    moreProducts.forEach(function (p) {
+      var li = document.createElement("li");
+      li.className = "card";
+      li.innerHTML = '<div class="swatch" style="background:' + p[2] + '"></div><h3><a href="#">' + p[0] + '</a></h3><p class="price">' + p[1] + '</p>';
+      grid.appendChild(li);
+    });
+    document.getElementById("product-count").textContent = "Showing 8 of 8";
+  });
+
+  var moreReviews = [
+    ["Runs a little large", "I'm usually a medium and the small fit fine over a fleece."],
+    ["Worth it", "Third season with the Ridgeback and the DWR still beads water."]
+  ];
+
+  // Appends reviews and moves focus to the first new review heading.
+  document.getElementById("more-reviews").addEventListener("click", function () {
+    var list = document.getElementById("review-list");
+    var first = null;
+    moreReviews.forEach(function (r) {
+      var li = document.createElement("li");
+      li.className = "review";
+      li.innerHTML = '<h3 tabindex="-1">' + r[0] + '</h3><p>' + r[1] + '</p>';
+      list.appendChild(li);
+      if (!first) first = li.querySelector("h3");
+    });
+    this.remove();
+    first.focus();
+  });
+</script>
+</body>
+</html>

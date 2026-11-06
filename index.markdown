@@ -24,3 +24,6 @@ All links open in a new tab.
 - <a href="./fernhollow-seed-checkout.html" target="_blank" rel="noopener">Fernhollow Seed Co.</a>
 - <a href="./harlow-valley-courier.html" target="_blank" rel="noopener">Harlow Valley Courier</a>
 - <a href="./bramble-bushel-stores.html" target="_blank" rel="noopener">Bramble Bushel Stores</a>
+- <a href="./wrenfield-library-events.html" target="_blank" rel="noopener">Wrenfield Public Library</a>
+- <a href="./copperline-outfitters.html" target="_blank" rel="noopener">Copperline Outfitters</a>
+- <a href="./pebblebrook-notes.html" target="_blank" rel="noopener">Pebblebrook Notes</a>
